@@ -1,21 +1,21 @@
 #AhSatyr
 
- - [æ€§èƒ½ç›‘å¬ï¼šBlockCanary](https://github.com/moduth/blockcanary)
- - [MVPä»£ç æ¡†æ¶ï¼šMVPro](https://github.com/qibin0506/MVPro)
- - [æ—¥å¿—ï¼šlogger](https://github.com/orhanobut/logger)
- - [ RxJava ä½¿ç”¨ï¼šç»™ Android å¼€å‘è€…çš„ RxJava è¯¦è§£](http://gank.io/post/560e15be2dca930e00da1083#toc_26)
- - [ç½‘ç»œè¯·æ±‚ï¼šretrofit](https://github.com/square/retrofit)
+ - [ĞÔÄÜ¼àÌı£ºBlockCanary](https://github.com/moduth/blockcanary)
+ - [MVP´úÂë¿ò¼Ü£ºMVPro](https://github.com/qibin0506/MVPro)
+ - [ÈÕÖ¾£ºlogger](https://github.com/orhanobut/logger)
+ - [ RxJava Ê¹ÓÃ£º¸ø Android ¿ª·¢ÕßµÄ RxJava Ïê½â](http://gank.io/post/560e15be2dca930e00da1083#toc_26)
+ - [ÍøÂçÇëÇó£ºretrofit](https://github.com/square/retrofit)
 
 ---
 
-#Retrofit ä½¿ç”¨
+#Retrofit Ê¹ÓÃ
 
-##è½¬æ¢å™¨
+##×ª»»Æ÷
 
 [retrofit](http://square.github.io/retrofit/#restadapter-configuration)
-[RxAndroid+Retrofitç¯å¢ƒæ­å»º](http://www.07net01.com/program/2016/02/1280821.html)
+[RxAndroid+Retrofit»·¾³´î½¨](http://www.07net01.com/program/2016/02/1280821.html)
 
-è½¬æ¢å™¨å¯â€‹â€‹ä»¥è¢«æ·»åŠ åˆ°æ”¯æŒå…¶ä»–ç±»å‹ã€‚å…­å…„å¼Ÿæ¨¡å—é€‚åº”æµè¡Œçš„åºåˆ—åŒ–åº“ä¸ºæ‚¨æä¾›æ–¹ä¾¿ã€‚
+×ª»»Æ÷¿É??ÒÔ±»Ìí¼Óµ½Ö§³ÖÆäËûÀàĞÍ¡£ÁùĞÖµÜÄ£¿éÊÊÓ¦Á÷ĞĞµÄĞòÁĞ»¯¿âÎªÄúÌá¹©·½±ã¡£
 Converters can be added to support other types. Six sibling modules adapt popular serialization libraries for your convenience.
 
 	Gson: com.squareup.retrofit2:converter-gson
@@ -26,29 +26,29 @@ Converters can be added to support other types. Six sibling modules adapt popula
 	Simple XML: com.squareup.retrofit2:converter-simplexml
 	Scalars (primitives, boxed, and String): com.squareup.retrofit2:converter-scalars
 
-ç›´æ¥è¿”å›Stringç±»å‹éœ€å¼•å…¥ï¼šScalarsConverterFactory.create()
+Ö±½Ó·µ»ØStringÀàĞÍĞèÒıÈë£ºScalarsConverterFactory.create()
 
 	retrofit = new Retrofit.Builder()
-			.client(MyOkHttpClient.getMyOkHttpClient().getOkHttpClient())//è®¾ç½®ä¸åŒçš„åº•å±‚ç½‘ç»œåº“
+			.client(MyOkHttpClient.getMyOkHttpClient().getOkHttpClient())//ÉèÖÃ²»Í¬µÄµ×²ãÍøÂç¿â
 			.baseUrl(strBaseUrl)
-			.addConverterFactory(ScalarsConverterFactory.create())//æ·»åŠ  Stringç±»å‹[ Scalars (primitives, boxed, and String)] è½¬æ¢å™¨
-			.addCallAdapterFactory(RxJavaCallAdapterFactory.create())//æ·»åŠ  RxJava é€‚é…å™¨
+			.addConverterFactory(ScalarsConverterFactory.create())//Ìí¼Ó StringÀàĞÍ[ Scalars (primitives, boxed, and String)] ×ª»»Æ÷
+			.addCallAdapterFactory(RxJavaCallAdapterFactory.create())//Ìí¼Ó RxJava ÊÊÅäÆ÷
 			.build();
 			
-è¿”å›Gsonç±»å‹éœ€å¼•å…¥ï¼šGsonConverterFactory.create()
+·µ»ØGsonÀàĞÍĞèÒıÈë£ºGsonConverterFactory.create()
 
 	retrofit = new Retrofit.Builder()
-			.client(MyOkHttpClient.getMyOkHttpClient().getOkHttpClient())//è®¾ç½®ä¸åŒçš„åº•å±‚ç½‘ç»œåº“
+			.client(MyOkHttpClient.getMyOkHttpClient().getOkHttpClient())//ÉèÖÃ²»Í¬µÄµ×²ãÍøÂç¿â
 			.baseUrl(strBaseUrl)
-			.addConverterFactory(GsonConverterFactory.create())//æ·»åŠ  json è½¬æ¢å™¨
-			.addCallAdapterFactory(RxJavaCallAdapterFactory.create())//æ·»åŠ  RxJava é€‚é…å™¨
+			.addConverterFactory(GsonConverterFactory.create())//Ìí¼Ó json ×ª»»Æ÷
+			.addCallAdapterFactory(RxJavaCallAdapterFactory.create())//Ìí¼Ó RxJava ÊÊÅäÆ÷
 			.build();
 
-##Retrofit ç»“åˆ RxJavaä½¿ç”¨
+##Retrofit ½áºÏ RxJavaÊ¹ÓÃ
 
-[Retrofit ç»“åˆ RxJavaä½¿ç”¨](http://blog.csdn.net/ttccaaa/article/details/50659234)
+[Retrofit ½áºÏ RxJavaÊ¹ÓÃ](http://blog.csdn.net/ttccaaa/article/details/50659234)
 
- 1. æ·»åŠ ä¾èµ–
+ 1. Ìí¼ÓÒÀÀµ
 		
 		compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
 		compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
@@ -58,27 +58,27 @@ Converters can be added to support other types. Six sibling modules adapt popula
 		compile 'io.reactivex:rxandroid:1.1.0'
 		compile 'io.reactivex:rxjava:1.1.0'
 		
-	å‰ä¸¤ä¸ªæ˜¯ Retrofit å’Œ Gson çš„ä¾èµ–ï¼Œç¬¬ä¸‰ä¸ªæ˜¯ Retrofit ä¸­ RxJava è½¬æ¢å™¨çš„ä¾èµ–ï¼Œæœ€åä¸¤ä¸ªå°±æ˜¯ RxJava å’Œ Rx Android çš„ä¾èµ–
+	Ç°Á½¸öÊÇ Retrofit ºÍ Gson µÄÒÀÀµ£¬µÚÈı¸öÊÇ Retrofit ÖĞ RxJava ×ª»»Æ÷µÄÒÀÀµ£¬×îºóÁ½¸ö¾ÍÊÇ RxJava ºÍ Rx Android µÄÒÀÀµ
 
- 2. ç¼–å†™ API
+ 2. ±àĞ´ API
 
-	ä½¿ç”¨ RxJava çš„æƒ…å†µä¸‹ï¼Œæ¥å£æ–‡ä»¶ç¨æœ‰ä¿®æ”¹ï¼Œæ¥å£ä¸­çš„æ–¹æ³•çš„è¿”å›ç±»å‹ä¸å†æ˜¯ Call è€Œæ˜¯ Observable ç±»å‹ï¼š
+	Ê¹ÓÃ RxJava µÄÇé¿öÏÂ£¬½Ó¿ÚÎÄ¼şÉÔÓĞĞŞ¸Ä£¬½Ó¿ÚÖĞµÄ·½·¨µÄ·µ»ØÀàĞÍ²»ÔÙÊÇ Call ¶øÊÇ Observable ÀàĞÍ£º
 		
 		public interface GitHub {
 		
 		    @GET("/repos/{owner}/{repo}/contributors")
 		    Call<List<Contributor>> contributors(@Path("owner") String owner,@Path("repo") String repo);
 		
-		    //ä½¿ç”¨ RxJava çš„æ–¹æ³•,è¿”å›ä¸€ä¸ª Observable
+		    //Ê¹ÓÃ RxJava µÄ·½·¨,·µ»ØÒ»¸ö Observable
 		    @GET("/repos/{owner}/{repo}/contributors")
 		    Observable<List<Contributor>> RxContributors(@Path("owner") String owner,@Path("repo") String repo);
 		}
 
-	ç»“åˆ RxJava ä½¿ç”¨çš„ æ¥å£å°±å®šä¹‰å¥½äº†ï¼Œæ¨¡å‹ç±»ä¸éœ€è¦å˜åŠ¨ï¼Œæ¥ä¸‹æ¥ç›´æ¥è¿›è¡Œç½‘ç»œè¯·æ±‚
+	½áºÏ RxJava Ê¹ÓÃµÄ ½Ó¿Ú¾Í¶¨ÒåºÃÁË£¬Ä£ĞÍÀà²»ĞèÒª±ä¶¯£¬½ÓÏÂÀ´Ö±½Ó½øĞĞÍøÂçÇëÇó
 
- 3. ç½‘ç»œè¯·æ±‚
+ 3. ÍøÂçÇëÇó
 
-	ä½¿ç”¨ RxJava çš„ Retrofit å¯ä»¥ç›´æ¥åœ¨ ä¸»çº¿ç¨‹ä¸­ç¼–å†™ã€‚
+	Ê¹ÓÃ RxJava µÄ Retrofit ¿ÉÒÔÖ±½ÓÔÚ Ö÷Ïß³ÌÖĞ±àĞ´¡£
 		
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +87,8 @@ Converters can be added to support other types. Six sibling modules adapt popula
 		
 		    Retrofit retrofit=new Retrofit.Builder()
 		            .baseUrl("https://api.github.com")
-		            .addConverterFactory(GsonConverterFactory.create())//æ·»åŠ  json è½¬æ¢å™¨
-		            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//æ·»åŠ  RxJava é€‚é…å™¨
+		            .addConverterFactory(GsonConverterFactory.create())//Ìí¼Ó json ×ª»»Æ÷
+		            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//Ìí¼Ó RxJava ÊÊÅäÆ÷
 		            .build();
 		
 		    GitHub gitHub=retrofit.create(GitHub.class);
@@ -115,65 +115,65 @@ Converters can be added to support other types. Six sibling modules adapt popula
 		            });
 		}
 
-##ä½¿ç”¨Retrofitå’ŒOkhttpå®ç°ç½‘ç»œç¼“å­˜ã€‚æ— ç½‘è¯»ç¼“å­˜ï¼Œæœ‰ç½‘æ ¹æ®è¿‡æœŸæ—¶é—´é‡æ–°è¯·æ±‚
+##Ê¹ÓÃRetrofitºÍOkhttpÊµÏÖÍøÂç»º´æ¡£ÎŞÍø¶Á»º´æ£¬ÓĞÍø¸ù¾İ¹ıÆÚÊ±¼äÖØĞÂÇëÇó
 
-[okhttp è¯·æ±‚è®¾ç½®å®˜æ–¹æ–‡æ¡£](https://github.com/square/okhttp/wiki/Recipes)
-[ä½¿ç”¨Retrofitå’ŒOkhttpå®ç°ç½‘ç»œç¼“å­˜ã€‚æ— ç½‘è¯»ç¼“å­˜ï¼Œæœ‰ç½‘æ ¹æ®è¿‡æœŸæ—¶é—´é‡æ–°è¯·æ±‚](http://www.jianshu.com/p/9c3b4ea108a7#)
+[okhttp ÇëÇóÉèÖÃ¹Ù·½ÎÄµµ](https://github.com/square/okhttp/wiki/Recipes)
+[Ê¹ÓÃRetrofitºÍOkhttpÊµÏÖÍøÂç»º´æ¡£ÎŞÍø¶Á»º´æ£¬ÓĞÍø¸ù¾İ¹ıÆÚÊ±¼äÖØĞÂÇëÇó](http://www.jianshu.com/p/9c3b4ea108a7#)
 
- okhttp3.Xï¼Œretrofit:2.0.0-beta4é€‚ç”¨
+ okhttp3.X£¬retrofit:2.0.0-beta4ÊÊÓÃ
 
- 1. é…ç½®okhttpä¸­çš„Cache
+ 1. ÅäÖÃokhttpÖĞµÄCache
  
 		OkHttpClient okHttpClient;
-		File cacheFile = new File(DemoActivity.this.getCacheDir(), "[ç¼“å­˜ç›®å½•]");
+		File cacheFile = new File(DemoActivity.this.getCacheDir(), "[»º´æÄ¿Â¼]");
 		Cache cache = new Cache(cacheFile, 1024 * 1024 * 10); //100Mb
 		okHttpClient = new OkHttpClient.Builder()
 		     .cache(cache)
 		     .build();
 
- 2. é…ç½®è¯·æ±‚å¤´ä¸­çš„cache-control
+ 2. ÅäÖÃÇëÇóÍ·ÖĞµÄcache-control
 	
-	    //ä½¿ç”¨ RxJava çš„æ–¹æ³•,è¿”å›ä¸€ä¸ª Observable
+	    //Ê¹ÓÃ RxJava µÄ·½·¨,·µ»ØÒ»¸ö Observable
 	    @Headers("Cache-Control: public, max-age=3600")
 	    @GET("/repos/{owner}/{repo}/contributors")
 	    Observable<List<Contributor>> RxContributors(@Path("owner") String owner,@Path("repo") String repo);
 
- 3. é…ç½®è¯·æ±‚ Retrofit è®¾ç½®ä¸åŒçš„åº•å±‚ç½‘ç»œåº“
+ 3. ÅäÖÃÇëÇó Retrofit ÉèÖÃ²»Í¬µÄµ×²ãÍøÂç¿â
 
         Retrofit retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
                 .baseUrl("https://api.github.com")
-                .addConverterFactory(GsonConverterFactory.create())//æ·»åŠ  json è½¬æ¢å™¨
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//æ·»åŠ  RxJava é€‚é…å™¨
+                .addConverterFactory(GsonConverterFactory.create())//Ìí¼Ó json ×ª»»Æ÷
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//Ìí¼Ó RxJava ÊÊÅäÆ÷
                 .build();
 
 #API
 
-## çŸ¥ä¹æ—¥æŠ¥
+## ÖªºõÈÕ±¨
 
     //Zhihu API
-    public static final String BASE_URL = "http://news-at.zhihu.com/api/4/news/";//æ—¥æŠ¥è¯¦æƒ…
-    public static final String NEWS_LATEST = "http://news-at.zhihu.com/api/4/news/latest";//æœ€æ–°æ—¥æŠ¥
-    public static final String NEWS_BEFORE = "http://news-at.zhihu.com/api/4/news/before/";//æŒ‡å®šæ—¥æœŸçš„æ—¥æŠ¥
-    public static final String SPLASH = "http://news-at.zhihu.com/api/4/start-image/1080*1920";//å°é¢
+    public static final String BASE_URL = "http://news-at.zhihu.com/api/4/news/";//ÈÕ±¨ÏêÇé
+    public static final String NEWS_LATEST = "http://news-at.zhihu.com/api/4/news/latest";//×îĞÂÈÕ±¨
+    public static final String NEWS_BEFORE = "http://news-at.zhihu.com/api/4/news/before/";//Ö¸¶¨ÈÕÆÚµÄÈÕ±¨
+    public static final String SPLASH = "http://news-at.zhihu.com/api/4/start-image/1080*1920";//·âÃæ
 
- - æ—¥æŠ¥è¯¦æƒ…
+ - ÈÕ±¨ÏêÇé
 	 
-	 BASE_URL+æ—¥æŠ¥ID
+	 BASE_URL+ÈÕ±¨ID
 	 [http://news-at.zhihu.com/api/4/news/7942211](http://news-at.zhihu.com/api/4/news/7942211)
 	 
- - æœ€æ–°æ—¥æŠ¥
+ - ×îĞÂÈÕ±¨
 	 
-	 ç›´æ¥è®¿é—®ï¼šNEWS_LATEST
+	 Ö±½Ó·ÃÎÊ£ºNEWS_LATEST
 	 [http://news-at.zhihu.com/api/4/news/latest](http://news-at.zhihu.com/api/4/news/latest)
 	 
- - æŒ‡å®šæ—¥æœŸçš„æ—¥æŠ¥
+ - Ö¸¶¨ÈÕÆÚµÄÈÕ±¨
 	 
-	 NEWS_BEFORE+(æŒ‡å®šæ—¥æœŸ+1å¤©)ï¼Œæ ¼å¼ä¸ºå…¨æ•°å­—ï¼ŒYYYYMMDD,å¦‚ï¼š
-	 2016å¹´02æœˆ29å·çš„æ•°æ®ï¼š
+	 NEWS_BEFORE+(Ö¸¶¨ÈÕÆÚ+1Ìì)£¬¸ñÊ½ÎªÈ«Êı×Ö£¬YYYYMMDD,Èç£º
+	 2016Äê02ÔÂ29ºÅµÄÊı¾İ£º
 	 [http://news-at.zhihu.com/api/4/news/before/20160301](http://news-at.zhihu.com/api/4/news/before/20160301)
  
-## è±†ç“£ç¾å¥³
+## ¶¹°êÃÀÅ®
 
     public static String DB_BREAST = "http://www.dbmeinv.com/dbgroup/show.htm?cid=2&pager_offset=";
     public static String DB_BUTT = "http://www.dbmeinv.com/dbgroup/show.htm?cid=6&pager_offset=";
@@ -183,17 +183,17 @@ Converters can be added to support other types. Six sibling modules adapt popula
 
 ---
 
-#MDå®è·µ
+#MDÊµ¼ù
 
-##ä¾§æ»‘ NavigationView
+##²à»¬ NavigationView
 
- - [windowDrawsSystemBarBackgrounds:å¦‚ä½•å°†DrawerLayoutæ˜¾ç¤ºåœ¨ActionBar/Toolbarå’Œstatus barä¹‹é—´](http://solo.farbox.com/blog/how-do-i-use-drawerlayout-to-display-over-the-actionbar-or-toolbar-and-under-the-status-bar)
- - [Android Mæ–°æ§ä»¶ä¹‹AppBarLayoutï¼ŒNavigationViewï¼ŒCoordinatorLayoutï¼ŒCollapsingToolbarLayoutçš„ä½¿ç”¨](http://blog.csdn.net/feiduclear_up/article/details/46514791) 
- - [Android è‡ªå·±å®ç° NavigationView [Design Support Library(1)]](http://blog.csdn.net/lmj623565791/article/details/46405409)
+ - [windowDrawsSystemBarBackgrounds:ÈçºÎ½«DrawerLayoutÏÔÊ¾ÔÚActionBar/ToolbarºÍstatus barÖ®¼ä](http://solo.farbox.com/blog/how-do-i-use-drawerlayout-to-display-over-the-actionbar-or-toolbar-and-under-the-status-bar)
+ - [Android MĞÂ¿Ø¼şÖ®AppBarLayout£¬NavigationView£¬CoordinatorLayout£¬CollapsingToolbarLayoutµÄÊ¹ÓÃ](http://blog.csdn.net/feiduclear_up/article/details/46514791) 
+ - [Android ×Ô¼ºÊµÏÖ NavigationView [Design Support Library(1)]](http://blog.csdn.net/lmj623565791/article/details/46405409)
 
-##ä¸Šä¸‹æ‹‰ï¼šSwipeRefreshLayout
+##ÉÏÏÂÀ­£ºSwipeRefreshLayout
  
- - [Android SwipeRefreshLayout å®˜æ–¹ä¸‹æ‹‰åˆ·æ–°æ§ä»¶ä»‹ç»](http://blog.csdn.net/lmj623565791/article/details/24521483)
- - [RecyclerViewå®Œå…¨è§£æä¹‹ä¸‹æ‹‰åˆ·æ–°ä¸ä¸Šæ‹‰åŠ è½½SwipeRefreshLayout](http://www.lcode.org/recyclerview%E5%AE%8C%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B9%8B%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0%E4%B8%8E%E4%B8%8A%E6%8B%89%E5%8A%A0%E8%BD%BDswiperefreshlayout/)
- - [å®ä¾‹è§£æä¹‹SwipeRefreshLayout+RecyclerView+CardView](http://www.lcode.org/%E5%AE%9E%E4%BE%8B%E8%A7%A3%E6%9E%90%E4%B9%8Bswiperefreshlayoutrecyclerviewcardview/)
- - [Googleå®˜æ–¹ä¸‹æ‹‰åˆ·æ–°ç»„ä»¶--SwipeRefreshLayout](https://github.com/stormzhang/SwipeRefreshLayoutDemo)
+ - [Android SwipeRefreshLayout ¹Ù·½ÏÂÀ­Ë¢ĞÂ¿Ø¼ş½éÉÜ](http://blog.csdn.net/lmj623565791/article/details/24521483)
+ - [RecyclerViewÍêÈ«½âÎöÖ®ÏÂÀ­Ë¢ĞÂÓëÉÏÀ­¼ÓÔØSwipeRefreshLayout](http://www.lcode.org/recyclerview%E5%AE%8C%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B9%8B%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0%E4%B8%8E%E4%B8%8A%E6%8B%89%E5%8A%A0%E8%BD%BDswiperefreshlayout/)
+ - [ÊµÀı½âÎöÖ®SwipeRefreshLayout+RecyclerView+CardView](http://www.lcode.org/%E5%AE%9E%E4%BE%8B%E8%A7%A3%E6%9E%90%E4%B9%8Bswiperefreshlayoutrecyclerviewcardview/)
+ - [Google¹Ù·½ÏÂÀ­Ë¢ĞÂ×é¼ş--SwipeRefreshLayout](https://github.com/stormzhang/SwipeRefreshLayoutDemo)
