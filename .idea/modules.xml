@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MeiZiNewsApplication.iml" filepath="$PROJECT_DIR$/MeiZiNewsApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blockcanarylibrary/blockcanarylibrary.iml" filepath="$PROJECT_DIR$/blockcanarylibrary/blockcanarylibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mvpro/mvpro.iml" filepath="$PROJECT_DIR$/mvpro/mvpro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/retrofit_and_rxjava_library/retrofit_and_rxjava_library.iml" filepath="$PROJECT_DIR$/retrofit_and_rxjava_library/retrofit_and_rxjava_library.iml" />
+    </modules>
+  </component>
+</project>
