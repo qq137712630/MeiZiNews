@@ -3,7 +3,11 @@ package com.ms.retrofitlibrary.demo;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.ms.retrofitlibrary.demo.model.DemoModel;
+import com.ms.retrofitlibrary.demo.model.GitHubModel;
+import com.ms.retrofitlibrary.demo.model.OnModelListener;
 import com.ms.retrofitlibrary.demo.pojo.Contributor;
 import com.ms.retrofitlibrary.demo.web.GitHub;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
@@ -18,17 +22,20 @@ import rx.Subscriber;
 /**
  * Created by 啟成 on 2016/2/28.
  */
-public class DemoActivity extends Activity {
+public class DemoActivity extends Activity implements OnModelListener<List<Contributor>> {
+    DemoModel<List<Contributor>> demoModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        demoModel = new GitHubModel();
+        demoModel.loadWeather(DemoActivity.this, "https://api.github.com", this);
         webString();
 
     }
 
-   private void webString(){
-       MyStringRetrofit.getMyStringRetrofit().init(DemoActivity.this,"https://api.github.com");
+    private void webString() {
+        MyStringRetrofit.getMyStringRetrofit().init(DemoActivity.this, "https://api.github.com");
 
 
         GitHub gitHub = MyStringRetrofit.getMyStringRetrofit().getCreate(GitHub.class);
@@ -47,16 +54,15 @@ public class DemoActivity extends Activity {
 
             @Override
             public void onNext(String contributors) {
-                Log.i("TAG", "RxJava-->" +contributors);
+                Log.i("TAG", "RxJava-->" + contributors);
             }
         });
     }
 
-    private void webGson(){
+    private void webGson() {
 
 
-
-        MyGsonRetrofit.getMyGsonRetrofit().init(DemoActivity.this,"https://api.github.com");
+        MyGsonRetrofit.getMyGsonRetrofit().init(DemoActivity.this, "https://api.github.com");
 
 
         GitHub gitHub = MyGsonRetrofit.getMyGsonRetrofit().getCreate(GitHub.class);
@@ -80,5 +86,22 @@ public class DemoActivity extends Activity {
                 }
             }
         });
+    }
+
+    //TODO Listener===================================================
+
+    @Override
+    public void onSuccess(List<Contributor> contributors) {
+        for (Contributor c : contributors) {
+            Log.i("TAG", "RxJava-->" + c.getLogin() + "  " + c.getId() + "  " + c.getContributions());
+            Toast.makeText(this, "RxJava-->" + c.getLogin() + "  " + c.getId() + "  " + c.getContributions(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onError(String err) {
+        Log.i("TAG", "RxJava-->err\n" + err);
+
+        Toast.makeText(this, "RxJava-->err", Toast.LENGTH_SHORT).show();
     }
 }

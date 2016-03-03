@@ -15,18 +15,20 @@ import rx.Observable;
  */
 public interface GitHub {
 
+
+    //https://api.github.com/repos/square/retrofit/contributors
+
     @GET("/repos/{owner}/{repo}/contributors")
-    Call<List<Contributor>> contributors(@Path("owner") String owner,@Path("repo") String repo);
+    Call<List<Contributor>> contributors(@Path("owner") String owner, @Path("repo") String repo);
+
+    //使用 RxJava 的方法,返回一个 Observable
+    @Headers("Cache-Control: public, max-age=3600")
+    @GET("/repos/{owner}/{repo}/contributors")
+    Observable<List<Contributor>> RxContributors(@Path("owner") String owner, @Path("repo") String repo);
 
 
     //使用 RxJava 的方法,返回一个 Observable
     @Headers("Cache-Control: public, max-age=3600")
     @GET("/repos/{owner}/{repo}/contributors")
-    Observable<List<Contributor>> RxContributors(@Path("owner") String owner,@Path("repo") String repo);
-
-
-    //使用 RxJava 的方法,返回一个 Observable
-    @Headers("Cache-Control: public, max-age=3600")
-    @GET("/repos/{owner}/{repo}/contributors")
-    Observable<String> RxContributorsString(@Path("owner") String owner,@Path("repo") String repo);
+    Observable<String> RxContributorsString(@Path("owner") String owner, @Path("repo") String repo);
 }
