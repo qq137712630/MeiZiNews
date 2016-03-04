@@ -1,1 +1,1 @@
-include ':app', ':blockcanarylibrary', ':mvpro', ':retrofit_and_rxjava_library'
+include ':app', ':blockcanarylibrary', ':mvpro', ':retrofit_and_rxjava_library', ':basepageradapterlibrary'

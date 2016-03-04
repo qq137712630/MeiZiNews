@@ -9,13 +9,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.ms.meizinewsapplication.R;
+import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 
 import org.loader.view.ViewImpl;
 
 /**
  * Created by 啟成 on 2016/3/2.
  */
+@ActivityFragmentInject(
+        menuDefaultCheckedItem = R.id.nav_news,
+        toolbarTitle = R.string.ic_news
+)
 public class MainIView extends ViewImpl {
+
+    private int mMenuDefaultCheckedItem;
+    private int mToolbarTitle;
 
     private Toolbar toolbar;
     private DrawerLayout drawer;
@@ -31,7 +39,7 @@ public class MainIView extends ViewImpl {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.activity_main_mvp;
     }
 
     public boolean onBackPressed() {
@@ -51,16 +59,36 @@ public class MainIView extends ViewImpl {
      * @param appCompatActivity
      */
     public void init(AppCompatActivity appCompatActivity) {
+
+        initActivityFragmentInject();
         initToolbar(appCompatActivity);
         initDrawer(appCompatActivity);
         initNavigationView();
+    }
+
+    private void initActivityFragmentInject() {
+
+        if (getClass().isAnnotationPresent(ActivityFragmentInject.class)) {
+            ActivityFragmentInject annotation = getClass()
+                    .getAnnotation(ActivityFragmentInject.class);
+            mToolbarTitle = annotation.toolbarTitle();
+            mMenuDefaultCheckedItem = annotation.menuDefaultCheckedItem();
+        } else {
+            throw new RuntimeException(
+                    "Class must add annotations of ActivityFragmentInitParams.class");
+        }
     }
 
     //TODO view==================================================
 
     private void initToolbar(AppCompatActivity appCompatActivity) {
 
+        if (mToolbarTitle != -1 && mToolbarTitle != 0) {
+            toolbar.setTitle(mToolbarTitle);
+        }
+
         appCompatActivity.setSupportActionBar(toolbar);
+
     }
 
     private void initDrawer(AppCompatActivity appCompatActivity) {
@@ -79,7 +107,13 @@ public class MainIView extends ViewImpl {
         navigationView.setNavigationItemSelectedListener(
                 mOnNavigationItemSelectedListener
         );
+
+        if (mMenuDefaultCheckedItem != -1 && mMenuDefaultCheckedItem != 0) {
+
+            navigationView.setCheckedItem(mMenuDefaultCheckedItem);
+        }
     }
+
 
     //TODO Listener=====================================================
 
@@ -90,11 +124,13 @@ public class MainIView extends ViewImpl {
             new NavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(MenuItem item) {
+
+                    if (item.isChecked()) return true;
+
                     // Handle navigation view item clicks here.
                     int id = item.getItemId();
-
                     switch (id) {
-                        case R.id.nav_camera:
+                        case R.id.nav_news:
                             // Handle the camera action
                             break;
                         case R.id.nav_gallery:
@@ -110,7 +146,7 @@ public class MainIView extends ViewImpl {
                     }
 
                     drawer.closeDrawer(GravityCompat.START);
-                    return true;
+                    return false;
                 }
             };
 }

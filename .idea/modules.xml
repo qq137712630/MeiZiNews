@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MeiZiNewsApplication.iml" filepath="$PROJECT_DIR$/MeiZiNewsApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/basepageradapterlibrary/basepageradapterlibrary.iml" filepath="$PROJECT_DIR$/basepageradapterlibrary/basepageradapterlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/blockcanarylibrary/blockcanarylibrary.iml" filepath="$PROJECT_DIR$/blockcanarylibrary/blockcanarylibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvpro/mvpro.iml" filepath="$PROJECT_DIR$/mvpro/mvpro.iml" />
       <module fileurl="file://$PROJECT_DIR$/retrofit_and_rxjava_library/retrofit_and_rxjava_library.iml" filepath="$PROJECT_DIR$/retrofit_and_rxjava_library/retrofit_and_rxjava_library.iml" />

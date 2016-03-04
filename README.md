@@ -16,7 +16,7 @@
 [retrofit](http://square.github.io/retrofit/#restadapter-configuration)
 [RxAndroid+Retrofit环境搭建](http://www.07net01.com/program/2016/02/1280821.html)
 
-转换器可??以被添加到支持其他类型。六兄弟模块适应流行的序列化库为您提供方便。
+转换器可以被添加到支持其他类型。六兄弟模块适应流行的序列化库为您提供方便。
 Converters can be added to support other types. Six sibling modules adapt popular serialization libraries for your convenience.
 
 	Gson: com.squareup.retrofit2:converter-gson
