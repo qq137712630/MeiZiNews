@@ -188,12 +188,14 @@ Converters can be added to support other types. Six sibling modules adapt popula
 
 #MD实践
 
+ - [ Android M新控件之FloatingActionButton，TextInputLayout，Snackbar，TabLayout的使用](http://blog.csdn.net/feiduclear_up/article/details/46500865)
+ - [Android M新控件之AppBarLayout，NavigationView，CoordinatorLayout，CollapsingToolbarLayout的使用](http://blog.csdn.net/feiduclear_up/article/details/46514791) 
+
 ##侧滑 NavigationView
 
 最快的方法是创一下新的侧滑模块
 
  - [windowDrawsSystemBarBackgrounds:如何将DrawerLayout显示在ActionBar/Toolbar和status bar之间](http://solo.farbox.com/blog/how-do-i-use-drawerlayout-to-display-over-the-actionbar-or-toolbar-and-under-the-status-bar)
- - [Android M新控件之AppBarLayout，NavigationView，CoordinatorLayout，CollapsingToolbarLayout的使用](http://blog.csdn.net/feiduclear_up/article/details/46514791) 
  - [Android 自己实现 NavigationView [Design Support Library(1)]](http://blog.csdn.net/lmj623565791/article/details/46405409)
 
 ##上下拉：SwipeRefreshLayout
@@ -202,3 +204,26 @@ Converters can be added to support other types. Six sibling modules adapt popula
  - [RecyclerView完全解析之下拉刷新与上拉加载SwipeRefreshLayout](http://www.lcode.org/recyclerview%E5%AE%8C%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B9%8B%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0%E4%B8%8E%E4%B8%8A%E6%8B%89%E5%8A%A0%E8%BD%BDswiperefreshlayout/)
  - [实例解析之SwipeRefreshLayout+RecyclerView+CardView](http://www.lcode.org/%E5%AE%9E%E4%BE%8B%E8%A7%A3%E6%9E%90%E4%B9%8Bswiperefreshlayoutrecyclerviewcardview/)
  - [Google官方下拉刷新组件--SwipeRefreshLayout](https://github.com/stormzhang/SwipeRefreshLayoutDemo)
+ 
+## 头部： CoordinatorLayout CollapsingToolbarLayout
+	
+	以哪个为固定:
+	android:fitsSystemWindows="true"
+	
+ - [CoordinatorLayout与滚动的处理](http://www.open-open.com/lib/view/open1437312265428.html)
+ 
+### CoordinatorLayout
+
+ - [Android 组件属性](http://blog.csdn.net/mg505/article/details/7714658)
+ 
+ 总结： 为了使得Toolbar有滑动效果，必须做到如下三点：
+ 
+ 注：CoordinatorLayout如果是最外的布局要去掉：
+ 
+	android:fitsSystemWindows
+ 
+ 1、CoordinatorLayout必须作为整个布局的父布局容器。
+ 2、 给需要滑动的组件设置 app:layout_scrollFlags=”scroll|enterAlways” 属性。
+ 3、给你的可滑动的组件，也就是RecyclerView 或者 NestedScrollView 设置如下属性：
+ 
+	app:layout_behavior="@string/appbar_scrolling_view_behavior"

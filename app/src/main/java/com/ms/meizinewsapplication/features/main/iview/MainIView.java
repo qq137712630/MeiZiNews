@@ -1,5 +1,6 @@
 package com.ms.meizinewsapplication.features.main.iview;
 
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 import com.ms.meizinewsapplication.features.main.fragment.ZhiHuFragment;
+import com.ms.meizinewsapplication.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.utils.tool.ViewUtil;
 import com.test.basepageradapterlibrary.basepager.BaseFragmentPagerAdapter;
 
@@ -34,6 +36,7 @@ public class MainIView extends ViewImpl {
     private int mMenuDefaultCheckedItem;
     private int mToolbarTitle;
 
+    private CoordinatorLayout coordinator_layout;
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private NavigationView navigationView;
@@ -51,6 +54,7 @@ public class MainIView extends ViewImpl {
         navigationView = findViewById(R.id.nav_view);
         tabLayout = findViewById(R.id.tabLayout);
         viewpager = findViewById(R.id.viewpager);
+        coordinator_layout = findViewById(R.id.coordinator_layout);
     }
 
     @Override
@@ -77,7 +81,7 @@ public class MainIView extends ViewImpl {
     public void init(AppCompatActivity appCompatActivity) {
         fragments = new ArrayList<>();
         titles = new ArrayList<>();
-
+//        initCoordinator_layout();
         initActivityFragmentInject();
         initToolbar(appCompatActivity);
         initDrawer(appCompatActivity);
@@ -101,6 +105,14 @@ public class MainIView extends ViewImpl {
     }
 
     //TODO view==================================================
+
+//    private void initCoordinator_layout(){
+//
+//        if (coordinator_layout != null) {
+//            // CoordinatorLayout设为true才能把布局延伸到状态栏
+//            coordinator_layout.setFitsSystemWindows(true);
+//        }
+//    }
 
     private void initToolbar(AppCompatActivity appCompatActivity) {
 
@@ -193,7 +205,7 @@ public class MainIView extends ViewImpl {
                         case R.id.nav_send:
                             break;
                     }
-
+                    DebugUtil.debugLogD("OnNavigationItemSelectedListener");
                     return false;
                 }
             };
