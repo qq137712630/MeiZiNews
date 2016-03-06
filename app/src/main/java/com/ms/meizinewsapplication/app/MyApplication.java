@@ -4,7 +4,9 @@ import android.app.Application;
 import android.content.Context;
 
 import com.github.moduth.blockcanary.BlockCanary;
+import com.ms.loggerlibrary.LogInit;
 import com.ms.meizinewsapplication.utils.block.AppBlockCanaryContext;
+import com.ms.meizinewsapplication.utils.tool.DebugUtil;
 
 /**
  * Created by 啟成 on 2016/2/28.
@@ -18,7 +20,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sContext = this;
-
+        LogInit.init(DebugUtil.DEBUG_TAG);
         initBlockCanary();
     }
 

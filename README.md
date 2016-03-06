@@ -6,6 +6,8 @@
  - [日志：logger](https://github.com/orhanobut/logger)
  - [ RxJava 使用：给 Android 开发者的 RxJava 详解](http://gank.io/post/560e15be2dca930e00da1083#toc_26)
  - [网络请求：retrofit+okhttp3](https://github.com/square/retrofit)
+ - [图片加载：glide](https://github.com/bumptech/glide)
+ 
 
 ---
 

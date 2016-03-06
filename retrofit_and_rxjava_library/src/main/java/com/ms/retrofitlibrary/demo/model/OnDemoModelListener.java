@@ -3,7 +3,7 @@ package com.ms.retrofitlibrary.demo.model;
 /**
  * Created by 啟成 on 2016/3/3.
  */
-public interface OnModelListener<T> {
+public interface OnDemoModelListener<T> {
 
     /**
      * 成功时回调

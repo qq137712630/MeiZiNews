@@ -11,7 +11,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/basepageradapterlibrary" />
+            <option value="$PROJECT_DIR$/basequickadapterlib" />
             <option value="$PROJECT_DIR$/blockcanarylibrary" />
+            <option value="$PROJECT_DIR$/glidelibrary" />
+            <option value="$PROJECT_DIR$/loggerlibrary" />
             <option value="$PROJECT_DIR$/mvpro" />
             <option value="$PROJECT_DIR$/retrofit_and_rxjava_library" />
           </set>

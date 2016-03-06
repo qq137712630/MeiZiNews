@@ -7,5 +7,5 @@ import android.content.Context;
  */
 public interface DemoModel<T> {
 
-    void loadWeather(Context context,String str, OnModelListener<T> listener);
+    void loadWeather(Context context,String str, OnDemoModelListener<T> listener);
 }

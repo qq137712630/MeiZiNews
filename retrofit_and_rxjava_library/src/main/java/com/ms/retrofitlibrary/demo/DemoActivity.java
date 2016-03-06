@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import com.ms.retrofitlibrary.demo.model.DemoModel;
 import com.ms.retrofitlibrary.demo.model.GitHubModel;
-import com.ms.retrofitlibrary.demo.model.OnModelListener;
+import com.ms.retrofitlibrary.demo.model.OnDemoModelListener;
 import com.ms.retrofitlibrary.demo.pojo.Contributor;
 import com.ms.retrofitlibrary.demo.web.GitHub;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
@@ -22,7 +22,7 @@ import rx.Subscriber;
 /**
  * Created by 啟成 on 2016/2/28.
  */
-public class DemoActivity extends Activity implements OnModelListener<List<Contributor>> {
+public class DemoActivity extends Activity implements OnDemoModelListener<List<Contributor>> {
     DemoModel<List<Contributor>> demoModel;
 
     @Override

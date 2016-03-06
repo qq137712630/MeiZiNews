@@ -4,6 +4,11 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+
+    <string name="share_title" translatable="false">shared_title</string>
+    <string name="shared_img" translatable="false">shared_img</string>
+
     <string name="action_settings">Settings</string>
     <string name="ic_news">阅读</string>
+    <string name="tab_zhihu">知乎</string>
 </resources>

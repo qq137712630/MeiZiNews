@@ -18,7 +18,7 @@ import rx.Subscriber;
  */
 public class GitHubModel implements DemoModel<List<Contributor>> {
     @Override
-    public void loadWeather(Context context, String s, final OnModelListener<List<Contributor>> listener) {
+    public void loadWeather(Context context, String s, final OnDemoModelListener<List<Contributor>> listener) {
 
         MyGsonRetrofit.getMyGsonRetrofit().init(context,"https://api.github.com");
 

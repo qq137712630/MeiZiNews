@@ -7,5 +7,5 @@ import android.content.Context;
  */
 public interface CommonModel<T> {
 
-    void loadWeather(Context context,String str, OnModelListener<T> listener);
+    void loadWeather(Context context, OnModelListener<T> listener);
 }
