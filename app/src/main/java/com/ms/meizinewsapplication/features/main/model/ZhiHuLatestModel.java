@@ -18,15 +18,15 @@ import rx.Subscriber;
  */
 public class ZhiHuLatestModel extends ZhiHuModel {
     @Override
-    public void loadWeather(Context context, final OnModelListener<ZhiHuLatest> listener) {
-        super.loadWeather(context, listener);
+    public void loadWeb(Context context, final OnModelListener<ZhiHuLatest> listener) {
+        super.loadWeb(context, listener);
         ZhiHuNews zhiHuNews = MyGsonRetrofit.getMyGsonRetrofit().getCreate(ZhiHuNews.class);
 
         Observable<ZhiHuLatest> mZhiHuLatest = zhiHuNews.RxZhiHuNewsLatest();
         RxJavaUtil.rxIoAndMain(mZhiHuLatest, new Subscriber<ZhiHuLatest>() {
                     @Override
                     public void onCompleted() {
-
+                        listener.onCompleted();
                     }
 
                     @Override

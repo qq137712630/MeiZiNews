@@ -227,3 +227,9 @@ Converters can be added to support other types. Six sibling modules adapt popula
  3、给你的可滑动的组件，也就是RecyclerView 或者 NestedScrollView 设置如下属性：
  
 	app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+## RecyclerView 上下拉监听
+
+`SwipeRefreshLayout.OnRefreshListener` 下拉监听
+
+`RecyclerView.OnScrollListener` 到底监听

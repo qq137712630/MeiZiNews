@@ -10,12 +10,8 @@ import com.bumptech.glide.Glide;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.view.iview.RecyclerIView;
 import com.ms.meizinewsapplication.features.main.json.Stories;
-import com.ms.meizinewsapplication.features.main.json.ZhiHuLatest;
-import com.ms.meizinewsapplication.features.main.model.ZhiHuLatestModel;
 import com.test.basequickadapterlib.BaseAdapterHelper;
 import com.test.basequickadapterlib.QuickAdapter;
-
-import org.loader.model.OnModelListener;
 
 import java.util.List;
 
@@ -32,10 +28,6 @@ public class ZhiHuIView extends RecyclerIView {
 
     }
 
-    @Override
-    public void onRefresh() {
-
-    }
 
     //TODO init========================================
 

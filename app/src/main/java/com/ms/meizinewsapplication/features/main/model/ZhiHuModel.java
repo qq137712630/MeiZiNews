@@ -15,7 +15,7 @@ import org.loader.model.OnModelListener;
 public class ZhiHuModel implements CommonModel<ZhiHuLatest> {
 
     @Override
-    public void loadWeather(Context context,OnModelListener<ZhiHuLatest> listener) {
+    public void loadWeb(Context context, OnModelListener<ZhiHuLatest> listener) {
 
         MyGsonRetrofit.getMyGsonRetrofit().init(context, MainApi.ZHI_HU_NEWS);
     }

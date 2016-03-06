@@ -81,7 +81,6 @@ public class MainIView extends ViewImpl {
     public void init(AppCompatActivity appCompatActivity) {
         fragments = new ArrayList<>();
         titles = new ArrayList<>();
-//        initCoordinator_layout();
         initActivityFragmentInject();
         initToolbar(appCompatActivity);
         initDrawer(appCompatActivity);
@@ -106,13 +105,6 @@ public class MainIView extends ViewImpl {
 
     //TODO view==================================================
 
-//    private void initCoordinator_layout(){
-//
-//        if (coordinator_layout != null) {
-//            // CoordinatorLayout设为true才能把布局延伸到状态栏
-//            coordinator_layout.setFitsSystemWindows(true);
-//        }
-//    }
 
     private void initToolbar(AppCompatActivity appCompatActivity) {
 
@@ -205,7 +197,7 @@ public class MainIView extends ViewImpl {
                         case R.id.nav_send:
                             break;
                     }
-                    DebugUtil.debugLogD("OnNavigationItemSelectedListener");
+                    DebugUtil.debugLogD("OnNavigationItemSelectedListener++++\n" + id);
                     return false;
                 }
             };

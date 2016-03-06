@@ -15,4 +15,9 @@ public interface OnModelListener<T> {
      * 失败时回调，简单处理，没做什么
      */
     void onError(String err);
+
+    /**
+     * 结束时，处理
+     */
+    void onCompleted();
 }
