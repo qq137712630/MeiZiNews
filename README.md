@@ -228,6 +228,8 @@ Converters can be added to support other types. Six sibling modules adapt popula
  
 	app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
+---
+
 # RecyclerView 
 
 [RecyclerView使用介绍](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2004.html)
@@ -258,3 +260,9 @@ Converters can be added to support other types. Six sibling modules adapt popula
 	
 	如果在 RecyclerView 实现多种Item，只需要实现一个 getItemType 方法，用来返回item的种类 
 	在 onCreateViewHolder 和 onBindViewHolder 方法中，第二个参数就是item的类型
+	
+---
+
+# Glide
+
+[Glide 系列预览](http://mrfu.me/2016/02/27/Glide_Getting_Started/)

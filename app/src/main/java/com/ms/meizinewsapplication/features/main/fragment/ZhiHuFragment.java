@@ -6,6 +6,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
 import com.ms.meizinewsapplication.features.main.iview.ZhiHuIView;
+import com.ms.meizinewsapplication.features.main.json.Stories;
 import com.ms.meizinewsapplication.features.main.json.ZhiHuLatest;
 import com.ms.meizinewsapplication.features.main.model.ZhiHuLatestModel;
 import com.ms.meizinewsapplication.utils.tool.DebugUtil;
@@ -13,12 +14,16 @@ import com.ms.meizinewsapplication.utils.tool.DebugUtil;
 import org.loader.model.OnModelListener;
 import org.loader.presenter.FragmentPresenterImpl;
 
+import java.util.ArrayList;
+
 /**
  * Created by 啟成 on 2016/3/6.
  */
 public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
 
     ZhiHuLatestModel zhiHuLatestModel;
+
+    private boolean isFist = true;
 
     @Override
     public void created(Bundle savedInstance) {
@@ -48,9 +53,15 @@ public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
     OnModelListener<ZhiHuLatest> zhiHuLatestListener = new OnModelListener<ZhiHuLatest>() {
         @Override
         public void onSuccess(ZhiHuLatest zhiHuLatest) {
-            mView.upAllData2QuickAdapter(zhiHuLatest.getStories());
 
             DebugUtil.debugLogD("zhiHuLatestListener：onSuccess");
+            if (!isFist) {
+                return;
+            }
+
+            isFist = false;
+            mView.upAllData2QuickAdapter((ArrayList<Stories>) zhiHuLatest.getStories());
+            mView.setBannerData(zhiHuLatest.getTop_stories());
         }
 
         @Override
@@ -89,7 +100,7 @@ public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
                 return;
             }
 
-            zhiHuLatestLoad(getContext());
+//            zhiHuLatestLoad(getContext());
 
         }
     };

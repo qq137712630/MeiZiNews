@@ -33,4 +33,5 @@ dependencies {
     compile project(':basequickadapterlib')
     compile project(':glidelibrary')
     compile project(':convenientbannerlibrary')
+    compile project(':smooth_app_bar_layoutlibrary')
 }
