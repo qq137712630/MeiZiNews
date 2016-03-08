@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_item_root_view"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
     android:background="?android:attr/selectableItemBackground"
-    android:paddingLeft="12dp"
-    android:paddingRight="12dp"
-    android:layout_height="wrap_content">
+    app:cardCornerRadius="2dp"
+    app:cardElevation="1dp">
+
     <TextView
         android:id="@+id/story_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
         android:text="今日热闻"
         android:textSize="13sp"
         android:visibility="gone" />
 
     <RelativeLayout
-        android:layout_width="match_parent"
         android:id="@+id/story_item"
-        android:layout_height="92dp"
+        android:layout_width="match_parent"
+        android:padding="7dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageView
@@ -29,8 +36,8 @@
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true"
             android:scaleType="fitCenter"
-            android:transitionName="@string/shared_img"
-            android:src="@drawable/ic_menu_gallery" />
+            android:src="@drawable/ic_menu_gallery"
+            android:transitionName="@string/shared_img" />
 
         <TextView
             android:id="@+id/story_title"
@@ -39,22 +46,13 @@
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:layout_toRightOf="@id/story_img"
-            android:transitionName="@string/share_title"
             android:lineSpacingMultiplier="1.2"
             android:paddingLeft="10dp"
-            android:textColor="@color/cardview_dark_background"
             android:text="如何看待当下这种越来越普遍的“沉默”人格？"
+            android:textColor="@color/cardview_dark_background"
             android:textSize="16sp"
-            tools:ignore="RtlSymmetry"/>
+            android:transitionName="@string/share_title"
+            tools:ignore="RtlSymmetry" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_toRightOf="@id/story_img"
-            android:background="@color/lighter_gray" />
     </RelativeLayout>
-
-</FrameLayout>
+</android.support.v7.widget.CardView>

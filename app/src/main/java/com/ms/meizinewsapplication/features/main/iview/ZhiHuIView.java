@@ -14,6 +14,7 @@ import com.ms.meizinewsapplication.features.main.adapter.ZhiHuAdapter;
 import com.ms.meizinewsapplication.features.main.banner.ZhiHuTopBannerView;
 import com.ms.meizinewsapplication.features.main.json.Stories;
 import com.ms.meizinewsapplication.features.main.json.TopStories;
+import com.test.basequickadapterlib.head.BaseHeadRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,12 @@ public class ZhiHuIView extends RecyclerIView {
         recycler_list.setLayoutManager(mLayoutManager);
 
         zhiHuAdapter = new ZhiHuAdapter(context, R.layout.fragment_news_item);
+        zhiHuAdapter.setOnItemClickListener(new BaseHeadRecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+            }
+        });
         recycler_list.setAdapter(zhiHuAdapter);
 
     }

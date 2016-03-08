@@ -23,7 +23,7 @@ public class ZhiHuAdapter extends BaseHeadRecyclerAdapter<Stories> {
 
     @Override
     public void onBind(BaseAdapterHelper helper, int RealPosition, Stories item) {
-
+        helper.itemView.setTag(RealPosition);
         ImageView story_img = helper.getImageView(R.id.story_img);
         TextView story_title = helper.getTextView(R.id.story_title);
 
