@@ -7,6 +7,8 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.test.basequickadapterlib.BaseAdapterHelper;
 
@@ -21,13 +23,13 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
     protected final Context context;
 
     protected final int layoutResId;
-
     public static final int TYPE_HEADER = 0;
     public static final int TYPE_NORMAL = 1;
 
     private ArrayList<T> mDatas = new ArrayList<>();
 
     private View mHeaderView;
+    protected int animID;
 
     private OnItemClickListener mOnItemClickListener = null;
 
@@ -48,7 +50,7 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
      *
      * @param context     The context.
      * @param layoutResId The layout resource id of each item.
-     * @param mDatas        A new list is created out of this one to avoid mutable list
+     * @param mDatas      A new list is created out of this one to avoid mutable list
      */
     public BaseHeadRecyclerAdapter(Context context, int layoutResId, ArrayList<T> mDatas) {
         this.mDatas = mDatas == null ? new ArrayList<T>() : mDatas;
@@ -56,6 +58,9 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
         this.layoutResId = layoutResId;
     }
 
+    public void setAnimID(int animID) {
+        this.animID = animID;
+    }
 
     public void setHeaderView(View headerView) {
         mHeaderView = headerView;
@@ -97,6 +102,7 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
         final T data = mDatas.get(pos);
         onBind(viewHolder, pos, data);
 
+        setAdapterAnimation(viewHolder.itemView, position);
     }
 
     @Override
@@ -126,6 +132,8 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
             StaggeredGridLayoutManager.LayoutParams p = (StaggeredGridLayoutManager.LayoutParams) lp;
             p.setFullSpan(true);
         }
+
+        clearAdapterAnimation(holder);
     }
 
     public int getRealPosition(BaseAdapterHelper holder) {
@@ -142,8 +150,7 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
 
     @Override
     public void onClick(View v) {
-        if (v==null)
-        {
+        if (v == null) {
             return;
         }
         if (mOnItemClickListener != null) {
@@ -164,6 +171,32 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
     public class Holder extends BaseAdapterHelper {
         public Holder(View itemView) {
             super(itemView);
+        }
+    }
+
+
+    //TODO Animation===================================
+
+    private int lastPosition = -1;
+
+    public void setAdapterAnimation(View viewToAnimate, int position) {
+
+        if (animID == 0) {
+            return;
+        }
+
+        if (position > lastPosition) {
+            Animation animation = AnimationUtils
+                    .loadAnimation(viewToAnimate.getContext(), animID);
+            viewToAnimate.startAnimation(animation);
+            lastPosition = position;
+        }
+    }
+
+    public void clearAdapterAnimation(BaseAdapterHelper holder) {
+        if (animID != 0 && holder.itemView.getAnimation() != null && holder.itemView
+                .getAnimation().hasStarted()) {
+            holder.itemView.clearAnimation();
         }
     }
 

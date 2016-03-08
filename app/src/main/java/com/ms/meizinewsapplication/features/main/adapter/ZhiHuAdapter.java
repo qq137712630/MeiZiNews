@@ -18,6 +18,7 @@ public class ZhiHuAdapter extends BaseHeadRecyclerAdapter<Stories> {
 
     public ZhiHuAdapter(Context context, int layoutResId) {
         super(context, layoutResId);
+        setAnimID(R.anim.item_bottom_in);
     }
 
     @Override

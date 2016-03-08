@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 
 import java.util.ArrayList;
@@ -75,10 +77,17 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
     }
 
     @Override
+    public void onViewAttachedToWindow(BaseAdapterHelper holder) {
+        super.onViewAttachedToWindow(holder);
+        clearAdapterAnimation(holder);
+    }
+
+    @Override
     public void onBindViewHolder(BaseAdapterHelper helper, int position) {
 //        helper.itemView.setTag(position);
         T item = getItem(position);
         convert((H) helper, item);
+        setAdapterAnimation(((H) helper).itemView,position);
     }
 
     /**
@@ -131,4 +140,40 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
         }
         notifyDataSetChanged();
     }
+
+
+    //TODO 动画 Animation===================================
+
+    protected int animID;
+    private int lastPosition = -1;
+
+    /**
+     * 设置 动画
+     * @param animID
+     */
+    public void setAnimID(int animID) {
+        this.animID = animID;
+    }
+
+    public void setAdapterAnimation(View viewToAnimate, int position) {
+
+        if (animID == 0) {
+            return;
+        }
+
+        if (position > lastPosition) {
+            Animation animation = AnimationUtils
+                    .loadAnimation(viewToAnimate.getContext(), animID);
+            viewToAnimate.startAnimation(animation);
+            lastPosition = position;
+        }
+    }
+
+    public void clearAdapterAnimation(BaseAdapterHelper holder) {
+        if (animID != 0 && holder.itemView.getAnimation() != null && holder.itemView
+                .getAnimation().hasStarted()) {
+            holder.itemView.clearAnimation();
+        }
+    }
+
 }
