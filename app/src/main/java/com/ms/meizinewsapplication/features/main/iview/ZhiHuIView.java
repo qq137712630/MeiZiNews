@@ -6,10 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.view.iview.RecyclerIView;
 import com.ms.meizinewsapplication.features.main.json.Stories;
+import com.ms.meizinewsapplication.utils.tool.ImagerLoad;
 import com.test.basequickadapterlib.BaseAdapterHelper;
 import com.test.basequickadapterlib.QuickAdapter;
 
@@ -19,12 +20,12 @@ import java.util.List;
  * Created by 啟成 on 2016/3/4.
  */
 public class ZhiHuIView extends RecyclerIView {
-    QuickAdapter quickAdapter;
+    private QuickAdapter quickAdapter;
+    private ConvenientBanner banner;
 
     @Override
     protected void initViews() {
         super.initViews();
-
 
     }
 
@@ -51,23 +52,20 @@ public class ZhiHuIView extends RecyclerIView {
 
                 story_title.setText(item.getTitle());
 
-                if (item.getImages() != null && item.getImages().size() > 0)
-
-                    Glide.with(context)
-                            .load(item.getImages().get(0))
-                            .centerCrop()
-                            .crossFade()
-                            .into(story_img);
+                if (item.getImages() == null || item.getImages().size() <= 0) {
+                    return;
+                }
+                ImagerLoad.load(context, item.getImages().get(0), story_img);
             }
         };
         recycler_list.setAdapter(quickAdapter);
+
     }
 
 
     //TODO Model======================================================
 
-    public void upAllData2QuickAdapter(List<Stories> stories)
-    {
+    public void upAllData2QuickAdapter(List<Stories> stories) {
 
         quickAdapter.upAllData(stories);
     }

@@ -1,1 +1,1 @@
-include ':app', ':blockcanarylibrary', ':mvpro', ':retrofit_and_rxjava_library', ':basepageradapterlibrary', ':loggerlibrary', ':basequickadapterlib', ':glidelibrary'
+include ':app', ':blockcanarylibrary', ':mvpro', ':retrofit_and_rxjava_library', ':basepageradapterlibrary', ':loggerlibrary', ':basequickadapterlib', ':glidelibrary', ':convenientbannerlibrary', ':smooth_app_bar_layoutlibrary'

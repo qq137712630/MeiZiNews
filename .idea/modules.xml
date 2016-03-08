@@ -7,10 +7,12 @@
       <module fileurl="file://$PROJECT_DIR$/basepageradapterlibrary/basepageradapterlibrary.iml" filepath="$PROJECT_DIR$/basepageradapterlibrary/basepageradapterlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/basequickadapterlib/basequickadapterlib.iml" filepath="$PROJECT_DIR$/basequickadapterlib/basequickadapterlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/blockcanarylibrary/blockcanarylibrary.iml" filepath="$PROJECT_DIR$/blockcanarylibrary/blockcanarylibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/convenientbannerlibrary/convenientbannerlibrary.iml" filepath="$PROJECT_DIR$/convenientbannerlibrary/convenientbannerlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/glidelibrary/glidelibrary.iml" filepath="$PROJECT_DIR$/glidelibrary/glidelibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/loggerlibrary/loggerlibrary.iml" filepath="$PROJECT_DIR$/loggerlibrary/loggerlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvpro/mvpro.iml" filepath="$PROJECT_DIR$/mvpro/mvpro.iml" />
       <module fileurl="file://$PROJECT_DIR$/retrofit_and_rxjava_library/retrofit_and_rxjava_library.iml" filepath="$PROJECT_DIR$/retrofit_and_rxjava_library/retrofit_and_rxjava_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/smooth_app_bar_layoutlibrary/smooth_app_bar_layoutlibrary.iml" filepath="$PROJECT_DIR$/smooth_app_bar_layoutlibrary/smooth_app_bar_layoutlibrary.iml" />
     </modules>
   </component>
 </project>

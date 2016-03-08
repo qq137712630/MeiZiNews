@@ -228,7 +228,12 @@ Converters can be added to support other types. Six sibling modules adapt popula
  
 	app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
-## RecyclerView 上下拉监听
+# RecyclerView 
+
+[RecyclerView使用介绍](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2004.html)
+[base-adapter-helper的RecyclerView版](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0809/3277.html)
+
+## 上下拉监听
 
 `SwipeRefreshLayout.OnRefreshListener` 下拉监听
 
@@ -244,3 +249,12 @@ Converters can be added to support other types. Six sibling modules adapt popula
 	                }
 	            }
 	        });
+	        
+## RecyclerView多Item的情况
+
+[RecyclerView多Item的情况](http://ju.outofmemory.cn/entry/185097)
+
+	其中 getItemViewType 用来返回当前项是哪种类型布局， getViewTypeCount 返回当前ListView总共多少种类型的布局
+	
+	如果在 RecyclerView 实现多种Item，只需要实现一个 getItemType 方法，用来返回item的种类 
+	在 onCreateViewHolder 和 onBindViewHolder 方法中，第二个参数就是item的类型

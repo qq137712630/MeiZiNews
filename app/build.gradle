@@ -32,4 +32,5 @@ dependencies {
     compile project(':loggerlibrary')
     compile project(':basequickadapterlib')
     compile project(':glidelibrary')
+    compile project(':convenientbannerlibrary')
 }

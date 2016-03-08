@@ -113,7 +113,7 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
      */
     public void upItemData(int position, T item) {
         data.set(position, item);
-        notifyItemChanged(position);
+        notifyItemInserted(position);
     }
 
     public void upAllData() {
