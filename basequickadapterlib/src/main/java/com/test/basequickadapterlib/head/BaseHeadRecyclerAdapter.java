@@ -7,8 +7,6 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 import com.test.basequickadapterlib.BaseAdapterHelper;
 
@@ -181,23 +179,23 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
 
     public void setAdapterAnimation(View viewToAnimate, int position) {
 
-        if (animID == 0) {
-            return;
-        }
-
-        if (position > lastPosition) {
-            Animation animation = AnimationUtils
-                    .loadAnimation(viewToAnimate.getContext(), animID);
-            viewToAnimate.startAnimation(animation);
-            lastPosition = position;
-        }
+//        if (animID == 0) {
+//            return;
+//        }
+//
+//        if (position > lastPosition) {
+//            Animation animation = AnimationUtils
+//                    .loadAnimation(viewToAnimate.getContext(), animID);
+//            viewToAnimate.startAnimation(animation);
+//            lastPosition = position;
+//        }
     }
 
     public void clearAdapterAnimation(BaseAdapterHelper holder) {
-        if (animID != 0 && holder.itemView.getAnimation() != null && holder.itemView
-                .getAnimation().hasStarted()) {
-            holder.itemView.clearAnimation();
-        }
+//        if (animID != 0 && holder.itemView.getAnimation() != null && holder.itemView
+//                .getAnimation().hasStarted()) {
+//            holder.itemView.clearAnimation();
+//        }
     }
 
 }

@@ -1,6 +1,7 @@
 package com.ms.meizinewsapplication.features.main.iview;
 
 import android.content.Context;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -47,6 +48,7 @@ public class ZhiHuIView extends RecyclerIView {
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context);
         recycler_list.setLayoutManager(mLayoutManager);
+        recycler_list.setItemAnimator(new DefaultItemAnimator());
 
         zhiHuAdapter = new ZhiHuAdapter(context, R.layout.fragment_news_item);
         zhiHuAdapter.setOnItemClickListener(new BaseHeadRecyclerAdapter.OnItemClickListener() {
@@ -56,7 +58,6 @@ public class ZhiHuIView extends RecyclerIView {
             }
         });
         recycler_list.setAdapter(zhiHuAdapter);
-
     }
 
     private void initBanner(RecyclerView recycler_list) {

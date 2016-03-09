@@ -4,10 +4,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 
 import com.ms.meizinewsapplication.features.main.iview.ZhiHuIView;
 import com.ms.meizinewsapplication.features.main.json.Stories;
 import com.ms.meizinewsapplication.features.main.json.ZhiHuLatest;
+import com.ms.meizinewsapplication.features.main.model.ZhiHuBeforeModel;
 import com.ms.meizinewsapplication.features.main.model.ZhiHuLatestModel;
 import com.ms.meizinewsapplication.utils.tool.DebugUtil;
 
@@ -21,15 +23,22 @@ import java.util.ArrayList;
  */
 public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
 
-    ZhiHuLatestModel zhiHuLatestModel;
+    private Context zhiHuContext;
 
+    private ZhiHuBeforeModel zhiHuBeforeModel;
+
+    private ZhiHuLatestModel zhiHuLatestModel;
+
+    private String nextDate = null;
     private boolean isFist = true;
 
     @Override
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
-        mView.init(getContext());
-        initZhiHuLatestModel(getContext());
+        zhiHuContext = getContext();
+        mView.init(zhiHuContext);
+        initZhiHuLatestModel(zhiHuContext);
+        initZhiHuBeforeModel();
         mView.setOnRefreshListener(onRefreshListener);
         mView.addOnScrollListener(onScrollListener);
     }
@@ -42,10 +51,25 @@ public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
         zhiHuLatestLoad(context);
     }
 
+    private void initZhiHuBeforeModel() {
+        zhiHuBeforeModel = new ZhiHuBeforeModel();
+    }
+
     public void zhiHuLatestLoad(Context context) {
 
         mView.changeProgress(true);
         zhiHuLatestModel.loadWeb(context, zhiHuLatestListener);
+    }
+
+    public void zhiHuBeforeLoad(Context context) {
+
+        if (TextUtils.isEmpty(nextDate)) {
+            return;
+        }
+
+        mView.changeProgress(true);
+        zhiHuBeforeModel.loadWeb(context, zhiHuBeforeListener, nextDate);
+//        zhiHuBeforeModel.loadWeb(context, zhiHuBeforeListener);
     }
 
 //TODO Listener============================================================
@@ -60,6 +84,7 @@ public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
             }
 
             isFist = false;
+            nextDate = zhiHuLatest.getDate();
             mView.upAllData2QuickAdapter((ArrayList<Stories>) zhiHuLatest.getStories());
             mView.setBannerData(zhiHuLatest.getTop_stories());
         }
@@ -79,12 +104,39 @@ public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
     };
 
     /**
+     * 加载前一天的文章列表
+     */
+    OnModelListener<ZhiHuLatest> zhiHuBeforeListener = new OnModelListener<ZhiHuLatest>() {
+        @Override
+        public void onSuccess(ZhiHuLatest zhiHuLatest) {
+
+            DebugUtil.debugLogD("zhiHuLatestListener：onSuccess");
+            nextDate = zhiHuLatest.getDate();
+            mView.upAllData2QuickAdapter((ArrayList<Stories>) zhiHuLatest.getStories());
+        }
+
+        @Override
+        public void onError(String err) {
+
+            mView.changeProgress(false);
+            DebugUtil.debugLogD("zhiHuLatestListener：onError");
+        }
+
+        @Override
+        public void onCompleted() {
+            mView.changeProgress(false);
+            DebugUtil.debugLogD("zhiHuLatestListener：onCompleted");
+        }
+    };
+
+
+    /**
      * 下拉监听
      */
     SwipeRefreshLayout.OnRefreshListener onRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
-            zhiHuLatestLoad(getContext());
+            zhiHuLatestLoad(zhiHuContext);
         }
     };
 
@@ -99,8 +151,7 @@ public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
             if (newState != RecyclerView.SCROLL_STATE_IDLE) {
                 return;
             }
-
-//            zhiHuLatestLoad(getContext());
+            zhiHuBeforeLoad(zhiHuContext);
 
         }
     };

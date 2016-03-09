@@ -13,6 +13,8 @@
 
 #Retrofit 使用
 
+[Retrofit 2.0 + OkHttp 3.0 配置](https://drakeet.me/retrofit-2-0-okhttp-3-0-config)
+
 ##转换器
 
 [retrofit](http://square.github.io/retrofit/#restadapter-configuration)
@@ -267,3 +269,9 @@ Converters can be added to support other types. Six sibling modules adapt popula
 # Glide
 
 [Glide 系列预览](http://mrfu.me/2016/02/27/Glide_Getting_Started/)
+
+---
+
+# Github Android 开源库
+
+[GitHub Top 100的Android开源库](https://github.com/Freelander/Android_Data/blob/master/Android-Librarys-Top-100.md#rd)
