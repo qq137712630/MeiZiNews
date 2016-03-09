@@ -187,7 +187,8 @@ Converters can be added to support other types. Six sibling modules adapt popula
 ---
 
 #MD实践
-
+ 
+ - [ANDROID L——Material Design详解（动画篇）](http://blog.csdn.net/a396901990/article/details/40187203)
  - [ Android M新控件之FloatingActionButton，TextInputLayout，Snackbar，TabLayout的使用](http://blog.csdn.net/feiduclear_up/article/details/46500865)
  - [Android M新控件之AppBarLayout，NavigationView，CoordinatorLayout，CollapsingToolbarLayout的使用](http://blog.csdn.net/feiduclear_up/article/details/46514791) 
 
