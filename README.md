@@ -124,7 +124,7 @@ Converters can be added to support other types. Six sibling modules adapt popula
 
 [okhttp 请求设置官方文档](https://github.com/square/okhttp/wiki/Recipes)
 [使用Retrofit和Okhttp实现网络缓存。无网读缓存，有网根据过期时间重新请求](http://www.jianshu.com/p/9c3b4ea108a7#)
-
+[OuNews 新闻：RetrofitManager类下的 initOkHttpClient 方法](https://github.com/oubowu/OuNews)
  okhttp3.X，retrofit:2.0.0-beta4适用
 
  1. 配置okhttp中的Cache
@@ -151,6 +151,8 @@ Converters can be added to support other types. Six sibling modules adapt popula
                 .addConverterFactory(GsonConverterFactory.create())//添加 json 转换器
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//添加 RxJava 适配器
                 .build();
+
+---
 
 #API
 

@@ -7,6 +7,7 @@ import com.ms.meizinewsapplication.features.main.main_web.ZhiHuNews;
 import com.ms.meizinewsapplication.utils.tool.DebugUtil;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyGsonRetrofit;
+import com.ms.retrofitlibrary.web.MyOkHttpClient;
 
 import org.loader.model.OnModelListener;
 
@@ -30,7 +31,7 @@ public class ZhiHuBeforeModel extends ZhiHuModel {
         super.loadWeb(context, listener);
         ZhiHuNews zhiHuNews = MyGsonRetrofit.getMyGsonRetrofit().getCreate(ZhiHuNews.class);
 
-        Observable<ZhiHuLatest> mZhiHuLatest = zhiHuNews.RxZhiHuNewsBefore(nextDate);
+        Observable<ZhiHuLatest> mZhiHuLatest = zhiHuNews.RxZhiHuNewsBefore(MyOkHttpClient.getCacheControl(context),nextDate);
         RxJavaUtil.rxIoAndMain(mZhiHuLatest, new Subscriber<ZhiHuLatest>() {
                     @Override
                     public void onCompleted() {
