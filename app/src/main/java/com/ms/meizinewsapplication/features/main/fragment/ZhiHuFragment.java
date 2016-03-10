@@ -36,7 +36,7 @@ public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
         zhiHuContext = getContext();
-        mView.init(zhiHuContext);
+        mView.init(getActivity());
         initZhiHuLatestModel(zhiHuContext);
         initZhiHuBeforeModel();
         mView.setOnRefreshListener(onRefreshListener);

@@ -191,7 +191,10 @@ Converters can be added to support other types. Six sibling modules adapt popula
 ---
 
 #MD实践
- 
+
+ - [Android Design Support Library使用详解](http://blog.csdn.net/eclipsexys/article/details/46349721)
+ - [NestedScrollView： 兼容MD的 ScrollView ](http://blog.csdn.net/hangeqq685042/article/details/48129911)
+ - [Android L动画入门](http://blog.jobbole.com/77015/)
  - [ANDROID L——Material Design详解（动画篇）](http://blog.csdn.net/a396901990/article/details/40187203)
  - [ Android M新控件之FloatingActionButton，TextInputLayout，Snackbar，TabLayout的使用](http://blog.csdn.net/feiduclear_up/article/details/46500865)
  - [Android M新控件之AppBarLayout，NavigationView，CoordinatorLayout，CollapsingToolbarLayout的使用](http://blog.csdn.net/feiduclear_up/article/details/46514791) 
@@ -277,3 +280,12 @@ Converters can be added to support other types. Six sibling modules adapt popula
 # Github Android 开源库
 
 [GitHub Top 100的Android开源库](https://github.com/Freelander/Android_Data/blob/master/Android-Librarys-Top-100.md#rd)
+
+---
+
+# Other
+
+ - [互联网协议入门（一）](http://blog.jobbole.com/77851/#comment-64486)
+ - [给安卓初学者的12篇教程](http://android.jobbole.com/76447/)
+ - [android:configChanges属性](http://blog.csdn.net/goyoung/article/details/8921139)
+ - [android:screenOrientation属性](http://blog.csdn.net/nmgchfzhzhg/article/details/8077133)

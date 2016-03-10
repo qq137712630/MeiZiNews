@@ -1,6 +1,9 @@
 package com.ms.meizinewsapplication.features.main.iview;
 
-import android.content.Context;
+import android.app.Activity;
+import android.app.ActivityOptions;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,21 +39,21 @@ public class ZhiHuIView extends RecyclerIView {
 
     //TODO init========================================
 
-    public void init(Context context) {
-        initRecycler_list(context);
+    public void init(Activity activity) {
+        initRecycler_list(activity);
         initBanner(recycler_list);
     }
 
     //TODO View========================================
 
-    private void initRecycler_list(Context context) {
+    private void initRecycler_list(final Activity activity) {
 
 
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(activity);
         recycler_list.setLayoutManager(mLayoutManager);
         recycler_list.setItemAnimator(new DefaultItemAnimator());
 
-        zhiHuAdapter = new ZhiHuAdapter(context, R.layout.fragment_news_item);
+        zhiHuAdapter = new ZhiHuAdapter(activity, R.layout.fragment_news_item);
         zhiHuAdapter.setOnItemClickListener(new BaseHeadRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {

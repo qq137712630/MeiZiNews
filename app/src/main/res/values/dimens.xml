@@ -8,6 +8,7 @@
     <dimen name="fab_margin">16dp</dimen>
 
 
+    <dimen name="app_bar_large">230dp</dimen>
     <dimen name="home_header_height">201dp</dimen>
     <dimen name="normal_list_padding_bottom">36dp</dimen>
 </resources>
