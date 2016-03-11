@@ -1,6 +1,8 @@
 package com.ms.meizinewsapplication.features.main.iview;
 
 import android.content.Context;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -12,6 +14,7 @@ import android.widget.ProgressBar;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.main.json.ZhihuDetail;
 import com.ms.meizinewsapplication.utils.tool.ImagerLoad;
+import com.ms.meizinewsapplication.utils.tool.Share;
 
 import org.loader.view.ViewImpl;
 
@@ -20,8 +23,10 @@ import org.loader.view.ViewImpl;
  */
 public class ZhiHuDetailIView extends ViewImpl {
 
+    private CollapsingToolbarLayout toolbar_layout;
     private ImageView detail_img;
     private ProgressBar progress;
+    private FloatingActionButton fab;
     private FrameLayout webContainer;
     private WebView webView;
 
@@ -31,6 +36,8 @@ public class ZhiHuDetailIView extends ViewImpl {
         detail_img = findViewById(R.id.detail_img);
         progress = findViewById(R.id.progress);
         webContainer = findViewById(R.id.web_container);
+        fab = findViewById(R.id.fab);
+        toolbar_layout = findViewById(R.id.toolbar_layout);
     }
 
     @Override
@@ -51,9 +58,10 @@ public class ZhiHuDetailIView extends ViewImpl {
 
     public void init(Context context) {
         initWebView(context);
+        initFAB(context);
     }
-    public void initWebView(Context context)
-    {
+
+    public void initWebView(Context context) {
         webView = new WebView(context);
         webContainer.addView(webView);
         webView.setVisibility(View.INVISIBLE);
@@ -78,6 +86,17 @@ public class ZhiHuDetailIView extends ViewImpl {
         });
     }
 
+    private void initFAB(final Context context) {
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (detailNews == null) {
+                    return;
+                }
+                Share.shareText(context, detailNews.getShare_url());
+            }
+        });
+    }
 
     //TODO Mode ===================================================
 
@@ -85,14 +104,17 @@ public class ZhiHuDetailIView extends ViewImpl {
         ImagerLoad.load(context, url, detail_img);
     }
 
-    public void progressGone()
-    {
+    public void progressGone() {
         progress.setVisibility(View.GONE);
     }
 
-
+    private ZhihuDetail detailNews;
 
     public void showDetail(ZhihuDetail detailNews) {
+        this.detailNews = detailNews;
+
+        toolbar_layout.setTitle(detailNews.getTitle());
+
         //add css style to webView
         String css = "<link rel=\"stylesheet\" href=\"file:///android_asset/css/news.css\" type=\"text/css\">";
         String html = "<html><head>" + css + "</head><body>" + detailNews.getBody() + "</body></html>";
