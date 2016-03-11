@@ -1,6 +1,7 @@
 package com.ms.meizinewsapplication.features.main.main_web;
 
 import com.ms.meizinewsapplication.features.main.json.ZhiHuLatest;
+import com.ms.meizinewsapplication.features.main.json.ZhihuDetail;
 
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -14,6 +15,12 @@ public interface ZhiHuNews {
 
     //使用 RxJava 的方法,返回一个 Observable
 //    @Headers("Cache-Control: public, max-age=3600")
+
+    /**
+     * 返回最新的日报
+     * @param cacheControl
+     * @return
+     */
     @GET("news/latest")
     Observable<ZhiHuLatest> RxZhiHuNewsLatest(
             @Header("Cache-Control") String cacheControl
@@ -27,10 +34,29 @@ public interface ZhiHuNews {
      * just replace it and you should be all set.
      * [@Part],as the error describes, should be used when submitting multipart form data not for modifying the URL.
      */
-//    @Headers("Cache-Control: public, max-age=3600")
+    /**
+     * 返回指定的日期的日报
+     *
+     * @param cacheControl
+     * @param beforeDate
+     * @return
+     */
     @GET("news/before/{before}")
     Observable<ZhiHuLatest> RxZhiHuNewsBefore(
             @Header("Cache-Control") String cacheControl,
             @Path("before") String beforeDate
+    );
+
+    /**
+     * 知乎详情
+     * @param cacheControl
+     * @param detail
+     * @return
+     */
+    @GET("news/{detailID}")
+    Observable<ZhihuDetail> RxZhihuDetail(
+            @Header("Cache-Control") String cacheControl,
+            @Path("detailID") String detailID
+
     );
 }

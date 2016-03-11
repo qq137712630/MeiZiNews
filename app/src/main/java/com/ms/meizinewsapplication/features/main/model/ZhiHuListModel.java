@@ -12,7 +12,7 @@ import org.loader.model.OnModelListener;
 /**
  * Created by 啟成 on 2016/3/6.
  */
-public class ZhiHuModel implements CommonModel<ZhiHuLatest> {
+public class ZhiHuListModel implements CommonModel<ZhiHuLatest> {
 
     @Override
     public void loadWeb(Context context, OnModelListener<ZhiHuLatest> listener) {

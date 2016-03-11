@@ -17,7 +17,7 @@ import rx.Subscriber;
 /**
  * Created by 啟成 on 2016/3/9.
  */
-public class ZhiHuBeforeModel extends ZhiHuModel {
+public class ZhiHuBeforeModel extends ZhiHuListModel {
 
     private String nextDate;//所时间
 

@@ -17,7 +17,7 @@ import rx.Subscriber;
 /**
  * Created by 啟成 on 2016/3/6.
  */
-public class ZhiHuLatestModel extends ZhiHuModel {
+public class ZhiHuLatestModel extends ZhiHuListModel {
     @Override
     public void loadWeb(Context context, final OnModelListener<ZhiHuLatest> listener) {
         super.loadWeb(context, listener);
