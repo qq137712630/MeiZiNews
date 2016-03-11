@@ -54,6 +54,13 @@ public class ZhiHuDetailIView extends ViewImpl {
         webView.onResume();
     }
 
+    public void onBackPressed() {
+        webView.setVisibility(View.GONE);
+        webContainer.removeAllViews();
+    }
+
+
+
     //TODO init =================================================
 
     public void init(Context context) {
@@ -78,6 +85,7 @@ public class ZhiHuDetailIView extends ViewImpl {
                     view.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            progressGone();
                             view.setVisibility(View.VISIBLE);
                         }
                     }, 300);

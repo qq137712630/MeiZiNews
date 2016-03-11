@@ -51,19 +51,19 @@ public class ZhiHuAdapter extends BaseHeadRecyclerAdapter<Stories> {
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
 
-                    ActivityOptions options = ActivityOptions
-                            .makeSceneTransitionAnimation((MainMvpActivity) context,
-                                    story_img,
-
-                                    context.getString(R.string.shared_img)
-                            );
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(
+                            (MainMvpActivity) context,
+                            story_img,
+                            context.getString(R.string.shared_img)
+                    );
                     context.startActivity(intent, options.toBundle());
 
                 } else {
                     //让新的Activity从一个小的范围扩大到全屏
-                    ActivityOptionsCompat options = ActivityOptionsCompat
-                            .makeScaleUpAnimation(story_img, story_img.getWidth() / 2,
-                                    story_img.getHeight() / 2, 0, 0);
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(
+                            story_img, story_img.getWidth() / 2,
+                            story_img.getHeight() / 2, 0, 0
+                    );
                     ActivityCompat.startActivity((MainMvpActivity) context, intent, options.toBundle());
                 }
             }

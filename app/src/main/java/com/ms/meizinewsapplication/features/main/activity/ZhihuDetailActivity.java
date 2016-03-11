@@ -1,5 +1,6 @@
 package com.ms.meizinewsapplication.features.main.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
@@ -36,6 +37,17 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
         mView.onResume();
     }
 
+
+    @Override
+    public void onBackPressed() {
+
+        mView.onBackPressed();
+        super.onBackPressed();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            finishAfterTransition();
+        }
+    }
+
     //TODO Model=====================================
 
     private void initZhihuDetailModel() {
@@ -54,7 +66,6 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
         public void onSuccess(ZhihuDetail zhihuDetail) {
             mView.initImg(ZhihuDetailActivity.this, zhihuDetail.getImage());
             mView.showDetail(zhihuDetail);
-            mView.progressGone();
         }
 
         @Override
