@@ -73,7 +73,10 @@ public class ZhiHuDetailIView extends ViewImpl {
         initFAB(activity);
     }
 
-
+    /**
+     * 设置左上角的返回键与它的点击效果
+     * @param appCompatActivity
+     */
     private void initToolbar(final AppCompatActivity appCompatActivity) {
 
         appCompatActivity.setSupportActionBar(toolbar);
@@ -81,6 +84,7 @@ public class ZhiHuDetailIView extends ViewImpl {
         if (appCompatActivity.getSupportActionBar() == null) {
             return;
         }
+
         appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 //        [android：ToolBar详解（手把手教程）](http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2006.html)
