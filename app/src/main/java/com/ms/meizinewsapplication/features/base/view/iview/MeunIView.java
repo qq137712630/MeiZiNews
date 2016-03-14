@@ -11,10 +11,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
+import com.ms.meizinewsapplication.features.base.listener.MyActionBarDrawerToggle;
 import com.ms.meizinewsapplication.features.main.activity.MainMvpActivity;
 import com.ms.meizinewsapplication.features.meizi.activity.MeiZiActivity;
 import com.ms.meizinewsapplication.utils.tool.DebugUtil;
@@ -51,6 +51,7 @@ public class MeunIView extends ViewImpl {
     protected List<String> titles;
 
     protected Class mClass;
+    protected MyActionBarDrawerToggle myActionBarDrawerToggle;
 
     @Override
     public void created() {
@@ -123,28 +124,17 @@ public class MeunIView extends ViewImpl {
     }
 
     private void initDrawer(final AppCompatActivity appCompatActivity) {
-        drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
 
-            }
+        myActionBarDrawerToggle = new MyActionBarDrawerToggle(
+                appCompatActivity,
+                drawer,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close
+        );
+        drawer.addDrawerListener(myActionBarDrawerToggle);
+        myActionBarDrawerToggle.syncState();
 
-            @Override
-            public void onDrawerOpened(View drawerView) {
-
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                if (mClass == null) return;
-                meunStartActivity(appCompatActivity, mClass);
-            }
-
-            @Override
-            public void onDrawerStateChanged(int newState) {
-
-            }
-        });
     }
 
     private void initNavigationView() {
@@ -211,6 +201,7 @@ public class MeunIView extends ViewImpl {
                             break;
                     }
                     DebugUtil.debugLogD("OnNavigationItemSelectedListener++++\n" + id);
+                    myActionBarDrawerToggle.setmClass(mClass);
                     drawer.closeDrawer(GravityCompat.START);
                     return false;
                 }
