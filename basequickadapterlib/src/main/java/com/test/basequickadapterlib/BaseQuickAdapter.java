@@ -123,7 +123,7 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
     }
 
     public void upAllData() {
-        upAllData(null);
+        addDatas(null);
     }
 
     /**
@@ -131,46 +131,12 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
      *
      * @param data
      */
-    public void upAllData(List<T> data) {
+    public void addDatas(List<T> data) {
         if (data != null) {
             this.data.addAll(data);
         }
         notifyDataSetChanged();
     }
 
-
-//    //TODO 动画 Animation===================================
-//
-//    protected int animID;
-//    private int lastPosition = -1;
-//
-//    /**
-//     * 设置 动画
-//     * @param animID
-//     */
-//    public void setAnimID(int animID) {
-//        this.animID = animID;
-//    }
-//
-//    public void setAdapterAnimation(View viewToAnimate, int position) {
-//
-//        if (animID == 0) {
-//            return;
-//        }
-//
-//        if (position > lastPosition) {
-//            Animation animation = AnimationUtils
-//                    .loadAnimation(viewToAnimate.getContext(), animID);
-//            viewToAnimate.startAnimation(animation);
-//            lastPosition = position;
-//        }
-//    }
-//
-//    public void clearAdapterAnimation(BaseAdapterHelper holder) {
-//        if (animID != 0 && holder.itemView.getAnimation() != null && holder.itemView
-//                .getAnimation().hasStarted()) {
-//            holder.itemView.clearAnimation();
-//        }
-//    }
 
 }
