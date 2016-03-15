@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/mvpro" />
             <option value="$PROJECT_DIR$/retrofit_and_rxjava_library" />
             <option value="$PROJECT_DIR$/smooth_app_bar_layoutlibrary" />
+            <option value="$PROJECT_DIR$/xrecyclerviewlibrary" />
           </set>
         </option>
       </GradleProjectSettings>

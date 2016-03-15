@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.meizi.iview.DBMeiNvIView;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupBreastModel;
+import com.ms.meizinewsapplication.features.meizi.model.DbGroupButtModel;
+import com.ms.meizinewsapplication.features.meizi.model.DbGroupLegModel;
 import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNv;
 
 import org.loader.model.OnModelListener;
@@ -23,6 +25,8 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
 
     private Context context;
     private DbGroupBreastModel dbGroupBreastModel;
+    private DbGroupButtModel dbGroupButtModel;
+    private DbGroupLegModel dbGroupLegModel;
 
     private int page = 1;
     private int strId;
@@ -48,6 +52,13 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
             case R.string.tab_dbmeinv_daxiong:
                 initDbGroupBreastModel();
                 break;
+            case R.string.tab_dbmeinv_qiaotun:
+                initDbGroupButtModel();
+                break;
+            case R.string.tab_dbmeinv_meitui:
+                initDbGroupLegModel();
+                break;
+
         }
     }
 
@@ -57,10 +68,30 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
 
     }
 
+    private void initDbGroupButtModel()
+    {
+        dbGroupButtModel = new DbGroupButtModel();
+        buttLoad();
+    }
+
+    private void initDbGroupLegModel()
+    {
+        dbGroupLegModel = new DbGroupLegModel();
+        legLoad();
+    }
+
+    //TODO load======================================================
+
     private void dbGroupLoad() {
         switch (strId) {
             case R.string.tab_dbmeinv_daxiong:
                 breastLoad();
+                break;
+            case R.string.tab_dbmeinv_qiaotun:
+                buttLoad();
+                break;
+            case R.string.tab_dbmeinv_meitui:
+                legLoad();
                 break;
         }
     }
@@ -68,6 +99,20 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
     private void breastLoad() {
         mView.changeProgress(true);
         dbGroupBreastModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
+    }
+
+    private void buttLoad()
+    {
+
+        mView.changeProgress(true);
+        dbGroupButtModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
+    }
+
+    private void legLoad()
+    {
+
+        mView.changeProgress(true);
+        dbGroupLegModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
     }
 
     //TODO Listener============================================================

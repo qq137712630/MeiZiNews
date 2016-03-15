@@ -245,6 +245,10 @@ Converters can be added to support other types. Six sibling modules adapt popula
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//添加 RxJava 适配器
                 .build();
 
+## 问题集
+
+ - [Retrofit error URL query string must not have replace block](http://stackoverflow.com/questions/24610243/retrofit-error-url-query-string-must-not-have-replace-block)
+
 ---
 
 #API

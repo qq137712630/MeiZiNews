@@ -19,12 +19,17 @@ public class MeiZiMainIView extends MeunIView {
     @Override
     public void initFragments(AppCompatActivity appCompatActivity) {
         super.initFragments(appCompatActivity);
-        DBMeiNuFragment dbMeiNuFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_daxiong);
+        DBMeiNuFragment breastFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_daxiong);
+        DBMeiNuFragment buttFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_qiaotun);
+        DBMeiNuFragment legFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_meitui);
 
-        fragments.add(dbMeiNuFragment);
-        fragments.add(dbMeiNuFragment);
+        fragments.add(breastFragment);
+        fragments.add(buttFragment);
+        fragments.add(legFragment);
 
         titles.add(appCompatActivity.getString(R.string.tab_dbmeinv_daxiong));
-        titles.add(appCompatActivity.getString(R.string.tab_dbmeinv_daxiong));
+        titles.add(appCompatActivity.getString(R.string.tab_dbmeinv_qiaotun));
+        titles.add(appCompatActivity.getString(R.string.tab_dbmeinv_meitui));
+
     }
 }

@@ -24,11 +24,22 @@ public interface DbGroup {
      * @param pager_offset
      * @return
      */
-    @GET("show.htm?cid=2&")
+    @GET(MeiZiApi.DB_GROUP_BREAST)
     Observable<String> RxDbGroupBreast(
             @Header("Cache-Control") String cacheControl,
             @Query("pager_offset") String pager_offset
     );
 
+    @GET(MeiZiApi.DB_GROUP_BUTT)
+    Observable<String> RxDbGroupButt(
+            @Header("Cache-Control") String cacheControl,
+            @Query("pager_offset") String pager_offset
+    );
+
+    @GET(MeiZiApi.DB_GROUP_LEG)
+    Observable<String> RxDbGroupLeg(
+            @Header("Cache-Control") String cacheControl,
+            @Query("pager_offset") String pager_offset
+    );
 
 }

@@ -97,8 +97,7 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
 
     @Override
     public void onClick(View v) {
-        if (v==null)
-        {
+        if (v == null) {
             return;
         }
         if (mOnItemClickListener != null) {
@@ -135,7 +134,9 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
         if (data != null) {
             this.data.addAll(data);
         }
-        notifyDataSetChanged();
+
+        notifyItemInserted(this.data.size() - data.size() - 1);
+//        notifyDataSetChanged();
     }
 
 
