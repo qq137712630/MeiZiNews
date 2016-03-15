@@ -341,6 +341,7 @@ Converters can be added to support other types. Six sibling modules adapt popula
 `SwipeRefreshLayout.OnRefreshListener` 下拉监听
 
 `RecyclerView.OnScrollListener` 到底监听    
+
 [Android一点 RecyclerView上拉刷新](http://blog.csdn.net/qqqgl/article/details/50353642)
 	
 	recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
