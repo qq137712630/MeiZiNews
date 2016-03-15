@@ -2,7 +2,7 @@ package com.ms.meizinewsapplication.features.meizi.meizi_web;
 
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -24,10 +24,10 @@ public interface DbGroup {
      * @param pager_offset
      * @return
      */
-    @GET(MeiZiApi.DB_GROUP_BREAST + "{pager_offset}")
+    @GET("show.htm?cid=2&")
     Observable<String> RxDbGroupBreast(
             @Header("Cache-Control") String cacheControl,
-            @Path("pager_offset") String pager_offset
+            @Query("pager_offset") String pager_offset
     );
 
 

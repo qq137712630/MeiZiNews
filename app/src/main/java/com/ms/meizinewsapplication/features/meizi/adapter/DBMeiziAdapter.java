@@ -30,10 +30,10 @@ public class DBMeiziAdapter extends QuickAdapter<DbMeiNv> {
     @Override
     protected void convert(BaseAdapterHelper helper, DbMeiNv item) {
         final RadioImageView story_img = (RadioImageView) helper.getView(R.id.story_img);
-
+        helper.getTextView(R.id.story_title).setText(item.getStory_title());
 
         Glide.with(helper.itemView.getContext())
-                .load(item)
+                .load(item.getImgUrl())
 //                                //设置占位图或者加载错误图：
 //                        .placeholder(R.drawable.ic_sun_smile)
 //                        .error(R.drawable.ic_cloud_sad)
