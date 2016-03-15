@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
+import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.meizi.iview.DBMeiNvIView;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupBreastModel;
 import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNv;
@@ -24,7 +25,11 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
     private DbGroupBreastModel dbGroupBreastModel;
 
     private int page = 1;
-    private boolean isFist = true;
+    private int strId;
+
+    public DBMeiNuFragment(int strId) {
+        this.strId = strId;
+    }
 
     @Override
     public void created(Bundle savedInstance) {
@@ -33,18 +38,35 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
         mView.init(getActivity());
         mView.setOnRefreshListener(onRefreshListener);
         mView.addOnScrollListener(onScrollListener);
-        initDbGroupBreastModel();
+        initDbGroup();
     }
 
     //TODO Model======================================================
 
+    private void initDbGroup() {
+        switch (strId) {
+            case R.string.tab_dbmeinv_daxiong:
+                initDbGroupBreastModel();
+                break;
+        }
+    }
+
     private void initDbGroupBreastModel() {
         dbGroupBreastModel = new DbGroupBreastModel();
-        loadDbGroupBreastModel();
+        breastLoad();
 
     }
 
-    private void loadDbGroupBreastModel() {
+    private void dbGroupLoad() {
+        switch (strId) {
+            case R.string.tab_dbmeinv_daxiong:
+                breastLoad();
+                break;
+        }
+    }
+
+    private void breastLoad() {
+        mView.changeProgress(true);
         dbGroupBreastModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
     }
 
@@ -54,11 +76,12 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
         @Override
         public void onSuccess(List<DbMeiNv> dbMeiNvs) {
             mView.addDatas2QuickAdapter((ArrayList<DbMeiNv>) dbMeiNvs);
+            mView.changeProgress(false);
         }
 
         @Override
         public void onError(String err) {
-
+            mView.changeProgress(false);
         }
 
         @Override
@@ -73,6 +96,8 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
     SwipeRefreshLayout.OnRefreshListener onRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
+
+            mView.changeProgress(false);
         }
     };
 
@@ -87,7 +112,8 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
             if (newState != RecyclerView.SCROLL_STATE_IDLE) {
                 return;
             }
-
+            page++;
+            dbGroupLoad();
         }
     };
 }

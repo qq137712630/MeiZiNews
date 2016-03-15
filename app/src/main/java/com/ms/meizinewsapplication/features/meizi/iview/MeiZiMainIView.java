@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 import com.ms.meizinewsapplication.features.base.view.iview.MeunIView;
-import com.ms.meizinewsapplication.features.main.fragment.ZhiHuFragment;
 import com.ms.meizinewsapplication.features.meizi.fragment.DBMeiNuFragment;
 
 /**
@@ -20,13 +19,12 @@ public class MeiZiMainIView extends MeunIView {
     @Override
     public void initFragments(AppCompatActivity appCompatActivity) {
         super.initFragments(appCompatActivity);
-        ZhiHuFragment zhiHuFragment = new ZhiHuFragment();
-        DBMeiNuFragment dbMeiNuFragment = new DBMeiNuFragment();
+        DBMeiNuFragment dbMeiNuFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_daxiong);
 
-        fragments.add(zhiHuFragment);
+        fragments.add(dbMeiNuFragment);
         fragments.add(dbMeiNuFragment);
 
-        titles.add(appCompatActivity.getString(R.string.tab_zhihu));
+        titles.add(appCompatActivity.getString(R.string.tab_dbmeinv_daxiong));
         titles.add(appCompatActivity.getString(R.string.tab_dbmeinv_daxiong));
     }
 }
