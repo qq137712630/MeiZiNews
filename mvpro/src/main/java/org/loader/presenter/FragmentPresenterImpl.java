@@ -11,11 +11,14 @@ import org.loader.helper.GenericHelper;
 import org.loader.view.IView;
 
 /**
+ * [为实现Fragment 不会重新创，仿OuNews的 BaseFragment类中的onCreateView和onDestroyView写法]
  * Fragment作为Presenter的基类 <br />
  * Created by qibin on 2015/11/15.
  */
 public class FragmentPresenterImpl<T extends IView> extends Fragment implements IPresenter<T> {
 
+
+    protected View fragmentRootView;
     protected T mView;
 
     @Nullable
@@ -24,17 +27,31 @@ public class FragmentPresenterImpl<T extends IView> extends Fragment implements 
                              Bundle savedInstanceState) {
         create(savedInstanceState);
         try {
+
+            if(fragmentRootView!=null)
+            {
+                return fragmentRootView;
+            }
+
             mView = getViewClass().newInstance();
-            View view = mView.create(inflater, container);
+            fragmentRootView = mView.create(inflater, container);
             mView.bindPresenter(this);
             mView.bindEvent();
             created(savedInstanceState);
-            return view;
+            return fragmentRootView;
         } catch(Exception e) {
             throw new RuntimeException(e.getMessage());
         }
     }
-    
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ViewGroup parent = (ViewGroup) fragmentRootView.getParent();
+        if (null != parent) {
+            parent.removeView(fragmentRootView);
+        }
+    }
 /**    
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {

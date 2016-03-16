@@ -3,7 +3,6 @@ package com.ms.meizinewsapplication.features.meizi.fragment;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
-import android.view.ViewGroup;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.meizi.iview.DBMeiNvIView;
@@ -46,14 +45,7 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
         initDbGroup();
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ViewGroup parent = (ViewGroup) mView.getmRootView().getParent();
-        if (null != parent) {
-            parent.removeView(mView.getmRootView());
-        }
-    }
+
 
 
     //TODO Model======================================================

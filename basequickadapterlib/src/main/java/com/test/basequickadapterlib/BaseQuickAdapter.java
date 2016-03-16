@@ -131,11 +131,14 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
      * @param data
      */
     public void addDatas(List<T> data) {
+
+        int size = this.data.size();
+
         if (data != null) {
             this.data.addAll(data);
         }
 
-        notifyItemInserted(this.data.size() - data.size() - 1);
+        notifyItemRangeInserted(size, data.size());
 //        notifyDataSetChanged();
     }
 
