@@ -48,4 +48,10 @@ public interface DbGroup {
             @Query("pager_offset") String pager_offset
     );
 
+    @GET(MeiZiApi.DB_GROUP_RANK)
+    Observable<String> RxDbGroupRank(
+            @Header("Cache-Control") String cacheControl,
+            @Query("pager_offset") String pager_offset
+    );
+
 }

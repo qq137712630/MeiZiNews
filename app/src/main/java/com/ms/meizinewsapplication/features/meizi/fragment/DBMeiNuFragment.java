@@ -9,6 +9,7 @@ import com.ms.meizinewsapplication.features.meizi.iview.DBMeiNvIView;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupBreastModel;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupButtModel;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupLegModel;
+import com.ms.meizinewsapplication.features.meizi.model.DbGroupRankModel;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupSilkModel;
 import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNv;
 
@@ -27,6 +28,7 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
     private DbGroupButtModel dbGroupButtModel;
     private DbGroupLegModel dbGroupLegModel;
     private DbGroupSilkModel dbGroupSilkModel;
+    private DbGroupRankModel dbGroupRankModel;
 
     private int page;
     private int strId;
@@ -64,6 +66,9 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
             case R.string.tab_dbmeinv_heisi:
                 initDbGroupSilkModel();
                 break;
+            case R.string.tab_dbmeinv_zahui:
+                initDbGroupRankModel();
+                break;
 
         }
     }
@@ -89,6 +94,11 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
         silkLoad();
     }
 
+    private void initDbGroupRankModel() {
+        dbGroupRankModel = new DbGroupRankModel();
+        rankLoad();
+    }
+
     //TODO load======================================================
 
     private void dbGroupLoad() {
@@ -105,6 +115,10 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
             case R.string.tab_dbmeinv_heisi:
                 silkLoad();
                 break;
+            case R.string.tab_dbmeinv_zahui:
+                rankLoad();
+                break;
+
         }
     }
 
@@ -131,6 +145,11 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
         dbGroupSilkModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
     }
 
+    private void rankLoad() {
+
+        mView.changeProgress(true);
+        dbGroupRankModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
+    }
     //TODO Listener============================================================
 
     OnModelListener<List<DbMeiNv>> listenerDbMeiNv = new OnModelListener<List<DbMeiNv>>() {
