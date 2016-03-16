@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="@color/material_black40"
-            android:minHeight="52dp">
+            android:minHeight="32dp">
 
             <TextView
                 android:id="@+id/story_title"
@@ -41,7 +41,7 @@
                 android:paddingRight="10dp"
                 android:text="title"
                 android:textColor="@android:color/white"
-                android:textSize="17sp" />
+                android:textSize="15sp" />
         </FrameLayout>
 
     </FrameLayout>

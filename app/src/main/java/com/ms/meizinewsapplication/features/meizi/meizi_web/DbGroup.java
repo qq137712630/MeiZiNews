@@ -42,4 +42,10 @@ public interface DbGroup {
             @Query("pager_offset") String pager_offset
     );
 
+    @GET(MeiZiApi.DB_GROUP_SILK)
+    Observable<String> RxDbGroupSilk(
+            @Header("Cache-Control") String cacheControl,
+            @Query("pager_offset") String pager_offset
+    );
+
 }

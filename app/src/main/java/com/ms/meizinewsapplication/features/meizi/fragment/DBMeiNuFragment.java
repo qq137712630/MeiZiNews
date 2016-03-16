@@ -1,15 +1,16 @@
 package com.ms.meizinewsapplication.features.meizi.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
+import android.view.ViewGroup;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.meizi.iview.DBMeiNvIView;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupBreastModel;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupButtModel;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupLegModel;
+import com.ms.meizinewsapplication.features.meizi.model.DbGroupSilkModel;
 import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNv;
 
 import org.loader.model.OnModelListener;
@@ -23,27 +24,37 @@ import java.util.List;
  */
 public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
 
-    private Context context;
     private DbGroupBreastModel dbGroupBreastModel;
     private DbGroupButtModel dbGroupButtModel;
     private DbGroupLegModel dbGroupLegModel;
+    private DbGroupSilkModel dbGroupSilkModel;
 
-    private int page = 1;
+    private int page;
     private int strId;
 
     public DBMeiNuFragment(int strId) {
         this.strId = strId;
+        page = 1;
     }
 
     @Override
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
-        context = getContext();
         mView.init(getActivity());
         mView.setOnRefreshListener(onRefreshListener);
         mView.addOnScrollListener(onScrollListener);
         initDbGroup();
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ViewGroup parent = (ViewGroup) mView.getmRootView().getParent();
+        if (null != parent) {
+            parent.removeView(mView.getmRootView());
+        }
+    }
+
 
     //TODO Model======================================================
 
@@ -58,6 +69,9 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
             case R.string.tab_dbmeinv_meitui:
                 initDbGroupLegModel();
                 break;
+            case R.string.tab_dbmeinv_heisi:
+                initDbGroupSilkModel();
+                break;
 
         }
     }
@@ -68,16 +82,19 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
 
     }
 
-    private void initDbGroupButtModel()
-    {
+    private void initDbGroupButtModel() {
         dbGroupButtModel = new DbGroupButtModel();
         buttLoad();
     }
 
-    private void initDbGroupLegModel()
-    {
+    private void initDbGroupLegModel() {
         dbGroupLegModel = new DbGroupLegModel();
         legLoad();
+    }
+
+    private void initDbGroupSilkModel() {
+        dbGroupSilkModel = new DbGroupSilkModel();
+        silkLoad();
     }
 
     //TODO load======================================================
@@ -93,6 +110,9 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
             case R.string.tab_dbmeinv_meitui:
                 legLoad();
                 break;
+            case R.string.tab_dbmeinv_heisi:
+                silkLoad();
+                break;
         }
     }
 
@@ -101,18 +121,22 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
         dbGroupBreastModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
     }
 
-    private void buttLoad()
-    {
+    private void buttLoad() {
 
         mView.changeProgress(true);
         dbGroupButtModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
     }
 
-    private void legLoad()
-    {
+    private void legLoad() {
 
         mView.changeProgress(true);
         dbGroupLegModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
+    }
+
+    private void silkLoad() {
+
+        mView.changeProgress(true);
+        dbGroupSilkModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
     }
 
     //TODO Listener============================================================

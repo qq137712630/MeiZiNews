@@ -47,4 +47,8 @@ public abstract class ViewImpl implements IView {
     public void bindEvent() {
 
     }
+
+    public View getmRootView() {
+        return mRootView;
+    }
 }

@@ -1,6 +1,7 @@
 package com.ms.meizinewsapplication.features.meizi.adapter;
 
 import android.content.Context;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -30,8 +31,9 @@ public class DBMeiziAdapter extends QuickAdapter<DbMeiNv> {
     @Override
     protected void convert(BaseAdapterHelper helper, DbMeiNv item) {
         final RadioImageView story_img = (RadioImageView) helper.getView(R.id.story_img);
-        helper.getTextView(R.id.story_title).setText(item.getStory_title());
+        TextView story_title= helper.getTextView(R.id.story_title);
 
+        story_title.setText(item.getStory_title());
         Glide.with(helper.itemView.getContext())
                 .load(item.getImgUrl())
 //                                //设置占位图或者加载错误图：

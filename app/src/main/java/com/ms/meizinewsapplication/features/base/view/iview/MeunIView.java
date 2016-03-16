@@ -162,11 +162,11 @@ public class MeunIView extends ViewImpl {
         viewpager.setAdapter(baseFragmentPagerAdapter);
     }
 
-    private void initTabLayout() {
+    protected void initTabLayout() {
 
-        viewpager.setCurrentItem(0, false);
+//        viewpager.setCurrentItem(0, false);
         tabLayout.setupWithViewPager(viewpager);
-        tabLayout.setScrollPosition(0, 0, true);
+//        tabLayout.setScrollPosition(0, 0, true);
         // 根据Tab的长度动态设置TabLayout的模式
         ViewUtil.dynamicSetTablayoutMode(tabLayout);
     }
