@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.meizi.model.DbMeiNvList;
+import com.ms.meizinewsapplication.features.photo.adapter.OnPageChangeListenerAdapter;
 import com.ms.meizinewsapplication.features.photo.adapter.PhotoDetailPagerAdapter;
 
 import org.loader.view.ViewImpl;
@@ -19,6 +20,7 @@ import java.util.List;
  */
 public class PhotoDetailIView extends ViewImpl {
 
+    private Activity activity;
     private Toolbar toolbar;
     private ViewPager viewpager;
     private TextView tv_photo_detail_page;
@@ -43,13 +45,14 @@ public class PhotoDetailIView extends ViewImpl {
     //TODO init===============================================================
 
     public void init(Activity activity) {
+        this.activity = activity;
         dbMeiNvList = (DbMeiNvList) activity.getIntent().getSerializableExtra("DbMeiNvList");
         position = activity.getIntent().getIntExtra("position", 0);
-        initTv_photo_detail_page(activity);
+        initTv_photo_detail_page(activity,position);
         initViewPager();
     }
 
-    private void initTv_photo_detail_page(Activity activity) {
+    private void initTv_photo_detail_page(Activity activity,int position) {
         String s = activity.getString(
                 R.string.photo_page,
                 position + 1,
@@ -65,5 +68,26 @@ public class PhotoDetailIView extends ViewImpl {
         photoDetailPagerAdapter = new PhotoDetailPagerAdapter(dbMeiNvList.getDbMeiNvs(), null, layoutResIds);
         viewpager.setAdapter(photoDetailPagerAdapter);
         viewpager.setCurrentItem(position);
+        viewpager.addOnPageChangeListener(onPageChangeListenerAdapter);
+
     }
+
+    //TODO Listener================================================
+    OnPageChangeListenerAdapter onPageChangeListenerAdapter = new OnPageChangeListenerAdapter() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            super.onPageSelected(position);
+            initTv_photo_detail_page(activity, position);
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+            super.onPageScrollStateChanged(state);
+        }
+    };
 }
