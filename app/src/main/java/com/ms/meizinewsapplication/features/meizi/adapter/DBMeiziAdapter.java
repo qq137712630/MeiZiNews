@@ -29,9 +29,9 @@ public class DBMeiziAdapter extends QuickAdapter<DbMeiNv> {
     }
 
     @Override
-    protected void convert(BaseAdapterHelper helper, DbMeiNv item) {
+    protected void convert(final BaseAdapterHelper helper, DbMeiNv item, int position) {
         final RadioImageView story_img = (RadioImageView) helper.getView(R.id.story_img);
-        TextView story_title= helper.getTextView(R.id.story_title);
+        TextView story_title = helper.getTextView(R.id.story_title);
 
         story_title.setText(item.getStory_title());
         Glide.with(helper.itemView.getContext())
@@ -49,5 +49,6 @@ public class DBMeiziAdapter extends QuickAdapter<DbMeiNv> {
                     }
                 });
 
+        helper.itemView.setTag(position);
     }
 }

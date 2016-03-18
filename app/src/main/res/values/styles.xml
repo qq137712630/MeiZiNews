@@ -43,4 +43,11 @@
         <item name="android:taskToBackExitAnimation">@null</item>
     </style>
 
+    <!-- ToolBar菜单样式 -->
+    <style name="ToolbarTheme" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="actionMenuTextColor">@color/material_white</item>
+        <item name="android:textColorPrimary">@color/material_white</item>
+        <item name="android:textColorSecondary">@color/material_white</item>
+    </style>
+
 </resources>

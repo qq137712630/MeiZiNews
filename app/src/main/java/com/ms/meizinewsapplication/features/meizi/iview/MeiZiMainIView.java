@@ -40,9 +40,4 @@ public class MeiZiMainIView extends MeunIView {
 
     }
 
-//    @Override
-//    protected void initTabLayout() {
-//        super.initTabLayout();
-//        viewpager.setOffscreenPageLimit(fragments.size());
-//    }
 }

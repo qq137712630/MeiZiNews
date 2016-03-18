@@ -34,4 +34,5 @@ dependencies {
     compile project(':glidelibrary')
     compile project(':convenientbannerlibrary')
     compile project(':smooth_app_bar_layoutlibrary')
+    compile project(':photoviewlibrary')
 }

@@ -22,4 +22,6 @@
     <string name="tab_dbmeinv_zahui">大杂烩</string>
 
     <string name="share_to">分享文章</string>
+
+    <string name="photo_page">%1$d/%2$d</string>
 </resources>

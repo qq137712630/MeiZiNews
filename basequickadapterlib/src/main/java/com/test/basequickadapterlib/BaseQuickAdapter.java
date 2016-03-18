@@ -83,7 +83,7 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
     public void onBindViewHolder(BaseAdapterHelper helper, int position) {
 //        helper.itemView.setTag(position);
         T item = getItem(position);
-        convert((H) helper, item);
+        convert((H) helper, item, position);
 //        setAdapterAnimation(((H) helper).itemView,position);
     }
 
@@ -93,7 +93,7 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
      * @param helper A fully initialized helper.
      * @param item   The item that needs to be displayed.
      */
-    protected abstract void convert(H helper, T item);
+    protected abstract void convert(H helper, T item, int position);
 
     @Override
     public void onClick(View v) {
@@ -108,6 +108,10 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.mOnItemClickListener = listener;
+    }
+
+    public List<T> getData() {
+        return data;
     }
 
     /**

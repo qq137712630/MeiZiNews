@@ -42,6 +42,12 @@
                 android:value=".features.main.activity.MainMvpActivity" />
         </activity>
 
+        <activity
+            android:name=".features.photo.activity.PhotoDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.SlidrTheme">
+        </activity>
     </application>
 
 </manifest>
