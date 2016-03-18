@@ -7,8 +7,12 @@ import android.widget.TextView;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.meizi.model.DbMeiNvList;
+import com.ms.meizinewsapplication.features.photo.adapter.PhotoDetailPagerAdapter;
 
 import org.loader.view.ViewImpl;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by 啟成 on 2016/3/18.
@@ -18,6 +22,7 @@ public class PhotoDetailIView extends ViewImpl {
     private Toolbar toolbar;
     private ViewPager viewpager;
     private TextView tv_photo_detail_page;
+    private PhotoDetailPagerAdapter photoDetailPagerAdapter;
 
     private DbMeiNvList dbMeiNvList;
     private int position;
@@ -41,6 +46,7 @@ public class PhotoDetailIView extends ViewImpl {
         dbMeiNvList = (DbMeiNvList) activity.getIntent().getSerializableExtra("DbMeiNvList");
         position = activity.getIntent().getIntExtra("position", 0);
         initTv_photo_detail_page(activity);
+        initViewPager();
     }
 
     private void initTv_photo_detail_page(Activity activity) {
@@ -51,5 +57,13 @@ public class PhotoDetailIView extends ViewImpl {
         );
 
         tv_photo_detail_page.setText(s);
+    }
+
+    private void initViewPager() {
+        List<Integer> layoutResIds = new ArrayList<>();
+        layoutResIds.add(R.layout.view_photo);
+        photoDetailPagerAdapter = new PhotoDetailPagerAdapter(dbMeiNvList.getDbMeiNvs(), null, layoutResIds);
+        viewpager.setAdapter(photoDetailPagerAdapter);
+        viewpager.setCurrentItem(position);
     }
 }
