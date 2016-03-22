@@ -23,4 +23,21 @@ public class JsoupUtil {
 
         return mElements;
     }
+
+    /**
+     * 获得 开发周报列表
+     * @param strHtml
+     * @return
+     */
+    public static Elements getDevWeek(String strHtml)
+    {
+
+        // 获取文档内容
+        Document doc = Jsoup.parse(strHtml);
+        // 获取元素article
+        Elements mElements = doc.select("article");
+
+        return mElements;
+    }
+
 }

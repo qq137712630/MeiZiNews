@@ -44,6 +44,11 @@ public class MyActionBarDrawerToggle extends ActionBarDrawerToggle {
     }
 
     public void meunStartActivity(Activity aty, Class<?> cls) {
+
+        if (cls == null) {
+            return;
+        }
+
         Intent intent = new Intent();
         intent.setClass(aty, cls);
         // 此标志用于启动一个Activity的时候，若栈中存在此Activity实例，则把它调到栈顶。不创建多一个

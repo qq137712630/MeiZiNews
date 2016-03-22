@@ -142,7 +142,7 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
             this.data.addAll(data);
         }
 
-        notifyItemRangeInserted(size, data.size());
+        notifyItemRangeInserted(size, this.data.size()-1);
 //        notifyDataSetChanged();
     }
 

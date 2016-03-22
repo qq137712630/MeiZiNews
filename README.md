@@ -249,6 +249,16 @@ Converters can be added to support other types. Six sibling modules adapt popula
 
  - [Retrofit error URL query string must not have replace block](http://stackoverflow.com/questions/24610243/retrofit-error-url-query-string-must-not-have-replace-block)
 
+## 其他笔记
+
+@Path:路径
+
+@Query:查询条件，如：     
+
+	xx=yy
+
+如果有多个查询条件可以使用: ` @QueryMap ` ;
+
 ---
 
 #API
@@ -284,6 +294,16 @@ Converters can be added to support other types. Six sibling modules adapt popula
     public static String DB_SILK = "http://www.dbmeinv.com/dbgroup/show.htm?cid=7&pager_offset=";
     public static String DB_LEG = "http://www.dbmeinv.com/dbgroup/show.htm?cid=3&pager_offset=";
     public static String DB_RANK="http://www.dbmeinv.com/dbgroup/rank.htm?pager_offset=";
+
+## Android开发技术周报
+
+网址
+
+[http://androidweekly.cn](http://androidweekly.cn)
+
+例子：
+
+[http://androidweekly.cn/page/2/](http://androidweekly.cn/page/2/)
 
 ---
 

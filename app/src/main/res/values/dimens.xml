@@ -11,4 +11,9 @@
     <dimen name="app_bar_large">230dp</dimen>
     <dimen name="home_header_height">201dp</dimen>
     <dimen name="normal_list_padding_bottom">36dp</dimen>
+
+
+    <dimen name="text_title">24sp</dimen>
+    <dimen name="text_main">16sp</dimen>
+    <dimen name="text_padding">10dp</dimen>
 </resources>

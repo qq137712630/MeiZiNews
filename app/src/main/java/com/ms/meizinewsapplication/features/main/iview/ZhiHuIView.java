@@ -1,9 +1,6 @@
 package com.ms.meizinewsapplication.features.main.iview;
 
 import android.app.Activity;
-import android.app.ActivityOptions;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,7 +15,6 @@ import com.ms.meizinewsapplication.features.main.adapter.ZhiHuAdapter;
 import com.ms.meizinewsapplication.features.main.banner.ZhiHuTopBannerView;
 import com.ms.meizinewsapplication.features.main.json.Stories;
 import com.ms.meizinewsapplication.features.main.json.TopStories;
-import com.test.basequickadapterlib.head.BaseHeadRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,12 +50,7 @@ public class ZhiHuIView extends RecyclerIView {
         recycler_list.setItemAnimator(new DefaultItemAnimator());
 
         zhiHuAdapter = new ZhiHuAdapter(activity, R.layout.fragment_news_item);
-        zhiHuAdapter.setOnItemClickListener(new BaseHeadRecyclerAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
 
-            }
-        });
         recycler_list.setAdapter(zhiHuAdapter);
     }
 

@@ -181,7 +181,7 @@ public class MeunIView extends ViewImpl {
             new NavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(MenuItem item) {
-
+                    mClass = null;
                     // Handle navigation view item clicks here.
                     int id = item.getItemId();
                     switch (id) {
