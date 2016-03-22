@@ -48,6 +48,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.SlidrTheme">
         </activity>
+        <activity
+            android:name=".features.main.activity.DevWeekDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.SlidrTheme">
+
+        </activity>
+
     </application>
 
 </manifest>
