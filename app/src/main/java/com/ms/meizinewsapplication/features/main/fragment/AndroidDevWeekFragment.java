@@ -2,6 +2,8 @@ package com.ms.meizinewsapplication.features.main.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 
 import com.ms.meizinewsapplication.features.main.iview.AndroidDevWeekIVew;
 import com.ms.meizinewsapplication.features.main.model.DevWeekModel;
@@ -28,6 +30,8 @@ public class AndroidDevWeekFragment extends FragmentPresenterImpl<AndroidDevWeek
         super.created(savedInstance);
         mContext = getContext();
         mView.init(mContext);
+        mView.setOnRefreshListener(onRefreshListener);
+        mView.addOnScrollListener(onScrollListener);
         initDevWeekModel();
     }
 
@@ -47,10 +51,17 @@ public class AndroidDevWeekFragment extends FragmentPresenterImpl<AndroidDevWeek
 
     //TODO Listener============================================================
 
+    private boolean isEnd = false;
+
     OnModelListener<List<AndroidDevWeek>> listenerDevWeek = new OnModelListener<List<AndroidDevWeek>>() {
         @Override
         public void onSuccess(List<AndroidDevWeek> androidDevWeeks) {
             mView.addDatas2QuickAdapter((ArrayList<AndroidDevWeek>) androidDevWeeks);
+
+            if (androidDevWeeks.get(androidDevWeeks.size() - 1).getTitle().contains("关于Android")) {
+                isEnd = true;
+            }
+
             mView.changeProgress(false);
         }
 
@@ -64,4 +75,40 @@ public class AndroidDevWeekFragment extends FragmentPresenterImpl<AndroidDevWeek
 
         }
     };
+
+    /**
+     * 下拉监听
+     */
+    SwipeRefreshLayout.OnRefreshListener onRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+
+            mView.changeProgress(false);
+        }
+    };
+
+    /**
+     * 到底监听
+     */
+    RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
+        @Override
+        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            super.onScrollStateChanged(recyclerView, newState);
+
+            if(isEnd){
+                return;
+            }
+
+
+            if (newState != RecyclerView.SCROLL_STATE_IDLE ) {
+                return;
+            }
+
+
+
+            page++;
+            devWeekModelLoad();
+        }
+    };
+
 }

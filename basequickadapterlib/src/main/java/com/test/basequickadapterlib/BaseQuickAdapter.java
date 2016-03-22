@@ -142,7 +142,8 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
             this.data.addAll(data);
         }
 
-        notifyItemRangeInserted(size, this.data.size()-1);
+        //[在 position 位置插入了 count 个新项目](https://xingrz.me/2014/2014-11-02/recycler-view-item-animation.html)
+        notifyItemRangeInserted(size, data.size());//在 position 位置插入了 count 个新项目
 //        notifyDataSetChanged();
     }
 
