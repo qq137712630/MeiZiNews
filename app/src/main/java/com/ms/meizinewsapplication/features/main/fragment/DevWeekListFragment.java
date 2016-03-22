@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
-import com.ms.meizinewsapplication.features.main.iview.AndroidDevWeekIVew;
+import com.ms.meizinewsapplication.features.main.iview.DevWeekListIVew;
 import com.ms.meizinewsapplication.features.main.model.DevWeekModel;
 import com.ms.meizinewsapplication.features.main.pojo.AndroidDevWeek;
 
@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by 啟成 on 2016/3/22.
  */
-public class AndroidDevWeekFragment extends FragmentPresenterImpl<AndroidDevWeekIVew> {
+public class DevWeekListFragment extends FragmentPresenterImpl<DevWeekListIVew> {
 
     private Context mContext;
     private DevWeekModel devWeekModel;

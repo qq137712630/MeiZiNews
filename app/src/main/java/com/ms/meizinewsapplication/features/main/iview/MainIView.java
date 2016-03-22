@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 import com.ms.meizinewsapplication.features.base.view.iview.MeunIView;
-import com.ms.meizinewsapplication.features.main.fragment.AndroidDevWeekFragment;
+import com.ms.meizinewsapplication.features.main.fragment.DevWeekListFragment;
 import com.ms.meizinewsapplication.features.main.fragment.ZhiHuFragment;
 
 /**
@@ -26,9 +26,9 @@ public class MainIView extends MeunIView {
     public void initFragments(AppCompatActivity appCompatActivity) {
         super.initFragments(appCompatActivity);
         ZhiHuFragment zhiHuFragment = new ZhiHuFragment();
-        AndroidDevWeekFragment androidDevWeekFragment = new AndroidDevWeekFragment();
+        DevWeekListFragment devWeekListFragment = new DevWeekListFragment();
         fragments.add(zhiHuFragment);
-        fragments.add(androidDevWeekFragment);
+        fragments.add(devWeekListFragment);
         titles.add(appCompatActivity.getString(R.string.tab_zhihu));
         titles.add(appCompatActivity.getString(R.string.tab_dev));
 

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by 啟成 on 2016/3/21.
  */
-public class AndroidDevWeekIVew extends RecyclerIView {
+public class DevWeekListIVew extends RecyclerIView {
 
     private AndroidDevWeekAdapter androidDevWeekAdapter;
 
