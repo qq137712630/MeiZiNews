@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AVLoadingIndicatorView"><attr name="indicator"><flag name="BallPulse" value="0"/><flag name="BallGridPulse" value="1"/><flag name="BallClipRotate" value="2"/><flag name="BallClipRotatePulse" value="3"/><flag name="SquareSpin" value="4"/><flag name="BallClipRotateMultiple" value="5"/><flag name="BallPulseRise" value="6"/><flag name="BallRotate" value="7"/><flag name="CubeTransition" value="8"/><flag name="BallZigZag" value="9"/><flag name="BallZigZagDeflect" value="10"/><flag name="BallTrianglePath" value="11"/><flag name="BallScale" value="12"/><flag name="LineScale" value="13"/><flag name="LineScaleParty" value="14"/><flag name="BallScaleMultiple" value="15"/><flag name="BallPulseSync" value="16"/><flag name="BallBeat" value="17"/><flag name="LineScalePulseOut" value="18"/><flag name="LineScalePulseOutRapid" value="19"/><flag name="BallScaleRipple" value="20"/><flag name="BallScaleRippleMultiple" value="21"/><flag name="BallSpinFadeLoader" value="22"/><flag name="LineSpinFadeLoader" value="23"/><flag name="TriangleSkewSpin" value="24"/><flag name="Pacman" value="25"/><flag name="BallGridBeat" value="26"/><flag name="SemiCircleSpin" value="27"/></attr><attr format="color" name="indicator_color"/></declare-styleable>
+    <!-- From: file:/android/plugin/XRecyclerView/xrecyclerview/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="textandiconmargin">10dp</dimen>
+    <!-- From: file:/android/plugin/XRecyclerView/xrecyclerview/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="listview_header_hint_normal">pull to refresh</string>
+    <string name="listview_header_hint_release">release to start refresh</string>
+    <string name="listview_header_last_time">last update：</string>
+    <string name="listview_loading">loading...</string>
+    <string name="nomore_loading">no more to be loaded</string>
+    <string name="refresh_done">refresh done</string>
+    <string name="refreshing">refreshing...</string>
+</resources>

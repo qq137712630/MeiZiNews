@@ -1,0 +1,140 @@
+[
+    {
+        "outputFile": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-zh\\values-zh.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 60,
+                    "endOffset": 111
+                },
+                "from": {
+                    "file": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.jcodecraeer\\xrecyclerview\\1.2.6\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 177,
+                        "endColumn": 60,
+                        "endOffset": 233
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 116,
+                    "endColumn": 63,
+                    "endOffset": 175
+                },
+                "from": {
+                    "file": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.jcodecraeer\\xrecyclerview\\1.2.6\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 238,
+                        "endColumn": 63,
+                        "endOffset": 297
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 180,
+                    "endColumn": 61,
+                    "endOffset": 237
+                },
+                "from": {
+                    "file": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.jcodecraeer\\xrecyclerview\\1.2.6\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 302,
+                        "endColumn": 61,
+                        "endOffset": 359
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 242,
+                    "endColumn": 52,
+                    "endOffset": 290
+                },
+                "from": {
+                    "file": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.jcodecraeer\\xrecyclerview\\1.2.6\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 364,
+                        "endColumn": 52,
+                        "endOffset": 412
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 295,
+                    "endColumn": 46,
+                    "endOffset": 337
+                },
+                "from": {
+                    "file": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.jcodecraeer\\xrecyclerview\\1.2.6\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 417,
+                        "endColumn": 46,
+                        "endOffset": 459
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 342,
+                    "endColumn": 45,
+                    "endOffset": 383
+                },
+                "from": {
+                    "file": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.jcodecraeer\\xrecyclerview\\1.2.6\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 464,
+                        "endColumn": 45,
+                        "endOffset": 505
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 388,
+                    "endColumn": 46,
+                    "endOffset": 430
+                },
+                "from": {
+                    "file": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.jcodecraeer\\xrecyclerview\\1.2.6\\res\\values-zh\\values-zh.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 510,
+                        "endColumn": 46,
+                        "endOffset": 552
+                    }
+                }
+            }
+        ]
+    }
+]
