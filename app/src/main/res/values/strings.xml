@@ -10,6 +10,21 @@
 
     <string name="action_settings">Settings</string>
     <string name="ic_news">阅读</string>
-    <string name="tab_zhihu">知乎</string>
+    <string name="ic_meizi">妹子图</string>
+
+
+    <string name="tab_zhihu">知乎日报</string>
+    <string name="tab_dev">Android开发技术周报</string>
+
+
+    <string name="tab_dbmeinv">豆瓣美女</string>
+    <string name="tab_dbmeinv_daxiong">大胸妹</string>
+    <string name="tab_dbmeinv_qiaotun">小翘臀</string>
+    <string name="tab_dbmeinv_meitui">美腿控</string>
+    <string name="tab_dbmeinv_heisi">黑丝袜</string>
+    <string name="tab_dbmeinv_zahui">大杂烩</string>
+
     <string name="share_to">分享文章</string>
+
+    <string name="photo_page">%1$d/%2$d</string>
 </resources>

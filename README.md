@@ -135,6 +135,99 @@ Converters can be added to support other types. Six sibling modules adapt popula
 		okHttpClient = new OkHttpClient.Builder()
 		     .cache(cache)
 		     .build();
+		
+	栗子：
+	
+		// 完成缓存
+		public class MyOkHttpClient {
+		
+		    //设缓存有效期为两天
+		    protected static final long CACHE_STALE_SEC = 60 * 60 * 24 * 2;
+		    //查询缓存的Cache-Control设置，为if-only-cache时只查询缓存而不会请求服务器，max-stale可以配合设置缓存失效时间
+		    protected static final String CACHE_CONTROL_CACHE = "only-if-cached, max-stale=" + CACHE_STALE_SEC;
+		    //查询网络的Cache-Control设置，头部Cache-Control设为max-age=0时则不会使用缓存而请求服务器
+		    protected static final String CACHE_CONTROL_NETWORK = "max-age=0";
+		
+		    private String TAG = "MyOkHttpClient";
+		
+		    private OkHttpClient okHttpClient;
+		    private static MyOkHttpClient myOkHttpClient;
+		
+		    public static MyOkHttpClient getMyOkHttpClient() {
+		        if (myOkHttpClient == null) {
+		            myOkHttpClient = new MyOkHttpClient();
+		
+		        }
+		
+		        return myOkHttpClient;
+		    }
+		
+		    /**
+		     * 初始化
+		     *
+		     * @param mContext
+		     */
+		    public void init(final Context mContext) {
+		
+		        if (okHttpClient != null) {
+		            return;
+		        }
+		
+		
+		        Log.e(TAG, "初始化okHttpClient");
+		        // 因为BaseUrl不同所以这里Retrofit不为静态，但是OkHttpClient配置是一样的,静态创建一次即可
+		        File cacheFile = new File(
+		                mContext.getCacheDir(),
+		                "HttpCache"
+		        ); // 指定缓存路径
+		        Cache cache = new Cache(cacheFile, 1024 * 1024 * 100); // 指定缓存大小100Mb
+		        // 云端响应头拦截器，用来配置缓存策略
+		        Interceptor rewriteCacheControlInterceptor = new Interceptor() {
+		            @Override
+		            public Response intercept(Chain chain) throws IOException {
+		                Request request = chain.request();
+		                if (!NetUtil.isConnected(mContext)) {
+		                    request = request.newBuilder()
+		                            .cacheControl(CacheControl.FORCE_CACHE).build();
+		                    Log.e(TAG, "no network");
+		                }
+		                Response originalResponse = chain.proceed(request);
+		                if (NetUtil.isConnected(mContext)) {
+		                    //有网的时候读接口上的@Headers里的配置，你可以在这里进行统一的设置
+		                    String cacheControl = request.cacheControl().toString();
+		                    return originalResponse.newBuilder()
+		                            .header("Cache-Control", cacheControl)
+		                            .removeHeader("Pragma").build();
+		                } else {
+		                    return originalResponse.newBuilder().header("Cache-Control",
+		                            "public, only-if-cached," + CACHE_STALE_SEC)
+		                            .removeHeader("Pragma").build();
+		                }
+		            }
+		        };
+		        okHttpClient = new OkHttpClient.Builder().cache(cache)
+		                .addNetworkInterceptor(rewriteCacheControlInterceptor)
+		                .addInterceptor(rewriteCacheControlInterceptor)
+		                .connectTimeout(30, TimeUnit.SECONDS).build();
+		
+		    }
+		
+		    public OkHttpClient getOkHttpClient() {
+		        return okHttpClient;
+		    }
+		
+		    /**
+		     * 根据网络状况获取缓存的策略
+		     *
+		     * @return
+		     */
+		    @NonNull
+		    public static String getCacheControl(Context mContext) {
+		        return NetUtil.isConnected(mContext) ? CACHE_CONTROL_NETWORK : CACHE_CONTROL_CACHE;
+		    }
+		
+		}
+
 
  2. 配置请求头中的cache-control
 	
@@ -151,6 +244,20 @@ Converters can be added to support other types. Six sibling modules adapt popula
                 .addConverterFactory(GsonConverterFactory.create())//添加 json 转换器
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//添加 RxJava 适配器
                 .build();
+
+## 问题集
+
+ - [Retrofit error URL query string must not have replace block](http://stackoverflow.com/questions/24610243/retrofit-error-url-query-string-must-not-have-replace-block)
+
+## 其他笔记
+
+@Path:路径
+
+@Query:查询条件，如：     
+
+	xx=yy
+
+如果有多个查询条件可以使用: ` @QueryMap ` ;
 
 ---
 
@@ -187,6 +294,16 @@ Converters can be added to support other types. Six sibling modules adapt popula
     public static String DB_SILK = "http://www.dbmeinv.com/dbgroup/show.htm?cid=7&pager_offset=";
     public static String DB_LEG = "http://www.dbmeinv.com/dbgroup/show.htm?cid=3&pager_offset=";
     public static String DB_RANK="http://www.dbmeinv.com/dbgroup/rank.htm?pager_offset=";
+
+## Android开发技术周报
+
+网址
+
+[http://androidweekly.cn](http://androidweekly.cn)
+
+例子：
+
+[http://androidweekly.cn/page/2/](http://androidweekly.cn/page/2/)
 
 ---
 
@@ -248,6 +365,7 @@ Converters can be added to support other types. Six sibling modules adapt popula
 `SwipeRefreshLayout.OnRefreshListener` 下拉监听
 
 `RecyclerView.OnScrollListener` 到底监听    
+
 [Android一点 RecyclerView上拉刷新](http://blog.csdn.net/qqqgl/article/details/50353642)
 	
 	recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -289,3 +407,7 @@ Converters can be added to support other types. Six sibling modules adapt popula
  - [给安卓初学者的12篇教程](http://android.jobbole.com/76447/)
  - [android:configChanges属性](http://blog.csdn.net/goyoung/article/details/8921139)
  - [android:screenOrientation属性](http://blog.csdn.net/nmgchfzhzhg/article/details/8077133)
+ - [android：ToolBar详解（手把手教程）](http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2006.html)
+ - [为实现Fragment 不会重新创，仿OuNews的 BaseFragment类中的onCreateView和onDestroyView写法](https://github.com/oubowu/OuNews/blob/a42f773e26a27eeadda385afaa40f8fc8e5745dc/app/src/main/java/com/oushangfeng/ounews/base/BaseFragment.java)
+ 
+## 

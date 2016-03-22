@@ -5,10 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="5dp"
-    app:cardCornerRadius="1dp"
-    app:cardElevation="1dp">
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp">
 
     <!--[ANDROID L——Material Design详解（动画篇）](http://blog.csdn.net/a396901990/article/details/40187203)-->
     <RelativeLayout
@@ -21,8 +19,8 @@
             android:id="@+id/story_img"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:scaleType="centerCrop"
             android:layout_margin="4dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_menu_gallery"
             android:transitionName="@string/shared_img" />
 
@@ -43,5 +41,15 @@
             android:transitionName="@string/share_title"
             tools:ignore="RtlSymmetry" />
 
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_below="@+id/story_img"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:background="@color/material_black25" />
     </RelativeLayout>
 </android.support.v7.widget.CardView>

@@ -83,7 +83,7 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
     public void onBindViewHolder(BaseAdapterHelper helper, int position) {
 //        helper.itemView.setTag(position);
         T item = getItem(position);
-        convert((H) helper, item);
+        convert((H) helper, item, position);
 //        setAdapterAnimation(((H) helper).itemView,position);
     }
 
@@ -93,12 +93,11 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
      * @param helper A fully initialized helper.
      * @param item   The item that needs to be displayed.
      */
-    protected abstract void convert(H helper, T item);
+    protected abstract void convert(H helper, T item, int position);
 
     @Override
     public void onClick(View v) {
-        if (v==null)
-        {
+        if (v == null) {
             return;
         }
         if (mOnItemClickListener != null) {
@@ -109,6 +108,10 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.mOnItemClickListener = listener;
+    }
+
+    public List<T> getData() {
+        return data;
     }
 
     /**
@@ -123,7 +126,7 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
     }
 
     public void upAllData() {
-        upAllData(null);
+        addDatas(null);
     }
 
     /**
@@ -131,46 +134,18 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
      *
      * @param data
      */
-    public void upAllData(List<T> data) {
+    public void addDatas(List<T> data) {
+
+        int size = this.data.size();
+
         if (data != null) {
             this.data.addAll(data);
         }
-        notifyDataSetChanged();
+
+        //[在 position 位置插入了 count 个新项目](https://xingrz.me/2014/2014-11-02/recycler-view-item-animation.html)
+        notifyItemRangeInserted(size, data.size());//在 position 位置插入了 count 个新项目
+//        notifyDataSetChanged();
     }
 
-
-//    //TODO 动画 Animation===================================
-//
-//    protected int animID;
-//    private int lastPosition = -1;
-//
-//    /**
-//     * 设置 动画
-//     * @param animID
-//     */
-//    public void setAnimID(int animID) {
-//        this.animID = animID;
-//    }
-//
-//    public void setAdapterAnimation(View viewToAnimate, int position) {
-//
-//        if (animID == 0) {
-//            return;
-//        }
-//
-//        if (position > lastPosition) {
-//            Animation animation = AnimationUtils
-//                    .loadAnimation(viewToAnimate.getContext(), animID);
-//            viewToAnimate.startAnimation(animation);
-//            lastPosition = position;
-//        }
-//    }
-//
-//    public void clearAdapterAnimation(BaseAdapterHelper holder) {
-//        if (animID != 0 && holder.itemView.getAnimation() != null && holder.itemView
-//                .getAnimation().hasStarted()) {
-//            holder.itemView.clearAnimation();
-//        }
-//    }
 
 }

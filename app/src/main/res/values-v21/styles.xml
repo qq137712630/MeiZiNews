@@ -1,6 +1,10 @@
 <resources>>
 
     <style name="AppTheme.NoActionBar">
+
+
+        <item name="android:windowAnimationStyle">@style/noAnimation</item>
+
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
@@ -23,6 +27,7 @@
     </style>
 
     <style name="AppTheme.SlidrTheme">
+
         <item name="android:windowIsTranslucent">true</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
