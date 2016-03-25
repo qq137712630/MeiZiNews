@@ -24,6 +24,7 @@
     </android.support.design.widget.AppBarLayout>
 
 
+    <include layout="@layout/view_progress_bar"></include>
     <include layout="@layout/content_news_detail" />
 
 

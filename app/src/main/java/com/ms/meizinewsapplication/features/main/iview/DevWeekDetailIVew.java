@@ -7,6 +7,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 
 import com.ms.meizinewsapplication.R;
 
@@ -20,11 +21,13 @@ public class DevWeekDetailIVew extends ViewImpl {
 
     private FrameLayout webContainer;
     private WebView webView;
+    private ProgressBar progress;
 
     @Override
     public void created() {
         super.created();
         webContainer = findViewById(R.id.web_container);
+        progress = findViewById(R.id.progress);
     }
 
     @Override
@@ -70,6 +73,8 @@ public class DevWeekDetailIVew extends ViewImpl {
                     view.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+
+                            progressGone();
                             view.setVisibility(View.VISIBLE);
                         }
                     }, 300);
@@ -77,6 +82,12 @@ public class DevWeekDetailIVew extends ViewImpl {
             }
         });
     }
+
+    public void progressGone() {
+        progress.setVisibility(View.GONE);
+    }
+
+    //TODO Mode ===================================================
 
     public void showDetail(String html) {
         webView.loadDataWithBaseURL("x-data://base", html, "text/html", "UTF-8", null);

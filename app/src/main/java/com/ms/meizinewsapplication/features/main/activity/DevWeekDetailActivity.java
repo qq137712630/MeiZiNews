@@ -42,7 +42,7 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
 
         @Override
         public void onError(String err) {
-
+            mView.progressGone();
         }
 
         @Override
