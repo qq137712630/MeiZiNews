@@ -30,7 +30,7 @@ public class AndroidDevWeekAdapter extends QuickAdapter<AndroidDevWeek> {
     }
 
     @Override
-    protected void convert(final BaseAdapterHelper helper, AndroidDevWeek item, int position) {
+    protected void convert(final BaseAdapterHelper helper, final AndroidDevWeek item, int position) {
 
         helper.getTextView(R.id.story_title).setText(item.getTitle());
         helper.getTextView(R.id.story_excerpt).setText(item.getExcerpt());
@@ -43,6 +43,7 @@ public class AndroidDevWeekAdapter extends QuickAdapter<AndroidDevWeek> {
 
 
                 Intent intent = new Intent(context, DevWeekDetailActivity.class);
+                intent.putExtra("path",item.getUrl());
                 //让新的Activity从一个小的范围扩大到全屏
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(
                         helper.getTextView(R.id.story_title), helper.getTextView(R.id.story_title).getWidth() / 2,

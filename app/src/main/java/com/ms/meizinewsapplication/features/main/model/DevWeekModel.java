@@ -57,11 +57,13 @@ public class DevWeekModel implements CommonModel<List<AndroidDevWeek>> {
                     Element excerptElement = tempElement.select("section").first();
                     Element footerElement = tempElement.select("footer").first();
 
+                    String url = titleElement.select("a").first().attr("href");
+
                     androidDevWeek.setTitle(titleElement.text());
                     androidDevWeek.setExcerpt(excerptElement.text());
                     androidDevWeek.setAuthor(footerElement.select("a").first().text());
                     androidDevWeek.setDate(footerElement.select("time").first().text());
-                    androidDevWeek.setUrl(MainApi.DEV_WEEK + titleElement.select("a").first().attr("href").substring(1));
+                    androidDevWeek.setUrl(url.substring(1, url.length() - 1));
 
                     androidDevWeekList.add(androidDevWeek);
                 }
@@ -79,7 +81,7 @@ public class DevWeekModel implements CommonModel<List<AndroidDevWeek>> {
 
                     @Override
                     public void onError(Throwable e) {
-                        DebugUtil.debugLogErr(e, "ZhiHuLatestModel+++++\n" + e.toString());
+                        DebugUtil.debugLogErr(e, "DevWeekModel+++++\n" + e.toString());
                         listener.onError(e.toString());
                     }
 

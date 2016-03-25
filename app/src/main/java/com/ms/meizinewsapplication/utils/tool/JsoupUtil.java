@@ -40,4 +40,19 @@ public class JsoupUtil {
         return mElements;
     }
 
+    /**
+     * 获得周报详情
+     * @param strHtml
+     * @return
+     */
+    public static Elements getDevWeekDetail(String strHtml)
+    {
+
+        // 获取文档内容
+        Document doc = Jsoup.parse(strHtml);
+        // 获取元素section
+        Elements mElements = doc.select("section[class=post-content]");
+
+        return mElements;
+    }
 }
