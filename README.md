@@ -332,10 +332,14 @@ Converters can be added to support other types. Six sibling modules adapt popula
  
 ## 头部： CoordinatorLayout CollapsingToolbarLayout
 	
-	以哪个为固定:
-	android:fitsSystemWindows="true"
+	
+
 	
  - [CoordinatorLayout与滚动的处理](http://www.open-open.com/lib/view/open1437312265428.html)
+ - [该使用 fitsSystemWindows 了！](http://ju.outofmemory.cn/entry/247350)或[该使用 fitsSystemWindows 了！]( http://blog.chengyunfeng.com/?p=905)
+
+	    以哪个为固定:
+	    android:fitsSystemWindows="true"
  
 ### CoordinatorLayout
 
@@ -345,7 +349,7 @@ Converters can be added to support other types. Six sibling modules adapt popula
  
  注：CoordinatorLayout如果是最外的布局要去掉：
  
-	android:fitsSystemWindows
+	
  
  1、CoordinatorLayout必须作为整个布局的父布局容器。
  2、 给需要滑动的组件设置 app:layout_scrollFlags=”scroll|enterAlways” 属性。
@@ -409,5 +413,5 @@ Converters can be added to support other types. Six sibling modules adapt popula
  - [android:screenOrientation属性](http://blog.csdn.net/nmgchfzhzhg/article/details/8077133)
  - [android：ToolBar详解（手把手教程）](http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2006.html)
  - [为实现Fragment 不会重新创，仿OuNews的 BaseFragment类中的onCreateView和onDestroyView写法](https://github.com/oubowu/OuNews/blob/a42f773e26a27eeadda385afaa40f8fc8e5745dc/app/src/main/java/com/oushangfeng/ounews/base/BaseFragment.java)
+ - [menu-Android ActionBar详解](http://blog.csdn.net/huiguixian/article/details/9836189)
  
-## 

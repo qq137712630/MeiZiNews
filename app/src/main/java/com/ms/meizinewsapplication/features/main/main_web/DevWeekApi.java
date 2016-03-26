@@ -17,4 +17,10 @@ public interface DevWeekApi {
             @Path("page") String page
     );
 
+
+    @GET("{Path}")
+    Observable<String> RxDevWeekDetail(
+            @Header("Cache-Control") String cacheControl,
+            @Path("Path") String path
+    );
 }

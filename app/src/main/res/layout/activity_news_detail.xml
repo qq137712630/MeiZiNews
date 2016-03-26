@@ -51,13 +51,8 @@
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
-    <ProgressBar
-        android:id="@+id/progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:visibility="visible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+
+    <include layout="@layout/view_progress_bar"></include>
     <include layout="@layout/content_news_detail" />
 
     <android.support.design.widget.FloatingActionButton
