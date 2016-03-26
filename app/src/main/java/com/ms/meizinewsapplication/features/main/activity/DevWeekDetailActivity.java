@@ -1,6 +1,7 @@
 package com.ms.meizinewsapplication.features.main.activity;
 
 import android.os.Bundle;
+import android.view.Menu;
 
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
 import com.ms.meizinewsapplication.features.main.iview.DevWeekDetailIVew;
@@ -14,6 +15,7 @@ import org.loader.model.OnModelListener;
 public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDetailIVew> {
     private DevWeekDetailModel devWeekDetailModel;
     private String path;
+
     @Override
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
@@ -33,10 +35,14 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
         mView.onResume();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return mView.onCreateOptionsMenu(DevWeekDetailActivity.this, menu);
+    }
+
     //TODO Model====================================================
 
-    private void initDevWeekDetailModel()
-    {
+    private void initDevWeekDetailModel() {
         path = getIntent().getStringExtra("path");
         devWeekDetailModel = new DevWeekDetailModel();
         devWeekModelLoad();

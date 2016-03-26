@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -12,6 +14,8 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.ms.meizinewsapplication.R;
+import com.ms.meizinewsapplication.features.main.main_web.MainApi;
+import com.ms.meizinewsapplication.utils.tool.Share;
 
 import org.loader.view.ViewImpl;
 
@@ -25,6 +29,8 @@ public class DevWeekDetailIVew extends ViewImpl {
     private WebView webView;
     private ProgressBar progress;
     private Toolbar toolbar;
+
+    private AppCompatActivity activity;
 
     @Override
     public void created() {
@@ -54,21 +60,28 @@ public class DevWeekDetailIVew extends ViewImpl {
         webContainer.removeAllViews();
     }
 
+    public boolean onCreateOptionsMenu(AppCompatActivity activity, Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        activity.getMenuInflater().inflate(R.menu.menu_detail, menu);
+        return true;
+    }
+
     //TODO init =================================================
 
     public void init(AppCompatActivity activity) {
+        this.activity = activity;
         initToolbar(activity);
         initWebView(activity);
     }
 
     /**
      * 设置左上角的返回键与它的点击效果
+     *
      * @param appCompatActivity
      */
     private void initToolbar(final AppCompatActivity appCompatActivity) {
 
         toolbar.setTitle(appCompatActivity.getIntent().getStringExtra("title"));
-
         appCompatActivity.setSupportActionBar(toolbar);
 
         if (appCompatActivity.getSupportActionBar() == null) {
@@ -90,6 +103,8 @@ public class DevWeekDetailIVew extends ViewImpl {
                 }
             }
         });
+
+        toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
 
     }
 
@@ -130,4 +145,22 @@ public class DevWeekDetailIVew extends ViewImpl {
         String html = "<html><head></head><body>" + body + "</body></html>";
         webView.loadDataWithBaseURL("x-data://base", html, "text/html", "UTF-8", null);
     }
+
+
+    //TODO Listener====================
+
+    Toolbar.OnMenuItemClickListener onMenuItemClickListener = new Toolbar.OnMenuItemClickListener() {
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+
+            switch (item.getItemId()) {
+                case R.id.menu_share:
+                    Share.shareText(activity, MainApi.DEV_WEEK + activity.getIntent().getStringExtra("path"));
+                    break;
+
+            }
+
+            return false;
+        }
+    };
 }
