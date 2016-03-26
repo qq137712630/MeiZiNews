@@ -20,6 +20,19 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
         mView.init(DevWeekDetailActivity.this);
         initDevWeekDetailModel();
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mView.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mView.onResume();
+    }
+
     //TODO Model====================================================
 
     private void initDevWeekDetailModel()

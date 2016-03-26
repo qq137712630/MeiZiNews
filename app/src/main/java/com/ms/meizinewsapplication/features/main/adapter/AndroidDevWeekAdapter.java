@@ -44,6 +44,8 @@ public class AndroidDevWeekAdapter extends QuickAdapter<AndroidDevWeek> {
 
                 Intent intent = new Intent(context, DevWeekDetailActivity.class);
                 intent.putExtra("path",item.getUrl());
+                intent.putExtra("title",item.getTitle());
+
                 //让新的Activity从一个小的范围扩大到全屏
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(
                         helper.getTextView(R.id.story_title), helper.getTextView(R.id.story_title).getWidth() / 2,

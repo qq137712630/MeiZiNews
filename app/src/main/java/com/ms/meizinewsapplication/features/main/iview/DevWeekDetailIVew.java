@@ -1,7 +1,9 @@
 package com.ms.meizinewsapplication.features.main.iview;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -22,12 +24,14 @@ public class DevWeekDetailIVew extends ViewImpl {
     private FrameLayout webContainer;
     private WebView webView;
     private ProgressBar progress;
+    private Toolbar toolbar;
 
     @Override
     public void created() {
         super.created();
         webContainer = findViewById(R.id.web_container);
         progress = findViewById(R.id.progress);
+        toolbar = findViewById(R.id.toolbar);
     }
 
     @Override
@@ -53,7 +57,40 @@ public class DevWeekDetailIVew extends ViewImpl {
     //TODO init =================================================
 
     public void init(AppCompatActivity activity) {
+        initToolbar(activity);
         initWebView(activity);
+    }
+
+    /**
+     * 设置左上角的返回键与它的点击效果
+     * @param appCompatActivity
+     */
+    private void initToolbar(final AppCompatActivity appCompatActivity) {
+
+        toolbar.setTitle(appCompatActivity.getIntent().getStringExtra("title"));
+
+        appCompatActivity.setSupportActionBar(toolbar);
+
+        if (appCompatActivity.getSupportActionBar() == null) {
+            return;
+        }
+
+        appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+//        [android：ToolBar详解（手把手教程）](http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2006.html)
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    appCompatActivity.finishAfterTransition();
+                } else {
+                    appCompatActivity.finish();
+                }
+            }
+        });
+
     }
 
     public void initWebView(Context context) {
@@ -89,7 +126,8 @@ public class DevWeekDetailIVew extends ViewImpl {
 
     //TODO Mode ===================================================
 
-    public void showDetail(String html) {
+    public void showDetail(String body) {
+        String html = "<html><head></head><body>" + body + "</body></html>";
         webView.loadDataWithBaseURL("x-data://base", html, "text/html", "UTF-8", null);
     }
 }
