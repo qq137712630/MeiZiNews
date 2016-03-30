@@ -9,10 +9,13 @@
       <module fileurl="file://$PROJECT_DIR$/blockcanarylibrary/blockcanarylibrary.iml" filepath="$PROJECT_DIR$/blockcanarylibrary/blockcanarylibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/convenientbannerlibrary/convenientbannerlibrary.iml" filepath="$PROJECT_DIR$/convenientbannerlibrary/convenientbannerlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/glidelibrary/glidelibrary.iml" filepath="$PROJECT_DIR$/glidelibrary/glidelibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/greendao_db_lib/greendao_db_lib.iml" filepath="$PROJECT_DIR$/greendao_db_lib/greendao_db_lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/greendaolibrary/greendaolibrary.iml" filepath="$PROJECT_DIR$/greendaolibrary/greendaolibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/loggerlibrary/loggerlibrary.iml" filepath="$PROJECT_DIR$/loggerlibrary/loggerlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvpro/mvpro.iml" filepath="$PROJECT_DIR$/mvpro/mvpro.iml" />
       <module fileurl="file://$PROJECT_DIR$/photoviewlibrary/photoviewlibrary.iml" filepath="$PROJECT_DIR$/photoviewlibrary/photoviewlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/retrofit_and_rxjava_library/retrofit_and_rxjava_library.iml" filepath="$PROJECT_DIR$/retrofit_and_rxjava_library/retrofit_and_rxjava_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/searchviewlibrary/searchviewlibrary.iml" filepath="$PROJECT_DIR$/searchviewlibrary/searchviewlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/smooth_app_bar_layoutlibrary/smooth_app_bar_layoutlibrary.iml" filepath="$PROJECT_DIR$/smooth_app_bar_layoutlibrary/smooth_app_bar_layoutlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/xrecyclerviewlibrary/xrecyclerviewlibrary.iml" filepath="$PROJECT_DIR$/xrecyclerviewlibrary/xrecyclerviewlibrary.iml" />
     </modules>
