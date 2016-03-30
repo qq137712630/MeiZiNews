@@ -12,6 +12,6 @@ public class SearchActivity extends BaseActivityPresenterImpl<SearchIView> {
     @Override
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
-        mView.init();
+        mView.init(SearchActivity.this);
     }
 }
