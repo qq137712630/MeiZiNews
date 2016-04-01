@@ -2,6 +2,7 @@ package com.ms.meizinewsapplication.features.search.activity;
 
 import android.os.Bundle;
 
+import com.lapism.searchview.view.SearchView;
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
 import com.ms.meizinewsapplication.features.search.iview.SearchIView;
 
@@ -13,5 +14,29 @@ public class SearchActivity extends BaseActivityPresenterImpl<SearchIView> {
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
         mView.init(SearchActivity.this);
+        mView.setOnQueryTextListener(onQueryTextListener);
+        mView.setOnSearchMenuListener(searchMenuListener);
     }
+
+
+    //TODO Listener =============================================================
+
+    SearchView.SearchMenuListener searchMenuListener = new SearchView.SearchMenuListener() {
+        @Override
+        public void onMenuClick() {
+
+        }
+    };
+
+    SearchView.OnQueryTextListener onQueryTextListener  = new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            return false;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String newText) {
+            return false;
+        }
+    };
 }
