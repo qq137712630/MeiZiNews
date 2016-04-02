@@ -3,7 +3,9 @@ package com.ms.meizinewsapplication.features.search.view.search;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.view.View;
 
+import com.lapism.arrow.ArrowDrawable;
 import com.lapism.searchview.view.SearchCodes;
 import com.lapism.searchview.view.SearchView;
 
@@ -25,6 +27,22 @@ public class MySearchView extends SearchView {
 
     public MySearchView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+    }
+
+    @Override
+    protected void in() {
+        super.in();
+        if (mVersion == SearchCodes.VERSION_TOOLBAR) {
+            mIsSearchArrowHamburgerState = ArrowDrawable.STATE_ARROW;
+        }
+    }
+
+    @Override
+    public void out() {
+        super.out();
+        if (mVersion == SearchCodes.VERSION_TOOLBAR) {
+            mIsSearchArrowHamburgerState = ArrowDrawable.STATE_HAMBURGER;
+        }
     }
 
     @Override
@@ -53,6 +71,5 @@ public class MySearchView extends SearchView {
             mEmptyImageView.setColorFilter(ContextCompat.getColor(mContext, com.lapism.searchview.R.color.search_light_icon));
         }
     }
-
 
 }

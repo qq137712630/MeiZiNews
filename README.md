@@ -416,3 +416,6 @@ Converters can be added to support other types. Six sibling modules adapt popula
  - [为实现Fragment 不会重新创，仿OuNews的 BaseFragment类中的onCreateView和onDestroyView写法](https://github.com/oubowu/OuNews/blob/a42f773e26a27eeadda385afaa40f8fc8e5745dc/app/src/main/java/com/oushangfeng/ounews/base/BaseFragment.java)
  - [menu-Android ActionBar详解](http://blog.csdn.net/huiguixian/article/details/9836189)
  
+# 疑问
+
+ - XML布局是否可以像Jsp一样动态加载？
