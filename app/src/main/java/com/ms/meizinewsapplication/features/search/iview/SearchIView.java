@@ -39,10 +39,20 @@ public class SearchIView extends ViewImpl {
     //TODO init =============================================
 
     public void init(AppCompatActivity appCompatActivity) {
+        initToolbar(appCompatActivity);
         initSearch_view(appCompatActivity);
     }
 
     // TODO View ================================================
+
+    private void initToolbar(AppCompatActivity appCompatActivity) {
+
+        appCompatActivity.setTitle(null);
+        appCompatActivity.setSupportActionBar(toolbar);
+        toolbar.setTitle(null);
+        toolbar.setSubtitle(null);
+
+    }
 
     private void initSearch_view(AppCompatActivity appCompatActivity) {
 
@@ -66,8 +76,7 @@ public class SearchIView extends ViewImpl {
         search_view.setOnSearchMenuListener(searchMenuListener);
     }
 
-    public void  setOnQueryTextListener(SearchView.OnQueryTextListener onQueryTextListener)
-    {
+    public void setOnQueryTextListener(SearchView.OnQueryTextListener onQueryTextListener) {
         search_view.setOnQueryTextListener(onQueryTextListener);
     }
 }
