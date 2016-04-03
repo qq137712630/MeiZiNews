@@ -113,7 +113,7 @@ public class MeunIView extends ViewImpl {
     //TODO view==================================================
 
 
-    private void initToolbar(AppCompatActivity appCompatActivity) {
+    protected void initToolbar(AppCompatActivity appCompatActivity) {
 
         if (mToolbarTitle != -1 && mToolbarTitle != 0) {
             toolbar.setTitle(mToolbarTitle);
