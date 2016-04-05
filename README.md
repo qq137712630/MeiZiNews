@@ -8,7 +8,7 @@
  - [网络请求：retrofit+okhttp3](https://github.com/square/retrofit)
  - [图片加载：glide](https://github.com/bumptech/glide)
  - [搜索控件：SearchView](https://github.com/lapism/SearchView)
- 
+ - [数据库框架：GreenDAO](https://github.com/greenrobot/greenDAO)
 
 ---
 

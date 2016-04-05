@@ -12,7 +12,7 @@ public class DBClass {
     public static void main(String[] args) throws Exception {
         Schema schema = new Schema(DBVERSION, "com.ms.greendaolibrary.db");
 
-        addQuery(schema);
+        addHtml(schema);
 
         // 生成
         new DaoGenerator().generateAll(
@@ -21,19 +21,20 @@ public class DBClass {
         );
     }
 
-    private static void addQuery(Schema schema) {
+    private static void addHtml(Schema schema) {
 
         // 实体类
-        Entity mCollectEntity = schema.addEntity("CollectEntity");//表名
+        Entity mHtmlEntity = schema.addEntity("HtmlEntity");//表名
 
         //列名
-        mCollectEntity.addIdProperty();//主键id
-        mCollectEntity.addStringProperty("url");//连接
-        mCollectEntity.addStringProperty("type");//连接类型
-        mCollectEntity.addStringProperty("text");//名字
-        mCollectEntity.addStringProperty("text02");//名字
+        mHtmlEntity.addIdProperty();//主键id
+        mHtmlEntity.addStringProperty("url");//连接
+        mHtmlEntity.addStringProperty("type");//类型
+        mHtmlEntity.addStringProperty("title");//标题
+        mHtmlEntity.addStringProperty("html");//html
 
 
-        mCollectEntity.addDateProperty("hireDate");
+
+        mHtmlEntity.addDateProperty("hireDate");
     }
 }
