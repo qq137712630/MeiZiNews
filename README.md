@@ -15,6 +15,7 @@
 #GreenDAO
 
  - [GreenDAO数据库版本升级](http://blog.csdn.net/fancylovejava/article/details/46713445)
+ - [使用greenDAO遇到的问题：Cannot update entity without key - was it inserted before?](http://blog.csdn.net/plmmmmlq/article/details/50404495)
 
 ---
 

@@ -77,8 +77,8 @@ public enum DbUtil {
             String title,
             String html
     ) {
-        boolean resCheck = checkHtmlByUrl(url);
-
+        List<HtmlEntity> htmlEntityList = queryHtmlByUrl(url);
+        boolean resCheck = (htmlEntityList == null || htmlEntityList.size() == 0);
 
         HtmlEntity htmlEntity = new HtmlEntity(
                 null,
@@ -91,9 +91,10 @@ public enum DbUtil {
 
         if (resCheck) {
 
-            htmlEntityDao.update(htmlEntity);
-        }else {
             htmlEntityDao.insert(htmlEntity);
+        } else {
+            htmlEntity.setId(htmlEntityList.get(0).getId());
+            htmlEntityDao.update(htmlEntity);
         }
 
         return resCheck;

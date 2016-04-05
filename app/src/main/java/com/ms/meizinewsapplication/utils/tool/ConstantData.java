@@ -7,4 +7,5 @@ public class ConstantData {
 
 
     public static final String DB_HTML = "DB_HTML";//数据库名字
+    public static final String DB_HTML_TYPE_ADD = "0";//数据类型
 }
