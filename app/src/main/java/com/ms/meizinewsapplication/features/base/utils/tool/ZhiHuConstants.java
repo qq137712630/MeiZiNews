@@ -1,4 +1,4 @@
-package com.ms.meizinewsapplication.utils.tool;
+package com.ms.meizinewsapplication.features.base.utils.tool;
 
 /**
  * Common constants for activities and fragments.

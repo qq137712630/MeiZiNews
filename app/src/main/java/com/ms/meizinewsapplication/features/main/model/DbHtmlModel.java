@@ -3,8 +3,8 @@ package com.ms.meizinewsapplication.features.main.model;
 import android.app.Activity;
 
 import com.ms.meizinewsapplication.features.base.model.DbModel;
-import com.ms.meizinewsapplication.utils.tool.ConstantData;
-import com.ms.meizinewsapplication.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
 
 import java.util.HashMap;

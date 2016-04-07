@@ -1,4 +1,4 @@
-package com.ms.meizinewsapplication.view.my_snackbar;
+package com.ms.meizinewsapplication.features.base.view.my_snackbar;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;

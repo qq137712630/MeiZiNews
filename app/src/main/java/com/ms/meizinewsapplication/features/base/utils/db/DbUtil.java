@@ -1,4 +1,4 @@
-package com.ms.meizinewsapplication.utils.db;
+package com.ms.meizinewsapplication.features.base.utils.db;
 
 import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,7 +8,7 @@ import com.ms.greendaolibrary.db.DaoSession;
 import com.ms.greendaolibrary.db.HtmlEntity;
 import com.ms.greendaolibrary.db.HtmlEntityDao;
 import com.ms.greendaolibrary.updb.UpgradeHelper;
-import com.ms.meizinewsapplication.utils.tool.ConstantData;
+import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 
 import java.util.List;
 

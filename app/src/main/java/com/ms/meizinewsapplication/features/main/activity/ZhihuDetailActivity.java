@@ -8,7 +8,7 @@ import com.ms.meizinewsapplication.features.main.iview.ZhiHuDetailIView;
 import com.ms.meizinewsapplication.features.main.json.ZhihuDetail;
 import com.ms.meizinewsapplication.features.main.model.DbHtmlModel;
 import com.ms.meizinewsapplication.features.main.model.ZhihuDetailModel;
-import com.ms.meizinewsapplication.utils.tool.ZhiHuConstants;
+import com.ms.meizinewsapplication.features.base.utils.tool.ZhiHuConstants;
 
 import org.loader.model.OnModelListener;
 

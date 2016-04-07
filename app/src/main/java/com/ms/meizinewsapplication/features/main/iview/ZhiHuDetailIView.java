@@ -16,8 +16,8 @@ import android.widget.ProgressBar;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.main.json.ZhihuDetail;
-import com.ms.meizinewsapplication.utils.tool.ImagerLoad;
-import com.ms.meizinewsapplication.utils.tool.Share;
+import com.ms.meizinewsapplication.features.base.utils.tool.ImagerLoad;
+import com.ms.meizinewsapplication.features.base.utils.tool.Share;
 
 import org.loader.view.ViewImpl;
 

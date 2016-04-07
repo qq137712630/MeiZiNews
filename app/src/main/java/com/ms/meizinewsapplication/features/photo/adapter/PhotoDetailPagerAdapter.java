@@ -2,7 +2,7 @@ package com.ms.meizinewsapplication.features.photo.adapter;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNv;
-import com.ms.meizinewsapplication.utils.tool.ImagerLoad;
+import com.ms.meizinewsapplication.features.base.utils.tool.ImagerLoad;
 import com.test.basepageradapterlibrary.basepager.BasePagerAdapterHelper;
 import com.test.basepageradapterlibrary.basepager.QuickPagerAdapter;
 

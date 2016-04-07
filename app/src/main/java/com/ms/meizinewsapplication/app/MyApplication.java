@@ -5,8 +5,8 @@ import android.content.Context;
 
 import com.github.moduth.blockcanary.BlockCanary;
 import com.ms.loggerlibrary.LogInit;
-import com.ms.meizinewsapplication.utils.block.AppBlockCanaryContext;
-import com.ms.meizinewsapplication.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.base.utils.block.AppBlockCanaryContext;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 
 /**
  * Created by 啟成 on 2016/2/28.

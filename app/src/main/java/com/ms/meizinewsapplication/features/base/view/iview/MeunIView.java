@@ -17,8 +17,8 @@ import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 import com.ms.meizinewsapplication.features.base.listener.MyActionBarDrawerToggle;
 import com.ms.meizinewsapplication.features.main.activity.MainMvpActivity;
 import com.ms.meizinewsapplication.features.meizi.activity.MeiZiActivity;
-import com.ms.meizinewsapplication.utils.tool.DebugUtil;
-import com.ms.meizinewsapplication.utils.tool.ViewUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.ViewUtil;
 import com.test.basepageradapterlibrary.basepager.BaseFragmentPagerAdapter;
 
 import org.loader.presenter.FragmentPresenterImpl;

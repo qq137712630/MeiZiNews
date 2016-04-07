@@ -1,4 +1,4 @@
-package com.ms.meizinewsapplication.utils.tool;
+package com.ms.meizinewsapplication.features.base.utils.tool;
 
 import com.orhanobut.logger.Logger;
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ms.meizinewsapplication.view.img;
+package com.ms.meizinewsapplication.features.base.view.img;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,4 +1,4 @@
-package com.ms.meizinewsapplication.utils.tool;
+package com.ms.meizinewsapplication.features.base.utils.tool;
 
 import android.content.Context;
 import android.content.Intent;

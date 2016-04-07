@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.lapism.searchview.view.SearchView;
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
 import com.ms.meizinewsapplication.features.search.iview.SearchIView;
-import com.ms.meizinewsapplication.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 
 /**
  * Created by 啟成 on 2016/3/28.

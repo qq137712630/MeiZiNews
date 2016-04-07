@@ -4,8 +4,8 @@ import android.content.Context;
 
 import com.ms.meizinewsapplication.features.main.main_web.DevWeekApi;
 import com.ms.meizinewsapplication.features.main.main_web.MainApi;
-import com.ms.meizinewsapplication.utils.tool.DebugUtil;
-import com.ms.meizinewsapplication.utils.tool.JsoupUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.JsoupUtil;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyOkHttpClient;
 import com.ms.retrofitlibrary.web.MyStringRetrofit;

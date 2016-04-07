@@ -1,4 +1,4 @@
-package com.ms.meizinewsapplication.utils.block;
+package com.ms.meizinewsapplication.features.base.utils.block;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
