@@ -55,4 +55,15 @@ public class JsoupUtil {
 
         return mElements;
     }
+
+    public static Elements getPullWord(String strHtml)
+    {
+
+        // 获取文档内容
+        Document doc = Jsoup.parse(strHtml);
+        // 获取元素body
+        Elements mElements = doc.select("body");
+
+        return mElements;
+    }
 }
