@@ -23,8 +23,8 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
         mView.init(DevWeekDetailActivity.this);
-        initDevWeekDetailModel();
         initDbHtmlModel();
+        initDevWeekDetailModel();
     }
 
     @Override

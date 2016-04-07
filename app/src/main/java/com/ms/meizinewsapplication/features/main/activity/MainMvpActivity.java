@@ -83,6 +83,7 @@ public class MainMvpActivity extends BaseActivityPresenterImpl<MainIView> {
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             return false;
+
         }
 
         @Override
