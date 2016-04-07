@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.View;
 
 import com.lapism.searchview.view.SearchCodes;
+import com.lapism.searchview.view.SearchView;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 import com.ms.meizinewsapplication.features.base.view.iview.MeunIView;
@@ -93,4 +94,21 @@ public class MainIView extends MeunIView {
         toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
     }
 
+    public MySearchView getSearch_view() {
+        return search_view;
+    }
+
+    public void setSearch_view(MySearchView search_view) {
+        this.search_view = search_view;
+    }
+
+    //TODO Listener =============================================================
+
+    public void setOnSearchViewListener(SearchView.SearchViewListener searchViewListener) {
+        search_view.setOnSearchViewListener(searchViewListener);
+    }
+
+    public void setOnQueryTextListener(SearchView.OnQueryTextListener onQueryTextListener) {
+        search_view.setOnQueryTextListener(onQueryTextListener);
+    }
 }
