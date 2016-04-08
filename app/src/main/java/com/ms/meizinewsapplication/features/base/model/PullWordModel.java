@@ -32,7 +32,7 @@ public class PullWordModel implements CommonModel<String> {
     public void loadWeb(Context context, OnModelListener<String> listener, String source) {
         pullwordMap = new HashMap<>();
         pullwordMap.put("source", source);
-        pullwordMap.put("param1", "0");
+        pullwordMap.put("param1", "1");
         pullwordMap.put("param2", "0");
 
 
@@ -50,8 +50,8 @@ public class PullWordModel implements CommonModel<String> {
                 pullwordMap
         ).map(new Func1<String, String>() {
             @Override
-            public String call(String s) {
-                Elements mElements = JsoupUtil.getPullWord(s);
+            public String call(String strHtml) {
+                Elements mElements = JsoupUtil.getPullWord(strHtml);
                 String temp = mElements.get(0).text();
                 temp.split(" ");
                 return temp;
@@ -66,7 +66,8 @@ public class PullWordModel implements CommonModel<String> {
 
                     @Override
                     public void onError(Throwable e) {
-                        DebugUtil.debugLogErr(e, "PullWordModel+++++\n" + e.toString());
+                        DebugUtil.debugLogErr(e, "PullWordModel+++++\n" + "pullword " + e.toString()
+                        );
                         listener.onError(e.toString());
                     }
 
