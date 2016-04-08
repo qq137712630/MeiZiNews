@@ -1,9 +1,9 @@
 package com.ms.meizinewsapplication.features.search.view.search;
 
 import android.content.Context;
+import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.view.View;
 
 import com.lapism.arrow.ArrowDrawable;
 import com.lapism.searchview.view.SearchCodes;
@@ -70,6 +70,15 @@ public class MySearchView extends SearchView {
             mVoiceImageView.setColorFilter(ContextCompat.getColor(mContext, com.lapism.searchview.R.color.search_light_icon));
             mEmptyImageView.setColorFilter(ContextCompat.getColor(mContext, com.lapism.searchview.R.color.search_light_icon));
         }
+    }
+
+    public void setSearchText(CharSequence text)
+    {
+        mEditText.setText(text);
+    }
+
+    public void setSearchText(@StringRes int hint) {
+        mEditText.setText(hint);
     }
 
 }

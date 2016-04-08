@@ -62,12 +62,21 @@ public class SearchIView extends ViewImpl {
 
         // -----------------------------------------------------------------------------------------
         search_view.setDivider(true);
+        search_view.setSearchText(appCompatActivity.getIntent().getStringExtra("query"));
         search_view.setHint(R.string.search);
         search_view.setHintSize(appCompatActivity.getResources().getDimension(R.dimen.search_text_medium));
         search_view.setVoice(false);
         search_view.setAnimationDuration(300);
         search_view.setShadowColor(ContextCompat.getColor(appCompatActivity, R.color.search_shadow_layout));
 
+    }
+
+    public MySearchView getSearch_view() {
+        return search_view;
+    }
+
+    public void setSearch_view(MySearchView search_view) {
+        this.search_view = search_view;
     }
 
     //TODO Listener =============================================================

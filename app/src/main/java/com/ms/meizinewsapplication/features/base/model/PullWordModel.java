@@ -14,6 +14,7 @@ import org.jsoup.select.Elements;
 import org.loader.model.CommonModel;
 import org.loader.model.OnModelListener;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import rx.Observable;
@@ -28,8 +29,13 @@ public class PullWordModel implements CommonModel<String> {
     Map<String, String> pullwordMap;
 
 
-    public void loadWeb(Context context, OnModelListener<String> listener, Map<String, String> pullwordMap) {
-        this.pullwordMap = pullwordMap;
+    public void loadWeb(Context context, OnModelListener<String> listener, String source) {
+        pullwordMap = new HashMap<>();
+        pullwordMap.put("source", source);
+        pullwordMap.put("param1", "0");
+        pullwordMap.put("param2", "0");
+
+
         loadWeb(context, listener);
     }
 
@@ -46,8 +52,9 @@ public class PullWordModel implements CommonModel<String> {
             @Override
             public String call(String s) {
                 Elements mElements = JsoupUtil.getPullWord(s);
-
-                return mElements.get(0).text();
+                String temp = mElements.get(0).text();
+                temp.split(" ");
+                return temp;
             }
         });
 

@@ -76,10 +76,11 @@ public class MainMvpActivity extends BaseActivityPresenterImpl<MainIView> {
         @Override
         public boolean onQueryTextSubmit(String query) {
 
-            DebugUtil.debugLogD("onQueryTextSubmit");
+            DebugUtil.debugLogD("onQueryTextSubmit:\n" + query);
             mView.getSearch_view().hide(false);
 
             Intent intent = new Intent(MainMvpActivity.this, SearchActivity.class);
+            intent.putExtra("query", query);
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             return false;
