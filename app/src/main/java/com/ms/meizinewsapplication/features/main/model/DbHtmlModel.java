@@ -2,12 +2,14 @@ package com.ms.meizinewsapplication.features.main.model;
 
 import android.app.Activity;
 
+import com.ms.greendaolibrary.db.HtmlEntity;
 import com.ms.meizinewsapplication.features.base.model.DbModel;
 import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import rx.Observable;
@@ -72,6 +74,37 @@ public class DbHtmlModel extends DbModel {
 
         });
 
+
+    }
+
+    public void queryByHtml(String html) {
+        Observable ob = Observable.just(html)
+                .map(new Func1<String, List<HtmlEntity>>() {
+                    @Override
+                    public List<HtmlEntity> call(String s) {
+                        return null;
+                    }
+                });
+
+        RxJavaUtil.rxIoAndMain(ob, new Subscriber<List<HtmlEntity>>(){
+
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                DebugUtil.debugLogErr(e, "queryByHtml+++++\n" + e.toString());
+
+            }
+
+            @Override
+            public void onNext(List<HtmlEntity> htmlEntities) {
+                DebugUtil.debugLogD("queryByHtml+++++\n+htmlEntities+\n" + htmlEntities.size());
+
+            }
+        });
     }
 
 }

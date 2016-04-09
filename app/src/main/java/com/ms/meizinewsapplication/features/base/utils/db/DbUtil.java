@@ -13,6 +13,7 @@ import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import java.util.List;
 
 import de.greenrobot.dao.query.Query;
+import de.greenrobot.dao.query.WhereCondition;
 
 /**
  * [Android设计模式之单例模式](http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=403126596&idx=1&sn=101c6d4e363213bcdbe1879edeb08736&scene=23&srcid=0405dfOnHTLZxrgDaQMKMcNR#rd)
@@ -58,6 +59,13 @@ public enum DbUtil {
     public List<HtmlEntity> queryHtmlByUrl(String url) {
         Query<HtmlEntity> query = htmlEntityDao.queryBuilder()
                 .where(HtmlEntityDao.Properties.Url.eq(url))
+                .build();
+        return query.list();
+    }
+
+    public List<HtmlEntity> queryHtmlByHtmlSql(String htmlSQL) {
+        Query<HtmlEntity> query = htmlEntityDao.queryBuilder()
+                .where(new WhereCondition.StringCondition(htmlSQL))
                 .build();
         return query.list();
     }

@@ -3,6 +3,7 @@ package com.ms.meizinewsapplication.features.base.model;
 import android.content.Context;
 
 import com.ms.meizinewsapplication.features.base.base_web.PullWordApi;
+import com.ms.meizinewsapplication.features.base.utils.db.SqlUtil;
 import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.utils.tool.JsoupUtil;
@@ -26,10 +27,13 @@ import rx.functions.Func1;
  */
 public class PullWordModel implements CommonModel<String> {
 
-    Map<String, String> pullwordMap;
+    private Map<String, String> pullwordMap;
 
+    protected SqlUtil sqlUtil;
 
     public void loadWeb(Context context, OnModelListener<String> listener, String source) {
+
+        sqlUtil = SqlUtil.instance;
         pullwordMap = new HashMap<>();
         pullwordMap.put("source", source);
         pullwordMap.put("param1", "1");
@@ -53,8 +57,7 @@ public class PullWordModel implements CommonModel<String> {
             public String call(String strHtml) {
                 Elements mElements = JsoupUtil.getPullWord(strHtml);
                 String temp = mElements.get(0).text();
-                temp.split(" ");
-                return temp;
+                return sqlUtil.querySqlByHtml(temp);
             }
         });
 
