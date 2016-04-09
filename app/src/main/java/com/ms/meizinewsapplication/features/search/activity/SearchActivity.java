@@ -3,12 +3,16 @@ package com.ms.meizinewsapplication.features.search.activity;
 import android.os.Bundle;
 
 import com.lapism.searchview.view.SearchView;
+import com.ms.greendaolibrary.db.HtmlEntity;
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
 import com.ms.meizinewsapplication.features.base.model.PullWordModel;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.main.model.DbHtmlModel;
 import com.ms.meizinewsapplication.features.search.iview.SearchIView;
 
 import org.loader.model.OnModelListener;
+
+import java.util.List;
 
 /**
  * Created by 啟成 on 2016/3/28.
@@ -16,6 +20,7 @@ import org.loader.model.OnModelListener;
 public class SearchActivity extends BaseActivityPresenterImpl<SearchIView> {
 
     private PullWordModel pullWordModel;
+    private DbHtmlModel dbHtmlModel;
 
     @Override
     public void created(Bundle savedInstance) {
@@ -25,17 +30,26 @@ public class SearchActivity extends BaseActivityPresenterImpl<SearchIView> {
         mView.setOnQueryTextListener(onQueryTextListener);
         mView.setOnSearchMenuListener(searchMenuListener);
         initPullWordModel();
+        initDbHtmlModel();
         pullWordLoad(getIntent().getStringExtra("query"));
     }
 
     // TODO Model =========================================
 
-    private void initPullWordModel(){
+    private void initPullWordModel() {
         pullWordModel = new PullWordModel();
     }
 
-    private void pullWordLoad(String source){
-        pullWordModel.loadWeb(SearchActivity.this,onModelListener,source);
+    private void pullWordLoad(String source) {
+        pullWordModel.loadWeb(SearchActivity.this, onSearchModelListener, source);
+    }
+
+    private void initDbHtmlModel() {
+        dbHtmlModel = new DbHtmlModel(SearchActivity.this);
+    }
+
+    private void dbHtmlLoad(String html) {
+        dbHtmlModel.queryByHtml(html, dbHtmlModelListener);
     }
 
     //TODO Listener =============================================================
@@ -63,11 +77,36 @@ public class SearchActivity extends BaseActivityPresenterImpl<SearchIView> {
         }
     };
 
-    OnModelListener<String> onModelListener = new OnModelListener<String>(){
+    OnModelListener<String> onSearchModelListener = new OnModelListener<String>() {
 
         @Override
         public void onSuccess(String s) {
             mView.getSearch_view().setSearchText(s);
+            dbHtmlLoad(s);
+        }
+
+        @Override
+        public void onError(String err) {
+
+        }
+
+        @Override
+        public void onCompleted() {
+
+        }
+    };
+
+    OnModelListener<List<HtmlEntity>> dbHtmlModelListener = new OnModelListener<List<HtmlEntity>>() {
+        @Override
+        public void onSuccess(List<HtmlEntity> htmlEntities) {
+
+            if (htmlEntities == null || htmlEntities.size() == 0) {
+                mView.getSearch_view().setSearchText("No One");
+                return;
+            }
+
+
+            mView.getSearch_view().setSearchText(htmlEntities.get(0).getTitle());
         }
 
         @Override

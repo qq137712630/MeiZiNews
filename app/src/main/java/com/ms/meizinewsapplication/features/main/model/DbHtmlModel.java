@@ -8,6 +8,8 @@ import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
 
+import org.loader.model.OnModelListener;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -77,12 +79,12 @@ public class DbHtmlModel extends DbModel {
 
     }
 
-    public void queryByHtml(String html) {
+    public void queryByHtml(String html, final OnModelListener<List<HtmlEntity>> listener) {
         Observable ob = Observable.just(html)
                 .map(new Func1<String, List<HtmlEntity>>() {
                     @Override
                     public List<HtmlEntity> call(String s) {
-                        return null;
+                        return dbUtil.queryHtmlByHtmlSql(s);
                     }
                 });
 
@@ -90,19 +92,19 @@ public class DbHtmlModel extends DbModel {
 
             @Override
             public void onCompleted() {
-
+                listener.onCompleted();
             }
 
             @Override
             public void onError(Throwable e) {
-                DebugUtil.debugLogErr(e, "queryByHtml+++++\n" + e.toString());
-
+                 DebugUtil.debugLogErr(e, "queryByHtml++++\n" + e.toString());
+                listener.onError(e.toString());
             }
 
             @Override
             public void onNext(List<HtmlEntity> htmlEntities) {
                 DebugUtil.debugLogD("queryByHtml+++++\n+htmlEntities+\n" + htmlEntities.size());
-
+                listener.onSuccess(htmlEntities);
             }
         });
     }

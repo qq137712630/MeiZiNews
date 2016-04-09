@@ -69,8 +69,7 @@ public class PullWordModel implements CommonModel<String> {
 
                     @Override
                     public void onError(Throwable e) {
-                        DebugUtil.debugLogErr(e, "PullWordModel+++++\n" + "pullword " + e.toString()
-                        );
+                        DebugUtil.debugLogErr(e, "PullWordModel+++++\n" + "pullword " + e.toString());
                         listener.onError(e.toString());
                     }
 
