@@ -25,7 +25,8 @@ public class MySearchAdapter extends QuickAdapter<HtmlEntity> {
     @Override
     protected void convert(BaseAdapterHelper helper, HtmlEntity item, int position) {
         helper.getTextView(R.id.story_title).setText(item.getTitle());
-        helper.getTextView(R.id.story_excerpt).setText(item.getHtml());
+//        helper.getTextView(R.id.story_excerpt).setText(item.getHtml());
+        helper.getTextView(R.id.story_excerpt).setVisibility(View.GONE);
         helper.getTextView(R.id.story_author).setVisibility(View.GONE);
         helper.getTextView(R.id.story_date).setVisibility(View.GONE);
 
