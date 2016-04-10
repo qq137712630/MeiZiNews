@@ -36,7 +36,7 @@ public class PullWordModel implements CommonModel<String> {
         sqlUtil = SqlUtil.instance;
         pullwordMap = new HashMap<>();
         pullwordMap.put("source", source);
-        pullwordMap.put("param1", "1");
+        pullwordMap.put("param1", "0.6");
         pullwordMap.put("param2", "0");
 
 

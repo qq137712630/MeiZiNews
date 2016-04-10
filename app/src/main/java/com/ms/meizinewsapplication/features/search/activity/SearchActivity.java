@@ -12,6 +12,7 @@ import com.ms.meizinewsapplication.features.search.iview.SearchIView;
 
 import org.loader.model.OnModelListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -104,6 +105,8 @@ public class SearchActivity extends BaseActivityPresenterImpl<SearchIView> {
                 mView.getSearch_view().setSearchText("No One");
                 return;
             }
+
+            mView.upAllDatas2QuickAdapter((ArrayList<HtmlEntity>) htmlEntities);
 
 
             mView.getSearch_view().setSearchText(htmlEntities.get(0).getTitle());
