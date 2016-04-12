@@ -58,7 +58,7 @@ public class SearchActivity extends BaseActivityPresenterImpl<SearchIView> {
     SearchView.SearchMenuListener searchMenuListener = new SearchView.SearchMenuListener() {
         @Override
         public void onMenuClick() {
-            DebugUtil.debugLogD("SearchView.SearchMenuListener");
+            DebugUtil.debugLogD("SearchView.SearchMenuListener++");
             finish();
         }
     };
