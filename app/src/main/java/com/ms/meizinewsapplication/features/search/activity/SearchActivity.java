@@ -69,7 +69,8 @@ public class SearchActivity extends BaseActivityPresenterImpl<SearchIView> {
 
             pullWordLoad(query);
             mView.getSearch_view().hide(false);
-            return false;
+            mView.getSearch_view().setSearchText(query);
+            return true;
         }
 
         @Override
@@ -82,7 +83,6 @@ public class SearchActivity extends BaseActivityPresenterImpl<SearchIView> {
 
         @Override
         public void onSuccess(String s) {
-            mView.getSearch_view().setSearchText(s);
             dbHtmlLoad(s);
         }
 
@@ -108,8 +108,6 @@ public class SearchActivity extends BaseActivityPresenterImpl<SearchIView> {
 
             mView.upAllDatas2QuickAdapter((ArrayList<HtmlEntity>) htmlEntities);
 
-
-            mView.getSearch_view().setSearchText(htmlEntities.get(0).getTitle());
         }
 
         @Override
