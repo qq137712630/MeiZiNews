@@ -4,7 +4,6 @@ import android.app.Activity;
 
 import com.ms.greendaolibrary.db.HtmlEntity;
 import com.ms.meizinewsapplication.features.base.model.DbModel;
-import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
 
@@ -34,6 +33,7 @@ public class DbHtmlModel extends DbModel {
     public void addDate(
 
             String url,
+            final String type,
             String title,
             String html,
             String summary
@@ -51,7 +51,7 @@ public class DbHtmlModel extends DbModel {
 
                         dbUtil.addHtml(
                                 stringMap.get("url"),
-                                ConstantData.DB_HTML_TYPE_ADD,
+                                type,
                                 stringMap.get("title"),
                                 stringMap.get("html"),
                                 stringMap.get("excerpt")

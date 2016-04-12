@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.Menu;
 
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
+import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.main.iview.DevWeekDetailIVew;
 import com.ms.meizinewsapplication.features.main.main_web.MainApi;
 import com.ms.meizinewsapplication.features.main.model.DbHtmlModel;
@@ -63,6 +64,7 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
     private void addDbHtmlDate(String html) {
         dbHtmlModel.addDate(
                 MainApi.DEV_WEEK + getIntent().getStringExtra("path"),
+                ConstantData.DB_HTML_TYPE_WEEK,
                 getIntent().getStringExtra("title"),
                 html,
                 getIntent().getStringExtra("excerpt")

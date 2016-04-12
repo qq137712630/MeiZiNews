@@ -10,4 +10,6 @@ public class ConstantData {
 
     public static final String DB_HTML = "DB_HTML";//数据库名字
     public static final String DB_HTML_TYPE_ADD = "0";//数据类型
+    public static final String DB_HTML_TYPE_WEEK = "1";//数据类型：开发周报
+    public static final String DB_HTML_TYPE_ZHIHU = "2";//数据类型：知乎日报
 }

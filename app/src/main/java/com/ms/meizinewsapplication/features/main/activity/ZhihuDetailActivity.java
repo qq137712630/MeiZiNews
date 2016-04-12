@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
+import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.main.iview.ZhiHuDetailIView;
 import com.ms.meizinewsapplication.features.main.json.ZhihuDetail;
 import com.ms.meizinewsapplication.features.main.model.DbHtmlModel;
@@ -69,6 +70,7 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
     private void addDbHtmlDate(ZhihuDetail zhihuDetail) {
         dbHtmlModel.addDate(
                 zhihuDetail.getShare_url(),
+                ConstantData.DB_HTML_TYPE_ZHIHU,
                 zhihuDetail.getTitle(),
                 zhihuDetail.getBody(),
                 " "
