@@ -64,7 +64,8 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
         dbHtmlModel.addDate(
                 MainApi.DEV_WEEK + getIntent().getStringExtra("path"),
                 getIntent().getStringExtra("title"),
-                html
+                html,
+                getIntent().getStringExtra("excerpt")
         );
     }
 

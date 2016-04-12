@@ -35,12 +35,14 @@ public class DbHtmlModel extends DbModel {
 
             String url,
             String title,
-            String html
+            String html,
+            String summary
     ) {
         Map<String, String> map = new HashMap<>();
         map.put("url", url);
         map.put("title", title);
         map.put("html", html);
+        map.put("excerpt", summary);
 
         Observable ob = Observable.just(map)
                 .map(new Func1<Map<String, String>, Boolean>() {
@@ -51,7 +53,8 @@ public class DbHtmlModel extends DbModel {
                                 stringMap.get("url"),
                                 ConstantData.DB_HTML_TYPE_ADD,
                                 stringMap.get("title"),
-                                stringMap.get("html")
+                                stringMap.get("html"),
+                                stringMap.get("excerpt")
                         );
                         return true;
                     }

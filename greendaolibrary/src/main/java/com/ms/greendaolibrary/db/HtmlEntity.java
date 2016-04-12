@@ -11,6 +11,7 @@ public class HtmlEntity {
     private String type;
     private String title;
     private String html;
+    private String summary;
     private java.util.Date hireDate;
 
     public HtmlEntity() {
@@ -20,12 +21,13 @@ public class HtmlEntity {
         this.id = id;
     }
 
-    public HtmlEntity(Long id, String url, String type, String title, String html, java.util.Date hireDate) {
+    public HtmlEntity(Long id, String url, String type, String title, String html, String summary, java.util.Date hireDate) {
         this.id = id;
         this.url = url;
         this.type = type;
         this.title = title;
         this.html = html;
+        this.summary = summary;
         this.hireDate = hireDate;
     }
 
@@ -67,6 +69,14 @@ public class HtmlEntity {
 
     public void setHtml(String html) {
         this.html = html;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public java.util.Date getHireDate() {

@@ -1,6 +1,7 @@
 package com.ms.meizinewsapplication.features.search.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.ms.greendaolibrary.db.HtmlEntity;
@@ -25,8 +26,15 @@ public class MySearchAdapter extends QuickAdapter<HtmlEntity> {
     @Override
     protected void convert(BaseAdapterHelper helper, HtmlEntity item, int position) {
         helper.getTextView(R.id.story_title).setText(item.getTitle());
-//        helper.getTextView(R.id.story_excerpt).setText(item.getHtml());
-        helper.getTextView(R.id.story_excerpt).setVisibility(View.GONE);
+
+        if(TextUtils.isEmpty(item.getSummary())){
+            helper.getTextView(R.id.story_excerpt).setVisibility(View.GONE);
+        }else {
+
+            helper.getTextView(R.id.story_excerpt).setVisibility(View.VISIBLE);
+            helper.getTextView(R.id.story_excerpt).setText(item.getSummary());
+        }
+
         helper.getTextView(R.id.story_author).setVisibility(View.GONE);
         helper.getTextView(R.id.story_date).setVisibility(View.GONE);
 

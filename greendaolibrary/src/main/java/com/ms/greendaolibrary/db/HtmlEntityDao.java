@@ -28,7 +28,8 @@ public class HtmlEntityDao extends AbstractDao<HtmlEntity, Long> {
         public final static Property Type = new Property(2, String.class, "type", false, "TYPE");
         public final static Property Title = new Property(3, String.class, "title", false, "TITLE");
         public final static Property Html = new Property(4, String.class, "html", false, "HTML");
-        public final static Property HireDate = new Property(5, java.util.Date.class, "hireDate", false, "HIRE_DATE");
+        public final static Property Summary = new Property(5, String.class, "summary", false, "SUMMARY");
+        public final static Property HireDate = new Property(6, java.util.Date.class, "hireDate", false, "HIRE_DATE");
     };
 
 
@@ -49,7 +50,8 @@ public class HtmlEntityDao extends AbstractDao<HtmlEntity, Long> {
                 "\"TYPE\" TEXT," + // 2: type
                 "\"TITLE\" TEXT," + // 3: title
                 "\"HTML\" TEXT," + // 4: html
-                "\"HIRE_DATE\" INTEGER);"); // 5: hireDate
+                "\"SUMMARY\" TEXT," + // 5: summary
+                "\"HIRE_DATE\" INTEGER);"); // 6: hireDate
     }
 
     /** Drops the underlying database table. */
@@ -88,9 +90,14 @@ public class HtmlEntityDao extends AbstractDao<HtmlEntity, Long> {
             stmt.bindString(5, html);
         }
  
+        String summary = entity.getSummary();
+        if (summary != null) {
+            stmt.bindString(6, summary);
+        }
+ 
         java.util.Date hireDate = entity.getHireDate();
         if (hireDate != null) {
-            stmt.bindLong(6, hireDate.getTime());
+            stmt.bindLong(7, hireDate.getTime());
         }
     }
 
@@ -109,7 +116,8 @@ public class HtmlEntityDao extends AbstractDao<HtmlEntity, Long> {
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // type
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // title
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // html
-            cursor.isNull(offset + 5) ? null : new java.util.Date(cursor.getLong(offset + 5)) // hireDate
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // summary
+            cursor.isNull(offset + 6) ? null : new java.util.Date(cursor.getLong(offset + 6)) // hireDate
         );
         return entity;
     }
@@ -122,7 +130,8 @@ public class HtmlEntityDao extends AbstractDao<HtmlEntity, Long> {
         entity.setType(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setTitle(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
         entity.setHtml(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
-        entity.setHireDate(cursor.isNull(offset + 5) ? null : new java.util.Date(cursor.getLong(offset + 5)));
+        entity.setSummary(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
+        entity.setHireDate(cursor.isNull(offset + 6) ? null : new java.util.Date(cursor.getLong(offset + 6)));
      }
     
     /** @inheritdoc */

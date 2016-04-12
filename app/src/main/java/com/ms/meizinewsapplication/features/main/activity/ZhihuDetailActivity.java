@@ -70,7 +70,8 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
         dbHtmlModel.addDate(
                 zhihuDetail.getShare_url(),
                 zhihuDetail.getTitle(),
-                zhihuDetail.getBody()
+                zhihuDetail.getBody(),
+                " "
         );
     }
 
