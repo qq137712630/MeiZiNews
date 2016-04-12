@@ -8,7 +8,6 @@ import android.view.View;
 
 import com.ms.greendaolibrary.db.HtmlEntity;
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.base.utils.tool.Share;
 import com.test.basequickadapterlib.BaseAdapterHelper;
 import com.test.basequickadapterlib.QuickAdapter;
 
