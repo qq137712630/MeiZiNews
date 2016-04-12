@@ -24,20 +24,11 @@ import com.ms.meizinewsapplication.features.search.view.search.MySearchView;
 )
 public class MainIView extends MeunIView {
 
-    private MySearchView search_view;
-
 
     private int mVersion = SearchCodes.VERSION_MENU_ITEM;
     private int mStyle = SearchCodes.STYLE_MENU_ITEM_CLASSIC;
     private int mTheme = SearchCodes.THEME_LIGHT;
 
-
-    @Override
-    public void created() {
-        super.created();
-        search_view = findViewById(R.id.search_view);
-
-    }
 
     public boolean onCreateOptionsMenu(AppCompatActivity activity, Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -45,17 +36,7 @@ public class MainIView extends MeunIView {
         return true;
     }
 
-    //TODO init==================================================
-
-    @Override
-    public void init(AppCompatActivity appCompatActivity) {
-        super.init(appCompatActivity);
-        initSearch(appCompatActivity);
-    }
-
-
 //TODO view==================================================
-
 
 
     @Override
@@ -69,7 +50,8 @@ public class MainIView extends MeunIView {
         titles.add(appCompatActivity.getString(R.string.tab_dev));
     }
 
-    private void initSearch(AppCompatActivity appCompatActivity) {
+    @Override
+    protected void initSearch(AppCompatActivity appCompatActivity) {
         search_view.setVisibility(View.VISIBLE);
 
 
@@ -89,7 +71,7 @@ public class MainIView extends MeunIView {
         search_view.show(true);
     }
 
-    public void setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener onMenuItemClickListener){
+    public void setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener onMenuItemClickListener) {
 
         toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
     }

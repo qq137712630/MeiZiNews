@@ -23,10 +23,12 @@ public class MySearchView extends SearchView {
 
     public MySearchView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        hideKeyboard();
     }
 
     public MySearchView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        hideKeyboard();
     }
 
     @Override

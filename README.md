@@ -433,6 +433,8 @@ API:
  - [menu-Android ActionBar详解](http://blog.csdn.net/huiguixian/article/details/9836189)
  - [spinBars-Android – Toolbar 上的 Navigation Drawer](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1123/2050.html)
  - [Android设计模式之单例模式](http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=403126596&idx=1&sn=101c6d4e363213bcdbe1879edeb08736&scene=23&srcid=0405dfOnHTLZxrgDaQMKMcNR#rd)
+ - [软键盘处理：解析android中隐藏与显示软键盘及不自动弹出键盘的实现方法](http://www.jb51.net/article/36653.htm)
+ - [软键盘处理：android:windowSoftInputMode属性详解](http://blog.csdn.net/twoicewoo/article/details/7384398)
 
 ---
  

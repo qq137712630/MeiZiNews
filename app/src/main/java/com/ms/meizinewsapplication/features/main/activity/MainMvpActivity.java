@@ -46,7 +46,7 @@ public class MainMvpActivity extends BaseActivityPresenterImpl<MainIView> {
         @Override
         public boolean onMenuItemClick(MenuItem item) {
 
-            DebugUtil.debugLogD("onMenuItemClickListener");
+            DebugUtil.debugLogD("Toolbar.onMenuItemClickListener");
             switch (item.getItemId()) {
                 case R.id.action_search:
 
