@@ -32,7 +32,7 @@ public class PhotoDetailActivity extends BaseActivityPresenterImpl<PhotoDetailIV
     private Toolbar.OnMenuItemClickListener onMenuItemClick = new Toolbar.OnMenuItemClickListener() {
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
-            String msgUrl = "";
+            String msgUrl = null;
             switch (menuItem.getItemId()) {
                 case R.id.item_save:
                     msgUrl = mView.getImgUrl();
