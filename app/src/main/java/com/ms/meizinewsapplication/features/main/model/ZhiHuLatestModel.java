@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.ms.meizinewsapplication.features.main.json.ZhiHuLatest;
 import com.ms.meizinewsapplication.features.main.main_web.ZhiHuNews;
-import com.ms.meizinewsapplication.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyGsonRetrofit;
 import com.ms.retrofitlibrary.web.MyOkHttpClient;

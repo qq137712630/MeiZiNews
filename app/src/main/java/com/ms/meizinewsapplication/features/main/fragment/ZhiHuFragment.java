@@ -11,7 +11,7 @@ import com.ms.meizinewsapplication.features.main.json.Stories;
 import com.ms.meizinewsapplication.features.main.json.ZhiHuLatest;
 import com.ms.meizinewsapplication.features.main.model.ZhiHuBeforeModel;
 import com.ms.meizinewsapplication.features.main.model.ZhiHuLatestModel;
-import com.ms.meizinewsapplication.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 
 import org.loader.model.OnModelListener;
 import org.loader.presenter.FragmentPresenterImpl;

@@ -11,19 +11,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by 啟成 on 2016/2/29.
  */
-public class MyGsonRetrofit {
+public enum MyGsonRetrofit {
+
+    instance;
 
     private Retrofit retrofit;
     private String strBaseUrl;
 
-    private static MyGsonRetrofit myGsonRetrofit;
 
     public static MyGsonRetrofit getMyGsonRetrofit() {
-        if (myGsonRetrofit == null) {
-            myGsonRetrofit = new MyGsonRetrofit();
-        }
 
-        return myGsonRetrofit;
+        return instance;
     }
 
     public void init(Context mContext, String strBaseUrl) {

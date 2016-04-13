@@ -11,19 +11,16 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 /**
  * Created by 啟成 on 2016/2/29.
  */
-public class MyStringRetrofit {
+public enum MyStringRetrofit {
+
+    instance;
 
     private Retrofit retrofit;
     private String strBaseUrl;
 
-    private static MyStringRetrofit myStringRetrofit;
 
     public static MyStringRetrofit getMyStringRetrofit() {
-        if (myStringRetrofit == null) {
-            myStringRetrofit = new MyStringRetrofit();
-        }
-
-        return myStringRetrofit;
+        return instance;
     }
 
     public void init(Context mContext, String strBaseUrl) {

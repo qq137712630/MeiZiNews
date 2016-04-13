@@ -4,10 +4,12 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
+import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.main.iview.ZhiHuDetailIView;
 import com.ms.meizinewsapplication.features.main.json.ZhihuDetail;
+import com.ms.meizinewsapplication.features.main.model.DbHtmlModel;
 import com.ms.meizinewsapplication.features.main.model.ZhihuDetailModel;
-import com.ms.meizinewsapplication.utils.tool.ZhiHuConstants;
+import com.ms.meizinewsapplication.features.base.utils.tool.ZhiHuConstants;
 
 import org.loader.model.OnModelListener;
 
@@ -16,12 +18,14 @@ import org.loader.model.OnModelListener;
  */
 public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIView> {
 
-    ZhihuDetailModel zhihuDetailModel;
+    private DbHtmlModel dbHtmlModel;
+    private ZhihuDetailModel zhihuDetailModel;
 
     @Override
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
         mView.init(this);
+        initDbHtmlModel();
         initZhihuDetailModel();
     }
 
@@ -59,6 +63,20 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
         );
     }
 
+    private void initDbHtmlModel() {
+        dbHtmlModel = new DbHtmlModel(ZhihuDetailActivity.this);
+    }
+
+    private void addDbHtmlDate(ZhihuDetail zhihuDetail) {
+        dbHtmlModel.addDate(
+                zhihuDetail.getShare_url(),
+                ConstantData.DB_HTML_TYPE_ZHIHU,
+                zhihuDetail.getTitle(),
+                zhihuDetail.getBody(),
+                " "
+        );
+    }
+
     //TODO Listener ===================================================
 
     OnModelListener<ZhihuDetail> zhihuDetailOnModelListener = new OnModelListener<ZhihuDetail>() {
@@ -66,6 +84,7 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
         public void onSuccess(ZhihuDetail zhihuDetail) {
             mView.initImg(ZhihuDetailActivity.this, zhihuDetail.getImage());
             mView.showDetail(zhihuDetail);
+            addDbHtmlDate(zhihuDetail);
         }
 
         @Override

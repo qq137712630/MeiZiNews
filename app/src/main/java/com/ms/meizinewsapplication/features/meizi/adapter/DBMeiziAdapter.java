@@ -9,7 +9,7 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.target.ImageViewTarget;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNv;
-import com.ms.meizinewsapplication.view.img.RadioImageView;
+import com.ms.meizinewsapplication.features.base.view.img.RadioImageView;
 import com.test.basequickadapterlib.BaseAdapterHelper;
 import com.test.basequickadapterlib.QuickAdapter;
 

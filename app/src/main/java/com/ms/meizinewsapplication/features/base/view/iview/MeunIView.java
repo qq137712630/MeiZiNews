@@ -11,14 +11,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 import com.ms.meizinewsapplication.features.base.listener.MyActionBarDrawerToggle;
 import com.ms.meizinewsapplication.features.main.activity.MainMvpActivity;
 import com.ms.meizinewsapplication.features.meizi.activity.MeiZiActivity;
-import com.ms.meizinewsapplication.utils.tool.DebugUtil;
-import com.ms.meizinewsapplication.utils.tool.ViewUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.ViewUtil;
+import com.ms.meizinewsapplication.features.search.view.search.MySearchView;
 import com.test.basepageradapterlibrary.basepager.BaseFragmentPagerAdapter;
 
 import org.loader.presenter.FragmentPresenterImpl;
@@ -53,6 +55,10 @@ public class MeunIView extends ViewImpl {
     protected Class mClass;
     protected MyActionBarDrawerToggle myActionBarDrawerToggle;
 
+
+    protected MySearchView search_view;
+
+
     @Override
     public void created() {
         super.created();
@@ -62,6 +68,7 @@ public class MeunIView extends ViewImpl {
         tabLayout = findViewById(R.id.tabLayout);
         viewpager = findViewById(R.id.viewpager);
         coordinator_layout = findViewById(R.id.coordinator_layout);
+        search_view = findViewById(R.id.search_view);
     }
 
     @Override
@@ -95,6 +102,7 @@ public class MeunIView extends ViewImpl {
         initFragments(appCompatActivity);
         initViewPager(appCompatActivity);
         initTabLayout();
+        initSearch(appCompatActivity);
     }
 
     private void initActivityFragmentInject() {
@@ -113,7 +121,7 @@ public class MeunIView extends ViewImpl {
     //TODO view==================================================
 
 
-    private void initToolbar(AppCompatActivity appCompatActivity) {
+    protected void initToolbar(AppCompatActivity appCompatActivity) {
 
         if (mToolbarTitle != -1 && mToolbarTitle != 0) {
             toolbar.setTitle(mToolbarTitle);
@@ -169,6 +177,11 @@ public class MeunIView extends ViewImpl {
 //        tabLayout.setScrollPosition(0, 0, true);
         // 根据Tab的长度动态设置TabLayout的模式
         ViewUtil.dynamicSetTablayoutMode(tabLayout);
+    }
+
+    protected void initSearch(AppCompatActivity appCompatActivity)
+    {
+        search_view.setVisibility(View.GONE);
     }
 
 

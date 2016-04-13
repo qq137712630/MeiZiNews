@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.view.Menu;
 
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
+import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.main.iview.DevWeekDetailIVew;
+import com.ms.meizinewsapplication.features.main.main_web.MainApi;
+import com.ms.meizinewsapplication.features.main.model.DbHtmlModel;
 import com.ms.meizinewsapplication.features.main.model.DevWeekDetailModel;
 
 import org.loader.model.OnModelListener;
@@ -13,6 +16,7 @@ import org.loader.model.OnModelListener;
  * Created by 啟成 on 2016/3/22.
  */
 public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDetailIVew> {
+    private DbHtmlModel dbHtmlModel;
     private DevWeekDetailModel devWeekDetailModel;
     private String path;
 
@@ -20,6 +24,7 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
         mView.init(DevWeekDetailActivity.this);
+        initDbHtmlModel();
         initDevWeekDetailModel();
     }
 
@@ -52,11 +57,26 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
         devWeekDetailModel.loadWeb(DevWeekDetailActivity.this, listenerDevWeek, path);
     }
 
+    private void initDbHtmlModel() {
+        dbHtmlModel = new DbHtmlModel(DevWeekDetailActivity.this);
+    }
+
+    private void addDbHtmlDate(String html) {
+        dbHtmlModel.addDate(
+                MainApi.DEV_WEEK + getIntent().getStringExtra("path"),
+                ConstantData.DB_HTML_TYPE_WEEK,
+                getIntent().getStringExtra("title"),
+                html,
+                getIntent().getStringExtra("excerpt")
+        );
+    }
+
     //TODO Listener====================
     OnModelListener<String> listenerDevWeek = new OnModelListener<String>() {
         @Override
         public void onSuccess(String s) {
             mView.showDetail(s);
+            addDbHtmlDate(s);
         }
 
         @Override

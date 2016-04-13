@@ -7,7 +7,15 @@
  - [ RxJava 使用：给 Android 开发者的 RxJava 详解](http://gank.io/post/560e15be2dca930e00da1083#toc_26)
  - [网络请求：retrofit+okhttp3](https://github.com/square/retrofit)
  - [图片加载：glide](https://github.com/bumptech/glide)
- 
+ - [搜索控件：SearchView](https://github.com/lapism/SearchView)
+ - [数据库框架：GreenDAO](https://github.com/greenrobot/greenDAO)
+
+---
+
+#GreenDAO
+
+ - [GreenDAO数据库版本升级](http://blog.csdn.net/fancylovejava/article/details/46713445)
+ - [使用greenDAO遇到的问题：Cannot update entity without key - was it inserted before?](http://blog.csdn.net/plmmmmlq/article/details/50404495)
 
 ---
 
@@ -263,6 +271,15 @@ Converters can be added to support other types. Six sibling modules adapt popula
 
 #API
 
+## 永久免费的基于深度学习的中文在线抽词-PullWord
+
+[永久免费的基于深度学习的中文在线抽词-PullWord](http://www.pullword.com/)
+[API 使用](http://api.pullword.com/)
+
+API:
+
+	http://103.37.149.178:16888/pullword/get.php?source=清华大学是好学校&param1=0&param2=1
+
 ## 知乎日报
 
     //Zhihu API
@@ -414,4 +431,13 @@ Converters can be added to support other types. Six sibling modules adapt popula
  - [android：ToolBar详解（手把手教程）](http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2006.html)
  - [为实现Fragment 不会重新创，仿OuNews的 BaseFragment类中的onCreateView和onDestroyView写法](https://github.com/oubowu/OuNews/blob/a42f773e26a27eeadda385afaa40f8fc8e5745dc/app/src/main/java/com/oushangfeng/ounews/base/BaseFragment.java)
  - [menu-Android ActionBar详解](http://blog.csdn.net/huiguixian/article/details/9836189)
+ - [spinBars-Android – Toolbar 上的 Navigation Drawer](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1123/2050.html)
+ - [Android设计模式之单例模式](http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=403126596&idx=1&sn=101c6d4e363213bcdbe1879edeb08736&scene=23&srcid=0405dfOnHTLZxrgDaQMKMcNR#rd)
+ - [软键盘处理：解析android中隐藏与显示软键盘及不自动弹出键盘的实现方法](http://www.jb51.net/article/36653.htm)
+ - [软键盘处理：android:windowSoftInputMode属性详解](http://blog.csdn.net/twoicewoo/article/details/7384398)
+
+---
  
+# 疑问
+
+ - XML布局是否可以像Jsp一样动态加载？

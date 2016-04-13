@@ -15,10 +15,33 @@
             <option value="$PROJECT_DIR$/blockcanarylibrary" />
             <option value="$PROJECT_DIR$/convenientbannerlibrary" />
             <option value="$PROJECT_DIR$/glidelibrary" />
+            <option value="$PROJECT_DIR$/greendao_db_lib" />
+            <option value="$PROJECT_DIR$/greendaolibrary" />
             <option value="$PROJECT_DIR$/loggerlibrary" />
             <option value="$PROJECT_DIR$/mvpro" />
             <option value="$PROJECT_DIR$/photoviewlibrary" />
             <option value="$PROJECT_DIR$/retrofit_and_rxjava_library" />
+            <option value="$PROJECT_DIR$/searchview" />
+            <option value="$PROJECT_DIR$/smooth_app_bar_layoutlibrary" />
+            <option value="$PROJECT_DIR$/xrecyclerviewlibrary" />
+          </set>
+        </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/basepageradapterlibrary" />
+            <option value="$PROJECT_DIR$/basequickadapterlib" />
+            <option value="$PROJECT_DIR$/blockcanarylibrary" />
+            <option value="$PROJECT_DIR$/convenientbannerlibrary" />
+            <option value="$PROJECT_DIR$/glidelibrary" />
+            <option value="$PROJECT_DIR$/greendao_db_lib" />
+            <option value="$PROJECT_DIR$/greendaolibrary" />
+            <option value="$PROJECT_DIR$/loggerlibrary" />
+            <option value="$PROJECT_DIR$/mvpro" />
+            <option value="$PROJECT_DIR$/photoviewlibrary" />
+            <option value="$PROJECT_DIR$/retrofit_and_rxjava_library" />
+            <option value="$PROJECT_DIR$/searchview" />
             <option value="$PROJECT_DIR$/smooth_app_bar_layoutlibrary" />
             <option value="$PROJECT_DIR$/xrecyclerviewlibrary" />
           </set>

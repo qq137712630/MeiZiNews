@@ -13,8 +13,8 @@ import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.main.activity.MainMvpActivity;
 import com.ms.meizinewsapplication.features.main.activity.ZhihuDetailActivity;
 import com.ms.meizinewsapplication.features.main.json.Stories;
-import com.ms.meizinewsapplication.utils.tool.ImagerLoad;
-import com.ms.meizinewsapplication.utils.tool.ZhiHuConstants;
+import com.ms.meizinewsapplication.features.base.utils.tool.ImagerLoad;
+import com.ms.meizinewsapplication.features.base.utils.tool.ZhiHuConstants;
 import com.test.basequickadapterlib.BaseAdapterHelper;
 import com.test.basequickadapterlib.head.BaseHeadRecyclerAdapter;
 

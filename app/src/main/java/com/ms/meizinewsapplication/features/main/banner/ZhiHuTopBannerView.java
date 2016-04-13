@@ -15,8 +15,8 @@ import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.main.activity.MainMvpActivity;
 import com.ms.meizinewsapplication.features.main.activity.ZhihuDetailActivity;
 import com.ms.meizinewsapplication.features.main.json.TopStories;
-import com.ms.meizinewsapplication.utils.tool.ImagerLoad;
-import com.ms.meizinewsapplication.utils.tool.ZhiHuConstants;
+import com.ms.meizinewsapplication.features.base.utils.tool.ImagerLoad;
+import com.ms.meizinewsapplication.features.base.utils.tool.ZhiHuConstants;
 
 /**
  * Created by 啟成 on 2016/3/8.

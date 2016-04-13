@@ -16,4 +16,10 @@
     <dimen name="text_title">24sp</dimen>
     <dimen name="text_main">16sp</dimen>
     <dimen name="text_padding">10dp</dimen>
+
+
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="key_line">16dp</dimen>
+    <dimen name="margin">16dp</dimen>
+    <dimen name="fab">56dp</dimen>
 </resources>
