@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 
 import com.ms.meizinewsapplication.R;
@@ -42,18 +43,24 @@ public class PhotoDetailIView extends ViewImpl {
         return R.layout.activity_photo_detail;
     }
 
+    public boolean onCreateOptionsMenu(AppCompatActivity activity, Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        activity.getMenuInflater().inflate(R.menu.menu_photo_detail, menu);
+        return true;
+    }
+
     //TODO init===============================================================
 
     public void init(AppCompatActivity activity) {
         this.activity = activity;
         dbMeiNvList = (DbMeiNvList) activity.getIntent().getSerializableExtra("DbMeiNvList");
         position = activity.getIntent().getIntExtra("position", 0);
-        initTv_photo_detail_page(activity,position);
+        initTv_photo_detail_page(activity, position);
         initToolbar(activity);
         initViewPager();
     }
 
-    private void initTv_photo_detail_page(Activity activity,int position) {
+    private void initTv_photo_detail_page(Activity activity, int position) {
         String s = activity.getString(
                 R.string.photo_page,
                 position + 1,
@@ -73,7 +80,7 @@ public class PhotoDetailIView extends ViewImpl {
 
     }
 
-    private void initToolbar(final AppCompatActivity appCompatActivity){
+    private void initToolbar(final AppCompatActivity appCompatActivity) {
 
         appCompatActivity.setSupportActionBar(toolbar);
         if (appCompatActivity.getSupportActionBar() == null) {
@@ -96,6 +103,11 @@ public class PhotoDetailIView extends ViewImpl {
 
     }
 
+    public void setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener listener) {
+        toolbar.setOnMenuItemClickListener(listener);
+
+    }
+
     //TODO Listener================================================
     OnPageChangeListenerAdapter onPageChangeListenerAdapter = new OnPageChangeListenerAdapter() {
         @Override
@@ -114,4 +126,12 @@ public class PhotoDetailIView extends ViewImpl {
             super.onPageScrollStateChanged(state);
         }
     };
+
+    //TODO MOdel ===================================
+
+    public String getImgUrl()
+    {
+        return photoDetailPagerAdapter.getItem(viewpager.getCurrentItem()).getImgUrl();
+    }
+
 }
