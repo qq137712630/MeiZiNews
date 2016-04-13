@@ -33,6 +33,7 @@ public class MyActionBarDrawerToggle extends ActionBarDrawerToggle {
 
         if (mClass == null) return;
         meunStartActivity(activity, mClass);
+        mClass = null;
 
     }
 
@@ -56,5 +57,6 @@ public class MyActionBarDrawerToggle extends ActionBarDrawerToggle {
         aty.startActivity(intent);
 //        overridePendingTransition(0, 0);
         aty.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
     }
 }
