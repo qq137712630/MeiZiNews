@@ -1,9 +1,11 @@
 package com.ms.meizinewsapplication.features.photo.view.iview;
 
 import android.app.Activity;
+import android.os.Build;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.TextView;
+import android.view.View;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.meizi.model.DbMeiNvList;
@@ -23,7 +25,6 @@ public class PhotoDetailIView extends ViewImpl {
     private Activity activity;
     private Toolbar toolbar;
     private ViewPager viewpager;
-    private TextView tv_photo_detail_page;
     private PhotoDetailPagerAdapter photoDetailPagerAdapter;
 
     private DbMeiNvList dbMeiNvList;
@@ -34,7 +35,6 @@ public class PhotoDetailIView extends ViewImpl {
         super.created();
         toolbar = findViewById(R.id.toolbar);
         viewpager = findViewById(R.id.viewpager);
-        tv_photo_detail_page = findViewById(R.id.tv_photo_detail_page);
     }
 
     @Override
@@ -44,11 +44,12 @@ public class PhotoDetailIView extends ViewImpl {
 
     //TODO init===============================================================
 
-    public void init(Activity activity) {
+    public void init(AppCompatActivity activity) {
         this.activity = activity;
         dbMeiNvList = (DbMeiNvList) activity.getIntent().getSerializableExtra("DbMeiNvList");
         position = activity.getIntent().getIntExtra("position", 0);
         initTv_photo_detail_page(activity,position);
+        initToolbar(activity);
         initViewPager();
     }
 
@@ -59,7 +60,7 @@ public class PhotoDetailIView extends ViewImpl {
                 dbMeiNvList.getDbMeiNvs().size()
         );
 
-        tv_photo_detail_page.setText(s);
+        toolbar.setTitle(s);
     }
 
     private void initViewPager() {
@@ -69,6 +70,29 @@ public class PhotoDetailIView extends ViewImpl {
         viewpager.setAdapter(photoDetailPagerAdapter);
         viewpager.setCurrentItem(position);
         viewpager.addOnPageChangeListener(onPageChangeListenerAdapter);
+
+    }
+
+    private void initToolbar(final AppCompatActivity appCompatActivity){
+
+        appCompatActivity.setSupportActionBar(toolbar);
+        if (appCompatActivity.getSupportActionBar() == null) {
+            return;
+        }
+
+        appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+//        [android：ToolBar详解（手把手教程）](http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2006.html)
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    appCompatActivity.finishAfterTransition();
+                } else {
+                    appCompatActivity.finish();
+                }
+            }
+        });
 
     }
 
