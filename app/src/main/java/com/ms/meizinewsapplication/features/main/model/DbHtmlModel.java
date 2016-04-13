@@ -68,7 +68,7 @@ public class DbHtmlModel extends DbModel {
             @Override
             public void onError(Throwable e) {
 
-                DebugUtil.debugLogErr(e, "DbHtmlModel+++++\n" + e.toString());
+                DebugUtil.debugLogErr(e, "DbHtmlModel++++\n" + e.toString());
             }
 
             @Override
