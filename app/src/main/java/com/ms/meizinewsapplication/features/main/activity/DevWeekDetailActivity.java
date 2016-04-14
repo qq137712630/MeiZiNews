@@ -1,5 +1,6 @@
 package com.ms.meizinewsapplication.features.main.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 
@@ -43,6 +44,16 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return mView.onCreateOptionsMenu(DevWeekDetailActivity.this, menu);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        mView.onBackPressed();
+        super.onBackPressed();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            finishAfterTransition();
+        }
     }
 
     //TODO Model====================================================

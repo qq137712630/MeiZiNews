@@ -35,6 +35,7 @@ public class FragmentPresenterImpl<T extends IView> extends Fragment implements 
 
             mView = getViewClass().newInstance();
             fragmentRootView = mView.create(inflater, container);
+            mView.created();
             mView.bindPresenter(this);
             mView.bindEvent();
             created(savedInstanceState);

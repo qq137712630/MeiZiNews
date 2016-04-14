@@ -21,7 +21,9 @@ public class BaseActivityPresenterImpl<T extends IView> extends BaseActivity imp
         try {
             mView = getViewClass().newInstance();
             mView.bindPresenter(this);
+
             setContentView(mView.create(getLayoutInflater(), null));
+            mView.created();
             mView.bindEvent();
             created(savedInstanceState);
         } catch (Exception e) {
