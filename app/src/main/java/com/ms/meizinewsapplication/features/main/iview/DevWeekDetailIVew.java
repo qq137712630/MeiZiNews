@@ -38,6 +38,7 @@ public class DevWeekDetailIVew extends ViewImpl {
         webContainer = findViewById(R.id.web_container);
         progress = findViewById(R.id.progress);
         toolbar = findViewById(R.id.toolbar);
+        webView = findViewById(R.id.web_view);
     }
 
     @Override
@@ -109,8 +110,6 @@ public class DevWeekDetailIVew extends ViewImpl {
     }
 
     public void initWebView(Context context) {
-        webView = new WebView(context);
-        webContainer.addView(webView);
         webView.setVisibility(View.INVISIBLE);
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);

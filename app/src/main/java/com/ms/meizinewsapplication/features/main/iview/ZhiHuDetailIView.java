@@ -43,6 +43,9 @@ public class ZhiHuDetailIView extends ViewImpl {
         fab = findViewById(R.id.fab);
         toolbar_layout = findViewById(R.id.toolbar_layout);
         toolbar = findViewById(R.id.toolbar);
+
+        webView = findViewById(R.id.web_view);
+
     }
 
     @Override
@@ -104,8 +107,6 @@ public class ZhiHuDetailIView extends ViewImpl {
 
 
     public void initWebView(Context context) {
-        webView = new WebView(context);
-        webContainer.addView(webView);
         webView.setVisibility(View.INVISIBLE);
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
