@@ -6,12 +6,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.lapism.searchview.view.SearchView;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.main.iview.MainIView;
 import com.ms.meizinewsapplication.features.search.activity.SearchActivity;
-import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 
 /**
  * Created by 啟成 on 2016/3/3.
