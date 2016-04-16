@@ -32,7 +32,6 @@ public class SearchActivity extends BaseActivityPresenterImpl<SearchIView> {
         mView.setOnSearchMenuListener(searchMenuListener);
         initPullWordModel();
         initDbHtmlModel();
-        pullWordLoad(getIntent().getStringExtra("query"));
     }
 
     // TODO Model =========================================

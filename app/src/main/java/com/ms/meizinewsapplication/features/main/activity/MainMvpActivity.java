@@ -23,8 +23,6 @@ public class MainMvpActivity extends BaseActivityPresenterImpl<MainIView> {
         super.created(savedInstance);
         mView.init(this);
         mView.setOnMenuItemClickListener(onMenuItemClickListener);
-        mView.setOnQueryTextListener(onQueryTextListener);
-        mView.setOnSearchViewListener(searchViewListener);
     }
 
     @Override
@@ -50,7 +48,12 @@ public class MainMvpActivity extends BaseActivityPresenterImpl<MainIView> {
             switch (item.getItemId()) {
                 case R.id.action_search:
 
-                    mView.showSearchView();
+//                    mView.showSearchView();
+
+
+                    Intent intent = new Intent(MainMvpActivity.this, SearchActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     break;
 
             }
@@ -59,39 +62,6 @@ public class MainMvpActivity extends BaseActivityPresenterImpl<MainIView> {
         }
     };
 
-    SearchView.SearchViewListener searchViewListener = new SearchView.SearchViewListener() {
-        @Override
-        public void onSearchViewShown() {
-            DebugUtil.debugLogD("onSearchViewShown");
-        }
 
-        @Override
-        public void onSearchViewClosed() {
-            DebugUtil.debugLogD("onSearchViewClosed");
 
-        }
-    };
-
-    SearchView.OnQueryTextListener onQueryTextListener = new SearchView.OnQueryTextListener() {
-        @Override
-        public boolean onQueryTextSubmit(String query) {
-
-            DebugUtil.debugLogD("onQueryTextSubmit:\n" + query);
-            mView.getSearch_view().hide(false);
-
-            Intent intent = new Intent(MainMvpActivity.this, SearchActivity.class);
-            intent.putExtra("query", query);
-            startActivity(intent);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            return false;
-
-        }
-
-        @Override
-        public boolean onQueryTextChange(String newText) {
-
-            DebugUtil.debugLogD("onQueryTextChange");
-            return false;
-        }
-    };
 }
