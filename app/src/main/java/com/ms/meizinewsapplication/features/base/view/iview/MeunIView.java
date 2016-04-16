@@ -23,7 +23,7 @@ import com.ms.meizinewsapplication.features.base.utils.tool.ViewUtil;
 import com.ms.meizinewsapplication.features.search.view.search.MySearchView;
 import com.test.basepageradapterlibrary.basepager.BaseFragmentPagerAdapter;
 
-import org.loader.presenter.FragmentPresenterImpl;
+import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
 import org.loader.view.ViewImpl;
 
 import java.util.ArrayList;

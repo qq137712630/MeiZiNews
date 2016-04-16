@@ -65,7 +65,9 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
     }
 
     private void devWeekModelLoad() {
-        devWeekDetailModel.loadWeb(DevWeekDetailActivity.this, listenerDevWeek, path);
+        addSubscription(
+                devWeekDetailModel.loadWeb(DevWeekDetailActivity.this, listenerDevWeek, path)
+        );
     }
 
     private void initDbHtmlModel() {

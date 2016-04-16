@@ -56,10 +56,13 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
 
     private void initZhihuDetailModel() {
         zhihuDetailModel = new ZhihuDetailModel();
-        zhihuDetailModel.loadWeb(
-                ZhihuDetailActivity.this,
-                zhihuDetailOnModelListener,
-                getIntent().getIntExtra(ZhiHuConstants.ID, 0) + ""
+        addSubscription(
+
+                zhihuDetailModel.loadWeb(
+                        ZhihuDetailActivity.this,
+                        zhihuDetailOnModelListener,
+                        getIntent().getIntExtra(ZhiHuConstants.ID, 0) + ""
+                )
         );
     }
 

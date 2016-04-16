@@ -2,17 +2,17 @@ package com.ms.meizinewsapplication.features.meizi.model;
 
 import android.content.Context;
 
+import com.ms.meizinewsapplication.features.base.model.CommonModel;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.JsoupUtil;
 import com.ms.meizinewsapplication.features.meizi.meizi_web.DbGroup;
 import com.ms.meizinewsapplication.features.meizi.meizi_web.MeiZiApi;
 import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNv;
-import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
-import com.ms.meizinewsapplication.features.base.utils.tool.JsoupUtil;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyStringRetrofit;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.loader.model.CommonModel;
 import org.loader.model.OnModelListener;
 
 import java.util.ArrayList;
@@ -20,35 +20,41 @@ import java.util.List;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.Subscription;
 import rx.functions.Func1;
 
 /**
  * Created by 啟成 on 2016/3/15.
  */
-public class DbGroupModel implements CommonModel<List<DbMeiNv>> {
+public abstract class DbGroupModel implements CommonModel<List<DbMeiNv>> {
+
+
     @Override
-    public void loadWeb(Context context, OnModelListener<List<DbMeiNv>> listener) {
+    public Subscription loadWeb(Context context, OnModelListener<List<DbMeiNv>> listener) {
         MyStringRetrofit.getMyStringRetrofit().init(context, MeiZiApi.DB_GROUP);
 
-
+        return reSubscription(context, listener);
     }
+
+
+    protected abstract Subscription reSubscription(Context context, OnModelListener<List<DbMeiNv>> listener);
 
     /**
      * 获得DbGroup
+     *
      * @return
      */
-    protected DbGroup getDbGroup()
-    {
-        DbGroup dbGroup = MyStringRetrofit.getMyStringRetrofit().getCreate(DbGroup.class);
-        return dbGroup;
+    protected DbGroup getDbGroup() {
+        return MyStringRetrofit.getMyStringRetrofit().getCreate(DbGroup.class);
     }
 
     /**
      * 请求和解析图片
+     *
      * @param dbGroup
      * @param listener
      */
-    protected void rxDbGroup(Observable<String> dbGroup, final OnModelListener<List<DbMeiNv>> listener) {
+    protected Subscription rxDbGroup(Observable<String> dbGroup, final OnModelListener<List<DbMeiNv>> listener) {
         Observable observable = dbGroup.map(new Func1<String, List<DbMeiNv>>() {
             @Override
             public List<DbMeiNv> call(String s) {
@@ -70,7 +76,7 @@ public class DbGroupModel implements CommonModel<List<DbMeiNv>> {
             }
         });
 
-        RxJavaUtil.rxIoAndMain(observable, new Subscriber<List<DbMeiNv>>() {
+       return RxJavaUtil.rxIoAndMain(observable, new Subscriber<List<DbMeiNv>>() {
                     @Override
                     public void onCompleted() {
                         listener.onCompleted();
@@ -78,7 +84,7 @@ public class DbGroupModel implements CommonModel<List<DbMeiNv>> {
 
                     @Override
                     public void onError(Throwable e) {
-                        DebugUtil.debugLogErr(e, "ZhiHuLatestModel+++++\n" + e.toString());
+                        DebugUtil.debugLogErr(e, "DbGroupModel+++++\n" + e.toString());
                         listener.onError(e.toString());
                     }
 
@@ -93,4 +99,6 @@ public class DbGroupModel implements CommonModel<List<DbMeiNv>> {
                 }
         );
     }
+
+
 }

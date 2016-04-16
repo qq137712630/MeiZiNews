@@ -2,18 +2,18 @@ package com.ms.meizinewsapplication.features.main.model;
 
 import android.content.Context;
 
+import com.ms.meizinewsapplication.features.base.model.CommonModel;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.JsoupUtil;
 import com.ms.meizinewsapplication.features.main.main_web.DevWeekApi;
 import com.ms.meizinewsapplication.features.main.main_web.MainApi;
 import com.ms.meizinewsapplication.features.main.pojo.AndroidDevWeek;
-import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
-import com.ms.meizinewsapplication.features.base.utils.tool.JsoupUtil;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyOkHttpClient;
 import com.ms.retrofitlibrary.web.MyStringRetrofit;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.loader.model.CommonModel;
 import org.loader.model.OnModelListener;
 
 import java.util.ArrayList;
@@ -21,6 +21,7 @@ import java.util.List;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.Subscription;
 import rx.functions.Func1;
 
 /**
@@ -30,13 +31,13 @@ public class DevWeekModel implements CommonModel<List<AndroidDevWeek>> {
 
     private String page;
 
-    public void loadWeb(Context context, OnModelListener<List<AndroidDevWeek>> listener, String page) {
+    public Subscription loadWeb(Context context, OnModelListener<List<AndroidDevWeek>> listener, String page) {
         this.page = page;
-        loadWeb(context, listener);
+        return loadWeb(context, listener);
     }
 
     @Override
-    public void loadWeb(Context context, final OnModelListener<List<AndroidDevWeek>> listener) {
+    public Subscription loadWeb(Context context, final OnModelListener<List<AndroidDevWeek>> listener) {
 
         MyStringRetrofit.getMyStringRetrofit().init(context, MainApi.DEV_WEEK);
         DevWeekApi devWeekApi = MyStringRetrofit.getMyStringRetrofit().getCreate(DevWeekApi.class);
@@ -73,7 +74,7 @@ public class DevWeekModel implements CommonModel<List<AndroidDevWeek>> {
         });
 
 
-        RxJavaUtil.rxIoAndMain(observable, new Subscriber<List<AndroidDevWeek>>() {
+        return RxJavaUtil.rxIoAndMain(observable, new Subscriber<List<AndroidDevWeek>>() {
                     @Override
                     public void onCompleted() {
                         listener.onCompleted();

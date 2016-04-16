@@ -5,6 +5,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
 import com.ms.meizinewsapplication.R;
+import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
 import com.ms.meizinewsapplication.features.meizi.iview.DBMeiNvIView;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupBreastModel;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupButtModel;
@@ -14,7 +15,6 @@ import com.ms.meizinewsapplication.features.meizi.model.DbGroupSilkModel;
 import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNv;
 
 import org.loader.model.OnModelListener;
-import org.loader.presenter.FragmentPresenterImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +46,6 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
         mView.addOnScrollListener(onScrollListener);
         initDbGroup();
     }
-
-
 
 
     //TODO Model======================================================
@@ -124,31 +122,31 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
 
     private void breastLoad() {
         mView.changeProgress(true);
-        dbGroupBreastModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
+        addSubscription(dbGroupBreastModel.loadWeb(getContext(), listenerDbMeiNv, page + ""));
     }
 
     private void buttLoad() {
 
         mView.changeProgress(true);
-        dbGroupButtModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
+        addSubscription(dbGroupButtModel.loadWeb(getContext(), listenerDbMeiNv, page + ""));
     }
 
     private void legLoad() {
 
         mView.changeProgress(true);
-        dbGroupLegModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
+        addSubscription(dbGroupLegModel.loadWeb(getContext(), listenerDbMeiNv, page + ""));
     }
 
     private void silkLoad() {
 
         mView.changeProgress(true);
-        dbGroupSilkModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
+        addSubscription(dbGroupSilkModel.loadWeb(getContext(), listenerDbMeiNv, page + ""));
     }
 
     private void rankLoad() {
 
         mView.changeProgress(true);
-        dbGroupRankModel.loadWeb(getContext(), listenerDbMeiNv, page + "");
+        addSubscription(dbGroupRankModel.loadWeb(getContext(), listenerDbMeiNv, page + ""));
     }
     //TODO Listener============================================================
 
