@@ -76,7 +76,8 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
                 ConstantData.DB_HTML_TYPE_ZHIHU,
                 zhihuDetail.getTitle(),
                 zhihuDetail.getBody(),
-                " "
+                " ",
+                ConstantData.DB_HTML_COLLECT_NO
         );
     }
 

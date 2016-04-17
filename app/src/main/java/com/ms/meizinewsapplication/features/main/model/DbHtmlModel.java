@@ -33,16 +33,20 @@ public class DbHtmlModel extends DbModel {
     public void addDate(
 
             String url,
-            final String type,
+            String type,
             String title,
             String html,
-            String summary
+            String summary,
+            String collect
     ) {
         Map<String, String> map = new HashMap<>();
         map.put("url", url);
+        map.put("type", type);
         map.put("title", title);
         map.put("html", html);
         map.put("excerpt", summary);
+        map.put("collect", collect);
+
 
         Observable ob = Observable.just(map)
                 .map(new Func1<Map<String, String>, Boolean>() {
@@ -51,10 +55,11 @@ public class DbHtmlModel extends DbModel {
 
                         dbUtil.addHtml(
                                 stringMap.get("url"),
-                                type,
+                                stringMap.get("type"),
                                 stringMap.get("title"),
                                 stringMap.get("html"),
-                                stringMap.get("excerpt")
+                                stringMap.get("excerpt"),
+                                stringMap.get("collect")
                         );
                         return true;
                     }

@@ -348,10 +348,7 @@ API:
  - [Google官方下拉刷新组件--SwipeRefreshLayout](https://github.com/stormzhang/SwipeRefreshLayoutDemo)
  
 ## 头部： CoordinatorLayout CollapsingToolbarLayout
-	
-	
 
-	
  - [CoordinatorLayout与滚动的处理](http://www.open-open.com/lib/view/open1437312265428.html)
  - [该使用 fitsSystemWindows 了！](http://ju.outofmemory.cn/entry/247350)或[该使用 fitsSystemWindows 了！]( http://blog.chengyunfeng.com/?p=905)
 

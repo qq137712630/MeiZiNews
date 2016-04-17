@@ -7,7 +7,7 @@ import de.greenrobot.daogenerator.Schema;
 public class DBClass {
 
 
-    private static int DBVERSION = 6; //版本号
+    private static int DBVERSION = 7; //版本号
 
     public static void main(String[] args) throws Exception {
         Schema schema = new Schema(DBVERSION, "com.ms.greendaolibrary.db");
@@ -33,6 +33,7 @@ public class DBClass {
         mHtmlEntity.addStringProperty("title");//标题
         mHtmlEntity.addStringProperty("html");//html
         mHtmlEntity.addStringProperty("summary");//总结
+        mHtmlEntity.addStringProperty("collect");//是否收藏
 
 
 

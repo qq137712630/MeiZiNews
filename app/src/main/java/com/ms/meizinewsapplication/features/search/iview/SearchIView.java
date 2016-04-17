@@ -104,6 +104,7 @@ public class SearchIView extends ViewImpl {
 
     public void upAllDatas2QuickAdapter(ArrayList<HtmlEntity> htmlEntitieList) {
         mySearchAdapter.upAllData(htmlEntitieList);
+//        mySearchAdapter.addDatas(htmlEntitieList);
         recycler_list.smoothScrollToPosition(0);
     }
 

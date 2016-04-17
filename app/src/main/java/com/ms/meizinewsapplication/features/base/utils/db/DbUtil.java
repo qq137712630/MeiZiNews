@@ -84,7 +84,8 @@ public enum DbUtil {
             String type,
             String title,
             String html,
-            String summary
+            String summary,
+            String collect
     ) {
         List<HtmlEntity> htmlEntityList = queryHtmlByUrl(url);
         boolean resCheck = (htmlEntityList == null || htmlEntityList.size() == 0);
@@ -96,6 +97,7 @@ public enum DbUtil {
                 title,
                 html,
                 summary,
+                collect,
                 new java.util.Date()
         );
 

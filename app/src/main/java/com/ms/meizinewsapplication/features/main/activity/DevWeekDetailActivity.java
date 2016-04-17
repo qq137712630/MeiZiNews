@@ -80,7 +80,8 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
                 ConstantData.DB_HTML_TYPE_WEEK,
                 getIntent().getStringExtra("title"),
                 html,
-                getIntent().getStringExtra("excerpt")
+                getIntent().getStringExtra("excerpt"),
+                ConstantData.DB_HTML_COLLECT_NO
         );
     }
 
