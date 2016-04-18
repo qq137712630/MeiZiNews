@@ -2,10 +2,14 @@ package com.ms.meizinewsapplication.features.main.activity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 
+import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
 import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
+import com.ms.meizinewsapplication.features.base.utils.tool.Share;
 import com.ms.meizinewsapplication.features.main.iview.DevWeekDetailIVew;
 import com.ms.meizinewsapplication.features.main.main_web.MainApi;
 import com.ms.meizinewsapplication.features.main.model.DbHtmlModel;
@@ -26,6 +30,7 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
         mView.init(DevWeekDetailActivity.this);
+        mView.setOnMenuItemClickListener(onMenuItemClickListener);
         initDbHtmlModel();
         initDevWeekDetailModel();
     }
@@ -110,6 +115,30 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
         @Override
         public void onCompleted() {
 
+        }
+    };
+
+
+    private Toolbar.OnMenuItemClickListener onMenuItemClickListener = new Toolbar.OnMenuItemClickListener() {
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+
+            switch (item.getItemId()) {
+                case R.id.menu_share:
+                    Share.shareText(DevWeekDetailActivity.this, MainApi.DEV_WEEK + getIntent().getStringExtra("path"));
+                    break;
+                case R.id.menu_collect:
+                    if (isCollect) {
+                        isCollect = false;
+                        item.setIcon(R.drawable.iconfont_weishoucang);
+                    }else {
+                        isCollect = true;
+                        item.setIcon(R.drawable.iconfont_yishoucang);
+                    }
+
+            }
+
+            return false;
         }
     };
 }

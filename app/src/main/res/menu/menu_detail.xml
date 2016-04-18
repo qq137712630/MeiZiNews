@@ -16,4 +16,13 @@
         android:title="@string/share_to"
 
         app:showAsAction="ifRoom|collapseActionView" />
+
+    <item
+        android:id="@+id/menu_collect"
+
+        android:icon="@drawable/iconfont_weishoucang"
+
+        android:title="@string/collect"
+
+        app:showAsAction="ifRoom|collapseActionView" />
 </menu>

@@ -5,7 +5,6 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -14,8 +13,6 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.main.main_web.MainApi;
-import com.ms.meizinewsapplication.features.base.utils.tool.Share;
 
 import org.loader.view.ViewImpl;
 
@@ -105,7 +102,6 @@ public class DevWeekDetailIVew extends ViewImpl {
             }
         });
 
-        toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
 
     }
 
@@ -148,18 +144,10 @@ public class DevWeekDetailIVew extends ViewImpl {
 
     //TODO Listener====================
 
-    Toolbar.OnMenuItemClickListener onMenuItemClickListener = new Toolbar.OnMenuItemClickListener() {
-        @Override
-        public boolean onMenuItemClick(MenuItem item) {
+    public void setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener onMenuItemClickListener)
+    {
 
-            switch (item.getItemId()) {
-                case R.id.menu_share:
-                    Share.shareText(activity, MainApi.DEV_WEEK + activity.getIntent().getStringExtra("path"));
-                    break;
+        toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
+    }
 
-            }
-
-            return false;
-        }
-    };
 }

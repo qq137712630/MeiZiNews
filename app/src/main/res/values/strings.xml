@@ -24,7 +24,8 @@
     <string name="tab_dbmeinv_heisi">黑丝袜</string>
     <string name="tab_dbmeinv_zahui">大杂烩</string>
 
-    <string name="share_to">分享文章</string>
+    <string name="share_to">分享</string>
+    <string name="collect">收藏</string>
 
     <string name="search">Search</string>
     <string name="photo_page">%1$d/%2$d</string>
