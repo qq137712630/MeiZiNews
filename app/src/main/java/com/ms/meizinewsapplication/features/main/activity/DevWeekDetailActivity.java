@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
 import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.utils.tool.Share;
 import com.ms.meizinewsapplication.features.main.iview.DevWeekDetailIVew;
 import com.ms.meizinewsapplication.features.main.main_web.MainApi;
@@ -131,11 +132,14 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
                     if (isCollect) {
                         isCollect = false;
                         item.setIcon(R.drawable.iconfont_weishoucang);
-                    }else {
+                    } else {
                         isCollect = true;
                         item.setIcon(R.drawable.iconfont_yishoucang);
                     }
 
+                    DebugUtil.debugLogD("是否收藏-->isCollect:"+isCollect);
+                    addDbHtmlDate(null);
+                    break;
             }
 
             return false;

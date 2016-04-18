@@ -2,6 +2,7 @@ package com.ms.meizinewsapplication.features.base.utils.db;
 
 import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
 
 import com.ms.greendaolibrary.db.DaoMaster;
 import com.ms.greendaolibrary.db.DaoSession;
@@ -106,6 +107,12 @@ public enum DbUtil {
             htmlEntityDao.insert(htmlEntity);
         } else {
             htmlEntity.setId(htmlEntityList.get(0).getId());
+
+            if (!TextUtils.isEmpty(html))
+            {
+                htmlEntity.setHtml(htmlEntityList.get(0).getHtml());
+            }
+
             htmlEntityDao.update(htmlEntity);
         }
 
