@@ -20,6 +20,7 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
 
     private DbHtmlModel dbHtmlModel;
     private ZhihuDetailModel zhihuDetailModel;
+    private boolean isCollect = false;
 
     @Override
     public void created(Bundle savedInstance) {
@@ -71,13 +72,24 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
     }
 
     private void addDbHtmlDate(ZhihuDetail zhihuDetail) {
+
+
+        String strCollect;
+        if (isCollect) {
+            strCollect = ConstantData.DB_HTML_COLLECT_YES;
+        } else {
+
+            strCollect = ConstantData.DB_HTML_COLLECT_NO;
+        }
+
+
         dbHtmlModel.addDate(
                 zhihuDetail.getShare_url(),
                 ConstantData.DB_HTML_TYPE_ZHIHU,
                 zhihuDetail.getTitle(),
                 zhihuDetail.getBody(),
                 " ",
-                ConstantData.DB_HTML_COLLECT_NO
+                strCollect
         );
     }
 

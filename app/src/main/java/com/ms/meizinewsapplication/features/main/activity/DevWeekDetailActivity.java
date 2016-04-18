@@ -20,6 +20,7 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
     private DbHtmlModel dbHtmlModel;
     private DevWeekDetailModel devWeekDetailModel;
     private String path;
+    private boolean isCollect = false;
 
     @Override
     public void created(Bundle savedInstance) {
@@ -75,13 +76,21 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
     }
 
     private void addDbHtmlDate(String html) {
+        String strCollect;
+        if (isCollect) {
+            strCollect = ConstantData.DB_HTML_COLLECT_YES;
+        } else {
+
+            strCollect = ConstantData.DB_HTML_COLLECT_NO;
+        }
+
         dbHtmlModel.addDate(
                 MainApi.DEV_WEEK + getIntent().getStringExtra("path"),
                 ConstantData.DB_HTML_TYPE_WEEK,
                 getIntent().getStringExtra("title"),
                 html,
                 getIntent().getStringExtra("excerpt"),
-                ConstantData.DB_HTML_COLLECT_NO
+                strCollect
         );
     }
 
