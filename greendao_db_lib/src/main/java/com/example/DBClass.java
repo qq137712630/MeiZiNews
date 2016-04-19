@@ -2,6 +2,7 @@ package com.example;
 
 import de.greenrobot.daogenerator.DaoGenerator;
 import de.greenrobot.daogenerator.Entity;
+import de.greenrobot.daogenerator.Property;
 import de.greenrobot.daogenerator.Schema;
 
 public class DBClass {
@@ -27,7 +28,7 @@ public class DBClass {
         Entity mHtmlEntity = schema.addEntity("HtmlEntity");//表名
 
         //列名
-        mHtmlEntity.addIdProperty();//主键id
+        Property htmlID =  mHtmlEntity.addIdProperty().getProperty();//主键id
         mHtmlEntity.addStringProperty("url");//连接
         mHtmlEntity.addStringProperty("type");//类型
         mHtmlEntity.addStringProperty("title");//标题
@@ -38,16 +39,24 @@ public class DBClass {
 
 
         mHtmlEntity.addDateProperty("hireDate");
+
+
+        // 收藏实体类
+        Entity mCollectEntity = schema.addEntity("CollectEntity");//表名
+        mCollectEntity.addIdProperty();//主键id
+        mCollectEntity.addStringProperty("html_id");//收藏的id
+        mCollectEntity.addStringProperty("collect");//是否收藏
+        mHtmlEntity.addToOne(mCollectEntity, htmlID);
     }
 
     private static void addCollect(Schema schema)
     {
 
-        // 实体类
-        Entity mCollectEntity = schema.addEntity("CollectEntity");//表名
-        mCollectEntity.addIdProperty();//主键id
-        mCollectEntity.addStringProperty("html_id");//收藏的id
-        mCollectEntity.addStringProperty("collect");//是否收藏
-        mCollectEntity.addDateProperty("hireDate");
+//        // 实体类
+//        Entity mCollectEntity = schema.addEntity("CollectEntity");//表名
+//        mCollectEntity.addIdProperty();//主键id
+//        mCollectEntity.addStringProperty("html_id");//收藏的id
+//        mCollectEntity.addStringProperty("collect");//是否收藏
+//        mCollectEntity.addDateProperty("hireDate");
     }
 }

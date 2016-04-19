@@ -16,6 +16,8 @@
 
  - [GreenDAO数据库版本升级](http://blog.csdn.net/fancylovejava/article/details/46713445)
  - [使用greenDAO遇到的问题：Cannot update entity without key - was it inserted before?](http://blog.csdn.net/plmmmmlq/article/details/50404495)
+ - [greenDao数据库更新和多表关联](http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2015/05/21/greenDAO%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E6%9B%B4%E6%96%B0%E5%92%8C%E5%A4%9A%E8%A1%A8%E5%85%B3%E8%81%94/)
+ - [多个有关联的表查询：joins](http://greenrobot.org/greendao/documentation/joins/)
 
 ---
 
@@ -428,6 +430,7 @@ API:
  - [android：ToolBar详解（手把手教程）](http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2006.html)
  - [为实现Fragment 不会重新创，仿OuNews的 BaseFragment类中的onCreateView和onDestroyView写法](https://github.com/oubowu/OuNews/blob/a42f773e26a27eeadda385afaa40f8fc8e5745dc/app/src/main/java/com/oushangfeng/ounews/base/BaseFragment.java)
  - [menu-Android ActionBar详解](http://blog.csdn.net/huiguixian/article/details/9836189)
+ - [ Android 学习笔记（二七）：Menu](http://blog.csdn.net/flowingflying/article/details/6317632)
  - [spinBars-Android – Toolbar 上的 Navigation Drawer](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1123/2050.html)
  - [Android设计模式之单例模式](http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=403126596&idx=1&sn=101c6d4e363213bcdbe1879edeb08736&scene=23&srcid=0405dfOnHTLZxrgDaQMKMcNR#rd)
  - [软键盘处理：解析android中隐藏与显示软键盘及不自动弹出键盘的实现方法](http://www.jb51.net/article/36653.htm)

@@ -6,8 +6,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.ms.greendaolibrary.db.CollectEntity;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
+import com.ms.meizinewsapplication.features.base.model.CollectModel;
 import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.utils.tool.Share;
@@ -18,11 +20,14 @@ import com.ms.meizinewsapplication.features.main.model.DevWeekDetailModel;
 
 import org.loader.model.OnModelListener;
 
+import java.util.List;
+
 /**
  * Created by 啟成 on 2016/3/22.
  */
 public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDetailIVew> {
     private DbHtmlModel dbHtmlModel;
+    private CollectModel collectModel;
     private DevWeekDetailModel devWeekDetailModel;
     private String path;
     private boolean isCollect = false;
@@ -32,6 +37,9 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
         super.created(savedInstance);
         mView.init(DevWeekDetailActivity.this);
         mView.setOnMenuItemClickListener(onMenuItemClickListener);
+
+        initCollectModel();
+
         initDbHtmlModel();
         initDevWeekDetailModel();
     }
@@ -50,6 +58,7 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        isCollectByUrl();
         return mView.onCreateOptionsMenu(DevWeekDetailActivity.this, menu);
     }
 
@@ -100,6 +109,24 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
         );
     }
 
+    private void initCollectModel() {
+        collectModel = new CollectModel(DevWeekDetailActivity.this);
+    }
+
+    private void isCollectByUrl() {
+        collectModel.isCollectByUrl(
+                MainApi.DEV_WEEK + getIntent().getStringExtra("path"),
+                isCollectListener
+        );
+    }
+
+    private void addCollectByUrl() {
+        collectModel.addDateByUrl(
+                MainApi.DEV_WEEK + getIntent().getStringExtra("path"),
+                isCollect ? ConstantData.DB_HTML_COLLECT_NO : ConstantData.DB_HTML_COLLECT_YES
+        );
+    }
+
     //TODO Listener====================
     OnModelListener<String> listenerDevWeek = new OnModelListener<String>() {
         @Override
@@ -129,20 +156,40 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
                     Share.shareText(DevWeekDetailActivity.this, MainApi.DEV_WEEK + getIntent().getStringExtra("path"));
                     break;
                 case R.id.menu_collect:
-                    if (isCollect) {
-                        isCollect = false;
-                        item.setIcon(R.drawable.iconfont_weishoucang);
-                    } else {
-                        isCollect = true;
-                        item.setIcon(R.drawable.iconfont_yishoucang);
-                    }
-
-                    DebugUtil.debugLogD("是否收藏-->isCollect:"+isCollect);
-                    addDbHtmlDate(null);
+                    mView.setMenuItemIconByCollect(isCollect);
+                    addCollectByUrl();
+                    isCollect = !isCollect;
+                    DebugUtil.debugLogD("是否收藏-->isCollect:" + isCollect);
                     break;
             }
 
             return false;
+        }
+    };
+
+    /**
+     * 是否收藏监听
+     */
+    OnModelListener<List<CollectEntity>> isCollectListener = new OnModelListener<List<CollectEntity>>() {
+        @Override
+        public void onSuccess(List<CollectEntity> collectEntityList) {
+            if (collectEntityList == null
+                    || collectEntityList.size() == 0
+                    ||collectEntityList.get(0).getCollect().equals(ConstantData.DB_HTML_COLLECT_NO)) {
+                return;
+            }
+            mView.setMenuItemIconByCollect(isCollect);
+            isCollect = !isCollect;
+        }
+
+        @Override
+        public void onError(String err) {
+            mView.progressGone();
+        }
+
+        @Override
+        public void onCompleted() {
+
         }
     };
 }

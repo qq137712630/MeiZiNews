@@ -2,6 +2,7 @@ package com.ms.meizinewsapplication.features.main.iview;
 
 import android.content.Context;
 import android.os.Build;
+import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -105,6 +106,20 @@ public class DevWeekDetailIVew extends ViewImpl {
 
     }
 
+    public void setMenuItemIconByCollect(boolean isCollect) {
+
+        if (isCollect) {
+            setMenuItemIcon(1,R.drawable.iconfont_weishoucang);
+        } else {
+            setMenuItemIcon(1,R.drawable.iconfont_yishoucang);
+        }
+
+    }
+
+    public void setMenuItemIcon(int index, @DrawableRes int iconRes) {
+        toolbar.getMenu().getItem(index).setIcon(iconRes);
+    }
+
     public void initWebView(Context context) {
         webView.setVisibility(View.INVISIBLE);
         WebSettings settings = webView.getSettings();
@@ -134,6 +149,7 @@ public class DevWeekDetailIVew extends ViewImpl {
         progress.setVisibility(View.GONE);
     }
 
+
     //TODO Mode ===================================================
 
     public void showDetail(String body) {
@@ -144,8 +160,7 @@ public class DevWeekDetailIVew extends ViewImpl {
 
     //TODO Listener====================
 
-    public void setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener onMenuItemClickListener)
-    {
+    public void setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener onMenuItemClickListener) {
 
         toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
     }

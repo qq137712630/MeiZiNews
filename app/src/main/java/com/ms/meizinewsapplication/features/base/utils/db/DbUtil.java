@@ -16,6 +16,7 @@ import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import java.util.List;
 
 import de.greenrobot.dao.query.Query;
+import de.greenrobot.dao.query.QueryBuilder;
 import de.greenrobot.dao.query.WhereCondition;
 
 /**
@@ -110,8 +111,7 @@ public enum DbUtil {
         } else {
             htmlEntity.setId(htmlEntityList.get(0).getId());
 
-            if (!TextUtils.isEmpty(html))
-            {
+            if (!TextUtils.isEmpty(html)) {
                 htmlEntity.setHtml(htmlEntityList.get(0).getHtml());
             }
 
@@ -144,20 +144,28 @@ public enum DbUtil {
         return query.list();
     }
 
+
+    public List<CollectEntity> queryCollectByhtmlUrl(String url) {
+        QueryBuilder<CollectEntity> queryBuilder = collectEntityDao.queryBuilder();
+        queryBuilder.join(HtmlEntity.class, HtmlEntityDao.Properties.Id)
+                .where(HtmlEntityDao.Properties.Url.eq(url));
+
+        return queryBuilder.list();
+    }
+
     public boolean addCollect(
             String html_id,
             String collect
 
-    ){
+    ) {
 
-        List<CollectEntity>  mCollectEntityList = queryCollectByhtmlId(html_id);
+        List<CollectEntity> mCollectEntityList = queryCollectByhtmlId(html_id);
         boolean resCheck = (mCollectEntityList == null || mCollectEntityList.size() == 0);
 
         CollectEntity collectEntity = new CollectEntity(
                 null,
                 html_id,
-                collect,
-                new java.util.Date()
+                collect
         );
 
         if (resCheck) {
@@ -166,12 +174,38 @@ public enum DbUtil {
         } else {
             collectEntity.setId(mCollectEntityList.get(0).getId());
 
-            if (!TextUtils.isEmpty(html_id))
-            {
+            if (!TextUtils.isEmpty(html_id)) {
                 collectEntity.setHtml_id(mCollectEntityList.get(0).getHtml_id());
             }
 
             collectEntityDao.update(collectEntity);
+        }
+
+        return resCheck;
+    }
+
+    public boolean addCollectByUrl(
+            String url,
+            String collect
+
+    ) {
+
+        List<CollectEntity> mCollectEntityList = queryCollectByhtmlUrl(url);
+        boolean resCheck = (mCollectEntityList == null || mCollectEntityList.size() == 0);
+
+
+        CollectEntity collectEntity = new CollectEntity(
+                null,
+                queryHtmlByUrl(url).get(0).getId() + "",
+                collect
+        );
+
+        if (resCheck) {
+
+            collectEntityDao.insert(collectEntity);
+        } else {
+            collectEntity.setId(mCollectEntityList.get(0).getId());
+            collectEntityDao.update(collectEntity);//这个出问题！
         }
 
         return resCheck;
