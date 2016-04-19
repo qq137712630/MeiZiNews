@@ -30,11 +30,12 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
     private CollectModel collectModel;
     private DevWeekDetailModel devWeekDetailModel;
     private String path;
-    private boolean isCollect = false;
+    private boolean isCollect;
 
     @Override
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
+        isCollect = false;
         mView.init(DevWeekDetailActivity.this);
         mView.setOnMenuItemClickListener(onMenuItemClickListener);
 

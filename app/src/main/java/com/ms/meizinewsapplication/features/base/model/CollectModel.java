@@ -58,7 +58,7 @@ public class CollectModel extends DbModel {
             @Override
             public void onError(Throwable e) {
 
-                DebugUtil.debugLogErr(e, "CollectModel+++++\n" + e.toString());
+                DebugUtil.debugLogErr(e, "CollectModel++++\n" + e.toString());
             }
 
             @Override

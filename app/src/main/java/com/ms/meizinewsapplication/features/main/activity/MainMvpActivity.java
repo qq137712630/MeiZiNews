@@ -20,6 +20,11 @@ public class MainMvpActivity extends BaseActivityPresenterImpl<MainIView> {
     @Override
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         mView.init(this);
         mView.setOnMenuItemClickListener(onMenuItemClickListener);
     }

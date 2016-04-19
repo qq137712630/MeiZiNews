@@ -109,9 +109,9 @@ public class DevWeekDetailIVew extends ViewImpl {
     public void setMenuItemIconByCollect(boolean isCollect) {
 
         if (isCollect) {
-            setMenuItemIcon(1,R.drawable.iconfont_weishoucang);
+            setMenuItemIcon(2,R.drawable.iconfont_weishoucang);
         } else {
-            setMenuItemIcon(1,R.drawable.iconfont_yishoucang);
+            setMenuItemIcon(2,R.drawable.iconfont_yishoucang);
         }
 
     }
