@@ -7,13 +7,13 @@ import de.greenrobot.daogenerator.Schema;
 public class DBClass {
 
 
-    private static int DBVERSION = 7; //版本号
+    private static int DBVERSION = 8; //版本号
 
     public static void main(String[] args) throws Exception {
         Schema schema = new Schema(DBVERSION, "com.ms.greendaolibrary.db");
 
         addHtml(schema);
-
+        addCollect(schema);
         // 生成
         new DaoGenerator().generateAll(
                 schema,
@@ -38,5 +38,16 @@ public class DBClass {
 
 
         mHtmlEntity.addDateProperty("hireDate");
+    }
+
+    private static void addCollect(Schema schema)
+    {
+
+        // 实体类
+        Entity mCollectEntity = schema.addEntity("CollectEntity");//表名
+        mCollectEntity.addIdProperty();//主键id
+        mCollectEntity.addStringProperty("html_id");//收藏的id
+        mCollectEntity.addStringProperty("collect");//是否收藏
+        mCollectEntity.addDateProperty("hireDate");
     }
 }

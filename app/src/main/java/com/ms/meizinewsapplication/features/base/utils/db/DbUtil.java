@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 
+import com.ms.greendaolibrary.db.CollectEntity;
+import com.ms.greendaolibrary.db.CollectEntityDao;
 import com.ms.greendaolibrary.db.DaoMaster;
 import com.ms.greendaolibrary.db.DaoSession;
 import com.ms.greendaolibrary.db.HtmlEntity;
@@ -114,6 +116,62 @@ public enum DbUtil {
             }
 
             htmlEntityDao.update(htmlEntity);
+        }
+
+        return resCheck;
+    }
+
+
+    //　TODO collect DB ======================================================
+
+
+    private CollectEntityDao collectEntityDao;
+
+    public void initCollect(Activity mActivity) {
+        initDB(mActivity);
+        initCollect(daoSession);
+    }
+
+    public void initCollect(DaoSession daoSession) {
+
+        collectEntityDao = daoSession.getCollectEntityDao();
+    }
+
+    public List<CollectEntity> queryCollectByhtmlId(String html_id) {
+        Query<CollectEntity> query = collectEntityDao.queryBuilder()
+                .where(CollectEntityDao.Properties.Html_id.eq(html_id))
+                .build();
+        return query.list();
+    }
+
+    public boolean addCollect(
+            String html_id,
+            String collect
+
+    ){
+
+        List<CollectEntity>  mCollectEntityList = queryCollectByhtmlId(html_id);
+        boolean resCheck = (mCollectEntityList == null || mCollectEntityList.size() == 0);
+
+        CollectEntity collectEntity = new CollectEntity(
+                null,
+                html_id,
+                collect,
+                new java.util.Date()
+        );
+
+        if (resCheck) {
+
+            collectEntityDao.insert(collectEntity);
+        } else {
+            collectEntity.setId(mCollectEntityList.get(0).getId());
+
+            if (!TextUtils.isEmpty(html_id))
+            {
+                collectEntity.setHtml_id(mCollectEntityList.get(0).getHtml_id());
+            }
+
+            collectEntityDao.update(collectEntity);
         }
 
         return resCheck;
