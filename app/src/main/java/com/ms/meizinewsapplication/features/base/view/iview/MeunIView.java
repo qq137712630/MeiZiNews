@@ -199,7 +199,7 @@ public class MeunIView extends ViewImpl {
                             break;
                         case R.id.nav_share:
                             break;
-                        case R.id.nav_send:
+                        case R.id.nav_collect:
                             break;
                     }
                     DebugUtil.debugLogD("OnNavigationItemSelectedListener++++\n" + id);
