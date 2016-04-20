@@ -441,3 +441,69 @@ API:
 # 疑问
 
  - XML布局是否可以像Jsp一样动态加载？
+
+---
+
+# 奇怪的错误：
+
+## 由编译时出现的错误：
+
+	通过清理项目的缓存可解决。
+
+第1个：
+
+	04-19 20:57:09.844 31614-31614/com.ms.meizinewsapplication E/AndroidRuntime: FATAL EXCEPTION: main
+	 Process: com.ms.meizinewsapplication, PID: 31614
+	 java.lang.NoSuchMethodError: No virtual method setMenuItemIconByCollect(Z)V in class Lcom/ms/meizinewsapplication/features/main/iview/DevWeekDetailIVew; or its super classes (declaration of 'com.ms.meizinewsapplication.features.main.iview.DevWeekDetailIVew' appears in /data/data/com.ms.meizinewsapplication/files/instant-run/dex/slice-slice_4-classes.dex)
+		 at com.ms.meizinewsapplication.features.main.activity.DevWeekDetailActivity$2.onMenuItemClick(DevWeekDetailActivity.java:160)
+		 at android.support.v7.widget.Toolbar$1.onMenuItemClick(Toolbar.java:169)
+		 at android.support.v7.widget.ActionMenuView$MenuBuilderCallback.onMenuItemSelected(ActionMenuView.java:760)
+		 at android.support.v7.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:811)
+		 at android.support.v7.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:152)
+		 at android.support.v7.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:958)
+		 at android.support.v7.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:948)
+		 at android.support.v7.widget.ActionMenuView.invokeItem(ActionMenuView.java:618)
+		 at android.support.v7.view.menu.ActionMenuItemView.onClick(ActionMenuItemView.java:139)
+		 at android.view.View.performClick(View.java:4908)
+		 at android.view.View$PerformClick.run(View.java:20378)
+		 at android.os.Handler.handleCallback(Handler.java:815)
+		 at android.os.Handler.dispatchMessage(Handler.java:104)
+		 at android.os.Looper.loop(Looper.java:194)
+		 at android.app.ActivityThread.main(ActivityThread.java:5691)
+		 at java.lang.reflect.Method.invoke(Native Method)
+		 at java.lang.reflect.Method.invoke(Method.java:372)
+		 at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:959)
+		 at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:754)
+
+
+第2个：
+
+	04-19 20:13:37.194 5338-5416/com.ms.meizinewsapplication E/AndroidRuntime: FATAL EXCEPTION: RxCachedThreadScheduler-2
+	   Process: com.ms.meizinewsapplication, PID: 5338
+	   java.lang.IllegalStateException: Fatal Exception thrown on Scheduler.Worker thread.
+		   at rx.internal.schedulers.ScheduledAction.run(ScheduledAction.java:62)
+		   at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:422)
+		   at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+		   at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:152)
+		   at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:265)
+		   at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)
+		   at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
+		   at java.lang.Thread.run(Thread.java:818)
+		Caused by: java.lang.NoSuchMethodError: No virtual method addCollectByUrl(Ljava/lang/String;Ljava/lang/String;)Z in class Lcom/ms/meizinewsapplication/features/base/utils/db/DbUtil; or its super classes (declaration of 'com.ms.meizinewsapplication.features.base.utils.db.DbUtil' appears in /data/data/com.ms.meizinewsapplication/files/instant-run/dex/slice-slice_9-classes.dex)
+		   at com.ms.meizinewsapplication.features.base.model.CollectModel$1.call(CollectModel.java:44)
+		   at com.ms.meizinewsapplication.features.base.model.CollectModel$1.call(CollectModel.java:39)
+		   at rx.internal.operators.OperatorMap$1.onNext(OperatorMap.java:54)
+		   at rx.internal.util.ScalarSynchronousObservable$1.call(ScalarSynchronousObservable.java:46)
+		   at rx.internal.util.ScalarSynchronousObservable$1.call(ScalarSynchronousObservable.java:35)
+		   at rx.Observable$2.call(Observable.java:162)
+		   at rx.Observable$2.call(Observable.java:154)
+		   at rx.Observable.unsafeSubscribe(Observable.java:8098)
+		   at rx.internal.operators.OperatorSubscribeOn$1$1.call(OperatorSubscribeOn.java:62)
+		   at rx.internal.schedulers.ScheduledAction.run(ScheduledAction.java:55)
+		   at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:422) 
+		   at java.util.concurrent.FutureTask.run(FutureTask.java:237) 
+		   at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:152) 
+		   at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:265) 
+		   at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112) 
+		   at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587) 
+		   at java.lang.Thread.run(Thread.java:818) 
