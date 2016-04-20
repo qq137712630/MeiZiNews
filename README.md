@@ -522,7 +522,7 @@ API:
 
 # 增加分组的Adapter：BaseTypeItemQuickAdapter
 
-主要还是BaseQuickAdapter为样本，重写``` getItemViewType ```，主要个性如下：
+主要还是BaseQuickAdapter为样本，重写``` getItemViewType ```，主要修改如下：
 
 
     /**
