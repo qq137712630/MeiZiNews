@@ -122,6 +122,18 @@ public enum DbUtil {
     }
 
 
+    public List<HtmlEntity> queryHtmlByHtmlTypeAndCollect(String htmlType) {
+
+        QueryBuilder<HtmlEntity> queryBuilder = htmlEntityDao.queryBuilder()
+                .where(HtmlEntityDao.Properties.Type.eq(htmlType));
+        queryBuilder.join(CollectEntity.class, CollectEntityDao.Properties.Html_id)
+                .where(CollectEntityDao.Properties.Collect.eq(ConstantData.DB_HTML_COLLECT_YES));
+
+        return queryBuilder.list();
+    }
+
+
+
     //　TODO collect DB ======================================================
 
 

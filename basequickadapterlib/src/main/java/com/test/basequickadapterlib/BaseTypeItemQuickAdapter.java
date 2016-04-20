@@ -73,10 +73,15 @@ public abstract class BaseTypeItemQuickAdapter<T, H extends BaseAdapterHelper> e
         return data.get(position);
     }
 
+    /**
+     * 返回的布局判断
+     * @param position
+     * @return
+     */
     @Override
     public int getItemViewType(int position) {
 
-        if (oldCount == position) {
+        if (position == 0 || oldCount == position) {
             return TYPE_TITLE;
         } else {
             return TYPE_ITEM;
@@ -84,6 +89,12 @@ public abstract class BaseTypeItemQuickAdapter<T, H extends BaseAdapterHelper> e
 
     }
 
+    /**
+     * 对不同类型的操作
+     * @param viewGroup
+     * @param viewType
+     * @return
+     */
     @Override
     public BaseAdapterHelper onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = null;

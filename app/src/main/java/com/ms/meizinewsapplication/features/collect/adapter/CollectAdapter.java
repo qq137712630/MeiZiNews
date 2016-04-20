@@ -1,6 +1,7 @@
 package com.ms.meizinewsapplication.features.collect.adapter;
 
 import android.content.Context;
+import android.view.View;
 
 import com.ms.greendaolibrary.db.HtmlEntity;
 import com.ms.meizinewsapplication.R;
@@ -31,6 +32,9 @@ public class CollectAdapter extends BaseTypeItemQuickAdapter<HtmlEntity, BaseAda
                 break;
             case TYPE_ITEM:
                 helper.getTextView(R.id.story_title).setText(item.getTitle());
+                helper.getTextView(R.id.story_excerpt).setVisibility(View.GONE);
+                helper.getTextView(R.id.story_author).setVisibility(View.GONE);
+                helper.getTextView(R.id.story_date).setVisibility(View.GONE);
                 break;
         }
     }

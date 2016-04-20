@@ -117,4 +117,34 @@ public class DbHtmlModel extends DbModel {
         });
     }
 
+    public void queryHtmlByHtmlTypeAndCollect(List<String> htmlTypeList, final OnModelListener<List<HtmlEntity>> listener) {
+        Observable ob = Observable.from(htmlTypeList)
+                .map(new Func1<String, List<HtmlEntity>>() {
+                    @Override
+                    public List<HtmlEntity> call(String s) {
+                        return dbUtil.queryHtmlByHtmlTypeAndCollect(s);
+                    }
+                });
+
+        RxJavaUtil.rxIoAndMain(ob, new Subscriber<List<HtmlEntity>>(){
+
+            @Override
+            public void onCompleted() {
+                listener.onCompleted();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                DebugUtil.debugLogErr(e, "queryHtmlByHtmlTypeAndCollect++++\n" + e.toString());
+                listener.onError(e.toString());
+            }
+
+            @Override
+            public void onNext(List<HtmlEntity> htmlEntities) {
+                DebugUtil.debugLogD("queryHtmlByHtmlTypeAndCollect+++++\n+htmlEntities+\n" + htmlEntities.size());
+                listener.onSuccess(htmlEntities);
+            }
+        });
+    }
+
 }

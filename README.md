@@ -12,6 +12,16 @@
 
 ---
 
+#RxJava
+
+ - [收集了RxJava常见的使用场景，例子简洁、经典、易懂...](https://github.com/THEONE10211024/RxJavaSamples)
+
+## 取消订阅
+
+ - [深入浅出RxJava四-在Android中使用响应式编程：CompositeSubscription取消订阅](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0426/2787.html)
+
+---
+
 #GreenDAO
 
  - [GreenDAO数据库版本升级](http://blog.csdn.net/fancylovejava/article/details/46713445)
@@ -507,3 +517,57 @@ API:
 		   at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112) 
 		   at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587) 
 		   at java.lang.Thread.run(Thread.java:818) 
+
+---
+
+# 增加分组的Adapter：BaseTypeItemQuickAdapter
+
+主要还是BaseQuickAdapter为样本，重写``` getItemViewType ```，主要个性如下：
+
+
+    /**
+     * 返回的布局判断
+     * @param position
+     * @return
+     */
+    @Override
+    public int getItemViewType(int position) {
+
+        if (position == 0 || oldCount == position) {
+            return TYPE_TITLE;
+        } else {
+            return TYPE_ITEM;
+        }
+
+    }
+
+    /**
+     * 对不同类型的操作
+     * @param viewGroup
+     * @param viewType
+     * @return
+     */
+    @Override
+    public BaseAdapterHelper onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        View view = null;
+
+        switch (viewType) {
+            case TYPE_TITLE:
+
+                view = LayoutInflater.from(viewGroup.getContext()).inflate(titleLayoutResId, viewGroup, false);
+
+                break;
+            case TYPE_ITEM:
+                view = LayoutInflater.from(viewGroup.getContext()).inflate(itemLayoutResId, viewGroup, false);
+
+                break;
+        }
+
+        if (view == null) {
+            return null;
+        }
+
+        view.setOnClickListener(this);
+        BaseAdapterHelper vh = new BaseAdapterHelper(view);
+        return vh;
+    }

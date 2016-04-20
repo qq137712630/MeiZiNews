@@ -18,6 +18,7 @@ import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
 import com.ms.meizinewsapplication.features.base.listener.MyActionBarDrawerToggle;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.utils.tool.ViewUtil;
+import com.ms.meizinewsapplication.features.collect.activity.CollectActivity;
 import com.ms.meizinewsapplication.features.main.activity.MainMvpActivity;
 import com.ms.meizinewsapplication.features.meizi.activity.MeiZiActivity;
 import com.test.basepageradapterlibrary.basepager.BaseFragmentPagerAdapter;
@@ -200,6 +201,7 @@ public class MeunIView extends ViewImpl {
                         case R.id.nav_share:
                             break;
                         case R.id.nav_collect:
+                            mClass = CollectActivity.class;
                             break;
                     }
                     DebugUtil.debugLogD("OnNavigationItemSelectedListener++++\n" + id);
