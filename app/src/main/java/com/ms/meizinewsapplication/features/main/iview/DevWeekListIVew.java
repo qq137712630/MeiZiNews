@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.base.view.iview.RecyclerIView;
+import com.ms.meizinewsapplication.features.base.view.iview.SwipeRecyclerIView;
 import com.ms.meizinewsapplication.features.main.adapter.AndroidDevWeekAdapter;
 import com.ms.meizinewsapplication.features.main.pojo.AndroidDevWeek;
 
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by 啟成 on 2016/3/21.
  */
-public class DevWeekListIVew extends RecyclerIView {
+public class DevWeekListIVew extends SwipeRecyclerIView {
 
     private AndroidDevWeekAdapter androidDevWeekAdapter;
 

@@ -1,10 +1,8 @@
 package com.ms.meizinewsapplication.features.base.view.iview;
 
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 
 import org.loader.view.ViewImpl;
 
@@ -16,7 +14,6 @@ public abstract class RecyclerIView extends ViewImpl {
 
 
     public RecyclerView recycler_list;
-    public SwipeRefreshLayout swipe_refresh;
 
     boolean isFirst = true;   //whether is first time to enter fragment
     int type;               // type of recyclerView's content
@@ -28,7 +25,6 @@ public abstract class RecyclerIView extends ViewImpl {
         super.created();
 
         recycler_list = findViewById(R.id.recycler_list);
-        swipe_refresh = findViewById(R.id.swipe_refresh);
         initViews();
     }
 
@@ -41,27 +37,8 @@ public abstract class RecyclerIView extends ViewImpl {
 
     protected void initViews() {
         recycler_list.setHasFixedSize(true);
-        swipe_refresh.setColorSchemeColors(R.color.colorPrimary,
-                R.color.colorPrimaryDark, R.color.colorAccent);
     }
 
-    public void changeProgress(final boolean refreshState) {
-        if (null == swipe_refresh) {
-            return;
-        }
-
-        swipe_refresh.post(new Runnable() {
-            @Override
-            public void run() {
-                if (swipe_refresh != null) {
-
-                    DebugUtil.debugLogD("refreshState" + refreshState);
-                    swipe_refresh.setRefreshing(refreshState);
-                }
-            }
-        });
-
-    }
 
     public RecyclerView getRecyclerList() {
         return recycler_list;
@@ -76,17 +53,4 @@ public abstract class RecyclerIView extends ViewImpl {
         recycler_list.addOnScrollListener(listener);
     }
 
-
-    public SwipeRefreshLayout getSwipe_refresh() {
-        return swipe_refresh;
-    }
-
-    /**
-     * 下拉监听
-     * @param listener
-     */
-    public void setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener listener) {
-
-        swipe_refresh.setOnRefreshListener(listener);
-    }
 }

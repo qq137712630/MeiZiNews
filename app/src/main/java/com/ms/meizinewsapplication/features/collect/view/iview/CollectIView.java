@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.ms.greendaolibrary.db.HtmlEntity;
+import com.ms.meizinewsapplication.R;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.view.iview.RecyclerIView;
 import com.ms.meizinewsapplication.features.collect.adapter.CollectAdapter;
 
@@ -16,6 +18,11 @@ import java.util.List;
  */
 public class CollectIView extends RecyclerIView{
     CollectAdapter collectAdapter;
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_collect;
+    }
 
     //TODO init========================================
 
@@ -39,7 +46,7 @@ public class CollectIView extends RecyclerIView{
     //TODO Model======================================================
 
     public void addDatas2QuickAdapter(List<HtmlEntity> data) {
-
+        DebugUtil.debugLogD("addDatas2QuickAdapter++");
         collectAdapter.addDatas(data);
     }
 }
