@@ -3,6 +3,7 @@ package com.ms.meizinewsapplication.features.collect.activity;
 import android.os.Bundle;
 
 import com.ms.greendaolibrary.db.HtmlEntity;
+import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
 import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.collect.view.iview.CollectIView;
@@ -28,6 +29,11 @@ public class CollectActivity extends BaseActivityPresenterImpl<CollectIView> {
         queryHtmlByHtmlTypeAndCollect();
     }
 
+    @Override
+    public void onBackPressed() {
+        mView.onBackPressed(CollectActivity.this);
+    }
+
     //TODO Model======================================================
 
     private void initDbHtmlModel() {
@@ -47,11 +53,26 @@ public class CollectActivity extends BaseActivityPresenterImpl<CollectIView> {
     private OnModelListener<List<HtmlEntity>> onModelListener = new OnModelListener<List<HtmlEntity>>() {
         @Override
         public void onSuccess(List<HtmlEntity> htmlEntityList) {
+
+            if (htmlEntityList == null || htmlEntityList.size() == 0) {
+                return;
+            }
+
+            String title = "";
+            switch (htmlEntityList.get(0).getType())
+            {
+                case ConstantData.DB_HTML_TYPE_ZHIHU:
+                    title = getString(R.string.tab_zhihu);
+                    break;
+                case ConstantData.DB_HTML_TYPE_WEEK:
+                    title = getString(R.string.tab_dev);
+                    break;
+            }
             HtmlEntity htmlEntity = new HtmlEntity(
                     null,
                     null,
                     ConstantData.DB_HTML_TYPE_COLLECT,
-                    "test001",
+                    title,
                     null,
                     null,
                     null,

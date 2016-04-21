@@ -1,6 +1,8 @@
 package com.ms.meizinewsapplication.features.collect.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 
 import com.ms.greendaolibrary.db.HtmlEntity;
@@ -23,7 +25,7 @@ public class CollectAdapter extends BaseTypeItemQuickAdapter<HtmlEntity, BaseAda
     }
 
     @Override
-    protected void convert(BaseAdapterHelper helper, HtmlEntity item, int position) {
+    protected void convert(BaseAdapterHelper helper, final HtmlEntity item, int position) {
         int type = getItemViewType(position);
 
         switch (type) {
@@ -35,6 +37,20 @@ public class CollectAdapter extends BaseTypeItemQuickAdapter<HtmlEntity, BaseAda
                 helper.getTextView(R.id.story_excerpt).setVisibility(View.GONE);
                 helper.getTextView(R.id.story_author).setVisibility(View.GONE);
                 helper.getTextView(R.id.story_date).setVisibility(View.GONE);
+
+                helper.itemView.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent();
+                        intent.setAction("android.intent.action.VIEW");
+                        Uri content_url = Uri.parse(item.getUrl());
+                        intent.setData(content_url);
+                        context.startActivity(intent);
+                    }
+                });
+
                 break;
         }
     }
