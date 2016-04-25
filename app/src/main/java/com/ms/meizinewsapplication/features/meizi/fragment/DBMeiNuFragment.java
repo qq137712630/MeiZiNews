@@ -1,5 +1,6 @@
 package com.ms.meizinewsapplication.features.meizi.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +23,7 @@ import java.util.List;
 /**
  * Created by 啟成 on 2016/3/6.
  */
+@SuppressLint("ValidFragment")
 public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
 
     private DbGroupBreastModel dbGroupBreastModel;
@@ -32,6 +34,11 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
 
     private int page;
     private int strId;
+
+    public DBMeiNuFragment()
+    {
+
+    }
 
     public DBMeiNuFragment(int strId) {
         this.strId = strId;
