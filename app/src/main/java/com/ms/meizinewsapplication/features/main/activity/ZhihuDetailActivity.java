@@ -3,6 +3,7 @@ package com.ms.meizinewsapplication.features.main.activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -81,6 +82,15 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
     //TODO Model=====================================
 
     private void initZhihuDetailModel() {
+
+        if (!TextUtils.isEmpty(getIntent().getStringExtra("html"))) {
+            mView.showDetail(
+                    getIntent().getStringExtra("title"),
+                    getIntent().getStringExtra("html")
+            );
+            return;
+        }
+
         zhihuDetailModel = new ZhihuDetailModel();
         addSubscription(
 
@@ -124,16 +134,27 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
 
     private void isCollectByUrl() {
         collectModel.isCollectByUrl(
-                detailNews.getShare_url(),
+                getShare(),
                 isCollectListener
         );
     }
 
     private void addCollectByUrl() {
         collectModel.addDateByUrl(
-                detailNews.getShare_url(),
+                getShare(),
                 isCollect ? ConstantData.DB_HTML_COLLECT_NO : ConstantData.DB_HTML_COLLECT_YES
         );
+    }
+
+    protected String getShare() {
+        String share;
+
+        if (!TextUtils.isEmpty(getIntent().getStringExtra("url"))) {
+            share = getIntent().getStringExtra("url");
+        } else {
+            share = detailNews.getShare_url();
+        }
+        return share;
     }
 
     //TODO Listener ===================================================
@@ -194,13 +215,13 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
 
             switch (item.getItemId()) {
                 case R.id.menu_share:
-                    Share.shareText(ZhihuDetailActivity.this,detailNews.getShare_url());
+                    Share.shareText(ZhihuDetailActivity.this, getShare());
                     break;
                 case R.id.menu_collect:
                     mView.setMenuItemIconByCollect(isCollect);
                     addCollectByUrl();
                     isCollect = !isCollect;
-                    DebugUtil.debugLogD("是否收藏-->isCollect:" + isCollect);
+                    DebugUtil.debugLogD("是否收藏---->isCollect:" + isCollect);
                     break;
             }
 
@@ -215,10 +236,8 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
         @Override
         public void onClick(View v) {
 
-            if (detailNews == null) {
-                return;
-            }
-            Share.shareText(ZhihuDetailActivity.this, detailNews.getShare_url());
+
+            Share.shareText(ZhihuDetailActivity.this, getShare());
         }
     };
 }

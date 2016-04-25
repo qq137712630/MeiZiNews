@@ -3,6 +3,7 @@ package com.ms.meizinewsapplication.features.main.activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -82,6 +83,14 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
     }
 
     private void devWeekModelLoad() {
+
+
+        if (!TextUtils.isEmpty(getIntent().getStringExtra("html"))) {
+
+            mView.showDetail(getIntent().getStringExtra("html"));
+            return;
+        }
+
         addSubscription(
                 devWeekDetailModel.loadWeb(DevWeekDetailActivity.this, listenerDevWeek, path)
         );
@@ -101,7 +110,7 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
         }
 
         dbHtmlModel.addDate(
-                MainApi.DEV_WEEK + getIntent().getStringExtra("path"),
+                getShare(),
                 ConstantData.DB_HTML_TYPE_WEEK,
                 getIntent().getStringExtra("title"),
                 html,
@@ -115,17 +124,29 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
     }
 
     private void isCollectByUrl() {
+
         collectModel.isCollectByUrl(
-                MainApi.DEV_WEEK + getIntent().getStringExtra("path"),
+                getShare(),
                 isCollectListener
         );
     }
 
     private void addCollectByUrl() {
         collectModel.addDateByUrl(
-                MainApi.DEV_WEEK + getIntent().getStringExtra("path"),
+                getShare(),
                 isCollect ? ConstantData.DB_HTML_COLLECT_NO : ConstantData.DB_HTML_COLLECT_YES
         );
+    }
+
+    private String getShare() {
+        String share;
+        if (!TextUtils.isEmpty(getIntent().getStringExtra("url"))) {
+            share = getIntent().getStringExtra("url");
+        } else {
+            share = MainApi.DEV_WEEK + getIntent().getStringExtra("path");
+        }
+
+        return share;
     }
 
     //TODO Listener====================
@@ -154,7 +175,8 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
 
             switch (item.getItemId()) {
                 case R.id.menu_share:
-                    Share.shareText(DevWeekDetailActivity.this, MainApi.DEV_WEEK + getIntent().getStringExtra("path"));
+
+                    Share.shareText(DevWeekDetailActivity.this, getShare());
                     break;
                 case R.id.menu_collect:
                     mView.setMenuItemIconByCollect(isCollect);
@@ -176,7 +198,7 @@ public class DevWeekDetailActivity extends BaseActivityPresenterImpl<DevWeekDeta
         public void onSuccess(List<CollectEntity> collectEntityList) {
             if (collectEntityList == null
                     || collectEntityList.size() == 0
-                    ||collectEntityList.get(0).getCollect().equals(ConstantData.DB_HTML_COLLECT_NO)) {
+                    || collectEntityList.get(0).getCollect().equals(ConstantData.DB_HTML_COLLECT_NO)) {
                 return;
             }
             mView.setMenuItemIconByCollect(isCollect);

@@ -85,6 +85,7 @@ public class ZhiHuDetailIView extends ViewImpl {
 
     /**
      * 设置左上角的返回键与它的点击效果
+     *
      * @param appCompatActivity
      */
     private void initToolbar(final AppCompatActivity appCompatActivity) {
@@ -115,9 +116,9 @@ public class ZhiHuDetailIView extends ViewImpl {
     public void setMenuItemIconByCollect(boolean isCollect) {
 
         if (isCollect) {
-            setMenuItemIcon(2,R.drawable.iconfont_weishoucang);
+            setMenuItemIcon(2, R.drawable.iconfont_weishoucang);
         } else {
-            setMenuItemIcon(2,R.drawable.iconfont_yishoucang);
+            setMenuItemIcon(2, R.drawable.iconfont_yishoucang);
         }
 
     }
@@ -175,6 +176,13 @@ public class ZhiHuDetailIView extends ViewImpl {
         webView.loadDataWithBaseURL("x-data://base", html, "text/html", "UTF-8", null);
     }
 
+    public void showDetail(String title, String html) {
+        ZhihuDetail detailNews = new ZhihuDetail();
+        detailNews.setTitle(title);
+        detailNews.setBody(html);
+        showDetail(detailNews);
+    }
+
     //TODO Listener====================
 
     public void setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener onMenuItemClickListener) {
@@ -182,8 +190,7 @@ public class ZhiHuDetailIView extends ViewImpl {
         toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
     }
 
-    public void setFabOnClickListener(View.OnClickListener fabOnClickListener)
-    {
+    public void setFabOnClickListener(View.OnClickListener fabOnClickListener) {
         fab.setOnClickListener(fabOnClickListener);
     }
 }

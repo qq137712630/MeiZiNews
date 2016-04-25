@@ -8,6 +8,9 @@ import android.view.View;
 
 import com.ms.greendaolibrary.db.HtmlEntity;
 import com.ms.meizinewsapplication.R;
+import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
+import com.ms.meizinewsapplication.features.main.activity.DevWeekDetailActivity;
+import com.ms.meizinewsapplication.features.main.activity.ZhihuDetailActivity;
 import com.test.basequickadapterlib.BaseAdapterHelper;
 import com.test.basequickadapterlib.QuickAdapter;
 
@@ -44,21 +47,34 @@ public class MySearchAdapter extends QuickAdapter<HtmlEntity> {
 
             @Override
             public void onClick(View v) {
-//                switch (item.getType()) {
-//                    case ConstantData.DB_HTML_TYPE_WEEK:
-//
-//                        break;
-//                    case ConstantData.DB_HTML_TYPE_ZHIHU:
-//
-//                        break;
-//                }
+
 
                 Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
-                Uri content_url = Uri.parse(item.getUrl());
-                intent.setData(content_url);
+                intent.putExtra("url",item.getUrl());
+                intent.putExtra("html",item.getHtml());
+                intent.putExtra("title",item.getTitle());
+                intent.putExtra("type",item.getType());
+
+                switch (item.getType()) {
+                    case ConstantData.DB_HTML_TYPE_WEEK:
+                        intent.setClass(context, DevWeekDetailActivity.class);
+                        break;
+                    case ConstantData.DB_HTML_TYPE_ZHIHU:
+                        intent.setClass(context, ZhihuDetailActivity.class);
+
+                        break;
+
+                    default:
+
+                        intent.setAction("android.intent.action.VIEW");
+                        Uri content_url = Uri.parse(item.getUrl());
+                        intent.setData(content_url);
+                        break;
+                }
+
                 context.startActivity(intent);
             }
         });
     }
+
 }

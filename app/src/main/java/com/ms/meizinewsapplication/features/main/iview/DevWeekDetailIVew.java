@@ -1,6 +1,5 @@
 package com.ms.meizinewsapplication.features.main.iview;
 
-import android.content.Context;
 import android.os.Build;
 import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
@@ -28,7 +27,6 @@ public class DevWeekDetailIVew extends ViewImpl {
     private ProgressBar progress;
     private Toolbar toolbar;
 
-    private AppCompatActivity activity;
 
     @Override
     public void created() {
@@ -68,7 +66,6 @@ public class DevWeekDetailIVew extends ViewImpl {
     //TODO init =================================================
 
     public void init(AppCompatActivity activity) {
-        this.activity = activity;
         initToolbar(activity);
         initWebView(activity);
     }
@@ -120,7 +117,7 @@ public class DevWeekDetailIVew extends ViewImpl {
         toolbar.getMenu().getItem(index).setIcon(iconRes);
     }
 
-    public void initWebView(Context context) {
+    public void initWebView(AppCompatActivity activity) {
         webView.setVisibility(View.INVISIBLE);
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
