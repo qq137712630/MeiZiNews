@@ -12,6 +12,7 @@ import com.ms.greendaolibrary.db.HtmlEntity;
 import com.ms.greendaolibrary.db.HtmlEntityDao;
 import com.ms.greendaolibrary.updb.UpgradeHelper;
 import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 
 import java.util.List;
 
@@ -43,6 +44,8 @@ public enum DbUtil {
         db = helper.getWritableDatabase();
         daoMaster = new DaoMaster(db);
         daoSession = daoMaster.newSession();
+        QueryBuilder.LOG_SQL = DebugUtil.IS_DEBUG;
+        QueryBuilder.LOG_VALUES = DebugUtil.IS_DEBUG;
     }
 
     //　TODO HTML DB ======================================================
@@ -133,7 +136,6 @@ public enum DbUtil {
     }
 
 
-
     //　TODO collect DB ======================================================
 
 
@@ -149,7 +151,7 @@ public enum DbUtil {
         collectEntityDao = daoSession.getCollectEntityDao();
     }
 
-    public List<CollectEntity> queryCollectByhtmlId(String html_id) {
+    public List<CollectEntity> queryCollectByhtmlId(Long html_id) {
         Query<CollectEntity> query = collectEntityDao.queryBuilder()
                 .where(CollectEntityDao.Properties.Html_id.eq(html_id))
                 .build();
@@ -157,16 +159,24 @@ public enum DbUtil {
     }
 
 
+    /**
+     * Built SQL for query:
+     * SELECT T."_id",T."HTML_ID",T."COLLECT" FROM "COLLECT_ENTITY" T
+     * JOIN HTML_ENTITY J1 ON T."HTML_ID"=J1."_id"
+     * WHERE J1."URL"=?
+     *
+     * @param url
+     * @return
+     */
     public List<CollectEntity> queryCollectByhtmlUrl(String url) {
         QueryBuilder<CollectEntity> queryBuilder = collectEntityDao.queryBuilder();
-        queryBuilder.join(HtmlEntity.class, HtmlEntityDao.Properties.Id)
+        queryBuilder.join(CollectEntityDao.Properties.Html_id, HtmlEntity.class, HtmlEntityDao.Properties.Id)
                 .where(HtmlEntityDao.Properties.Url.eq(url));
-
         return queryBuilder.list();
     }
 
     public boolean addCollect(
-            String html_id,
+            Long html_id,
             String collect
 
     ) {
@@ -186,7 +196,7 @@ public enum DbUtil {
         } else {
             collectEntity.setId(mCollectEntityList.get(0).getId());
 
-            if (!TextUtils.isEmpty(html_id)) {
+            if (html_id != 0) {
                 collectEntity.setHtml_id(mCollectEntityList.get(0).getHtml_id());
             }
 
@@ -208,7 +218,7 @@ public enum DbUtil {
 
         CollectEntity collectEntity = new CollectEntity(
                 null,
-                queryHtmlByUrl(url).get(0).getId() + "",
+                queryHtmlByUrl(url).get(0).getId(),
                 collect
         );
 

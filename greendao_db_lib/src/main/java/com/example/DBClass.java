@@ -28,7 +28,7 @@ public class DBClass {
         Entity mHtmlEntity = schema.addEntity("HtmlEntity");//表名
 
         //列名
-        Property htmlID =  mHtmlEntity.addIdProperty().getProperty();//主键id
+        mHtmlEntity.addIdProperty();//主键id
         mHtmlEntity.addStringProperty("url");//连接
         mHtmlEntity.addStringProperty("type");//类型
         mHtmlEntity.addStringProperty("title");//标题
@@ -44,9 +44,9 @@ public class DBClass {
         // 收藏实体类
         Entity mCollectEntity = schema.addEntity("CollectEntity");//表名
         mCollectEntity.addIdProperty();//主键id
-        mCollectEntity.addStringProperty("html_id");//收藏的id
+        Property htmlID =   mCollectEntity.addLongProperty("html_id").getProperty();//收藏的id
         mCollectEntity.addStringProperty("collect");//是否收藏
-        mHtmlEntity.addToOne(mCollectEntity, htmlID);
+        mCollectEntity.addToOne(mHtmlEntity, htmlID);
     }
 
     private static void addCollect(Schema schema)

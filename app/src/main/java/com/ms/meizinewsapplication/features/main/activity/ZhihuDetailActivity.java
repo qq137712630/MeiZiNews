@@ -74,7 +74,7 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
+        isCollectByUrl();
         return mView.onCreateOptionsMenu(ZhihuDetailActivity.this, menu);
     }
 
@@ -152,6 +152,12 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
         if (!TextUtils.isEmpty(getIntent().getStringExtra("url"))) {
             share = getIntent().getStringExtra("url");
         } else {
+
+            if (detailNews == null)
+            {
+                return "";
+            }
+
             share = detailNews.getShare_url();
         }
         return share;

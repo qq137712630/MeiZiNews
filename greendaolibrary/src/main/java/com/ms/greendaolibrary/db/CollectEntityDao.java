@@ -1,11 +1,14 @@
 package com.ms.greendaolibrary.db;
 
+import java.util.List;
+import java.util.ArrayList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 
 import de.greenrobot.dao.AbstractDao;
 import de.greenrobot.dao.Property;
+import de.greenrobot.dao.internal.SqlUtils;
 import de.greenrobot.dao.internal.DaoConfig;
 
 import com.ms.greendaolibrary.db.CollectEntity;
@@ -24,9 +27,11 @@ public class CollectEntityDao extends AbstractDao<CollectEntity, Long> {
     */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Html_id = new Property(1, String.class, "html_id", false, "HTML_ID");
+        public final static Property Html_id = new Property(1, Long.class, "html_id", false, "HTML_ID");
         public final static Property Collect = new Property(2, String.class, "collect", false, "COLLECT");
     };
+
+    private DaoSession daoSession;
 
 
     public CollectEntityDao(DaoConfig config) {
@@ -35,6 +40,7 @@ public class CollectEntityDao extends AbstractDao<CollectEntity, Long> {
     
     public CollectEntityDao(DaoConfig config, DaoSession daoSession) {
         super(config, daoSession);
+        this.daoSession = daoSession;
     }
 
     /** Creates the underlying database table. */
@@ -42,7 +48,7 @@ public class CollectEntityDao extends AbstractDao<CollectEntity, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"COLLECT_ENTITY\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY ," + // 0: id
-                "\"HTML_ID\" TEXT," + // 1: html_id
+                "\"HTML_ID\" INTEGER," + // 1: html_id
                 "\"COLLECT\" TEXT);"); // 2: collect
     }
 
@@ -62,15 +68,21 @@ public class CollectEntityDao extends AbstractDao<CollectEntity, Long> {
             stmt.bindLong(1, id);
         }
  
-        String html_id = entity.getHtml_id();
+        Long html_id = entity.getHtml_id();
         if (html_id != null) {
-            stmt.bindString(2, html_id);
+            stmt.bindLong(2, html_id);
         }
  
         String collect = entity.getCollect();
         if (collect != null) {
             stmt.bindString(3, collect);
         }
+    }
+
+    @Override
+    protected void attachEntity(CollectEntity entity) {
+        super.attachEntity(entity);
+        entity.__setDaoSession(daoSession);
     }
 
     /** @inheritdoc */
@@ -84,7 +96,7 @@ public class CollectEntityDao extends AbstractDao<CollectEntity, Long> {
     public CollectEntity readEntity(Cursor cursor, int offset) {
         CollectEntity entity = new CollectEntity( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // html_id
+            cursor.isNull(offset + 1) ? null : cursor.getLong(offset + 1), // html_id
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // collect
         );
         return entity;
@@ -94,7 +106,7 @@ public class CollectEntityDao extends AbstractDao<CollectEntity, Long> {
     @Override
     public void readEntity(Cursor cursor, CollectEntity entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setHtml_id(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setHtml_id(cursor.isNull(offset + 1) ? null : cursor.getLong(offset + 1));
         entity.setCollect(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
      }
     
@@ -121,4 +133,95 @@ public class CollectEntityDao extends AbstractDao<CollectEntity, Long> {
         return true;
     }
     
+    private String selectDeep;
+
+    protected String getSelectDeep() {
+        if (selectDeep == null) {
+            StringBuilder builder = new StringBuilder("SELECT ");
+            SqlUtils.appendColumns(builder, "T", getAllColumns());
+            builder.append(',');
+            SqlUtils.appendColumns(builder, "T0", daoSession.getHtmlEntityDao().getAllColumns());
+            builder.append(" FROM COLLECT_ENTITY T");
+            builder.append(" LEFT JOIN HTML_ENTITY T0 ON T.\"HTML_ID\"=T0.\"_id\"");
+            builder.append(' ');
+            selectDeep = builder.toString();
+        }
+        return selectDeep;
+    }
+    
+    protected CollectEntity loadCurrentDeep(Cursor cursor, boolean lock) {
+        CollectEntity entity = loadCurrent(cursor, 0, lock);
+        int offset = getAllColumns().length;
+
+        HtmlEntity htmlEntity = loadCurrentOther(daoSession.getHtmlEntityDao(), cursor, offset);
+        entity.setHtmlEntity(htmlEntity);
+
+        return entity;    
+    }
+
+    public CollectEntity loadDeep(Long key) {
+        assertSinglePk();
+        if (key == null) {
+            return null;
+        }
+
+        StringBuilder builder = new StringBuilder(getSelectDeep());
+        builder.append("WHERE ");
+        SqlUtils.appendColumnsEqValue(builder, "T", getPkColumns());
+        String sql = builder.toString();
+        
+        String[] keyArray = new String[] { key.toString() };
+        Cursor cursor = db.rawQuery(sql, keyArray);
+        
+        try {
+            boolean available = cursor.moveToFirst();
+            if (!available) {
+                return null;
+            } else if (!cursor.isLast()) {
+                throw new IllegalStateException("Expected unique result, but count was " + cursor.getCount());
+            }
+            return loadCurrentDeep(cursor, true);
+        } finally {
+            cursor.close();
+        }
+    }
+    
+    /** Reads all available rows from the given cursor and returns a list of new ImageTO objects. */
+    public List<CollectEntity> loadAllDeepFromCursor(Cursor cursor) {
+        int count = cursor.getCount();
+        List<CollectEntity> list = new ArrayList<CollectEntity>(count);
+        
+        if (cursor.moveToFirst()) {
+            if (identityScope != null) {
+                identityScope.lock();
+                identityScope.reserveRoom(count);
+            }
+            try {
+                do {
+                    list.add(loadCurrentDeep(cursor, false));
+                } while (cursor.moveToNext());
+            } finally {
+                if (identityScope != null) {
+                    identityScope.unlock();
+                }
+            }
+        }
+        return list;
+    }
+    
+    protected List<CollectEntity> loadDeepAllAndCloseCursor(Cursor cursor) {
+        try {
+            return loadAllDeepFromCursor(cursor);
+        } finally {
+            cursor.close();
+        }
+    }
+    
+
+    /** A raw-style query where you can pass any WHERE clause and arguments. */
+    public List<CollectEntity> queryDeep(String where, String... selectionArg) {
+        Cursor cursor = db.rawQuery(getSelectDeep() + where, selectionArg);
+        return loadDeepAllAndCloseCursor(cursor);
+    }
+ 
 }
