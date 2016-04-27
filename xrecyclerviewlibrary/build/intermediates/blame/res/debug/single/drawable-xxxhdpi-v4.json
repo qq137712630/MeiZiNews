@@ -28,12 +28,12 @@
         "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_36dp.png"
     },
     {
-        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_star_black_16dp.png",
-        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_16dp.png"
-    },
-    {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_voice_search_api_material.png",
         "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\abc_ic_voice_search_api_material.png"
+    },
+    {
+        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_star_black_16dp.png",
+        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_btn_radio_on_mtrl.png",

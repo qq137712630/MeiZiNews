@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\abc_ic_menu_overflow_material.png",
-        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\generated\\res\\pngs\\androidTest\\debug\\drawable-xhdpi\\abc_ic_menu_overflow_material.png"
-    },
-    {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
         "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\abc_ic_menu_overflow_material.png",
+        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\generated\\res\\pngs\\androidTest\\debug\\drawable-xhdpi\\abc_ic_menu_overflow_material.png"
     },
     {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\abc_btn_checkbox_unchecked_mtrl.png",
