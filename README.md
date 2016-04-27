@@ -28,6 +28,27 @@
  - [使用greenDAO遇到的问题：Cannot update entity without key - was it inserted before?](http://blog.csdn.net/plmmmmlq/article/details/50404495)
  - [greenDao数据库更新和多表关联](http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2015/05/21/greenDAO%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E6%9B%B4%E6%96%B0%E5%92%8C%E5%A4%9A%E8%A1%A8%E5%85%B3%E8%81%94/)
  - [多个有关联的表查询：joins](http://greenrobot.org/greendao/documentation/joins/)
+ - [查找查询中的问题，将sql语句打印出来:GreenDao简明教程（查询，Querying）](http://blog.csdn.net/yuyuanhuang/article/details/42751469)
+
+
+## 联表查询
+
+    DbUtil
+    /**
+     * Built SQL for query:
+     * SELECT T."_id",T."HTML_ID",T."COLLECT" FROM "COLLECT_ENTITY" T
+     * JOIN HTML_ENTITY J1 ON T."HTML_ID"=J1."_id"
+     * WHERE J1."URL"=?
+     *
+     * @param url
+     * @return
+     */
+    public List<CollectEntity> queryCollectByhtmlUrl(String url) {
+        QueryBuilder<CollectEntity> queryBuilder = collectEntityDao.queryBuilder();
+        queryBuilder.join(CollectEntityDao.Properties.Html_id, HtmlEntity.class, HtmlEntityDao.Properties.Id)
+                .where(HtmlEntityDao.Properties.Url.eq(url));
+        return queryBuilder.list();
+    }
 
 ---
 
@@ -517,6 +538,40 @@ API:
 		   at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112) 
 		   at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587) 
 		   at java.lang.Thread.run(Thread.java:818) 
+
+## app首次打开要很长时间 ``` First launch take long time in Android Studio 2.0 & Gradle 2.0 ```
+
+[app首次打开要很长时间 ``` First launch take long time in Android Studio 2.0 & Gradle 2.0 ```](http://stackoverflow.com/questions/36623917/first-launch-take-long-time-in-android-studio-2-0-gradle-2-0)
+
+所报日志：
+
+    04-27 10:24:16.241 12442-12450/com.ms.meizinewsapplication W/art: Suspending all threads took: 8.750ms
+    04-27 10:24:16.394 12442-12442/com.ms.meizinewsapplication W/art: Before Android 4.1, method android.graphics.PorterDuffColorFilter android.support.graphics.drawable.VectorDrawableCompat.updateTintFilter(android.graphics.PorterDuffColorFilter, android.content.res.ColorStateList, android.graphics.PorterDuff$Mode) would have incorrectly overridden the package-private method in android.graphics.drawable.Drawable
+    04-27 10:24:16.552 12442-12802/com.ms.meizinewsapplication D/OpenGLRenderer: Use EGL_SWAP_BEHAVIOR_PRESERVED: true
+
+                                                                                 [ 04-27 10:24:16.554 12442:12442 D/         ]
+                                                                                 HostConnection::get() New Host Connection established 0xb4305d40, tid 12442
+    04-27 10:24:16.556 12442-12442/com.ms.meizinewsapplication D/Atlas: Validating map...
+
+
+原因：
+
+    在2.0版本的新功能已添加即时运行。
+    要启用此功能的工具添加了大量的元信息，所以第一个构建和上传需要更多的时间。
+    请注意有关设置的minSdkVersion 15或更高，以获得任何盈利。
+
+    In version 2.0 a new feature was added instant-run.
+
+    To enable this feature tool adds a lots of meta information, so the first build and upload takes more time.
+
+    Be aware about setting minSdkVersion 15 or higher to get any profit.
+
+解决步骤：
+
+    1、点击：Settings → Build, Execution, Deployment → Instant Run
+    2、取消选择：Enable Instant Run to hot swap code/resoure changes on deploy
+
+这样会取消功能``` 即时运行 ```，但可以解决这个问题。
 
 ---
 

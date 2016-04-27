@@ -32,10 +32,10 @@ public enum MyGsonRetrofit {
 
         this.strBaseUrl = strBaseUrl;
 
-        MyOkHttpClient.getMyOkHttpClient().init(mContext);
+//        MyOkHttpClient.getMyOkHttpClient().init(mContext);
 
         retrofit = new Retrofit.Builder()
-                .client(MyOkHttpClient.getMyOkHttpClient().getOkHttpClient())//设置不同的底层网络库
+                .client(MyOkHttpClient.getMyOkHttpClient().init(mContext))//设置不同的底层网络库
                 .baseUrl(strBaseUrl)
                 .addConverterFactory(GsonConverterFactory.create())//添加 json 转换器
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//添加 RxJava 适配器
