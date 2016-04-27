@@ -24,7 +24,7 @@ public abstract class ViewImpl implements IView {
     @Override
     public View create(LayoutInflater inflater, ViewGroup container) {
         mRootView = inflater.inflate(getLayoutId(), container, false);
-        created();
+//        created();
         return mRootView;
     }
 

@@ -15,7 +15,7 @@ import org.loader.view.IView;
  * Fragment作为Presenter的基类 <br />
  * Created by qibin on 2015/11/15.
  */
-public class FragmentPresenterImpl<T extends IView> extends Fragment implements IPresenter<T> {
+public class FragmentDemoPresenterImpl<T extends IView> extends Fragment implements IPresenter<T> {
 
 
     protected View fragmentRootView;
@@ -35,6 +35,7 @@ public class FragmentPresenterImpl<T extends IView> extends Fragment implements 
 
             mView = getViewClass().newInstance();
             fragmentRootView = mView.create(inflater, container);
+            mView.created();
             mView.bindPresenter(this);
             mView.bindEvent();
             created(savedInstanceState);

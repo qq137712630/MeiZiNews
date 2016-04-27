@@ -13,6 +13,7 @@ import org.loader.model.OnModelListener;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.Subscription;
 
 /**
  * Created by 啟成 on 2016/3/9.
@@ -21,18 +22,19 @@ public class ZhiHuBeforeModel extends ZhiHuListModel {
 
     private String nextDate;//所时间
 
-    public void loadWeb(Context context, final OnModelListener<ZhiHuLatest> listener, String nextDate) {
+    public Subscription loadWeb(Context context, final OnModelListener<ZhiHuLatest> listener, String nextDate) {
         this.nextDate = nextDate;
-        loadWeb(context, listener);
+        return loadWeb(context, listener);
     }
 
+
     @Override
-    public void loadWeb(Context context, final OnModelListener<ZhiHuLatest> listener) {
-        super.loadWeb(context, listener);
+    protected Subscription reSubscription(Context context, final OnModelListener<ZhiHuLatest> listener) {
+
         ZhiHuNews zhiHuNews = MyGsonRetrofit.getMyGsonRetrofit().getCreate(ZhiHuNews.class);
 
-        Observable<ZhiHuLatest> mZhiHuLatest = zhiHuNews.RxZhiHuNewsBefore(MyOkHttpClient.getCacheControl(context),nextDate);
-        RxJavaUtil.rxIoAndMain(mZhiHuLatest, new Subscriber<ZhiHuLatest>() {
+        Observable<ZhiHuLatest> mZhiHuLatest = zhiHuNews.RxZhiHuNewsBefore(MyOkHttpClient.getCacheControl(context), nextDate);
+        return RxJavaUtil.rxIoAndMain(mZhiHuLatest, new Subscriber<ZhiHuLatest>() {
                     @Override
                     public void onCompleted() {
                         listener.onCompleted();

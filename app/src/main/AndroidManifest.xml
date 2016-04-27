@@ -76,6 +76,13 @@
 
         </activity>
 
+        <activity
+            android:name=".features.collect.activity.CollectActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.SlidrTheme">
+
+        </activity>
 
         <!-- TODO receiver ================================================================== -->
 

@@ -73,7 +73,6 @@ public class SearchIView extends ViewImpl {
 
         // -----------------------------------------------------------------------------------------
         search_view.setDivider(true);
-        search_view.setSearchText(appCompatActivity.getIntent().getStringExtra("query"));
         search_view.setHint(R.string.search);
         search_view.setHintSize(appCompatActivity.getResources().getDimension(R.dimen.search_text_medium));
         search_view.setVoice(false);
@@ -105,6 +104,7 @@ public class SearchIView extends ViewImpl {
 
     public void upAllDatas2QuickAdapter(ArrayList<HtmlEntity> htmlEntitieList) {
         mySearchAdapter.upAllData(htmlEntitieList);
+//        mySearchAdapter.addDatas(htmlEntitieList);
         recycler_list.smoothScrollToPosition(0);
     }
 

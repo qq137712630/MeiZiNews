@@ -5,6 +5,7 @@ import android.util.Log;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
@@ -14,7 +15,7 @@ import rx.schedulers.Schedulers;
  */
 public class RxJavaUtil {
 
-    public static final String tag ="rxHi04";
+    public static final String tag = "rxHi04";
 
     /**
      * 这段代码中，由于 subscribeOn(Schedulers.io()) 的指定，
@@ -36,8 +37,8 @@ public class RxJavaUtil {
                 });
     }
 
-    public static <T> void rxIoAndMain(Observable<T> observable, Subscriber<T> subscriber) {
-        observable.subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
+    public static <T> Subscription rxIoAndMain(Observable<T> observable, Subscriber<T> subscriber) {
+        return observable.subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
                 .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
                 .subscribe(subscriber);
     }

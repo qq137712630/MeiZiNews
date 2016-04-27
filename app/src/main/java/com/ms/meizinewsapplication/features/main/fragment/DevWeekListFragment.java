@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
+import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
 import com.ms.meizinewsapplication.features.main.iview.DevWeekListIVew;
 import com.ms.meizinewsapplication.features.main.model.DevWeekModel;
 import com.ms.meizinewsapplication.features.main.pojo.AndroidDevWeek;
 
 import org.loader.model.OnModelListener;
-import org.loader.presenter.FragmentPresenterImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +46,7 @@ public class DevWeekListFragment extends FragmentPresenterImpl<DevWeekListIVew> 
 
     private void devWeekModelLoad() {
         mView.changeProgress(true);
-        devWeekModel.loadWeb(mContext, listenerDevWeek, page + "");
+        addSubscription(devWeekModel.loadWeb(mContext, listenerDevWeek, page + ""));
     }
 
     //TODO Listener============================================================

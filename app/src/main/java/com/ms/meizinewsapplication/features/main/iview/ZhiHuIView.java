@@ -10,7 +10,7 @@ import android.view.View;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.base.view.iview.RecyclerIView;
+import com.ms.meizinewsapplication.features.base.view.iview.SwipeRecyclerIView;
 import com.ms.meizinewsapplication.features.main.adapter.ZhiHuAdapter;
 import com.ms.meizinewsapplication.features.main.banner.ZhiHuTopBannerView;
 import com.ms.meizinewsapplication.features.main.json.Stories;
@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Created by 啟成 on 2016/3/4.
  */
-public class ZhiHuIView extends RecyclerIView {
+public class ZhiHuIView extends SwipeRecyclerIView {
     private ZhiHuAdapter zhiHuAdapter;
     private ConvenientBanner banner;
 

@@ -10,11 +10,13 @@ import com.ms.retrofitlibrary.util.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyGsonRetrofit;
 import com.ms.retrofitlibrary.web.MyOkHttpClient;
 
-import org.loader.model.CommonModel;
+import com.ms.meizinewsapplication.features.base.model.CommonModel;
+
 import org.loader.model.OnModelListener;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.Subscription;
 
 /**
  * Created by 啟成 on 2016/3/11.
@@ -23,21 +25,21 @@ public class ZhihuDetailModel implements CommonModel<ZhihuDetail> {
 
     private String detailID;
 
-    public void loadWeb(Context context, final OnModelListener<ZhihuDetail> listener, String detailID) {
+    public Subscription loadWeb(Context context, final OnModelListener<ZhihuDetail> listener, String detailID) {
 
         MyGsonRetrofit.getMyGsonRetrofit().init(context, MainApi.ZHI_HU_NEWS);
         this.detailID = detailID;
 
-        loadWeb(context, listener);
+        return loadWeb(context, listener);
     }
 
 
     @Override
-    public void loadWeb(Context context, final OnModelListener<ZhihuDetail> listener) {
+    public Subscription loadWeb(Context context, final OnModelListener<ZhihuDetail> listener) {
         ZhiHuNews zhiHuNews = MyGsonRetrofit.getMyGsonRetrofit().getCreate(ZhiHuNews.class);
 
         Observable<ZhihuDetail> mZhihuDetail = zhiHuNews.RxZhihuDetail(MyOkHttpClient.getCacheControl(context), detailID);
-        RxJavaUtil.rxIoAndMain(mZhihuDetail, new Subscriber<ZhihuDetail>() {
+        return RxJavaUtil.rxIoAndMain(mZhihuDetail, new Subscriber<ZhihuDetail>() {
                     @Override
                     public void onCompleted() {
                         listener.onCompleted();

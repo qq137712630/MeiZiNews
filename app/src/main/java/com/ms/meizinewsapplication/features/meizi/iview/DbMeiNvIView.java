@@ -9,7 +9,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.base.view.iview.RecyclerIView;
+import com.ms.meizinewsapplication.features.base.view.iview.SwipeRecyclerIView;
 import com.ms.meizinewsapplication.features.meizi.adapter.DBMeiziAdapter;
 import com.ms.meizinewsapplication.features.meizi.model.DbMeiNvList;
 import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNv;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 /**
  * Created by 啟成 on 2016/3/4.
  */
-public class DBMeiNvIView extends RecyclerIView {
+public class DBMeiNvIView extends SwipeRecyclerIView {
     private DBMeiziAdapter dbMeiziAdapter;
 
     @Override

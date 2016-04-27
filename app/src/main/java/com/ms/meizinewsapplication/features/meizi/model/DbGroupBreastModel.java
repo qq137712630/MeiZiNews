@@ -10,6 +10,7 @@ import org.loader.model.OnModelListener;
 import java.util.List;
 
 import rx.Observable;
+import rx.Subscription;
 
 /**
  * Created by 啟成 on 2016/3/15.
@@ -18,22 +19,19 @@ public class DbGroupBreastModel extends DbGroupModel {
 
     private String pager_offset;
 
-    public void loadWeb(Context context, OnModelListener<List<DbMeiNv>> listener, String pager_offset) {
+    public Subscription loadWeb(Context context, OnModelListener<List<DbMeiNv>> listener, String pager_offset) {
         this.pager_offset = pager_offset;
-        loadWeb(context, listener);
+        return loadWeb(context, listener);
 
     }
 
     @Override
-    public void loadWeb(Context context, final OnModelListener<List<DbMeiNv>> listener) {
-        super.loadWeb(context, listener);
-
+    protected Subscription reSubscription(Context context, OnModelListener<List<DbMeiNv>> listener) {
         Observable<String> dbGroupBreast = getDbGroup().RxDbGroupBreast(
                 MyOkHttpClient.getCacheControl(context),
                 pager_offset
         );
 
-        rxDbGroup(dbGroupBreast, listener);
-
+        return rxDbGroup(dbGroupBreast, listener);
     }
 }

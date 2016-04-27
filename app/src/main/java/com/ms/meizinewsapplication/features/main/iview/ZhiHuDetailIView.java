@@ -2,10 +2,12 @@ package com.ms.meizinewsapplication.features.main.iview;
 
 import android.content.Context;
 import android.os.Build;
+import android.support.annotation.DrawableRes;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -15,9 +17,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.main.json.ZhihuDetail;
 import com.ms.meizinewsapplication.features.base.utils.tool.ImagerLoad;
-import com.ms.meizinewsapplication.features.base.utils.tool.Share;
+import com.ms.meizinewsapplication.features.main.json.ZhihuDetail;
 
 import org.loader.view.ViewImpl;
 
@@ -43,6 +44,9 @@ public class ZhiHuDetailIView extends ViewImpl {
         fab = findViewById(R.id.fab);
         toolbar_layout = findViewById(R.id.toolbar_layout);
         toolbar = findViewById(R.id.toolbar);
+
+        webView = findViewById(R.id.web_view);
+
     }
 
     @Override
@@ -65,16 +69,23 @@ public class ZhiHuDetailIView extends ViewImpl {
     }
 
 
+    public boolean onCreateOptionsMenu(AppCompatActivity activity, Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        activity.getMenuInflater().inflate(R.menu.menu_detail, menu);
+        return true;
+    }
+
+
     //TODO init =================================================
 
     public void init(AppCompatActivity activity) {
         initToolbar(activity);
         initWebView(activity);
-        initFAB(activity);
     }
 
     /**
      * 设置左上角的返回键与它的点击效果
+     *
      * @param appCompatActivity
      */
     private void initToolbar(final AppCompatActivity appCompatActivity) {
@@ -102,10 +113,23 @@ public class ZhiHuDetailIView extends ViewImpl {
 
     }
 
+    public void setMenuItemIconByCollect(boolean isCollect) {
+
+        if (isCollect) {
+            setMenuItemIcon(2, R.drawable.iconfont_weishoucang);
+        } else {
+            setMenuItemIcon(2, R.drawable.iconfont_yishoucang);
+        }
+
+    }
+
+
+    public void setMenuItemIcon(int index, @DrawableRes int iconRes) {
+        toolbar.getMenu().getItem(index).setIcon(iconRes);
+    }
+
 
     public void initWebView(Context context) {
-        webView = new WebView(context);
-        webContainer.addView(webView);
         webView.setVisibility(View.INVISIBLE);
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -129,17 +153,6 @@ public class ZhiHuDetailIView extends ViewImpl {
         });
     }
 
-    private void initFAB(final Context context) {
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (detailNews == null) {
-                    return;
-                }
-                Share.shareText(context, detailNews.getShare_url());
-            }
-        });
-    }
 
     //TODO Mode ===================================================
 
@@ -151,10 +164,8 @@ public class ZhiHuDetailIView extends ViewImpl {
         progress.setVisibility(View.GONE);
     }
 
-    private ZhihuDetail detailNews;
 
     public void showDetail(ZhihuDetail detailNews) {
-        this.detailNews = detailNews;
 
         toolbar_layout.setTitle(detailNews.getTitle());
 
@@ -163,5 +174,23 @@ public class ZhiHuDetailIView extends ViewImpl {
         String html = "<html><head>" + css + "</head><body>" + detailNews.getBody() + "</body></html>";
         html = html.replace("<div class=\"img-place-holder\">", "");
         webView.loadDataWithBaseURL("x-data://base", html, "text/html", "UTF-8", null);
+    }
+
+    public void showDetail(String title, String html) {
+        ZhihuDetail detailNews = new ZhihuDetail();
+        detailNews.setTitle(title);
+        detailNews.setBody(html);
+        showDetail(detailNews);
+    }
+
+    //TODO Listener====================
+
+    public void setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener onMenuItemClickListener) {
+
+        toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
+    }
+
+    public void setFabOnClickListener(View.OnClickListener fabOnClickListener) {
+        fab.setOnClickListener(fabOnClickListener);
     }
 }

@@ -13,18 +13,20 @@ import org.loader.model.OnModelListener;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.Subscription;
 
 /**
  * Created by 啟成 on 2016/3/6.
  */
 public class ZhiHuLatestModel extends ZhiHuListModel {
+
     @Override
-    public void loadWeb(Context context, final OnModelListener<ZhiHuLatest> listener) {
-        super.loadWeb(context, listener);
+    protected Subscription reSubscription(Context context, final OnModelListener<ZhiHuLatest> listener) {
+
         ZhiHuNews zhiHuNews = MyGsonRetrofit.getMyGsonRetrofit().getCreate(ZhiHuNews.class);
 
         Observable<ZhiHuLatest> mZhiHuLatest = zhiHuNews.RxZhiHuNewsLatest(MyOkHttpClient.getCacheControl(context));
-        RxJavaUtil.rxIoAndMain(mZhiHuLatest, new Subscriber<ZhiHuLatest>() {
+       return RxJavaUtil.rxIoAndMain(mZhiHuLatest, new Subscriber<ZhiHuLatest>() {
                     @Override
                     public void onCompleted() {
                         listener.onCompleted();

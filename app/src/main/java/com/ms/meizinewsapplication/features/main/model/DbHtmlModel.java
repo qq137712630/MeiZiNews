@@ -33,16 +33,20 @@ public class DbHtmlModel extends DbModel {
     public void addDate(
 
             String url,
-            final String type,
+            String type,
             String title,
             String html,
-            String summary
+            String summary,
+            String collect
     ) {
         Map<String, String> map = new HashMap<>();
         map.put("url", url);
+        map.put("type", type);
         map.put("title", title);
         map.put("html", html);
         map.put("excerpt", summary);
+        map.put("collect", collect);
+
 
         Observable ob = Observable.just(map)
                 .map(new Func1<Map<String, String>, Boolean>() {
@@ -51,10 +55,11 @@ public class DbHtmlModel extends DbModel {
 
                         dbUtil.addHtml(
                                 stringMap.get("url"),
-                                type,
+                                stringMap.get("type"),
                                 stringMap.get("title"),
                                 stringMap.get("html"),
-                                stringMap.get("excerpt")
+                                stringMap.get("excerpt"),
+                                stringMap.get("collect")
                         );
                         return true;
                     }
@@ -107,6 +112,36 @@ public class DbHtmlModel extends DbModel {
             @Override
             public void onNext(List<HtmlEntity> htmlEntities) {
                 DebugUtil.debugLogD("queryByHtml+++++\n+htmlEntities+\n" + htmlEntities.size());
+                listener.onSuccess(htmlEntities);
+            }
+        });
+    }
+
+    public void queryHtmlByHtmlTypeAndCollect(List<String> htmlTypeList, final OnModelListener<List<HtmlEntity>> listener) {
+        Observable ob = Observable.from(htmlTypeList)
+                .map(new Func1<String, List<HtmlEntity>>() {
+                    @Override
+                    public List<HtmlEntity> call(String s) {
+                        return dbUtil.queryHtmlByHtmlTypeAndCollect(s);
+                    }
+                });
+
+        RxJavaUtil.rxIoAndMain(ob, new Subscriber<List<HtmlEntity>>(){
+
+            @Override
+            public void onCompleted() {
+                listener.onCompleted();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                DebugUtil.debugLogErr(e, "queryHtmlByHtmlTypeAndCollect++++\n" + e.toString());
+                listener.onError(e.toString());
+            }
+
+            @Override
+            public void onNext(List<HtmlEntity> htmlEntities) {
+                DebugUtil.debugLogD("queryHtmlByHtmlTypeAndCollect+++++\n+htmlEntities+\n" + htmlEntities.size());
                 listener.onSuccess(htmlEntities);
             }
         });

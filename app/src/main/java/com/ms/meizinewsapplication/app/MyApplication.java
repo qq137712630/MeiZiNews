@@ -29,9 +29,11 @@ public class MyApplication extends Application {
      **/
 
     private void initBlockCanary() {
-
-        // 在主进程初始化调用哈
-        BlockCanary.install(this, new AppBlockCanaryContext()).start();
+        if (DebugUtil.IS_DEBUG)
+        {
+            // 在主进程初始化调用哈
+            BlockCanary.install(this, new AppBlockCanaryContext()).start();
+        }
     }
 
 

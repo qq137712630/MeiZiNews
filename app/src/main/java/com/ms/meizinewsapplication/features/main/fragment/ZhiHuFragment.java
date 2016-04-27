@@ -6,15 +6,15 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 
+import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.main.iview.ZhiHuIView;
 import com.ms.meizinewsapplication.features.main.json.Stories;
 import com.ms.meizinewsapplication.features.main.json.ZhiHuLatest;
 import com.ms.meizinewsapplication.features.main.model.ZhiHuBeforeModel;
 import com.ms.meizinewsapplication.features.main.model.ZhiHuLatestModel;
-import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 
 import org.loader.model.OnModelListener;
-import org.loader.presenter.FragmentPresenterImpl;
 
 import java.util.ArrayList;
 
@@ -58,7 +58,7 @@ public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
     public void zhiHuLatestLoad(Context context) {
 
         mView.changeProgress(true);
-        zhiHuLatestModel.loadWeb(context, zhiHuLatestListener);
+        addSubscription(zhiHuLatestModel.loadWeb(context, zhiHuLatestListener));
     }
 
     public void zhiHuBeforeLoad(Context context) {
@@ -68,8 +68,7 @@ public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
         }
 
         mView.changeProgress(true);
-        zhiHuBeforeModel.loadWeb(context, zhiHuBeforeListener, nextDate);
-//        zhiHuBeforeModel.loadWeb(context, zhiHuBeforeListener);
+        addSubscription(zhiHuBeforeModel.loadWeb(context, zhiHuBeforeListener, nextDate));
     }
 
 //TODO Listener============================================================

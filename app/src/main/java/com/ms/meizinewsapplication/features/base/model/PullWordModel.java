@@ -12,7 +12,6 @@ import com.ms.retrofitlibrary.web.MyOkHttpClient;
 import com.ms.retrofitlibrary.web.MyStringRetrofit;
 
 import org.jsoup.select.Elements;
-import org.loader.model.CommonModel;
 import org.loader.model.OnModelListener;
 
 import java.util.HashMap;
@@ -20,6 +19,7 @@ import java.util.Map;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.Subscription;
 import rx.functions.Func1;
 
 /**
@@ -31,7 +31,7 @@ public class PullWordModel implements CommonModel<String> {
 
     protected SqlUtil sqlUtil;
 
-    public void loadWeb(Context context, OnModelListener<String> listener, String source) {
+    public Subscription loadWeb(Context context, OnModelListener<String> listener, String source) {
 
         sqlUtil = SqlUtil.instance;
         pullwordMap = new HashMap<>();
@@ -40,11 +40,11 @@ public class PullWordModel implements CommonModel<String> {
         pullwordMap.put("param2", "0");
 
 
-        loadWeb(context, listener);
+        return loadWeb(context, listener);
     }
 
     @Override
-    public void loadWeb(Context context, final OnModelListener<String> listener) {
+    public Subscription loadWeb(Context context, final OnModelListener<String> listener) {
 
         MyStringRetrofit.getMyStringRetrofit().init(context, ConstantData.PULL_WORD_API);
         PullWordApi pullWordApi = MyStringRetrofit.getMyStringRetrofit().getCreate(PullWordApi.class);
@@ -61,7 +61,7 @@ public class PullWordModel implements CommonModel<String> {
             }
         });
 
-        RxJavaUtil.rxIoAndMain(observable, new Subscriber<String>() {
+        return RxJavaUtil.rxIoAndMain(observable, new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
                         listener.onCompleted();

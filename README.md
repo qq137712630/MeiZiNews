@@ -12,10 +12,43 @@
 
 ---
 
+#RxJava
+
+ - [收集了RxJava常见的使用场景，例子简洁、经典、易懂...](https://github.com/THEONE10211024/RxJavaSamples)
+
+## 取消订阅
+
+ - [深入浅出RxJava四-在Android中使用响应式编程：CompositeSubscription取消订阅](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0426/2787.html)
+
+---
+
 #GreenDAO
 
  - [GreenDAO数据库版本升级](http://blog.csdn.net/fancylovejava/article/details/46713445)
  - [使用greenDAO遇到的问题：Cannot update entity without key - was it inserted before?](http://blog.csdn.net/plmmmmlq/article/details/50404495)
+ - [greenDao数据库更新和多表关联](http://souly.cn/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/2015/05/21/greenDAO%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E6%9B%B4%E6%96%B0%E5%92%8C%E5%A4%9A%E8%A1%A8%E5%85%B3%E8%81%94/)
+ - [多个有关联的表查询：joins](http://greenrobot.org/greendao/documentation/joins/)
+ - [查找查询中的问题，将sql语句打印出来:GreenDao简明教程（查询，Querying）](http://blog.csdn.net/yuyuanhuang/article/details/42751469)
+
+
+## 联表查询
+
+    DbUtil
+    /**
+     * Built SQL for query:
+     * SELECT T."_id",T."HTML_ID",T."COLLECT" FROM "COLLECT_ENTITY" T
+     * JOIN HTML_ENTITY J1 ON T."HTML_ID"=J1."_id"
+     * WHERE J1."URL"=?
+     *
+     * @param url
+     * @return
+     */
+    public List<CollectEntity> queryCollectByhtmlUrl(String url) {
+        QueryBuilder<CollectEntity> queryBuilder = collectEntityDao.queryBuilder();
+        queryBuilder.join(CollectEntityDao.Properties.Html_id, HtmlEntity.class, HtmlEntityDao.Properties.Id)
+                .where(HtmlEntityDao.Properties.Url.eq(url));
+        return queryBuilder.list();
+    }
 
 ---
 
@@ -348,10 +381,7 @@ API:
  - [Google官方下拉刷新组件--SwipeRefreshLayout](https://github.com/stormzhang/SwipeRefreshLayoutDemo)
  
 ## 头部： CoordinatorLayout CollapsingToolbarLayout
-	
-	
 
-	
  - [CoordinatorLayout与滚动的处理](http://www.open-open.com/lib/view/open1437312265428.html)
  - [该使用 fitsSystemWindows 了！](http://ju.outofmemory.cn/entry/247350)或[该使用 fitsSystemWindows 了！]( http://blog.chengyunfeng.com/?p=905)
 
@@ -431,6 +461,7 @@ API:
  - [android：ToolBar详解（手把手教程）](http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2006.html)
  - [为实现Fragment 不会重新创，仿OuNews的 BaseFragment类中的onCreateView和onDestroyView写法](https://github.com/oubowu/OuNews/blob/a42f773e26a27eeadda385afaa40f8fc8e5745dc/app/src/main/java/com/oushangfeng/ounews/base/BaseFragment.java)
  - [menu-Android ActionBar详解](http://blog.csdn.net/huiguixian/article/details/9836189)
+ - [ Android 学习笔记（二七）：Menu](http://blog.csdn.net/flowingflying/article/details/6317632)
  - [spinBars-Android – Toolbar 上的 Navigation Drawer](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1123/2050.html)
  - [Android设计模式之单例模式](http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=403126596&idx=1&sn=101c6d4e363213bcdbe1879edeb08736&scene=23&srcid=0405dfOnHTLZxrgDaQMKMcNR#rd)
  - [软键盘处理：解析android中隐藏与显示软键盘及不自动弹出键盘的实现方法](http://www.jb51.net/article/36653.htm)
@@ -441,3 +472,157 @@ API:
 # 疑问
 
  - XML布局是否可以像Jsp一样动态加载？
+
+---
+
+# 奇怪的错误：
+
+## 由编译时出现的错误：
+
+	通过清理项目的缓存可解决。
+
+第1个：
+
+	04-19 20:57:09.844 31614-31614/com.ms.meizinewsapplication E/AndroidRuntime: FATAL EXCEPTION: main
+	 Process: com.ms.meizinewsapplication, PID: 31614
+	 java.lang.NoSuchMethodError: No virtual method setMenuItemIconByCollect(Z)V in class Lcom/ms/meizinewsapplication/features/main/iview/DevWeekDetailIVew; or its super classes (declaration of 'com.ms.meizinewsapplication.features.main.iview.DevWeekDetailIVew' appears in /data/data/com.ms.meizinewsapplication/files/instant-run/dex/slice-slice_4-classes.dex)
+		 at com.ms.meizinewsapplication.features.main.activity.DevWeekDetailActivity$2.onMenuItemClick(DevWeekDetailActivity.java:160)
+		 at android.support.v7.widget.Toolbar$1.onMenuItemClick(Toolbar.java:169)
+		 at android.support.v7.widget.ActionMenuView$MenuBuilderCallback.onMenuItemSelected(ActionMenuView.java:760)
+		 at android.support.v7.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:811)
+		 at android.support.v7.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:152)
+		 at android.support.v7.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:958)
+		 at android.support.v7.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:948)
+		 at android.support.v7.widget.ActionMenuView.invokeItem(ActionMenuView.java:618)
+		 at android.support.v7.view.menu.ActionMenuItemView.onClick(ActionMenuItemView.java:139)
+		 at android.view.View.performClick(View.java:4908)
+		 at android.view.View$PerformClick.run(View.java:20378)
+		 at android.os.Handler.handleCallback(Handler.java:815)
+		 at android.os.Handler.dispatchMessage(Handler.java:104)
+		 at android.os.Looper.loop(Looper.java:194)
+		 at android.app.ActivityThread.main(ActivityThread.java:5691)
+		 at java.lang.reflect.Method.invoke(Native Method)
+		 at java.lang.reflect.Method.invoke(Method.java:372)
+		 at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:959)
+		 at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:754)
+
+
+第2个：
+
+	04-19 20:13:37.194 5338-5416/com.ms.meizinewsapplication E/AndroidRuntime: FATAL EXCEPTION: RxCachedThreadScheduler-2
+	   Process: com.ms.meizinewsapplication, PID: 5338
+	   java.lang.IllegalStateException: Fatal Exception thrown on Scheduler.Worker thread.
+		   at rx.internal.schedulers.ScheduledAction.run(ScheduledAction.java:62)
+		   at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:422)
+		   at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+		   at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:152)
+		   at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:265)
+		   at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)
+		   at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
+		   at java.lang.Thread.run(Thread.java:818)
+		Caused by: java.lang.NoSuchMethodError: No virtual method addCollectByUrl(Ljava/lang/String;Ljava/lang/String;)Z in class Lcom/ms/meizinewsapplication/features/base/utils/db/DbUtil; or its super classes (declaration of 'com.ms.meizinewsapplication.features.base.utils.db.DbUtil' appears in /data/data/com.ms.meizinewsapplication/files/instant-run/dex/slice-slice_9-classes.dex)
+		   at com.ms.meizinewsapplication.features.base.model.CollectModel$1.call(CollectModel.java:44)
+		   at com.ms.meizinewsapplication.features.base.model.CollectModel$1.call(CollectModel.java:39)
+		   at rx.internal.operators.OperatorMap$1.onNext(OperatorMap.java:54)
+		   at rx.internal.util.ScalarSynchronousObservable$1.call(ScalarSynchronousObservable.java:46)
+		   at rx.internal.util.ScalarSynchronousObservable$1.call(ScalarSynchronousObservable.java:35)
+		   at rx.Observable$2.call(Observable.java:162)
+		   at rx.Observable$2.call(Observable.java:154)
+		   at rx.Observable.unsafeSubscribe(Observable.java:8098)
+		   at rx.internal.operators.OperatorSubscribeOn$1$1.call(OperatorSubscribeOn.java:62)
+		   at rx.internal.schedulers.ScheduledAction.run(ScheduledAction.java:55)
+		   at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:422) 
+		   at java.util.concurrent.FutureTask.run(FutureTask.java:237) 
+		   at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:152) 
+		   at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:265) 
+		   at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112) 
+		   at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587) 
+		   at java.lang.Thread.run(Thread.java:818) 
+
+## app首次打开要很长时间 ``` First launch take long time in Android Studio 2.0 & Gradle 2.0 ```
+
+[app首次打开要很长时间 ``` First launch take long time in Android Studio 2.0 & Gradle 2.0 ```](http://stackoverflow.com/questions/36623917/first-launch-take-long-time-in-android-studio-2-0-gradle-2-0)
+
+所报日志：
+
+    04-27 10:24:16.241 12442-12450/com.ms.meizinewsapplication W/art: Suspending all threads took: 8.750ms
+    04-27 10:24:16.394 12442-12442/com.ms.meizinewsapplication W/art: Before Android 4.1, method android.graphics.PorterDuffColorFilter android.support.graphics.drawable.VectorDrawableCompat.updateTintFilter(android.graphics.PorterDuffColorFilter, android.content.res.ColorStateList, android.graphics.PorterDuff$Mode) would have incorrectly overridden the package-private method in android.graphics.drawable.Drawable
+    04-27 10:24:16.552 12442-12802/com.ms.meizinewsapplication D/OpenGLRenderer: Use EGL_SWAP_BEHAVIOR_PRESERVED: true
+
+                                                                                 [ 04-27 10:24:16.554 12442:12442 D/         ]
+                                                                                 HostConnection::get() New Host Connection established 0xb4305d40, tid 12442
+    04-27 10:24:16.556 12442-12442/com.ms.meizinewsapplication D/Atlas: Validating map...
+
+
+原因：
+
+    在2.0版本的新功能已添加即时运行。
+    要启用此功能的工具添加了大量的元信息，所以第一个构建和上传需要更多的时间。
+    请注意有关设置的minSdkVersion 15或更高，以获得任何盈利。
+
+    In version 2.0 a new feature was added instant-run.
+
+    To enable this feature tool adds a lots of meta information, so the first build and upload takes more time.
+
+    Be aware about setting minSdkVersion 15 or higher to get any profit.
+
+解决步骤：
+
+    1、点击：Settings → Build, Execution, Deployment → Instant Run
+    2、取消选择：Enable Instant Run to hot swap code/resoure changes on deploy
+
+这样会取消功能``` 即时运行 ```，但可以解决这个问题。
+
+---
+
+# 增加分组的Adapter：BaseTypeItemQuickAdapter
+
+主要还是BaseQuickAdapter为样本，重写``` getItemViewType ```，主要修改如下：
+
+
+    /**
+     * 返回的布局判断
+     * @param position
+     * @return
+     */
+    @Override
+    public int getItemViewType(int position) {
+
+        if (position == 0 || oldCount == position) {
+            return TYPE_TITLE;
+        } else {
+            return TYPE_ITEM;
+        }
+
+    }
+
+    /**
+     * 对不同类型的操作
+     * @param viewGroup
+     * @param viewType
+     * @return
+     */
+    @Override
+    public BaseAdapterHelper onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        View view = null;
+
+        switch (viewType) {
+            case TYPE_TITLE:
+
+                view = LayoutInflater.from(viewGroup.getContext()).inflate(titleLayoutResId, viewGroup, false);
+
+                break;
+            case TYPE_ITEM:
+                view = LayoutInflater.from(viewGroup.getContext()).inflate(itemLayoutResId, viewGroup, false);
+
+                break;
+        }
+
+        if (view == null) {
+            return null;
+        }
+
+        view.setOnClickListener(this);
+        BaseAdapterHelper vh = new BaseAdapterHelper(view);
+        return vh;
+    }

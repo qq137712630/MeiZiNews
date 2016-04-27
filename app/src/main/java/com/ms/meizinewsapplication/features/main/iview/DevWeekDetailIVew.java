@@ -1,11 +1,10 @@
 package com.ms.meizinewsapplication.features.main.iview;
 
-import android.content.Context;
 import android.os.Build;
+import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -14,8 +13,6 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.main.main_web.MainApi;
-import com.ms.meizinewsapplication.features.base.utils.tool.Share;
 
 import org.loader.view.ViewImpl;
 
@@ -30,7 +27,6 @@ public class DevWeekDetailIVew extends ViewImpl {
     private ProgressBar progress;
     private Toolbar toolbar;
 
-    private AppCompatActivity activity;
 
     @Override
     public void created() {
@@ -38,6 +34,7 @@ public class DevWeekDetailIVew extends ViewImpl {
         webContainer = findViewById(R.id.web_container);
         progress = findViewById(R.id.progress);
         toolbar = findViewById(R.id.toolbar);
+        webView = findViewById(R.id.web_view);
     }
 
     @Override
@@ -69,7 +66,6 @@ public class DevWeekDetailIVew extends ViewImpl {
     //TODO init =================================================
 
     public void init(AppCompatActivity activity) {
-        this.activity = activity;
         initToolbar(activity);
         initWebView(activity);
     }
@@ -104,13 +100,24 @@ public class DevWeekDetailIVew extends ViewImpl {
             }
         });
 
-        toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
 
     }
 
-    public void initWebView(Context context) {
-        webView = new WebView(context);
-        webContainer.addView(webView);
+    public void setMenuItemIconByCollect(boolean isCollect) {
+
+        if (isCollect) {
+            setMenuItemIcon(2,R.drawable.iconfont_weishoucang);
+        } else {
+            setMenuItemIcon(2,R.drawable.iconfont_yishoucang);
+        }
+
+    }
+
+    public void setMenuItemIcon(int index, @DrawableRes int iconRes) {
+        toolbar.getMenu().getItem(index).setIcon(iconRes);
+    }
+
+    public void initWebView(AppCompatActivity activity) {
         webView.setVisibility(View.INVISIBLE);
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -139,6 +146,7 @@ public class DevWeekDetailIVew extends ViewImpl {
         progress.setVisibility(View.GONE);
     }
 
+
     //TODO Mode ===================================================
 
     public void showDetail(String body) {
@@ -149,18 +157,9 @@ public class DevWeekDetailIVew extends ViewImpl {
 
     //TODO Listener====================
 
-    Toolbar.OnMenuItemClickListener onMenuItemClickListener = new Toolbar.OnMenuItemClickListener() {
-        @Override
-        public boolean onMenuItemClick(MenuItem item) {
+    public void setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener onMenuItemClickListener) {
 
-            switch (item.getItemId()) {
-                case R.id.menu_share:
-                    Share.shareText(activity, MainApi.DEV_WEEK + activity.getIntent().getStringExtra("path"));
-                    break;
+        toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
+    }
 
-            }
-
-            return false;
-        }
-    };
 }
