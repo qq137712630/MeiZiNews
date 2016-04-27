@@ -160,6 +160,8 @@ public enum DbUtil {
 
 
     /**
+     * 加入表HtmlEntity ，当CollectEntityDao.Properties.Html_id 和 HtmlEntityDao.Properties.Id相同时
+     *
      * Built SQL for query:
      * SELECT T."_id",T."HTML_ID",T."COLLECT" FROM "COLLECT_ENTITY" T
      * JOIN HTML_ENTITY J1 ON T."HTML_ID"=J1."_id"
