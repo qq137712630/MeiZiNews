@@ -21,7 +21,6 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
 
     protected final List<T> data;
 
-    protected boolean displayIndeterminateProgress = false;
 
     private OnItemClickListener mOnItemClickListener = null;
 

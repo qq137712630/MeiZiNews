@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by 啟成 on 2016/4/20.
  */
-public class CollectAdapter extends BaseTypeItemQuickAdapter<HtmlEntity, BaseAdapterHelper> {
+public class CollectAdapter extends BaseTypeItemQuickAdapter<HtmlEntity> {
     public CollectAdapter(Context context) {
         super(context, R.layout.fragment_dev_week_item, R.layout.view_title);
     }
@@ -47,10 +47,10 @@ public class CollectAdapter extends BaseTypeItemQuickAdapter<HtmlEntity, BaseAda
                     public void onClick(View v) {
 
                         Intent intent = new Intent();
-                        intent.putExtra("url",item.getUrl());
-                        intent.putExtra("html",item.getHtml());
-                        intent.putExtra("title",item.getTitle());
-                        intent.putExtra("type",item.getType());
+                        intent.putExtra("url", item.getUrl());
+                        intent.putExtra("html", item.getHtml());
+                        intent.putExtra("title", item.getTitle());
+                        intent.putExtra("type", item.getType());
 
                         switch (item.getType()) {
                             case ConstantData.DB_HTML_TYPE_WEEK:
@@ -77,6 +77,22 @@ public class CollectAdapter extends BaseTypeItemQuickAdapter<HtmlEntity, BaseAda
         }
     }
 
+    /**
+     * 返回的布局判断
+     *
+     * @param position
+     * @return
+     */
+    @Override
+    public int getItemViewType(int position) {
+
+        if (position == 0 || data.size() != 0 && data.get(position).getType().equals(ConstantData.DB_HTML_TYPE_COLLECT)) {
+            return TYPE_TITLE;
+        } else {
+            return TYPE_ITEM;
+        }
+
+    }
 
 }
 

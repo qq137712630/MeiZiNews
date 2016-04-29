@@ -1,40 +1,24 @@
 package com.test.basequickadapterlib.type_item;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.test.basequickadapterlib.BaseAdapterHelper;
+import com.test.basequickadapterlib.BaseQuickAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by jianghejie on 15/8/8.
  */
-public abstract class BaseTypeItemQuickAdapter<T, H extends BaseAdapterHelper> extends RecyclerView.Adapter<BaseAdapterHelper> implements View.OnClickListener {
-    protected static final String TAG = BaseTypeItemQuickAdapter.class.getSimpleName();
+public abstract class BaseTypeItemQuickAdapter<T> extends BaseQuickAdapter<T, BaseAdapterHelper> {
 
-    protected final Context context;
-
-    protected final int itemLayoutResId;
     protected final int titleLayoutResId;
-    private int oldCount = 0;
 
     public static final int TYPE_TITLE = 0;
     public static final int TYPE_ITEM = 1;
-
-    protected final List<T> data;
-
-
-    private OnItemClickListener mOnItemClickListener = null;
-
-    //define interface
-    public static interface OnItemClickListener {
-        void onItemClick(View view, int position);
-    }
 
     /**
      * Create a QuickAdapter.
@@ -58,41 +42,15 @@ public abstract class BaseTypeItemQuickAdapter<T, H extends BaseAdapterHelper> e
      */
     public BaseTypeItemQuickAdapter(Context context, int itemLayoutResId, int titleLayoutResId, List<T> data) {
 
-        this.data = data == null ? new ArrayList<T>() : data;
-        this.context = context;
-        this.itemLayoutResId = itemLayoutResId;
+        super(context, itemLayoutResId, data);
+
         this.titleLayoutResId = titleLayoutResId;
     }
 
-    @Override
-    public int getItemCount() {
-        return data.size();
-    }
-
-
-    public T getItem(int position) {
-        if (position >= data.size()) return null;
-        return data.get(position);
-    }
-
-    /**
-     * 返回的布局判断
-     * @param position
-     * @return
-     */
-    @Override
-    public int getItemViewType(int position) {
-
-        if (position == 0 || oldCount == position) {
-            return TYPE_TITLE;
-        } else {
-            return TYPE_ITEM;
-        }
-
-    }
 
     /**
      * 对不同类型的操作
+     *
      * @param viewGroup
      * @param viewType
      * @return
@@ -108,7 +66,7 @@ public abstract class BaseTypeItemQuickAdapter<T, H extends BaseAdapterHelper> e
 
                 break;
             case TYPE_ITEM:
-                view = LayoutInflater.from(viewGroup.getContext()).inflate(itemLayoutResId, viewGroup, false);
+                view = LayoutInflater.from(viewGroup.getContext()).inflate(layoutResId, viewGroup, false);
 
                 break;
         }
@@ -122,72 +80,5 @@ public abstract class BaseTypeItemQuickAdapter<T, H extends BaseAdapterHelper> e
         return vh;
     }
 
-
-    @Override
-    public void onBindViewHolder(BaseAdapterHelper helper, int position) {
-        T item = getItem(position);
-        convert((H) helper, item, position);
-    }
-
-    /**
-     * Implement this method and use the helper to adapt the view to the given item.
-     *
-     * @param helper A fully initialized helper.
-     * @param item   The item that needs to be displayed.
-     */
-    protected abstract void convert(H helper, T item, int position);
-
-    @Override
-    public void onClick(View v) {
-        if (v == null) {
-            return;
-        }
-        if (mOnItemClickListener != null) {
-
-            mOnItemClickListener.onItemClick(v, (int) v.getTag());
-        }
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.mOnItemClickListener = listener;
-    }
-
-    public List<T> getData() {
-        return data;
-    }
-
-    /**
-     * 更新item数据
-     *
-     * @param position
-     * @param item
-     */
-    public void upItemData(int position, T item) {
-        data.set(position, item);
-        notifyItemInserted(position);
-    }
-
-    public void upAllData(List<T> data) {
-        this.data.clear();
-        this.data.addAll(data);
-        notifyDataSetChanged();
-    }
-
-    /**
-     * 更新所有数据
-     *
-     * @param data
-     */
-    public void addDatas(List<T> data) {
-        oldCount = this.data.size();
-
-        if (data == null) {
-            return;
-        }
-        this.data.addAll(data);
-        //[在 position 位置插入了 count 个新项目](https://xingrz.me/2014/2014-11-02/recycler-view-item-animation.html)
-        notifyItemRangeInserted(oldCount, data.size());//在 position 位置插入了 count 个新项目
-    }
-
-
+    public abstract int getItemViewType(int position);
 }
