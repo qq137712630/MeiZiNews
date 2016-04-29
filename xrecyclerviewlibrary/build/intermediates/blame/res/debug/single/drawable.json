@@ -8,12 +8,12 @@
         "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_ic_menu_paste_material.xml"
     },
     {
-        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
-        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_seekbar_thumb_material.xml"
-    },
-    {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_checkbox_checked_mtrl.xml",
         "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_checkbox_checked_mtrl.xml"
+    },
+    {
+        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
@@ -52,12 +52,12 @@
         "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_ic_menu_copy_material.xml"
     },
     {
-        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
-        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_check_material.xml"
-    },
-    {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
         "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
@@ -68,12 +68,12 @@
         "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_item_background_holo_light.xml"
-    },
-    {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
         "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
@@ -144,12 +144,12 @@
         "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_radio_on_mtrl.xml"
     },
     {
-        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
-        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_radio_material.xml"
-    },
-    {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
         "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
