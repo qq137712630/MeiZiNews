@@ -48,9 +48,6 @@ public abstract class BaseHeadTypeItemRecyclerAdapter<T> extends BaseHeadRecycle
 
     }
 
-
-    public abstract int getItemViewType(int position);
-
     @Override
     public void addDatas(ArrayList<T> datas) {
 
