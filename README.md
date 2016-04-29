@@ -1,4 +1,13 @@
-#AhSatyr
+ ---
+2016/4/29
+
+因为连不上 ``` github ``` ，所以目前只在这里，等连上了就同步上去
+
+[碗豆夹下载地址：http://www.wandoujia.com/apps/com.ms.meizinewsapplication](http://www.wandoujia.com/apps/com.ms.meizinewsapplication)
+
+ ---
+
+#MeiZiNews
 
  - [性能监听：BlockCanary](https://github.com/moduth/blockcanary)
  - [MVP代码框架：MVPro](https://github.com/qibin0506/MVPro)
