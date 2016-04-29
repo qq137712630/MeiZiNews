@@ -10,6 +10,7 @@ import android.view.View;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.ms.meizinewsapplication.R;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.view.iview.SwipeRecyclerIView;
 import com.ms.meizinewsapplication.features.main.adapter.ZhiHuAdapter;
 import com.ms.meizinewsapplication.features.main.banner.ZhiHuTopBannerView;
@@ -49,7 +50,7 @@ public class ZhiHuIView extends SwipeRecyclerIView {
         recycler_list.setLayoutManager(mLayoutManager);
         recycler_list.setItemAnimator(new DefaultItemAnimator());
 
-        zhiHuAdapter = new ZhiHuAdapter(activity, R.layout.fragment_news_item);
+        zhiHuAdapter = new ZhiHuAdapter(activity);
 
         recycler_list.setAdapter(zhiHuAdapter);
     }
@@ -68,9 +69,9 @@ public class ZhiHuIView extends SwipeRecyclerIView {
 
     public void upAllData2QuickAdapter(ArrayList<Stories> stories) {
 
+        DebugUtil.debugLogD(zhiHuAdapter.getItemCount() + "++++RealPosition:" + stories.get(0).getTitle());
         zhiHuAdapter.addDatas(stories);
     }
-
 
 
     public void setBannerData(List<TopStories> data) {

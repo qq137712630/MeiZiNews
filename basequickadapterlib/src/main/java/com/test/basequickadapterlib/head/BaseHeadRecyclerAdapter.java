@@ -24,9 +24,9 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
     public static final int TYPE_HEADER = 0;
     public static final int TYPE_NORMAL = 1;
 
-    private ArrayList<T> mDatas = new ArrayList<>();
+    protected ArrayList<T> mDatas = new ArrayList<>();
 
-    private View mHeaderView;
+    protected View mHeaderView;
     protected int animID;
 
     private OnItemClickListener mOnItemClickListener = null;
@@ -98,9 +98,8 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
 
         final int pos = getRealPosition(viewHolder);
         final T data = mDatas.get(pos);
-        onBind(viewHolder, pos, data);
+        onBind(viewHolder, pos, position, data);
 
-        setAdapterAnimation(viewHolder.itemView, position);
     }
 
     @Override
@@ -131,7 +130,6 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
             p.setFullSpan(true);
         }
 
-        clearAdapterAnimation(holder);
     }
 
     public int getRealPosition(BaseAdapterHelper holder) {
@@ -144,7 +142,7 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
         return mHeaderView == null ? mDatas.size() : mDatas.size() + 1;
     }
 
-    public abstract void onBind(BaseAdapterHelper viewHolder, int RealPosition, T data);
+    public abstract void onBind(BaseAdapterHelper viewHolder, int RealPosition, int position, T data);
 
     @Override
     public void onClick(View v) {
@@ -172,30 +170,5 @@ public abstract class BaseHeadRecyclerAdapter<T> extends RecyclerView.Adapter<Ba
         }
     }
 
-
-    //TODO Animation===================================
-
-    private int lastPosition = -1;
-
-    public void setAdapterAnimation(View viewToAnimate, int position) {
-
-//        if (animID == 0) {
-//            return;
-//        }
-//
-//        if (position > lastPosition) {
-//            Animation animation = AnimationUtils
-//                    .loadAnimation(viewToAnimate.getContext(), animID);
-//            viewToAnimate.startAnimation(animation);
-//            lastPosition = position;
-//        }
-    }
-
-    public void clearAdapterAnimation(BaseAdapterHelper holder) {
-//        if (animID != 0 && holder.itemView.getAnimation() != null && holder.itemView
-//                .getAnimation().hasStarted()) {
-//            holder.itemView.clearAnimation();
-//        }
-    }
 
 }

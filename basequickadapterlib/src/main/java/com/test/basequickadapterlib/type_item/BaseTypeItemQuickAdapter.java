@@ -1,10 +1,12 @@
-package com.test.basequickadapterlib;
+package com.test.basequickadapterlib.type_item;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.test.basequickadapterlib.BaseAdapterHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -179,10 +181,10 @@ public abstract class BaseTypeItemQuickAdapter<T, H extends BaseAdapterHelper> e
     public void addDatas(List<T> data) {
         oldCount = this.data.size();
 
-        if (data != null) {
-            this.data.addAll(data);
+        if (data == null) {
+            return;
         }
-
+        this.data.addAll(data);
         //[在 position 位置插入了 count 个新项目](https://xingrz.me/2014/2014-11-02/recycler-view-item-animation.html)
         notifyItemRangeInserted(oldCount, data.size());//在 position 位置插入了 count 个新项目
     }

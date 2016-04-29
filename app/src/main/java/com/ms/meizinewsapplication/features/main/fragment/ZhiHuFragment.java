@@ -84,6 +84,11 @@ public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
 
             isFist = false;
             nextDate = zhiHuLatest.getDate();
+
+            Stories stories = new Stories();
+            stories.setTitle("今日日报");
+            zhiHuLatest.getStories().add(0,stories);
+
             mView.upAllData2QuickAdapter((ArrayList<Stories>) zhiHuLatest.getStories());
             mView.setBannerData(zhiHuLatest.getTop_stories());
         }
@@ -111,6 +116,13 @@ public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
 
             DebugUtil.debugLogD("zhiHuLatestListener：onSuccess");
             nextDate = zhiHuLatest.getDate();
+
+
+            Stories stories = new Stories();
+            stories.setTitle(nextDate);
+            zhiHuLatest.getStories().add(0,stories);
+
+
             mView.upAllData2QuickAdapter((ArrayList<Stories>) zhiHuLatest.getStories());
         }
 

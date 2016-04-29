@@ -11,7 +11,7 @@ import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.main.activity.DevWeekDetailActivity;
 import com.ms.meizinewsapplication.features.main.activity.ZhihuDetailActivity;
 import com.test.basequickadapterlib.BaseAdapterHelper;
-import com.test.basequickadapterlib.BaseTypeItemQuickAdapter;
+import com.test.basequickadapterlib.type_item.BaseTypeItemQuickAdapter;
 
 import java.util.List;
 
