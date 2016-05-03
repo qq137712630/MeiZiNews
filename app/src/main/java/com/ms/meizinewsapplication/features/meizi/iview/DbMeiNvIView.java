@@ -25,11 +25,6 @@ import java.util.ArrayList;
 public class DBMeiNvIView extends SwipeRecyclerIView {
     private DBMeiziAdapter dbMeiziAdapter;
 
-    @Override
-    protected void initViews() {
-        super.initViews();
-
-    }
 
 
     //TODO init========================================

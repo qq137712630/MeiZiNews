@@ -30,7 +30,7 @@ public abstract class RecyclerIView extends ViewImpl {
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_recycler;
+        return R.layout.view_recycler;
     }
 
     //TODO init============================================

@@ -28,9 +28,9 @@
         <activity
             android:name=".features.meizi.activity.MeiZiActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden"></activity>
 
 
         <activity
@@ -61,9 +61,9 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.SlidrTheme">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
 
         </activity>
@@ -83,6 +83,15 @@
             android:theme="@style/AppTheme.SlidrTheme">
 
         </activity>
+
+
+        <activity
+            android:name=".features.video.activity.VideoPageActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+
 
         <!-- TODO receiver ================================================================== -->
 

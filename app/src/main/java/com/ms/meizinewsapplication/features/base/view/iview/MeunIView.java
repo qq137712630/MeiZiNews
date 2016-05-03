@@ -21,6 +21,7 @@ import com.ms.meizinewsapplication.features.base.utils.tool.ViewUtil;
 import com.ms.meizinewsapplication.features.collect.activity.CollectActivity;
 import com.ms.meizinewsapplication.features.main.activity.MainMvpActivity;
 import com.ms.meizinewsapplication.features.meizi.activity.MeiZiActivity;
+import com.ms.meizinewsapplication.features.video.activity.VideoPageActivity;
 import com.test.basepageradapterlibrary.basepager.BaseFragmentPagerAdapter;
 
 import org.loader.view.ViewImpl;
@@ -195,6 +196,8 @@ public class MeunIView extends ViewImpl {
                             mClass = MeiZiActivity.class;
                             break;
                         case R.id.nav_slideshow:
+
+                            mClass = VideoPageActivity.class;
                             break;
                         case R.id.nav_manage:
                             break;

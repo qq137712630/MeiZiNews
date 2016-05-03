@@ -313,6 +313,42 @@ Converters can be added to support other types. Six sibling modules adapt popula
 
 #API
 
+##视频直播
+
+[通过webview打开HTML5页面用自己的浏览器点直播MP4和M3U8](http://my.oschina.net/u/269082/blog/62701)
+[【M3U8】测试地址及android播放器](http://blog.csdn.net/heng615975867/article/details/22812671)
+
+###斗鱼
+
+分类
+
+    http://www.douyu.com/directory
+
+进入分类
+
+    http://www.douyu.com/directory/game/DOTA2?page=2&isAjax=1
+
+HTML5版-房间信息
+
+    http://m.douyu.com/html5/live?roomId=73334
+
+    {
+        "error": 0,
+        "msg": "ok",
+        "data": {
+            "room_id": "73334",
+            "tag_name": "DOTA2",
+            "room_src": "http://rpic.douyucdn.cn/z1605/01/15/73334_160501151547.jpg",
+            "room_name": "重返8000之路！7600",
+            "show_status": "1",
+            "online": 13126,
+            "nickname": "两仪落214",
+            "hls_url": "http://hls3a.douyutv.com/live/73334rRfZajWPCGs_550/playlist.m3u8?wsSecret=c52bca967d3b341d878291b7901c800b&wsTime=1462084010",
+            "is_pass_player": false,
+            "is_ticket": 0
+        }
+    }
+
 ## 妹子图集
 
 http://www.mzitu.com/
@@ -479,6 +515,7 @@ API:
  - [Android设计模式之单例模式](http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=403126596&idx=1&sn=101c6d4e363213bcdbe1879edeb08736&scene=23&srcid=0405dfOnHTLZxrgDaQMKMcNR#rd)
  - [软键盘处理：解析android中隐藏与显示软键盘及不自动弹出键盘的实现方法](http://www.jb51.net/article/36653.htm)
  - [软键盘处理：android:windowSoftInputMode属性详解](http://blog.csdn.net/twoicewoo/article/details/7384398)
+ - [win10 Genymotion无法启动：virtualbox connot start the virtual device:GenyMotion Unable to start the Genymotion virtual device](http://stackoverflow.com/questions/19922077/genymotion-unable-to-start-the-genymotion-virtual-device)
 
 ---
  
