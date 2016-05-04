@@ -83,4 +83,20 @@ public class JsoupUtil {
 
         return mElements;
     }
+
+    /**
+     * 获得 斗鱼游戏列表
+     * @param strHtml
+     * @return
+     */
+    public static Elements getDYDirectoryGame(String strHtml)
+    {
+
+        // 获取文档内容
+        Document doc = Jsoup.parse(strHtml);
+        // 获取元素article
+        Elements mElements = doc.select("li");
+
+        return mElements;
+    }
 }

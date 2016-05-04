@@ -1,8 +1,12 @@
 package com.ms.meizinewsapplication.features.video.video_web;
 
+import java.util.Map;
+
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 import rx.Observable;
 
 /**
@@ -13,6 +17,14 @@ public interface DouYuApi {
     @GET(VideoApi.DY_WEB_DIRECTORY)
     Observable<String> RxDirectory(
             @Header("Cache-Control") String cacheControl
+    );
+
+    @GET(VideoApi.DY_WEB_DIRECTORY_GAME + "{directory_game}")
+    Observable<String> RxDirectoryGame(
+            @Header("Cache-Control") String cacheControl,
+            @Path("directory_game") String directory_game,
+            @QueryMap Map<String, String> directoryameMap
+
     );
 
 

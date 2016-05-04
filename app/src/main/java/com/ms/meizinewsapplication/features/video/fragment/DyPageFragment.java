@@ -3,7 +3,7 @@ package com.ms.meizinewsapplication.features.video.fragment;
 import android.os.Bundle;
 
 import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
-import com.ms.meizinewsapplication.features.video.iview.DyPageIView;
+import com.ms.meizinewsapplication.features.video.iview.DyDirectoryIView;
 import com.ms.meizinewsapplication.features.video.model.DouYeDirectoryWebModel;
 import com.ms.meizinewsapplication.features.video.pojo.DouYeDirectory;
 
@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by 啟成 on 2016/4/29.
  */
-public class DyPageFragment extends FragmentPresenterImpl<DyPageIView> {
+public class DyPageFragment extends FragmentPresenterImpl<DyDirectoryIView> {
 
     DouYeDirectoryWebModel douYeDirectoryWebModel;
 

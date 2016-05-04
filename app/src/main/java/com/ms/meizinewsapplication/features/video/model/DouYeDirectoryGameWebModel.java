@@ -17,7 +17,9 @@ import org.jsoup.select.Elements;
 import org.loader.model.OnModelListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -27,7 +29,24 @@ import rx.functions.Func1;
 /**
  * Created by 啟成 on 2016/5/1.
  */
-public class DouYeDirectoryWebModel implements CommonModel<List<DouYeDirectory>> {
+public class DouYeDirectoryGameWebModel implements CommonModel<List<DouYeDirectory>> {
+
+    private String directory_game;
+    private Map<String, String> directoryameMap;
+
+    public Subscription loadWeb(
+            Context context,
+            final OnModelListener<List<DouYeDirectory>> listener,
+            String directory_game,
+            String page
+    ) {
+        this.directory_game = directory_game;
+        directoryameMap = new HashMap<>();
+        directoryameMap.put("page", page);
+        directoryameMap.put("isAjax", "1");
+        return loadWeb(context, listener);
+    }
+
     @Override
     public Subscription loadWeb(Context context, final OnModelListener<List<DouYeDirectory>> listener) {
 
@@ -36,9 +55,11 @@ public class DouYeDirectoryWebModel implements CommonModel<List<DouYeDirectory>>
 
         DouYuApi douYuApi = MyStringRetrofit.getMyStringRetrofit().getCreate(DouYuApi.class);
 
-        Observable observable = douYuApi.RxDirectory(
+        Observable observable = douYuApi.RxDirectoryGame(
 
-                MyOkHttpClient.getCacheControl(context)
+                MyOkHttpClient.getCacheControl(context),
+                directory_game,
+                directoryameMap
 
         ).map(
                 new Func1<String, List<DouYeDirectory>>() {
@@ -47,15 +68,14 @@ public class DouYeDirectoryWebModel implements CommonModel<List<DouYeDirectory>>
 
 
                         List<DouYeDirectory> douYeDirectoryList = new ArrayList<DouYeDirectory>();
-                        Elements mElements = JsoupUtil.getDYDirectory(s);
-                        Elements tempElements = mElements.get(0).select("li");
+                        Elements mElements = JsoupUtil.getDYDirectoryGame(s);
 
-                        for (int i = 0; tempElements.size() > i; i++) {
+                        for (int i = 0; mElements.size() > i; i++) {
                             DouYeDirectory douYeDirectory = new DouYeDirectory();
-                            Element urlE = tempElements.get(i).select("a").first();
-                            Element imgE = tempElements.get(i).select("img").first();
-                            Element titleE = tempElements.get(i).select("p").first();
-                            douYeDirectory.setUrl(urlE.attr("href"));
+                            Element urlE = mElements.get(i).select("li").first();
+                            Element imgE = mElements.get(i).select("img").first();
+                            Element titleE = mElements.get(i).select("a").first();
+                            douYeDirectory.setUrl(urlE.attr("data-rid"));
                             douYeDirectory.setImg(imgE.attr("data-original"));
                             douYeDirectory.setTitle(titleE.text());
                             douYeDirectoryList.add(douYeDirectory);

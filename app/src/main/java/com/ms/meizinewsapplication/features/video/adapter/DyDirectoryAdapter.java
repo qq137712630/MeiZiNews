@@ -1,6 +1,8 @@
 package com.ms.meizinewsapplication.features.video.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -8,7 +10,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.target.ImageViewTarget;
 import com.ms.meizinewsapplication.R;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.view.img.RadioImageView;
+import com.ms.meizinewsapplication.features.video.activity.DyDirectoryGameActivity;
 import com.ms.meizinewsapplication.features.video.pojo.DouYeDirectory;
 import com.test.basequickadapterlib.BaseAdapterHelper;
 import com.test.basequickadapterlib.QuickAdapter;
@@ -28,7 +32,7 @@ public class DyDirectoryAdapter extends QuickAdapter<DouYeDirectory> {
     }
 
     @Override
-    protected void convert(BaseAdapterHelper helper, DouYeDirectory item, int position) {
+    protected void convert(BaseAdapterHelper helper, final DouYeDirectory item, int position) {
 
         final RadioImageView story_img = (RadioImageView) helper.getView(R.id.story_img);
         TextView story_title = helper.getTextView(R.id.story_title);
@@ -47,5 +51,16 @@ public class DyDirectoryAdapter extends QuickAdapter<DouYeDirectory> {
                 });
 
         helper.itemView.setTag(position);
+
+        helper.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] mStrs = item.getUrl().split("/");
+                DebugUtil.debugLogD(item.getUrl() + "\n" + mStrs[mStrs.length - 1]);
+                Intent intent = new Intent(context, DyDirectoryGameActivity.class);
+                intent.putExtra("directory_game", mStrs[mStrs.length - 1]);
+                context.startActivity(intent);
+            }
+        });
     }
 }

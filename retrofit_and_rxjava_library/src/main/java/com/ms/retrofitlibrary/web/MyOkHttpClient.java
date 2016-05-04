@@ -16,6 +16,7 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
  * Created by 啟成 on 2016/2/29.
@@ -88,7 +89,13 @@ public class MyOkHttpClient {
                             }
                         }
                     };
-                    okHttpClient = new OkHttpClient.Builder().cache(cache)
+
+                    HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+                    interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+                    okHttpClient = new OkHttpClient.Builder()
+                            .addInterceptor(interceptor)
+                            .cache(cache)
                             .addNetworkInterceptor(rewriteCacheControlInterceptor)
                             .addInterceptor(rewriteCacheControlInterceptor)
                             .connectTimeout(30, TimeUnit.SECONDS).build();

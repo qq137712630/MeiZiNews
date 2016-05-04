@@ -93,6 +93,15 @@
             android:windowSoftInputMode="stateHidden" />
 
 
+
+        <activity
+            android:name=".features.video.activity.DyDirectoryGameActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.SlidrTheme">
+
+        </activity>
+
         <!-- TODO receiver ================================================================== -->
 
         <!--下载监听-->

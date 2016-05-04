@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by 啟成 on 2016/4/29.
  */
-public class DyPageIView extends RecyclerIView {
+public class DyDirectoryIView extends RecyclerIView {
 
     private DyDirectoryAdapter dyDirectoryAdapter;
 
