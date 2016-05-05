@@ -84,7 +84,7 @@ public class DyDirectoryGameActivity extends BaseActivityPresenterImpl<DyDirecto
             if (newState != RecyclerView.SCROLL_STATE_IDLE) {
                 return;
             }
-            unsubscribe();
+//            unsubscribe();
 
             douYeDirectoryGameWebModelLoadWeb();
         }
