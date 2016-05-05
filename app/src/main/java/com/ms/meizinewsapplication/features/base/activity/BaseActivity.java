@@ -16,7 +16,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        mCompositeSubscription.unsubscribe();
+        unsubscribe();
     }
 
     //TODO init========================================================
@@ -24,6 +24,11 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void addSubscription(Subscription mSubscription) {
         mCompositeSubscription.add(mSubscription);
+    }
+
+    protected void unsubscribe()
+    {
+        mCompositeSubscription.unsubscribe();
     }
 
 }

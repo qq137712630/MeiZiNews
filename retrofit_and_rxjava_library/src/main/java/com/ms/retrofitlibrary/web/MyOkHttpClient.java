@@ -90,11 +90,9 @@ public class MyOkHttpClient {
                         }
                     };
 
-                    HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-                    interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
                     okHttpClient = new OkHttpClient.Builder()
-                            .addInterceptor(interceptor)
+                            .addInterceptor(getHttpLoggingInterceptor())
                             .cache(cache)
                             .addNetworkInterceptor(rewriteCacheControlInterceptor)
                             .addInterceptor(rewriteCacheControlInterceptor)
@@ -104,6 +102,20 @@ public class MyOkHttpClient {
         }
         return okHttpClient;
 
+    }
+
+    /**
+     * 开启打印连接日志
+     * @return
+     */
+    private HttpLoggingInterceptor getHttpLoggingInterceptor() {
+
+//        开启打印连接日志
+
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        return interceptor;
     }
 
     public OkHttpClient getOkHttpClient() {

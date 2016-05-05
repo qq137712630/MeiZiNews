@@ -32,7 +32,7 @@ public class CollectIView extends RecyclerIView{
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_collect;
+        return R.layout.activity_recycler;
     }
 
     public void onBackPressed(AppCompatActivity appCompatActivity) {

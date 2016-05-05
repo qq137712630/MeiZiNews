@@ -13,6 +13,7 @@ import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.view.img.RadioImageView;
 import com.ms.meizinewsapplication.features.video.activity.DyDirectoryGameActivity;
+import com.ms.meizinewsapplication.features.video.activity.VideoPageActivity;
 import com.ms.meizinewsapplication.features.video.pojo.DouYeDirectory;
 import com.test.basequickadapterlib.BaseAdapterHelper;
 import com.test.basequickadapterlib.QuickAdapter;
@@ -55,10 +56,22 @@ public class DyDirectoryAdapter extends QuickAdapter<DouYeDirectory> {
         helper.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String[] mStrs = item.getUrl().split("/");
-                DebugUtil.debugLogD(item.getUrl() + "\n" + mStrs[mStrs.length - 1]);
-                Intent intent = new Intent(context, DyDirectoryGameActivity.class);
-                intent.putExtra("directory_game", mStrs[mStrs.length - 1]);
+                Intent intent = new Intent();
+
+                if (context instanceof VideoPageActivity) {
+
+                    String[] mStrs = item.getUrl().split("/");
+                    DebugUtil.debugLogD(item.getUrl() + "\n" + mStrs[mStrs.length - 1]);
+
+                    intent.setClass(context, DyDirectoryGameActivity.class);
+                    intent.putExtra("directory_game", mStrs[mStrs.length - 1]);
+                } else {
+
+                    DebugUtil.debugLogD("roomId：\n" +item.getUrl());
+                    intent.setClass(context, DyDirectoryGameActivity.class);
+                    intent.putExtra("roomId", item.getUrl());
+                }
+
                 context.startActivity(intent);
             }
         });
