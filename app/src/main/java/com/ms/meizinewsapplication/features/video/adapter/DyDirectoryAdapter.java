@@ -13,6 +13,7 @@ import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.view.img.RadioImageView;
 import com.ms.meizinewsapplication.features.video.activity.DyDirectoryGameActivity;
+import com.ms.meizinewsapplication.features.video.activity.M3u8VideoActivity;
 import com.ms.meizinewsapplication.features.video.activity.VideoPageActivity;
 import com.ms.meizinewsapplication.features.video.pojo.DouYeDirectory;
 import com.test.basequickadapterlib.BaseAdapterHelper;
@@ -68,7 +69,7 @@ public class DyDirectoryAdapter extends QuickAdapter<DouYeDirectory> {
                 } else {
 
                     DebugUtil.debugLogD("roomId：\n" +item.getUrl());
-                    intent.setClass(context, DyDirectoryGameActivity.class);
+                    intent.setClass(context, M3u8VideoActivity.class);
                     intent.putExtra("roomId", item.getUrl());
                 }
 

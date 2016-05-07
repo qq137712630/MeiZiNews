@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/basepageradapterlibrary/basepageradapterlibrary.iml" filepath="$PROJECT_DIR$/basepageradapterlibrary/basepageradapterlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/basequickadapterlib/basequickadapterlib.iml" filepath="$PROJECT_DIR$/basequickadapterlib/basequickadapterlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bilibili8ijkplayerlibrary/bilibili8ijkplayerlibrary.iml" filepath="$PROJECT_DIR$/bilibili8ijkplayerlibrary/bilibili8ijkplayerlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/blockcanarylibrary/blockcanarylibrary.iml" filepath="$PROJECT_DIR$/blockcanarylibrary/blockcanarylibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/convenientbannerlibrary/convenientbannerlibrary.iml" filepath="$PROJECT_DIR$/convenientbannerlibrary/convenientbannerlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/glidelibrary/glidelibrary.iml" filepath="$PROJECT_DIR$/glidelibrary/glidelibrary.iml" />

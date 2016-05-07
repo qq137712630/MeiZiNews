@@ -1,5 +1,7 @@
 package com.ms.meizinewsapplication.features.video.video_web;
 
+import com.ms.meizinewsapplication.features.video.pojo.DyHtml5;
+
 import java.util.Map;
 
 import retrofit2.http.GET;
@@ -29,7 +31,7 @@ public interface DouYuApi {
 
 
     @GET(VideoApi.DY_HTML5_LIVE)
-    Observable<String> RxRoomId(
+    Observable<DyHtml5> RxRoomId(
             @Header("Cache-Control") String cacheControl,
             @Query("roomId") String roomId
     );

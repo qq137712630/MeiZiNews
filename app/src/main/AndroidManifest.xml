@@ -102,6 +102,13 @@
 
         </activity>
 
+        <activity
+            android:name=".features.video.activity.M3u8VideoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.SlidrTheme">
+
+        </activity>
         <!-- TODO receiver ================================================================== -->
 
         <!--下载监听-->
