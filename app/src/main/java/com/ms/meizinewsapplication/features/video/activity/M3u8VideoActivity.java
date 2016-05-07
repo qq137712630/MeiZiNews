@@ -61,6 +61,7 @@ public class M3u8VideoActivity extends BaseActivityPresenterImpl<M3u8VideoIView>
         @Override
         public void onSuccess(DyHtml5 dyHtml5) {
 
+//            TbsVideo.openVideo(M3u8VideoActivity.this, dyHtml5.getData().getHls_url());
             mView.showDetail(dyHtml5.getData().getHls_url());
         }
 

@@ -37,4 +37,5 @@ dependencies {
     compile project(':photoviewlibrary')
     compile project(':searchview')
     compile project(':greendaolibrary')
+    compile project(':tencentlibrary')
 }
