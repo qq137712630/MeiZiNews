@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PLDroidPlayerLibrary</string>
+
+    <string name="buffering">Buffering</string>
+
+    <string name="btn_start">开始</string>
+    <string name="btn_pause">暂停</string>
+    <string name="btn_resume">继续</string>
+    <string name="btn_stop">停止</string>
+</resources>

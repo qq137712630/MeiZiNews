@@ -6,6 +6,7 @@ import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterI
 import com.ms.meizinewsapplication.features.video.iview.M3u8VideoIView;
 import com.ms.meizinewsapplication.features.video.model.M3u8VideoModel;
 import com.ms.meizinewsapplication.features.video.pojo.DyHtml5;
+import com.ms.pldroidplayerlibrary.utils.PlayerUtil;
 
 import org.loader.model.OnModelListener;
 
@@ -62,6 +63,7 @@ public class M3u8VideoActivity extends BaseActivityPresenterImpl<M3u8VideoIView>
         public void onSuccess(DyHtml5 dyHtml5) {
 
 //            TbsVideo.openVideo(M3u8VideoActivity.this, dyHtml5.getData().getHls_url());
+            PlayerUtil.instance.jumpToPlayerActivity(M3u8VideoActivity.this,dyHtml5.getData().getHls_url());
             mView.showDetail(dyHtml5.getData().getHls_url());
         }
 

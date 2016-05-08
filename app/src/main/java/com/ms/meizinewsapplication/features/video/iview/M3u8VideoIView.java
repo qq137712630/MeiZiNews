@@ -79,7 +79,7 @@ public class M3u8VideoIView extends ViewImpl {
         String html = "<html><head>" +
                 css +
                 "</head><body>" +
-                "<video id=\"dy-video-player\" class=\"video-js\" type=\"application/x-mpegURL\"  src=\""
+                "<video width=\"100%\" height=\"100%\" preload=\"auto\"  type=a  src=\""
                 + body +
                 "\"></video>\n</body></html>";
         web_view.loadDataWithBaseURL("x-data://base", html, "text/html", "UTF-8", null);
