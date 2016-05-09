@@ -1,6 +1,7 @@
 package com.ms.meizinewsapplication.features.video.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
 import com.ms.meizinewsapplication.features.video.iview.M3u8VideoIView;
@@ -21,22 +22,14 @@ public class M3u8VideoActivity extends BaseActivityPresenterImpl<M3u8VideoIView>
     @Override
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
-        mView.init(M3u8VideoActivity.this);
+
+        mView.init();
+        mView.setOnPlayListener(onPlayListener);
+
         initM3u8VideoModel();
         m3u8VideoModeLloadWeb();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mView.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mView.onPause();
-    }
 
     //TODO Model====================================
 
@@ -63,8 +56,8 @@ public class M3u8VideoActivity extends BaseActivityPresenterImpl<M3u8VideoIView>
         public void onSuccess(DyHtml5 dyHtml5) {
 
 //            TbsVideo.openVideo(M3u8VideoActivity.this, dyHtml5.getData().getHls_url());
-            PlayerUtil.instance.jumpToPlayerActivity(M3u8VideoActivity.this,dyHtml5.getData().getHls_url());
-            mView.showDetail(dyHtml5.getData().getHls_url());
+            PlayerUtil.instance.jumpToPlayerActivity(M3u8VideoActivity.this, dyHtml5.getData().getHls_url());
+            mView.showPlay(dyHtml5.getData().getHls_url());
         }
 
         @Override
@@ -75,6 +68,14 @@ public class M3u8VideoActivity extends BaseActivityPresenterImpl<M3u8VideoIView>
         @Override
         public void onCompleted() {
 
+        }
+    };
+
+    View.OnClickListener onPlayListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            PlayerUtil.instance.jumpToPlayerActivity(M3u8VideoActivity.this, (String) v.getTag());
         }
     };
 }

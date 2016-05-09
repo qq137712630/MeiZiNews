@@ -4,9 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.tencent.smtt.sdk.WebView
-        android:id="@+id/web_view"
+    <Button
+        android:id="@+id/btn_play"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.tencent.smtt.sdk.WebView>
+        android:layout_height="wrap_content"
+        android:text="@string/play" />
 
 </LinearLayout>
