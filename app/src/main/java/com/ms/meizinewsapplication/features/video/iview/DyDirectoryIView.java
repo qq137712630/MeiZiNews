@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class DyDirectoryIView extends RecyclerIView {
 
-    private DyDirectoryAdapter dyDirectoryAdapter;
+    protected DyDirectoryAdapter dyDirectoryAdapter;
 
 
 
@@ -30,7 +30,7 @@ public class DyDirectoryIView extends RecyclerIView {
 
     //TODO View========================================
 
-    private void initRecycler_list(final Activity activity) {
+    protected void initRecycler_list(final Activity activity) {
 
         StaggeredGridLayoutManager mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(
                 2,
