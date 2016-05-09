@@ -23,11 +23,16 @@ public class M3u8VideoActivity extends BaseActivityPresenterImpl<M3u8VideoIView>
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
 
-        mView.init();
+        mView.init(M3u8VideoActivity.this);
         mView.setOnPlayListener(onPlayListener);
 
         initM3u8VideoModel();
         m3u8VideoModeLloadWeb();
+    }
+
+    @Override
+    public void onBackPressed() {
+        mView.onBackPressed(M3u8VideoActivity.this);
     }
 
 

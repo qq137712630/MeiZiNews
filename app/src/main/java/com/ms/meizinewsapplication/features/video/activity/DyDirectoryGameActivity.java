@@ -29,6 +29,11 @@ public class DyDirectoryGameActivity extends BaseActivityPresenterImpl<DyDirecto
         douYeDirectoryGameWebModelLoadWeb();
     }
 
+    @Override
+    public void onBackPressed() {
+        mView.onBackPressed(DyDirectoryGameActivity.this);
+    }
+
     //TODO Model==================================================
 
     private void initDouYeDirectoryGameWebModel() {

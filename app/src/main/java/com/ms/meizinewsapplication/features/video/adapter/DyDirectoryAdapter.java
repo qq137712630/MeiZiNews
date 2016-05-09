@@ -59,6 +59,8 @@ public class DyDirectoryAdapter extends QuickAdapter<DouYeDirectory> {
             public void onClick(View v) {
                 Intent intent = new Intent();
 
+                intent.putExtra("title", item.getTitle());
+
                 if (context instanceof VideoPageActivity) {
 
                     String[] mStrs = item.getUrl().split("/");
@@ -66,9 +68,10 @@ public class DyDirectoryAdapter extends QuickAdapter<DouYeDirectory> {
 
                     intent.setClass(context, DyDirectoryGameActivity.class);
                     intent.putExtra("directory_game", mStrs[mStrs.length - 1]);
+
                 } else {
 
-                    DebugUtil.debugLogD("roomId：\n" +item.getUrl());
+                    DebugUtil.debugLogD("roomId：\n" + item.getUrl());
                     intent.setClass(context, M3u8VideoActivity.class);
                     intent.putExtra("roomId", item.getUrl());
                 }
