@@ -19,4 +19,11 @@ public class VideoApi {
     public static final String DY_HTML5_LIVE = "live?";
 
 
+    //TODO 熊猫TV API===============================================
+    public static final String XM_WEB = "http://www.panda.tv/";
+
+    //    全部分类：http://www.panda.tv/cate
+    public static final String XM_WEB_CATE = "cate";
+
+
 }
