@@ -59,7 +59,6 @@ public class M3u8VideoIView extends ViewImpl {
 
         appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-//        [android：ToolBar详解（手把手教程）](http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1118/2006.html)
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import com.ms.meizinewsapplication.features.base.activity.BaseActivityPresenterImpl;
 import com.ms.meizinewsapplication.features.video.iview.DyDirectoryGameIView;
 import com.ms.meizinewsapplication.features.video.model.DouYeDirectoryGameWebModel;
-import com.ms.meizinewsapplication.features.video.pojo.DouYeDirectory;
+import com.ms.meizinewsapplication.features.video.pojo.VideoItem;
 
 import org.loader.model.OnModelListener;
 
@@ -55,11 +55,11 @@ public class DyDirectoryGameActivity extends BaseActivityPresenterImpl<DyDirecto
 
     //TODO Listener===================================================
 
-    OnModelListener<List<DouYeDirectory>> douYeDirectory = new OnModelListener<List<DouYeDirectory>>() {
+    OnModelListener<List<VideoItem>> douYeDirectory = new OnModelListener<List<VideoItem>>() {
         @Override
-        public void onSuccess(List<DouYeDirectory> douYeDirectories) {
+        public void onSuccess(List<VideoItem> douYeDirectories) {
             page++;
-            mView.addDatas2QuickAdapter((ArrayList<DouYeDirectory>) douYeDirectories);
+            mView.addDatas2QuickAdapter((ArrayList<VideoItem>) douYeDirectories);
         }
 
         @Override

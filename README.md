@@ -351,6 +351,27 @@ HTML5版-房间信息
         }
     }
 
+### 熊猫TV
+
+分类：
+
+    http://www.panda.tv/cate
+
+分页
+
+    http://www.panda.tv/ajax_sort?token=&pageno=2&pagenum=120&classification=lol
+
+房间：
+
+    http://www.panda.tv/354095
+
+房间信息
+
+    http://room.api.m.panda.tv/index.php?method=room.shareapi&roomid=354095
+    http://room.api.m.panda.tv/index.php?method=room.shareapi&roomid=354095&callback=jQuery1910274208655487177_1462807801662&_=1462807801663
+    http://room.api.m.panda.tv/index.php?method=room.recommend&callback=jQuery1910274208655487177_1462807801664&_=1462807801665
+
+
 ## 妹子图集
 
 http://www.mzitu.com/

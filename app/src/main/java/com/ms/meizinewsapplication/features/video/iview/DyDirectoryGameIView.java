@@ -53,15 +53,19 @@ public class DyDirectoryGameIView extends DyDirectoryIView {
 
     //TODO View========================================
 
-    protected void initRecycler_list(final Activity activity) {
 
+    @Override
+    protected void setLayoutManager(Activity activity) {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(activity);
         recycler_list.setLayoutManager(mLayoutManager);
         recycler_list.setItemAnimator(new DefaultItemAnimator());
-
-        dyDirectoryAdapter = new DyDirectoryAdapter(activity);
-        recycler_list.setAdapter(dyDirectoryAdapter);
     }
+
+    @Override
+    protected void initVideoAdapter(Activity activity) {
+        videoAdapter = new DyDirectoryAdapter(activity);
+    }
+
 
     private void initToolbar(final AppCompatActivity appCompatActivity)
     {

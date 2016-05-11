@@ -5,7 +5,7 @@ import android.content.Context;
 import com.ms.meizinewsapplication.features.base.model.CommonModel;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.utils.tool.JsoupUtil;
-import com.ms.meizinewsapplication.features.video.pojo.DouYeDirectory;
+import com.ms.meizinewsapplication.features.video.pojo.VideoItem;
 import com.ms.meizinewsapplication.features.video.video_web.DouYuApi;
 import com.ms.meizinewsapplication.features.video.video_web.VideoApi;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
@@ -29,14 +29,14 @@ import rx.functions.Func1;
 /**
  * Created by 啟成 on 2016/5/1.
  */
-public class DouYeDirectoryGameWebModel implements CommonModel<List<DouYeDirectory>> {
+public class DouYeDirectoryGameWebModel implements CommonModel<List<VideoItem>> {
 
     private String directory_game;
     private Map<String, String> directoryameMap;
 
     public Subscription loadWeb(
             Context context,
-            final OnModelListener<List<DouYeDirectory>> listener,
+            final OnModelListener<List<VideoItem>> listener,
             String directory_game,
             String page
     ) {
@@ -48,7 +48,7 @@ public class DouYeDirectoryGameWebModel implements CommonModel<List<DouYeDirecto
     }
 
     @Override
-    public Subscription loadWeb(Context context, final OnModelListener<List<DouYeDirectory>> listener) {
+    public Subscription loadWeb(Context context, final OnModelListener<List<VideoItem>> listener) {
 
 
         MyStringRetrofit.getMyStringRetrofit().init(context, VideoApi.DY_WEB);
@@ -62,16 +62,16 @@ public class DouYeDirectoryGameWebModel implements CommonModel<List<DouYeDirecto
                 directoryameMap
 
         ).map(
-                new Func1<String, List<DouYeDirectory>>() {
+                new Func1<String, List<VideoItem>>() {
                     @Override
-                    public List<DouYeDirectory> call(String s) {
+                    public List<VideoItem> call(String s) {
 
 
-                        List<DouYeDirectory> douYeDirectoryList = new ArrayList<DouYeDirectory>();
+                        List<VideoItem> douYeDirectoryList = new ArrayList<VideoItem>();
                         Elements mElements = JsoupUtil.getDYDirectoryGame(s);
 
                         for (int i = 0; mElements.size() > i; i++) {
-                            DouYeDirectory douYeDirectory = new DouYeDirectory();
+                            VideoItem douYeDirectory = new VideoItem();
                             Element urlE = mElements.get(i).select("li").first();
                             Element imgE = mElements.get(i).select("img").first();
                             Element titleE = mElements.get(i).select("a").first();
@@ -89,7 +89,7 @@ public class DouYeDirectoryGameWebModel implements CommonModel<List<DouYeDirecto
 
         return RxJavaUtil.rxIoAndMain(
                 observable,
-                new Subscriber<List<DouYeDirectory>>() {
+                new Subscriber<List<VideoItem>>() {
                     @Override
                     public void onCompleted() {
                         listener.onCompleted();
@@ -102,7 +102,7 @@ public class DouYeDirectoryGameWebModel implements CommonModel<List<DouYeDirecto
                     }
 
                     @Override
-                    public void onNext(List<DouYeDirectory> douYeDirectories) {
+                    public void onNext(List<VideoItem> douYeDirectories) {
                         listener.onSuccess(douYeDirectories);
                     }
                 }

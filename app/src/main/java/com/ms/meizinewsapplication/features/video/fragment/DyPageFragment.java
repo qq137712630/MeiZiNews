@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
 import com.ms.meizinewsapplication.features.video.iview.DyDirectoryIView;
 import com.ms.meizinewsapplication.features.video.model.DouYeDirectoryWebModel;
-import com.ms.meizinewsapplication.features.video.pojo.DouYeDirectory;
+import com.ms.meizinewsapplication.features.video.pojo.VideoItem;
 
 import org.loader.model.OnModelListener;
 
@@ -42,10 +42,10 @@ public class DyPageFragment extends FragmentPresenterImpl<DyDirectoryIView> {
         );
     }
 
-    OnModelListener<List<DouYeDirectory>> douYeDirectory = new OnModelListener<List<DouYeDirectory>>() {
+    OnModelListener<List<VideoItem>> douYeDirectory = new OnModelListener<List<VideoItem>>() {
         @Override
-        public void onSuccess(List<DouYeDirectory> douYeDirectories) {
-            mView.addDatas2QuickAdapter((ArrayList<DouYeDirectory>) douYeDirectories);
+        public void onSuccess(List<VideoItem> douYeDirectories) {
+            mView.addDatas2QuickAdapter((ArrayList<VideoItem>) douYeDirectories);
         }
 
         @Override

@@ -3,7 +3,7 @@ package com.ms.meizinewsapplication.features.video.pojo;
 /**
  * Created by 啟成 on 2016/5/3.
  */
-public class DouYeDirectory {
+public class VideoItem {
 
 
     private String title;
