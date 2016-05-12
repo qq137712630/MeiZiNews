@@ -1,6 +1,6 @@
 package com.ms.meizinewsapplication.features.video.video_web;
 
-import com.ms.meizinewsapplication.features.video.pojo.DyHtml5;
+import com.ms.meizinewsapplication.features.video.pojo.dy.DyHtml5;
 
 import java.util.Map;
 

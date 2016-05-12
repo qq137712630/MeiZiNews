@@ -1,7 +1,7 @@
 /**
   * Copyright 2016 aTool.org 
   */
-package com.ms.meizinewsapplication.features.video.pojo;
+package com.ms.meizinewsapplication.features.video.pojo.dy;
 
 /**
  * Auto-generated: 2016-05-07 15:34:59

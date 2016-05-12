@@ -359,6 +359,7 @@ HTML5版-房间信息
 
 分页
 
+    http://www.panda.tv/ajax_sort?pageno=1&pagenum=20&classification=lol
     http://www.panda.tv/ajax_sort?token=&pageno=2&pagenum=120&classification=lol
 
 房间：

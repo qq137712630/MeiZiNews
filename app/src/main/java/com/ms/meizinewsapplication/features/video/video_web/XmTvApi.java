@@ -1,7 +1,12 @@
 package com.ms.meizinewsapplication.features.video.video_web;
 
+import com.ms.meizinewsapplication.features.video.pojo.xm_tv.Root;
+
+import java.util.Map;
+
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.QueryMap;
 import rx.Observable;
 
 /**
@@ -10,8 +15,14 @@ import rx.Observable;
 public interface XmTvApi {
 
     @GET(VideoApi.XM_WEB_CATE)
-    Observable<String> RxCate(
+    Observable<String> RxWebCate(
             @Header("Cache-Control") String cacheControl
     );
 
+    @GET(VideoApi.XM_WEB_CLASSIFICATION)
+    Observable<Root> RxWebClassification(
+            @Header("Cache-Control") String cacheControl,
+            @QueryMap Map<String, String> queryMap
+
+    );
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.ms.meizinewsapplication.features.base.model.CommonModel;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
-import com.ms.meizinewsapplication.features.video.pojo.DyHtml5;
+import com.ms.meizinewsapplication.features.video.pojo.dy.DyHtml5;
 import com.ms.meizinewsapplication.features.video.video_web.DouYuApi;
 import com.ms.meizinewsapplication.features.video.video_web.VideoApi;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
@@ -20,7 +20,7 @@ import rx.Subscription;
 /**
  * Created by 啟成 on 2016/5/6.
  */
-public class M3u8VideoModel implements CommonModel<DyHtml5> {
+public class DyM3u8VideoModel implements CommonModel<DyHtml5> {
 
     private String roomId;
 
@@ -52,7 +52,7 @@ public class M3u8VideoModel implements CommonModel<DyHtml5> {
             @Override
             public void onError(Throwable e) {
                 listener.onError(e.toString());
-                DebugUtil.debugLogErr(e, "M3u8VideoModel+++++\n" + e.toString());
+                DebugUtil.debugLogErr(e, "DyM3u8VideoModel+++++\n" + e.toString());
             }
 
             @Override

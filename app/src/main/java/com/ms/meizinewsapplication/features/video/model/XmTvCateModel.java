@@ -35,7 +35,7 @@ public class XmTvCateModel implements CommonModel<List<VideoItem>> {
 
         XmTvApi xmTvApi = MyStringRetrofit.getMyStringRetrofit().getCreate(XmTvApi.class);
 
-        Observable observable = xmTvApi.RxCate(
+        Observable observable = xmTvApi.RxWebCate(
                 MyOkHttpClient.getCacheControl(context)
         ).map(
                 new Func1<String, List<VideoItem>>() {

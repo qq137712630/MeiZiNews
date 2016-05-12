@@ -25,5 +25,9 @@ public class VideoApi {
     //    全部分类：http://www.panda.tv/cate
     public static final String XM_WEB_CATE = "cate";
 
+//    视频列表：    http://www.panda.tv/ajax_sort?pageno=1&pagenum=20&classification=lol
+
+    public static final String XM_WEB_CLASSIFICATION = "ajax_sort";
+
 
 }
