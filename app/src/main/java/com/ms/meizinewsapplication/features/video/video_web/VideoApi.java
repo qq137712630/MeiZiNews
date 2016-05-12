@@ -6,6 +6,9 @@ package com.ms.meizinewsapplication.features.video.video_web;
 public class VideoApi {
 
     //TODO 斗鱼API===============================================
+
+    public static final String TYPE_DY = "0";
+
     public static final String DY_WEB = "http://www.douyu.com/";
     //分类:http://www.douyu.com/directory
     public static final String DY_WEB_DIRECTORY = "directory";
@@ -20,12 +23,15 @@ public class VideoApi {
 
 
     //TODO 熊猫TV API===============================================
+
+    public static final String TYPE_XM = "1";
+
     public static final String XM_WEB = "http://www.panda.tv/";
 
     //    全部分类：http://www.panda.tv/cate
     public static final String XM_WEB_CATE = "cate";
 
-//    视频列表：    http://www.panda.tv/ajax_sort?pageno=1&pagenum=20&classification=lol
+    //    视频列表：http://www.panda.tv/ajax_sort?pageno=1&pagenum=20&classification=lol
 
     public static final String XM_WEB_CLASSIFICATION = "ajax_sort";
 

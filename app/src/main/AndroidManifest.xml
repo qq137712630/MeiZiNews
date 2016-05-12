@@ -109,6 +109,16 @@
             android:theme="@style/AppTheme.SlidrTheme">
 
         </activity>
+
+        <activity
+            android:name=".features.video.activity.XmTvClassificationActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.SlidrTheme">
+
+        </activity>
+
+
         <!-- TODO receiver ================================================================== -->
 
         <!--下载监听-->

@@ -6,6 +6,7 @@ package com.ms.meizinewsapplication.features.video.pojo;
 public class VideoItem {
 
 
+    private String type;
     private String title;
     private String img;
     private String url;
@@ -32,5 +33,13 @@ public class VideoItem {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
