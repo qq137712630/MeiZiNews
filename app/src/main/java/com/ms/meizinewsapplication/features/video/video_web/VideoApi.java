@@ -35,5 +35,10 @@ public class VideoApi {
 
     public static final String XM_WEB_CLASSIFICATION = "ajax_sort";
 
+    public static final String XM_ROOM_API_ = "http://room.api.m.panda.tv/";
+
+    //    房间信息：http://room.api.m.panda.tv/index.php?method=room.shareapi&roomid=354095
+    public static final String XM_ROOM_API_INDEX = "index.php";
+
 
 }

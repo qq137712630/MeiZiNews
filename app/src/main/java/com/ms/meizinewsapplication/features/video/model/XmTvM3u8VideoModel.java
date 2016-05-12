@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.ms.meizinewsapplication.features.base.model.CommonModel;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
-import com.ms.meizinewsapplication.features.video.pojo.xm_tv.Root;
+import com.ms.meizinewsapplication.features.video.pojo.xm_tv.room.Root;
 import com.ms.meizinewsapplication.features.video.video_web.VideoApi;
 import com.ms.meizinewsapplication.features.video.video_web.XmTvApi;
 import com.ms.retrofitlibrary.util.RxJavaUtil;
@@ -21,33 +21,30 @@ import rx.Subscriber;
 import rx.Subscription;
 
 /**
- * Created by 啟成 on 2016/5/12.
+ * Created by 啟成 on 2016/5/13.
  */
-public class XmTvClassificationModel implements CommonModel<Root> {
+public class XmTvM3u8VideoModel implements CommonModel<Root> {
 
 
     private Map<String, String> queryMap;
 
-    public Subscription loadWeb(Context context, OnModelListener<Root> listener, String pageno, String classification) {
+    public Subscription loadWeb(Context context, OnModelListener<Root> listener, String roomid) {
         queryMap = new HashMap<>();
-
-        queryMap.put("pageno", pageno);
-        queryMap.put("pagenum", "20");
-        queryMap.put("classification", classification);
+        queryMap.put("method", "room.shareapi");
+        queryMap.put("roomid", roomid);
 
         return loadWeb(context, listener);
     }
 
     @Override
     public Subscription loadWeb(Context context, final OnModelListener<Root> listener) {
-
-        MyGsonRetrofit.getMyGsonRetrofit().init(context, VideoApi.XM_WEB);
+        MyGsonRetrofit.getMyGsonRetrofit().init(context, VideoApi.XM_ROOM_API_);
         XmTvApi xmTvApi = MyGsonRetrofit.getMyGsonRetrofit().getCreate(XmTvApi.class);
-
-        Observable<Root> obs = xmTvApi.RxWebClassification(
+        Observable<Root> obs =  xmTvApi.RxRoom(
                 MyOkHttpClient.getCacheControl(context),
                 queryMap
         );
+
         return RxJavaUtil.rxIoAndMain(obs, new Subscriber<Root>() {
 
             @Override
@@ -58,7 +55,7 @@ public class XmTvClassificationModel implements CommonModel<Root> {
             @Override
             public void onError(Throwable e) {
                 listener.onError(e.toString());
-                DebugUtil.debugLogErr(e, "XmTvClassificationModel+++++\n" + e.toString());
+                DebugUtil.debugLogErr(e, "XmTvM3u8VideoModel+++++\n" + e.toString());
             }
 
             @Override
@@ -66,6 +63,5 @@ public class XmTvClassificationModel implements CommonModel<Root> {
                 listener.onSuccess(root);
             }
         });
-
     }
 }

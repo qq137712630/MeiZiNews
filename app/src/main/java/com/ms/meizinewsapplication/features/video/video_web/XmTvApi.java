@@ -25,4 +25,12 @@ public interface XmTvApi {
             @QueryMap Map<String, String> queryMap
 
     );
+
+    @GET(VideoApi.XM_ROOM_API_INDEX)
+    Observable<com.ms.meizinewsapplication.features.video.pojo.xm_tv.room.Root> RxRoom(
+            @Header("Cache-Control") String cacheControl,
+            @QueryMap Map<String, String> queryMap
+
+    );
+
 }
