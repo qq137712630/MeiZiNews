@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MeiZiNewsApplication.iml" filepath="$PROJECT_DIR$/MeiZiNewsApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adupwardlibrary/adupwardlibrary.iml" filepath="$PROJECT_DIR$/adupwardlibrary/adupwardlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/basepageradapterlibrary/basepageradapterlibrary.iml" filepath="$PROJECT_DIR$/basepageradapterlibrary/basepageradapterlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/basequickadapterlib/basequickadapterlib.iml" filepath="$PROJECT_DIR$/basequickadapterlib/basequickadapterlib.iml" />

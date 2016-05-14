@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.ms.adupwardlibrary.TempAdActivity;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
@@ -211,6 +212,9 @@ public class MeunIView extends ViewImpl {
                             break;
                         case R.id.nav_collect:
                             mClass = CollectActivity.class;
+                            break;
+                        case R.id.nav_get_ad:
+                            mClass = TempAdActivity.class;
                             break;
                     }
                     DebugUtil.debugLogD("OnNavigationItemSelectedListener++++\n" + id);

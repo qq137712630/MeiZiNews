@@ -30,6 +30,10 @@
                 android:id="@+id/nav_collect"
                 android:icon="@drawable/iconfont_weishoucang"
                 android:title="@string/collect" />
+            <item
+                android:id="@+id/nav_get_ad"
+                android:icon="@drawable/ic_jinbi"
+                android:title="@string/get_ad" />
         </menu>
     </item>
 
