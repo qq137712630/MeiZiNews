@@ -5,6 +5,7 @@ package com.ms.meizinewsapplication.features.base.utils.tool;
  */
 public class ConstantData {
 
+    public static final String SHARE_APP = "https://www.pgyer.com/19nk";
     //分词API
     public static final String PULL_WORD_API = "http://103.37.149.178:16888/";
 

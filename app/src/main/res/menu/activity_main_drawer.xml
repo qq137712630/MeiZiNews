@@ -14,10 +14,10 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/ic_video"/>
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="TODO Tools" />
+        <!--<item-->
+            <!--android:id="@+id/nav_manage"-->
+            <!--android:icon="@drawable/ic_menu_manage"-->
+            <!--android:title="TODO Tools" />-->
     </group>
 
     <item android:title="Orher">
@@ -25,7 +25,7 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="TODO ShareAPP" />
+                android:title="@string/share_to" />
             <item
                 android:id="@+id/nav_collect"
                 android:icon="@drawable/iconfont_weishoucang"

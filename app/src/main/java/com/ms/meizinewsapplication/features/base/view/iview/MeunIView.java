@@ -16,7 +16,9 @@ import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
 import com.ms.meizinewsapplication.features.base.listener.MyActionBarDrawerToggle;
+import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.Share;
 import com.ms.meizinewsapplication.features.base.utils.tool.ViewUtil;
 import com.ms.meizinewsapplication.features.collect.activity.CollectActivity;
 import com.ms.meizinewsapplication.features.main.activity.MainMvpActivity;
@@ -55,7 +57,7 @@ public class MeunIView extends ViewImpl {
     protected Class mClass;
     protected MyActionBarDrawerToggle myActionBarDrawerToggle;
 
-
+    protected AppCompatActivity appCompatActivity;
 
 
     @Override
@@ -91,6 +93,8 @@ public class MeunIView extends ViewImpl {
      * @param appCompatActivity
      */
     public void init(AppCompatActivity appCompatActivity) {
+        this.appCompatActivity = appCompatActivity;
+
         fragments = new ArrayList<>();
         titles = new ArrayList<>();
         initActivityFragmentInject();
@@ -199,9 +203,11 @@ public class MeunIView extends ViewImpl {
 
                             mClass = VideoPageActivity.class;
                             break;
-                        case R.id.nav_manage:
-                            break;
+//                        case R.id.nav_manage:
+//                            break;
                         case R.id.nav_share:
+
+                            Share.shareText(appCompatActivity, ConstantData.SHARE_APP);
                             break;
                         case R.id.nav_collect:
                             mClass = CollectActivity.class;
