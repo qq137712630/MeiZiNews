@@ -88,6 +88,12 @@ public class MediaController extends FrameLayout implements IMediaController {
             initFloatingWindow();
     }
 
+    /**
+     *
+     * @param context
+     * @param useFastForward-是否使用快进
+     * @param disableProgressBar-是否禁用进度条
+     */
     public MediaController(Context context, boolean useFastForward, boolean disableProgressBar) {
         this(context);
         mUseFastForward = useFastForward;
