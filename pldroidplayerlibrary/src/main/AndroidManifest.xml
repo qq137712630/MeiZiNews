@@ -10,6 +10,9 @@
         android:supportsRtl="true">
 
         <activity android:name="com.ms.pldroidplayerlibrary.widget.PLMediaPlayerActivity" />
+
+        <activity android:name="com.ms.pldroidplayerlibrary.widget.PLVideoTextureActivity"
+            android:theme="@style/AppThemeFullscreen" />
     </application>
 
 </manifest>

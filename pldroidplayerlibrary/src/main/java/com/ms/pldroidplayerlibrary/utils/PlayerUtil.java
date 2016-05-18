@@ -3,7 +3,7 @@ package com.ms.pldroidplayerlibrary.utils;
 import android.content.Context;
 import android.content.Intent;
 
-import com.ms.pldroidplayerlibrary.widget.PLMediaPlayerActivity;
+import com.ms.pldroidplayerlibrary.widget.PLVideoTextureActivity;
 
 /**
  * 开始播放
@@ -17,7 +17,9 @@ public enum  PlayerUtil {
 
     public void jumpToPlayerActivity(Context context, String videopath) {
         Class<?> cls = null;
-        cls = PLMediaPlayerActivity.class;
+//        cls = PLMediaPlayerActivity.class;
+        cls = PLVideoTextureActivity.class;
+
         Intent intent = new Intent(context, cls);
         intent.putExtra("videoPath", videopath);
         intent.putExtra("mediaCodec", mIsHwCodecEnabled);
