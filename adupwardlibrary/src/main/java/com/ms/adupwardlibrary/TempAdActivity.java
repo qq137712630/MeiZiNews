@@ -67,7 +67,7 @@ public class TempAdActivity extends AppCompatActivity
 		
 		//you can comment off the line below and comment usage1() above to use custom adview
 		//你可以把下面的注释去掉把上面的 usage1()注释上来使用自定义位置的广告
-		//this.usage2();  
+		//this.usage2();
 		
 		//this.usage3(this.getApplicationContext());
 		
