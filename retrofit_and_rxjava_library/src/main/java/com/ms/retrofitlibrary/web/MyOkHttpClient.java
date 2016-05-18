@@ -109,11 +109,17 @@ public class MyOkHttpClient {
      * @return
      */
     private HttpLoggingInterceptor getHttpLoggingInterceptor() {
+        boolean isDebug= false;
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+
+        if(isDebug)
+        {
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        }
 
 //        开启打印连接日志
 
-        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
 
         return interceptor;
     }

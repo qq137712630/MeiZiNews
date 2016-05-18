@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
-    },
-    {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\listview_footer.xml",
         "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.jcodecraeer\\xrecyclerview\\1.2.6\\res\\layout\\listview_footer.xml"
+    },
+    {
+        "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "D:\\mypojo\\pojo\\demo\\MeiZiNewsApplication\\xrecyclerviewlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_media_action.xml",
