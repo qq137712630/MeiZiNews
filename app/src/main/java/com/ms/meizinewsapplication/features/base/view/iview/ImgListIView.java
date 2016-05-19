@@ -1,12 +1,11 @@
-package com.ms.meizinewsapplication.features.meizi.iview;
+package com.ms.meizinewsapplication.features.base.view.iview;
 
 import android.app.Activity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
-import com.ms.meizinewsapplication.features.base.view.iview.RecyclerIView;
-import com.ms.meizinewsapplication.features.meizi.adapter.ImageAdapter;
 import com.ms.meizinewsapplication.features.base.pojo.ImgItem;
+import com.ms.meizinewsapplication.features.meizi.adapter.ImageAdapter;
 import com.test.basequickadapterlib.SpacesItemDecoration;
 
 import java.util.ArrayList;
@@ -14,9 +13,9 @@ import java.util.ArrayList;
 /**
  * Created by 啟成 on 2016/5/19.
  */
-public class ImgIView extends RecyclerIView {
+public class ImgListIView<T extends ImgItem> extends RecyclerIView {
 
-    ImageAdapter imageAdapter;
+    protected ImageAdapter imageAdapter;
 
 
 
@@ -62,7 +61,7 @@ public class ImgIView extends RecyclerIView {
 
     //TODO Model======================================================
 
-    public void addDatas2QuickAdapter(ArrayList<ImgItem> arrayList) {
+    public void addDatas2QuickAdapter(ArrayList<T> arrayList) {
 
         imageAdapter.addDatas(arrayList);
     }

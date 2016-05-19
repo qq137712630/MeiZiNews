@@ -10,8 +10,8 @@ import com.ms.meizinewsapplication.features.video.adapter.DyDirectoryAdapter;
 public class DyDirectoryIView extends VideoItemIView {
 
     @Override
-    protected void initVideoAdapter(Activity activity) {
-        videoAdapter = new DyDirectoryAdapter(activity);
+    protected void initAdapter(Activity activity) {
+        imageAdapter = new DyDirectoryAdapter(activity);
     }
 
 }

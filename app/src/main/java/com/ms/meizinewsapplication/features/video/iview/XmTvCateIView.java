@@ -10,8 +10,8 @@ import com.ms.meizinewsapplication.features.video.adapter.XmTvAdapter;
 public class XmTvCateIView extends VideoItemIView  {
 
     @Override
-    protected void initVideoAdapter(Activity activity) {
-        videoAdapter = new XmTvAdapter(activity);
+    protected void initAdapter(Activity activity) {
+        imageAdapter = new XmTvAdapter(activity);
     }
 
 }

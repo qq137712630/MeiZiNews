@@ -62,8 +62,8 @@ public class DyDirectoryGameIView extends DyDirectoryIView {
     }
 
     @Override
-    protected void initVideoAdapter(Activity activity) {
-        videoAdapter = new DyDirectoryAdapter(activity);
+    protected void initAdapter(Activity activity) {
+        imageAdapter = new DyDirectoryAdapter(activity);
     }
 
 
