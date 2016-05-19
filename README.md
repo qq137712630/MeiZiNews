@@ -388,6 +388,7 @@ HTML5版-房间信息
 
     // 推荐
     http://www.mzitu.com/best
+    http://www.mzitu.com/best/page/2
 
     // 性感妹子
     http://www.mzitu.com/xinggan

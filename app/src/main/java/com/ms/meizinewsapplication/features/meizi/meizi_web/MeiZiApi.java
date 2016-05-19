@@ -15,4 +15,13 @@ public class MeiZiApi {
     //TODO Mzitu Api
     public static final String MZITU_API = "http://www.mzitu.com/";
     public static final String MZITU_API_PAGE = "page/{page}";
+    public static final String MZITU_API_HOT =  "hot/";
+    public static final String MZITU_API_BEST =  "best/";
+    public static final String MZITU_API_XINGGAN =  "xinggan/";
+    public static final String MZITU_API_JAPAN =  "japan/";
+    public static final String MZITU_API_TAIWAN =  "taiwan/";
+    public static final String MZITU_API_MM =  "mm/";
+
+
+
 }
