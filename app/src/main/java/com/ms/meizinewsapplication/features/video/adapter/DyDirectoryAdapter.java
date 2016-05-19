@@ -36,7 +36,7 @@ public class DyDirectoryAdapter extends VideoAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent();
 
-                intent.putExtra("title", item.getTitle());
+                intent.putExtra("title", item.getStory_title());
 
                 if (context instanceof VideoPageActivity) {
 

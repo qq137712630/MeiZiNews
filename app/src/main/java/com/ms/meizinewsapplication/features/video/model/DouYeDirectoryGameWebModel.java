@@ -76,8 +76,8 @@ public class DouYeDirectoryGameWebModel implements CommonModel<List<VideoItem>> 
                             Element imgE = mElements.get(i).select("img").first();
                             Element titleE = mElements.get(i).select("a").first();
                             douYeDirectory.setUrl(urlE.attr("data-rid"));
-                            douYeDirectory.setImg(imgE.attr("data-original"));
-                            douYeDirectory.setTitle(titleE.text());
+                            douYeDirectory.setImgUrl(imgE.attr("data-original"));
+                            douYeDirectory.setStory_title(titleE.text());
                             douYeDirectoryList.add(douYeDirectory);
                         }
 

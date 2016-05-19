@@ -12,7 +12,7 @@ import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.view.iview.SwipeRecyclerIView;
 import com.ms.meizinewsapplication.features.meizi.adapter.DBMeiziAdapter;
 import com.ms.meizinewsapplication.features.meizi.model.DbMeiNvList;
-import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNv;
+import com.ms.meizinewsapplication.features.base.pojo.ImgItem;
 import com.ms.meizinewsapplication.features.photo.activity.PhotoDetailActivity;
 import com.test.basequickadapterlib.BaseQuickAdapter;
 import com.test.basequickadapterlib.SpacesItemDecoration;
@@ -56,7 +56,7 @@ public class DBMeiNvIView extends SwipeRecyclerIView {
 
     //TODO Model======================================================
 
-    public void addDatas2QuickAdapter(ArrayList<DbMeiNv> dbMeiNvs) {
+    public void addDatas2QuickAdapter(ArrayList<ImgItem> dbMeiNvs) {
 
         dbMeiziAdapter.addDatas(dbMeiNvs);
     }

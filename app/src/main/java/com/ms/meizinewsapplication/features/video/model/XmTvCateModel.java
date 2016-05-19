@@ -56,8 +56,8 @@ public class XmTvCateModel implements CommonModel<List<VideoItem>> {
                             Element titleE = divElements.first();
 
                             videoItem.setUrl(urlE.attr("href"));
-                            videoItem.setImg(imgE.attr("src"));
-                            videoItem.setTitle(titleE.text());
+                            videoItem.setImgUrl(imgE.attr("src"));
+                            videoItem.setStory_title(titleE.text());
                             videoItemList.add(videoItem);
                         }
 

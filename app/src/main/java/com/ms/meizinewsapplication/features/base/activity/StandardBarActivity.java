@@ -28,9 +28,6 @@ public class StandardBarActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-//        CollapsingToolbarLayout collapsingToolbar =
-//                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-//        collapsingToolbar.setTitle("Standrad Bar");
 
     }
 }

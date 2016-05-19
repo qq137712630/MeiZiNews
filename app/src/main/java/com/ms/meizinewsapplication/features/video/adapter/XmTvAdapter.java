@@ -32,7 +32,7 @@ public class XmTvAdapter extends VideoAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent();
 
-                intent.putExtra("title", item.getTitle());
+                intent.putExtra("title", item.getStory_title());
 
                 String[] mStrs = item.getUrl().split("/");
                 DebugUtil.debugLogD(item.getUrl() + "\n" + mStrs[mStrs.length - 1]);

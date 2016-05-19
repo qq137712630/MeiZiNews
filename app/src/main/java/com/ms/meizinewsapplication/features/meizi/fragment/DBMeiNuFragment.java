@@ -13,7 +13,7 @@ import com.ms.meizinewsapplication.features.meizi.model.DbGroupButtModel;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupLegModel;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupRankModel;
 import com.ms.meizinewsapplication.features.meizi.model.DbGroupSilkModel;
-import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNv;
+import com.ms.meizinewsapplication.features.base.pojo.ImgItem;
 
 import org.loader.model.OnModelListener;
 
@@ -157,10 +157,10 @@ public class DBMeiNuFragment extends FragmentPresenterImpl<DBMeiNvIView> {
     }
     //TODO Listener============================================================
 
-    OnModelListener<List<DbMeiNv>> listenerDbMeiNv = new OnModelListener<List<DbMeiNv>>() {
+    OnModelListener<List<ImgItem>> listenerDbMeiNv = new OnModelListener<List<ImgItem>>() {
         @Override
-        public void onSuccess(List<DbMeiNv> dbMeiNvs) {
-            mView.addDatas2QuickAdapter((ArrayList<DbMeiNv>) dbMeiNvs);
+        public void onSuccess(List<ImgItem> dbMeiNvs) {
+            mView.addDatas2QuickAdapter((ArrayList<ImgItem>) dbMeiNvs);
             mView.changeProgress(false);
         }
 

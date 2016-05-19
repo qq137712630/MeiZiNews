@@ -56,8 +56,8 @@ public class DouYeDirectoryWebModel implements CommonModel<List<VideoItem>> {
                             Element imgE = tempElements.get(i).select("img").first();
                             Element titleE = tempElements.get(i).select("p").first();
                             douYeDirectory.setUrl(urlE.attr("href"));
-                            douYeDirectory.setImg(imgE.attr("data-original"));
-                            douYeDirectory.setTitle(titleE.text());
+                            douYeDirectory.setImgUrl(imgE.attr("data-original"));
+                            douYeDirectory.setStory_title(titleE.text());
                             douYeDirectoryList.add(douYeDirectory);
                         }
 

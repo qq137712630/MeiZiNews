@@ -2,7 +2,7 @@ package com.ms.meizinewsapplication.features.meizi.model;
 
 import android.content.Context;
 
-import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNv;
+import com.ms.meizinewsapplication.features.base.pojo.ImgItem;
 import com.ms.retrofitlibrary.web.MyOkHttpClient;
 
 import org.loader.model.OnModelListener;
@@ -19,7 +19,7 @@ public class DbGroupButtModel extends DbGroupModel {
 
     private String pager_offset;
 
-    public Subscription loadWeb(Context context, OnModelListener<List<DbMeiNv>> listener, String pager_offset) {
+    public Subscription loadWeb(Context context, OnModelListener<List<ImgItem>> listener, String pager_offset) {
         this.pager_offset = pager_offset;
         return loadWeb(context, listener);
 
@@ -27,7 +27,7 @@ public class DbGroupButtModel extends DbGroupModel {
 
 
     @Override
-    protected Subscription reSubscription(Context context, OnModelListener<List<DbMeiNv>> listener) {
+    protected Subscription reSubscription(Context context, OnModelListener<List<ImgItem>> listener) {
 
         Observable<String> dbGroupButt = getDbGroup().RxDbGroupButt(
                 MyOkHttpClient.getCacheControl(context),

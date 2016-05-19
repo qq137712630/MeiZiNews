@@ -1,11 +1,11 @@
-package com.ms.meizinewsapplication.features.meizi.pojo;
+package com.ms.meizinewsapplication.features.base.pojo;
 
 import java.io.Serializable;
 
 /**
  * Created by 啟成 on 2016/3/15.
  */
-public class DbMeiNv  implements Serializable {
+public class ImgItem implements Serializable {
 
     private String imgUrl;
     private String url;
