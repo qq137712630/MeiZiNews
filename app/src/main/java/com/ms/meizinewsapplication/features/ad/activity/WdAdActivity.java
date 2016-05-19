@@ -14,11 +14,11 @@ import com.wandoujia.ads.sdk.Ads;
 
 
 public class WdAdActivity extends Activity {
-  private static final String APP_ID = "100039950";
-  private static final String SECRET_KEY = "0e6a87e2248e40ac4d1508abae1d79a0";
-  private static final String BANNER = "9a2d72b9985262f8d0713bb40fcf813b";
-  private static final String INTERSTITIAL = "7d84ef1e9c92b21f60a3c179d0bf09ef";
-  private static final String APP_WALL = "3eeee0a420dd86d87ddc4432a4dc3600";
+  private static final String APP_ID = "100039974";
+  private static final String SECRET_KEY = "9e87bcc2dab21b3e6833f95869ba1edb";
+  private static final String BANNER = "cb9216af984add6fc62db617823222f5";
+  private static final String INTERSTITIAL = "0889f8851be4e5fe71c983758a42380a";
+  private static final String APP_WALL = "16711e13ea9e02f93acd9ab8dbf06f05";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
