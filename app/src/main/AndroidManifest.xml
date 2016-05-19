@@ -93,7 +93,6 @@
             android:windowSoftInputMode="stateHidden" />
 
 
-
         <activity
             android:name=".features.video.activity.DyDirectoryGameActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -118,6 +117,10 @@
 
         </activity>
 
+        <!--AD-->
+        <activity android:name=".features.ad.activity.WdAdActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"/>
 
         <!-- TODO receiver ================================================================== -->
 

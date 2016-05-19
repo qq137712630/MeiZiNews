@@ -1,4 +1,4 @@
-package com.ms.wd_ad_library;
+package com.ms.meizinewsapplication.features.ad.activity;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.ms.meizinewsapplication.R;
 import com.wandoujia.ads.sdk.Ads;
 
 
@@ -22,7 +23,7 @@ public class WdAdActivity extends Activity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+    setContentView(R.layout.activity_wd_ad);
 
     new AsyncTask<Void, Void, Boolean>() {
       @Override

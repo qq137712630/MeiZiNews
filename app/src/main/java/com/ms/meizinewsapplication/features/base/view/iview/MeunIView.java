@@ -12,9 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.ms.adupwardlibrary.TempAdActivity;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
+import com.ms.meizinewsapplication.features.ad.activity.WdAdActivity;
 import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
 import com.ms.meizinewsapplication.features.base.listener.MyActionBarDrawerToggle;
 import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
@@ -214,7 +214,7 @@ public class MeunIView extends ViewImpl {
                             mClass = CollectActivity.class;
                             break;
                         case R.id.nav_get_ad:
-                            mClass = TempAdActivity.class;
+                            mClass = WdAdActivity.class;
                             break;
                     }
                     DebugUtil.debugLogD("OnNavigationItemSelectedListener++++\n" + id);

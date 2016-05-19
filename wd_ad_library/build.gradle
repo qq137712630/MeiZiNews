@@ -27,11 +27,11 @@ dependencies {
      * 21.0.3这个版本可以根据你电脑sdk的配置略作修改
      */
     compile 'com.android.support:support-v4:23.4.0'
-
-    /**
-     * 引用WandoujiaSDK.aar
-     */
-    compile(name: 'WandoujiaSDK', ext: 'aar')
+//
+//    /**
+//     * 引用WandoujiaSDK.aar
+//     */
+//    compile(name: 'WandoujiaSDK', ext: 'aar')
 
     /**
      * 下面是sdk的依赖包

@@ -40,4 +40,9 @@ dependencies {
     compile project(':tencentlibrary')
     compile project(':pldroidplayerlibrary')
     compile project(':adupwardlibrary')
+    /**
+     * 引用WandoujiaSDK.aar
+     */
+    compile(name: 'WandoujiaSDK', ext: 'aar')
+    compile project(':wd_ad_library')
 }
