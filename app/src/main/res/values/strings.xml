@@ -25,8 +25,13 @@
     <string name="tab_dbmeinv_heisi">黑丝袜</string>
     <string name="tab_dbmeinv_zahui">大杂烩</string>
 
-
     <string name="tab_mzitu">妹子图</string>
+    <string name="tab_mzitu_hot">热门</string>
+    <string name="tab_mzitu_best">推荐</string>
+    <string name="tab_mzitu_xinggan">性感妹子</string>
+    <string name="tab_mzitu_japan">日本妹子</string>
+    <string name="tab_mzitu_taiwan">台湾妹子</string>
+    <string name="tab_mzitu_mm">清纯妹子</string>
 
     <string name="tab_dy">斗鱼</string>
     <string name="tab_xm">熊猫TV</string>

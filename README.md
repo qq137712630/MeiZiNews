@@ -375,12 +375,12 @@ HTML5版-房间信息
 
 ## 妹子图集
 
+    // 专题
+    http://www.mzitu.com/zhuanti
+
     // 首页
     http://www.mzitu.com/
     http://www.mzitu.com/page/1
-
-    // 专题
-    http://www.mzitu.com/zhuanti
 
     // 热门
     http://www.mzitu.com/hot

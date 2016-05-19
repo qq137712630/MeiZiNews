@@ -15,4 +15,11 @@ public interface MzituApi {
             @Header("Cache-Control") String cacheControl,
             @Path("page") String page
     );
+
+
+    @GET(MeiZiApi.MZITU_API_HOT + MeiZiApi.MZITU_API_PAGE)
+    Observable<String> RxHot(
+            @Header("Cache-Control") String cacheControl,
+            @Path("page") String page
+    );
 }

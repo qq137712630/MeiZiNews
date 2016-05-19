@@ -21,7 +21,7 @@ public class MeiZiMainIView extends MeunIView {
     public void initFragments(AppCompatActivity appCompatActivity) {
         super.initFragments(appCompatActivity);
 
-        MzituFragment mzituIndexFragment = new MzituFragment();
+        MzituFragment mzituIndexFragment = new MzituFragment(R.string.tab_mzitu);
 
         DBMeiNuFragment breastFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_daxiong);
         DBMeiNuFragment buttFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_qiaotun);
