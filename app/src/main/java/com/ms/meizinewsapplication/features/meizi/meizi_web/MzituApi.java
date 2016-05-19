@@ -22,4 +22,34 @@ public interface MzituApi {
             @Header("Cache-Control") String cacheControl,
             @Path("page") String page
     );
+
+    @GET(MeiZiApi.MZITU_API_BEST + MeiZiApi.MZITU_API_PAGE)
+    Observable<String> RxBest(
+            @Header("Cache-Control") String cacheControl,
+            @Path("page") String page
+    );
+
+    @GET(MeiZiApi.MZITU_API_XINGGAN + MeiZiApi.MZITU_API_PAGE)
+    Observable<String> RxXingGan(
+            @Header("Cache-Control") String cacheControl,
+            @Path("page") String page
+    );
+
+    @GET(MeiZiApi.MZITU_API_JAPAN + MeiZiApi.MZITU_API_PAGE)
+    Observable<String> RxJapan(
+            @Header("Cache-Control") String cacheControl,
+            @Path("page") String page
+    );
+
+    @GET(MeiZiApi.MZITU_API_TAIWAN + MeiZiApi.MZITU_API_PAGE)
+    Observable<String> RxTaiwan(
+            @Header("Cache-Control") String cacheControl,
+            @Path("page") String page
+    );
+
+    @GET(MeiZiApi.MZITU_API_MM + MeiZiApi.MZITU_API_PAGE)
+    Observable<String> RxMm(
+            @Header("Cache-Control") String cacheControl,
+            @Path("page") String page
+    );
 }

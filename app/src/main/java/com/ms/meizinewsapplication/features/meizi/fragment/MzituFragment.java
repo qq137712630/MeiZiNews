@@ -7,8 +7,13 @@ import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
 import com.ms.meizinewsapplication.features.base.pojo.ImgItem;
 import com.ms.meizinewsapplication.features.base.view.iview.ImgListIView;
+import com.ms.meizinewsapplication.features.meizi.model.MzituBestModel;
 import com.ms.meizinewsapplication.features.meizi.model.MzituHotModel;
 import com.ms.meizinewsapplication.features.meizi.model.MzituIndexModel;
+import com.ms.meizinewsapplication.features.meizi.model.MzituJapanModel;
+import com.ms.meizinewsapplication.features.meizi.model.MzituMmModel;
+import com.ms.meizinewsapplication.features.meizi.model.MzituTaiwanModel;
+import com.ms.meizinewsapplication.features.meizi.model.MzituXingGantModel;
 
 import org.loader.model.OnModelListener;
 
@@ -22,6 +27,12 @@ public class MzituFragment extends FragmentPresenterImpl<ImgListIView> {
 
     private MzituIndexModel mzituIndexModel;
     private MzituHotModel mzituHotModel;
+    private MzituBestModel mzituBestModel;
+    private MzituJapanModel mzituJapanModel;
+    private MzituMmModel mzituMmModel;
+    private MzituTaiwanModel mzituTaiwanModel;
+    private MzituXingGantModel mzituXingGantModel;
+
 
     private int strId;
 
@@ -54,6 +65,23 @@ public class MzituFragment extends FragmentPresenterImpl<ImgListIView> {
             case R.string.tab_mzitu_hot:
                 initMzituHotModel();
                 break;
+            case R.string.tab_mzitu_best:
+                initMzituBestModel();
+                break;
+            case R.string.tab_mzitu_japan:
+                initMzituJapanModel();
+                break;
+            case R.string.tab_mzitu_mm:
+                initMzituMmModel();
+                break;
+            case R.string.tab_mzitu_taiwan:
+                initMzituTaiwanModel();
+                break;
+            case R.string.tab_mzitu_xinggan:
+                initMzituXingGantModel();
+                break;
+
+
         }
     }
 
@@ -67,6 +95,22 @@ public class MzituFragment extends FragmentPresenterImpl<ImgListIView> {
             case R.string.tab_mzitu_hot:
                 mzituHotModelLoadWeb();
                 break;
+            case R.string.tab_mzitu_best:
+                mzituBestModelLoadWeb();
+                break;
+            case R.string.tab_mzitu_japan:
+                mzituJapanModelLoadWeb();
+                break;
+            case R.string.tab_mzitu_mm:
+                mzituMmModelLoadWeb();
+                break;
+            case R.string.tab_mzitu_taiwan:
+                mzituTaiwanModelLoadWeb();
+                break;
+            case R.string.tab_mzitu_xinggan:
+                mzituXingGantModelLoadWeb();
+                break;
+
         }
     }
 
@@ -97,6 +141,75 @@ public class MzituFragment extends FragmentPresenterImpl<ImgListIView> {
                 )
         );
     }
+
+
+    private void initMzituBestModel() {
+        mzituBestModel = new MzituBestModel();
+    }
+
+    private void mzituBestModelLoadWeb() {
+        addSubscription(
+                mzituBestModel.loadWeb(
+                        getContext(),
+                        mzituListener,
+                        page + ""
+                )
+        );
+    }
+
+
+    private void initMzituJapanModel() {
+        mzituJapanModel = new MzituJapanModel();
+    }
+
+    private void mzituJapanModelLoadWeb() {
+        addSubscription(
+                mzituJapanModel.loadWeb(
+                        getContext(),
+                        mzituListener,
+                        page + ""
+                )
+        );
+    }
+
+    private void initMzituMmModel() {
+        mzituMmModel = new MzituMmModel();
+    }
+    private void mzituMmModelLoadWeb() {
+        addSubscription(
+                mzituMmModel.loadWeb(
+                        getContext(),
+                        mzituListener,
+                        page + ""
+                )
+        );
+    }
+
+    private void initMzituTaiwanModel() {
+        mzituTaiwanModel = new MzituTaiwanModel();
+    }
+    private void mzituTaiwanModelLoadWeb() {
+        addSubscription(
+                mzituTaiwanModel.loadWeb(
+                        getContext(),
+                        mzituListener,
+                        page + ""
+                )
+        );
+    }
+    private void initMzituXingGantModel() {
+        mzituXingGantModel = new MzituXingGantModel();
+    }
+    private void mzituXingGantModelLoadWeb() {
+        addSubscription(
+                mzituXingGantModel.loadWeb(
+                        getContext(),
+                        mzituListener,
+                        page + ""
+                )
+        );
+    }
+
 
     //TODO Listener ============================================
 

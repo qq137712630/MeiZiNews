@@ -22,6 +22,12 @@ public class MeiZiMainIView extends MeunIView {
         super.initFragments(appCompatActivity);
 
         MzituFragment mzituIndexFragment = new MzituFragment(R.string.tab_mzitu);
+        MzituFragment mzituBestFragment = new MzituFragment(R.string.tab_mzitu_best);
+        MzituFragment mzituHotFragment = new MzituFragment(R.string.tab_mzitu_hot);
+        MzituFragment mzitujapanFragment = new MzituFragment(R.string.tab_mzitu_japan);
+        MzituFragment mzituMmFragment = new MzituFragment(R.string.tab_mzitu_mm);
+        MzituFragment mzituTaiwanFragment = new MzituFragment(R.string.tab_mzitu_taiwan);
+        MzituFragment mzituXingGanFragment = new MzituFragment(R.string.tab_mzitu_xinggan);
 
         DBMeiNuFragment breastFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_daxiong);
         DBMeiNuFragment buttFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_qiaotun);
@@ -31,6 +37,12 @@ public class MeiZiMainIView extends MeunIView {
 
 
         fragments.add(mzituIndexFragment);
+        fragments.add(mzituBestFragment);
+        fragments.add(mzituHotFragment);
+        fragments.add(mzitujapanFragment);
+        fragments.add(mzituMmFragment);
+        fragments.add(mzituTaiwanFragment);
+        fragments.add(mzituXingGanFragment);
 
         fragments.add(breastFragment);
         fragments.add(buttFragment);
@@ -39,6 +51,12 @@ public class MeiZiMainIView extends MeunIView {
         fragments.add(zahuiFragment);
 
         titles.add(appCompatActivity.getString(R.string.tab_mzitu));
+        titles.add(appCompatActivity.getString(R.string.tab_mzitu_best));
+        titles.add(appCompatActivity.getString(R.string.tab_mzitu_hot));
+        titles.add(appCompatActivity.getString(R.string.tab_mzitu_japan));
+        titles.add(appCompatActivity.getString(R.string.tab_mzitu_mm));
+        titles.add(appCompatActivity.getString(R.string.tab_mzitu_taiwan));
+        titles.add(appCompatActivity.getString(R.string.tab_mzitu_xinggan));
 
         titles.add(appCompatActivity.getString(R.string.tab_dbmeinv_daxiong));
         titles.add(appCompatActivity.getString(R.string.tab_dbmeinv_qiaotun));
