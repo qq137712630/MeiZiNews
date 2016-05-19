@@ -375,7 +375,36 @@ HTML5版-房间信息
 
 ## 妹子图集
 
-http://www.mzitu.com/
+    // 首页
+    http://www.mzitu.com/
+    http://www.mzitu.com/page/1
+
+    // 专题
+    http://www.mzitu.com/zhuanti
+
+    // 热门
+    http://www.mzitu.com/hot
+    http://www.mzitu.com/hot/page/2
+
+    // 推荐
+    http://www.mzitu.com/best
+
+    // 性感妹子
+    http://www.mzitu.com/xinggan
+    http://www.mzitu.com/xinggan/page/2
+
+    // 日本妹子
+    http://www.mzitu.com/japan
+    http://www.mzitu.com/japan/page/2
+
+    // 台湾妹子
+    http://www.mzitu.com/taiwan
+    http://www.mzitu.com/taiwan/page/2
+
+    // 清纯
+    http://www.mzitu.com/mm
+    http://www.mzitu.com/mm/page/2
+
 
 ## 永久免费的基于深度学习的中文在线抽词-PullWord
 
