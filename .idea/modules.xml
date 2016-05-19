@@ -21,6 +21,7 @@
       <module fileurl="file://$PROJECT_DIR$/searchview/searchview.iml" filepath="$PROJECT_DIR$/searchview/searchview.iml" />
       <module fileurl="file://$PROJECT_DIR$/smooth_app_bar_layoutlibrary/smooth_app_bar_layoutlibrary.iml" filepath="$PROJECT_DIR$/smooth_app_bar_layoutlibrary/smooth_app_bar_layoutlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/tencentlibrary/tencentlibrary.iml" filepath="$PROJECT_DIR$/tencentlibrary/tencentlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wd_ad_library/wd_ad_library.iml" filepath="$PROJECT_DIR$/wd_ad_library/wd_ad_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/xrecyclerviewlibrary/xrecyclerviewlibrary.iml" filepath="$PROJECT_DIR$/xrecyclerviewlibrary/xrecyclerviewlibrary.iml" />
     </modules>
   </component>
