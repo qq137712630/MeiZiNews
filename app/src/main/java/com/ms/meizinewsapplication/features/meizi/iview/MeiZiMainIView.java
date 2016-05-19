@@ -6,6 +6,7 @@ import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 import com.ms.meizinewsapplication.features.base.view.iview.MeunIView;
 import com.ms.meizinewsapplication.features.meizi.fragment.DBMeiNuFragment;
+import com.ms.meizinewsapplication.features.meizi.fragment.MzituFragment;
 
 /**
  * Created by 啟成 on 2016/3/2.
@@ -19,17 +20,25 @@ public class MeiZiMainIView extends MeunIView {
     @Override
     public void initFragments(AppCompatActivity appCompatActivity) {
         super.initFragments(appCompatActivity);
+
+        MzituFragment mzituIndexFragment = new MzituFragment();
+
         DBMeiNuFragment breastFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_daxiong);
         DBMeiNuFragment buttFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_qiaotun);
         DBMeiNuFragment legFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_meitui);
         DBMeiNuFragment heisiFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_heisi);
         DBMeiNuFragment zahuiFragment = new DBMeiNuFragment(R.string.tab_dbmeinv_zahui);
 
+
+        fragments.add(mzituIndexFragment);
+
         fragments.add(breastFragment);
         fragments.add(buttFragment);
         fragments.add(legFragment);
         fragments.add(heisiFragment);
         fragments.add(zahuiFragment);
+
+        titles.add(appCompatActivity.getString(R.string.tab_mzitu));
 
         titles.add(appCompatActivity.getString(R.string.tab_dbmeinv_daxiong));
         titles.add(appCompatActivity.getString(R.string.tab_dbmeinv_qiaotun));

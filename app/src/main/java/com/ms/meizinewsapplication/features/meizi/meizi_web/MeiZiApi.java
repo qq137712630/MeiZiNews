@@ -12,4 +12,7 @@ public class MeiZiApi {
     public static final String DB_GROUP_LEG = "show.htm?cid=3&";
     public static final String DB_GROUP_RANK = "rank.htm?";
 
+    //TODO Mzitu Api
+    public static final String MZITU_API = "http://www.mzitu.com/";
+    public static final String MZITU_API_PAGE = "page/{page}";
 }

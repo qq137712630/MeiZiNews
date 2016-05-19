@@ -1,4 +1,4 @@
-package com.ms.meizinewsapplication.features.meizi.model;
+package com.ms.meizinewsapplication.features.meizi.pojo;
 
 import com.ms.meizinewsapplication.features.base.pojo.ImgItem;
 

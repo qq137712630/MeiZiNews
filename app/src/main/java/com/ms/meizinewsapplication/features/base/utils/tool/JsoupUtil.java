@@ -115,4 +115,20 @@ public class JsoupUtil {
 
         return mElements;
     }
+
+    /**
+     * 妹子图集
+     * @param strHtml
+     * @return
+     */
+    public static Elements getMzituImg(String strHtml)
+    {
+
+        // 获取文档内容
+        Document doc = Jsoup.parse(strHtml);
+        // 获取元素ul
+        Elements mElements = doc.select("ul[id=pins]");
+
+        return mElements;
+    }
 }

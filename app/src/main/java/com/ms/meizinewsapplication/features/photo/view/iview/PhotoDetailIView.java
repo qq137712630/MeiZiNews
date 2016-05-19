@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.View;
 
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.meizi.model.DbMeiNvList;
+import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNvList;
 import com.ms.meizinewsapplication.features.photo.adapter.OnPageChangeListenerAdapter;
 import com.ms.meizinewsapplication.features.photo.adapter.PhotoDetailPagerAdapter;
 
