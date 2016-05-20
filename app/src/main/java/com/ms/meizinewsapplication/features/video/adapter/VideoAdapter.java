@@ -2,7 +2,7 @@ package com.ms.meizinewsapplication.features.video.adapter;
 
 import android.content.Context;
 
-import com.ms.meizinewsapplication.features.meizi.adapter.ImageAdapter;
+import com.ms.meizinewsapplication.features.base.adapter.ImageAdapter;
 import com.ms.meizinewsapplication.features.video.pojo.VideoItem;
 
 import java.util.List;

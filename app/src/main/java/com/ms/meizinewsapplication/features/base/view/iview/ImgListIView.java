@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
+import com.ms.meizinewsapplication.features.base.adapter.ImageAdapter;
 import com.ms.meizinewsapplication.features.base.pojo.ImgItem;
-import com.ms.meizinewsapplication.features.meizi.adapter.ImageAdapter;
+import com.test.basequickadapterlib.BaseQuickAdapter;
 import com.test.basequickadapterlib.SpacesItemDecoration;
 
 import java.util.ArrayList;
@@ -64,5 +65,12 @@ public class ImgListIView<T extends ImgItem> extends RecyclerIView {
     public void addDatas2QuickAdapter(ArrayList<T> arrayList) {
 
         imageAdapter.addDatas(arrayList);
+    }
+
+    //TODO Listener=============================
+
+    public void setOnItemClickListener(BaseQuickAdapter.OnItemClickListener listener)
+    {
+        imageAdapter.setOnItemClickListener(listener);
     }
 }

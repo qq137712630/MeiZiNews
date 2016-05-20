@@ -2,6 +2,7 @@ package com.ms.meizinewsapplication.features.meizi.adapter;
 
 import android.content.Context;
 
+import com.ms.meizinewsapplication.features.base.adapter.ImageAdapter;
 import com.ms.meizinewsapplication.features.base.pojo.ImgItem;
 
 import java.util.List;

@@ -2,10 +2,12 @@ package com.ms.meizinewsapplication.features.meizi.fragment;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
 import com.ms.meizinewsapplication.features.base.pojo.ImgItem;
+import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.view.iview.ImgListIView;
 import com.ms.meizinewsapplication.features.meizi.model.MzituBestModel;
 import com.ms.meizinewsapplication.features.meizi.model.MzituHotModel;
@@ -14,6 +16,7 @@ import com.ms.meizinewsapplication.features.meizi.model.MzituJapanModel;
 import com.ms.meizinewsapplication.features.meizi.model.MzituMmModel;
 import com.ms.meizinewsapplication.features.meizi.model.MzituTaiwanModel;
 import com.ms.meizinewsapplication.features.meizi.model.MzituXingGantModel;
+import com.test.basequickadapterlib.BaseQuickAdapter;
 
 import org.loader.model.OnModelListener;
 
@@ -50,6 +53,7 @@ public class MzituFragment extends FragmentPresenterImpl<ImgListIView> {
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
         mView.init(getActivity());
+        mView.setOnItemClickListener(listener);
         mView.addOnScrollListener(onScrollListener);
         initModel();
         loadWeb();
@@ -249,4 +253,12 @@ public class MzituFragment extends FragmentPresenterImpl<ImgListIView> {
             loadWeb();
         }
     };
+
+    BaseQuickAdapter.OnItemClickListener listener = new BaseQuickAdapter.OnItemClickListener() {
+        @Override
+        public void onItemClick(View view, int position) {
+            DebugUtil.debugLogD("OnItemClickListener:"+position);
+        }
+    };
+
 }

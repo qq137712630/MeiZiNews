@@ -1,4 +1,4 @@
-package com.ms.meizinewsapplication.features.meizi.adapter;
+package com.ms.meizinewsapplication.features.base.adapter;
 
 import android.content.Context;
 import android.widget.TextView;
