@@ -21,7 +21,6 @@ public class MeiZiApi {
     public static final String MZITU_API_JAPAN =  "japan/";
     public static final String MZITU_API_TAIWAN =  "taiwan/";
     public static final String MZITU_API_MM =  "mm/";
-
-
+    public static final String MZITU_API_IMGLIST =  "{imgId}/{page}";
 
 }

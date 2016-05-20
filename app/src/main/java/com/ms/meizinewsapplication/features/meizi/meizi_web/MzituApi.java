@@ -52,4 +52,12 @@ public interface MzituApi {
             @Header("Cache-Control") String cacheControl,
             @Path("page") String page
     );
+
+
+    @GET(MeiZiApi.MZITU_API_IMGLIST)
+    Observable<String> RxImgList(
+            @Header("Cache-Control") String cacheControl,
+            @Path("imgId") String imgId,
+            @Path("page") String page
+    );
 }

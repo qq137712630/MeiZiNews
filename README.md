@@ -31,6 +31,28 @@
 
  - [深入浅出RxJava四-在Android中使用响应式编程：CompositeSubscription取消订阅](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0426/2787.html)
 
+## 多线程切换
+
+[ RxJava 使用：给 Android 开发者的 RxJava 详解](http://gank.io/post/560e15be2dca930e00da1083#toc_26)
+
+![](http://ww1.sinaimg.cn/mw1024/52eb2279jw1f2rxd1vl7xj20hd0hzq6e.jpg)
+
+图中共有 5 处含有对事件的操作。
+
+由图中可以看出，①和②两处受第一个 subscribeOn() 影响，运行在红色线程；
+
+③和④处受第一个 observeOn() 的影响，运行在绿色线程；
+
+⑤处受第二个 observeOn() 影响，运行在紫色线程；
+
+而第二个 subscribeOn() ，由于在通知过程中线程就被第一个 subscribeOn() 截断，因此对整个流程并没有任何影响。
+
+这里也就回答了前面的问题：当使用了多个 subscribeOn() 的时候，只有第一个 subscribeOn() 起作用。
+
+```` subscribeOn() ```` 设置影响在它以上的操作，只有第一个 ````subscribeOn`````起效；
+
+```` observeOn() ```` 设置影响在它以下的操作，直到下一个 ```` observeOn() ```` 设置。
+
 ---
 
 #GreenDAO
@@ -406,6 +428,9 @@ HTML5版-房间信息
     http://www.mzitu.com/mm
     http://www.mzitu.com/mm/page/2
 
+    // 图集查看
+    http://www.mzitu.com/{图集ID}/{页数}
+    http://www.mzitu.com/65054/48
 
 ## 永久免费的基于深度学习的中文在线抽词-PullWord
 

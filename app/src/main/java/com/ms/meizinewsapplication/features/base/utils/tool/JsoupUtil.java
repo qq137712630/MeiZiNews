@@ -131,4 +131,36 @@ public class JsoupUtil {
 
         return mElements;
     }
+
+    /**
+     * 返回妹子图片页数
+     * @param strHtml
+     * @return
+     */
+    public static Elements getMzituImgPage(String strHtml)
+    {
+
+        // 获取文档内容
+        Document doc = Jsoup.parse(strHtml);
+        // 获取元素div
+        Elements mElements = doc.select("div[class=pagenavi]");
+
+        return mElements;
+    }
+
+    /**
+     * 单张妹子图
+     * @param strHtml
+     * @return
+     */
+    public static Elements getMzituImgItem(String strHtml)
+    {
+
+        // 获取文档内容
+        Document doc = Jsoup.parse(strHtml);
+        // 获取元素div
+        Elements mElements = doc.select("div[class=main-image]");
+
+        return mElements;
+    }
 }

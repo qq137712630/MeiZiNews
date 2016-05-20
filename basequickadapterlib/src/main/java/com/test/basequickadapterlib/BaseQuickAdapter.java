@@ -124,6 +124,11 @@ public abstract class BaseQuickAdapter<T, H extends BaseAdapterHelper> extends R
         notifyItemInserted(position);
     }
 
+    public void addItemData(T item) {
+        data.add(item);
+        notifyItemInserted(data.size() - 1);
+    }
+
     public void upAllData(List<T> data) {
         this.data.clear();
         this.data.addAll(data);
