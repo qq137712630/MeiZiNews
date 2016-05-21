@@ -319,6 +319,102 @@ Converters can be added to support other types. Six sibling modules adapt popula
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//添加 RxJava 适配器
                 .build();
 
+## Retrofit 如何使用Observable.from发出多条连接的？
+
+    参考 ````` MzituImgListModel ````
+
+    /**
+     * Retrofit 使用Observable.from发出多条连接
+     * @param context
+     * @param listener
+     * @return
+     */
+    @Override
+    public Subscription loadWeb(final Context context, final OnModelListener<ImgItem> listener) {
+
+        MyStringRetrofit.getMyStringRetrofit().init(context, MeiZiApi.MZITU_API);
+        final MzituApi mzituApi = MyStringRetrofit.getMyStringRetrofit().getCreate(MzituApi.class);
+
+
+        Observable observable = mzituApi.RxImgList(
+                MyOkHttpClient.getCacheControl(context),
+                imgId,
+                page
+        ).flatMap(
+                new Func1<String, Observable<Integer>>() {
+
+                    @Override
+                    public Observable<Integer> call(String s) {
+                        // 第一次请求先请求页数，从而获得要发的链接数
+
+                        Elements mElements = JsoupUtil.getMzituImgPage(s);
+                        Elements tempElements = mElements.select("span");
+                        String size = tempElements.get(tempElements.size() - 2).text();
+                        if (TextUtils.isEmpty(size)) {
+                            return null;
+                        }
+
+                        ArrayList<Integer> numList = new ArrayList<Integer>();
+
+                        for (int i = 1; i <= Integer.parseInt(size); i++) {
+                            numList.add(i);
+                        }
+                        return Observable.from(numList);
+                    }
+                }
+        ).flatMap(
+                new Func1<Integer, Observable<String>>() {
+                    @Override
+                    public Observable<String> call(Integer integer) {
+                    //   发出单次网络请求连接
+                        return mzituApi.RxImgList(
+                                MyOkHttpClient.getCacheControl(context),
+                                imgId,
+                                integer + ""
+                        );
+                    }
+                }
+        ).map(
+                new Func1<String, ImgItem>() {
+                    @Override
+                    public ImgItem call(String s) {
+                    //   处理每次请问的结果
+
+                        ImgItem img = new ImgItem();
+                        Elements mElements = JsoupUtil.getMzituImgItem(s);
+                        Element tempElement = mElements.first();
+
+                        img.setImgUrl(tempElement.select("img").attr("src"));
+                        img.setUrl(tempElement.select("img").attr("src"));
+                        img.setStory_title(tempElement.select("img").attr("alt"));
+                        return img;
+                    }
+                }
+        );
+
+        return RxJavaUtil.rxIoAndMain(
+                observable,
+                new Subscriber<ImgItem>() {
+
+                    @Override
+                    public void onCompleted() {
+                        listener.onCompleted();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onError(e.toString());
+                        DebugUtil.debugLogErr(e, e.toString());
+                    }
+
+                    @Override
+                    public void onNext(ImgItem imgItem) {
+                        listener.onSuccess(imgItem);
+                    }
+                }
+        );
+    }
+
 ## 问题集
 
  - [Retrofit error URL query string must not have replace block](http://stackoverflow.com/questions/24610243/retrofit-error-url-query-string-must-not-have-replace-block)

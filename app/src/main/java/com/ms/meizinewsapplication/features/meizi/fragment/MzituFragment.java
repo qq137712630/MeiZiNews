@@ -1,5 +1,6 @@
 package com.ms.meizinewsapplication.features.meizi.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 
@@ -23,6 +24,7 @@ import java.util.List;
 /**
  * Created by 啟成 on 2016/5/19.
  */
+@SuppressLint("ValidFragment")
 public class MzituFragment extends FragmentPresenterImpl<MzituIView> {
 
     private MzituIndexModel mzituIndexModel;

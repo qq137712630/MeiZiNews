@@ -37,11 +37,18 @@ public class MzituImgListModel implements CommonModel<ImgItem> {
         return loadWeb(context, listener);
     }
 
+    /**
+     * Retrofit 使用Observable.from发出多条连接
+     * @param context
+     * @param listener
+     * @return
+     */
     @Override
     public Subscription loadWeb(final Context context, final OnModelListener<ImgItem> listener) {
 
         MyStringRetrofit.getMyStringRetrofit().init(context, MeiZiApi.MZITU_API);
         final MzituApi mzituApi = MyStringRetrofit.getMyStringRetrofit().getCreate(MzituApi.class);
+
 
         Observable observable = mzituApi.RxImgList(
                 MyOkHttpClient.getCacheControl(context),
@@ -52,6 +59,8 @@ public class MzituImgListModel implements CommonModel<ImgItem> {
 
                     @Override
                     public Observable<Integer> call(String s) {
+                        // 第一次请求先请求页数，从而获得要发的链接数
+
                         Elements mElements = JsoupUtil.getMzituImgPage(s);
                         Elements tempElements = mElements.select("span");
                         String size = tempElements.get(tempElements.size() - 2).text();
@@ -71,7 +80,7 @@ public class MzituImgListModel implements CommonModel<ImgItem> {
                 new Func1<Integer, Observable<String>>() {
                     @Override
                     public Observable<String> call(Integer integer) {
-
+                    //   发出单次网络请求连接
                         return mzituApi.RxImgList(
                                 MyOkHttpClient.getCacheControl(context),
                                 imgId,
@@ -83,6 +92,8 @@ public class MzituImgListModel implements CommonModel<ImgItem> {
                 new Func1<String, ImgItem>() {
                     @Override
                     public ImgItem call(String s) {
+                    //   处理每次请问的结果
+
                         ImgItem img = new ImgItem();
                         Elements mElements = JsoupUtil.getMzituImgItem(s);
                         Element tempElement = mElements.first();
