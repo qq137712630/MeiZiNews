@@ -44,6 +44,7 @@ public class CollectActivity extends BaseActivityPresenterImpl<CollectIView> {
         List<String> stringList = new ArrayList<>();
         stringList.add(ConstantData.DB_HTML_TYPE_ZHIHU);
         stringList.add(ConstantData.DB_HTML_TYPE_WEEK);
+        stringList.add(ConstantData.DB_HTML_TYPE_IMGLIST);
 
         dbHtmlModel.queryHtmlByHtmlTypeAndCollect(stringList, onModelListener);
     }

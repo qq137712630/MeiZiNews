@@ -10,6 +10,7 @@ import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.main.activity.DevWeekDetailActivity;
 import com.ms.meizinewsapplication.features.main.activity.ZhihuDetailActivity;
+import com.ms.meizinewsapplication.features.meizi.activity.MzituActivity;
 import com.test.basequickadapterlib.BaseAdapterHelper;
 import com.test.basequickadapterlib.type_item.BaseTypeItemQuickAdapter;
 
@@ -60,7 +61,10 @@ public class CollectAdapter extends BaseTypeItemQuickAdapter<HtmlEntity> {
                                 intent.setClass(context, ZhihuDetailActivity.class);
 
                                 break;
-
+                            case ConstantData.DB_HTML_TYPE_IMGLIST:
+                                intent.setClass(context, MzituActivity.class);
+                                intent.putExtra("imgId", item.getHtml());
+                                break;
                             default:
 
                                 intent.setAction("android.intent.action.VIEW");
