@@ -37,6 +37,7 @@ public class MzituIView extends ImgListIView<ImgItem> {
 
                 intent.putExtra("imgId", strings[strings.length - 1]);
                 intent.putExtra("title",imgItem.getStory_title());
+                intent.putExtra("url",imgItem.getUrl());
 
                 //让新的Activity从一个小的范围扩大到全屏
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(

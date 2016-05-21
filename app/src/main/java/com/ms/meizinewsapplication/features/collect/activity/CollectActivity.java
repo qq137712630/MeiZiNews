@@ -67,6 +67,9 @@ public class CollectActivity extends BaseActivityPresenterImpl<CollectIView> {
                 case ConstantData.DB_HTML_TYPE_WEEK:
                     title = getString(R.string.tab_dev);
                     break;
+                case ConstantData.DB_HTML_TYPE_IMGLIST:
+                    title = getString(R.string.tab_mzitu);
+                    break;
             }
             HtmlEntity htmlEntity = new HtmlEntity(
                     null,

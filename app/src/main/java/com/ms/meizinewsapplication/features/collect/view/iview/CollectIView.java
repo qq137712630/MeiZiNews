@@ -21,7 +21,7 @@ import java.util.List;
  * Created by 啟成 on 2016/4/19.
  */
 public class CollectIView extends RecyclerIView{
-    CollectAdapter collectAdapter;
+    private CollectAdapter collectAdapter;
     private Toolbar toolbar;
 
     @Override

@@ -3,10 +3,12 @@ package com.ms.meizinewsapplication.features.meizi.iview;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
+import android.support.annotation.DrawableRes;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 
 import com.ms.meizinewsapplication.R;
@@ -45,6 +47,12 @@ public class MzituListIView extends ImgListIView<ImgItem> {
         }
     }
 
+
+    public boolean onCreateOptionsMenu(AppCompatActivity activity, Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        activity.getMenuInflater().inflate(R.menu.menu_detail, menu);
+        return true;
+    }
 
     //TODO init ===========================================
 
@@ -109,4 +117,26 @@ public class MzituListIView extends ImgListIView<ImgItem> {
             }
         });
     }
+
+
+    public void setMenuItemIconByCollect(boolean isCollect) {
+
+        if (isCollect) {
+            setMenuItemIcon(2,R.drawable.iconfont_weishoucang);
+        } else {
+            setMenuItemIcon(2,R.drawable.iconfont_yishoucang);
+        }
+
+    }
+
+    public void setMenuItemIcon(int index, @DrawableRes int iconRes) {
+        toolbar.getMenu().getItem(index).setIcon(iconRes);
+    }
+    //TODO Listener====================
+
+    public void setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener onMenuItemClickListener) {
+
+        toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
+    }
+
 }

@@ -13,6 +13,7 @@ public class ConstantData {
     public static final String DB_HTML_TYPE_COLLECT = "101";//收藏数据类型
     public static final String DB_HTML_TYPE_WEEK = "1";//数据类型：开发周报
     public static final String DB_HTML_TYPE_ZHIHU = "2";//数据类型：知乎日报
+    public static final String DB_HTML_TYPE_IMGLIST = "3";//数据类型：图集
     public static final String DB_HTML_COLLECT_YES = "1";//已收藏
     public static final String DB_HTML_COLLECT_NO = "0";//未收藏
 }
