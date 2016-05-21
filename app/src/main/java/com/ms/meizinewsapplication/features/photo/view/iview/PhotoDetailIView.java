@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.View;
 
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNvList;
+import com.ms.meizinewsapplication.features.meizi.pojo.ImgItemList;
 import com.ms.meizinewsapplication.features.photo.adapter.OnPageChangeListenerAdapter;
 import com.ms.meizinewsapplication.features.photo.adapter.PhotoDetailPagerAdapter;
 
@@ -28,7 +28,7 @@ public class PhotoDetailIView extends ViewImpl {
     private ViewPager viewpager;
     private PhotoDetailPagerAdapter photoDetailPagerAdapter;
 
-    private DbMeiNvList dbMeiNvList;
+    private ImgItemList dbMeiNvList;
     private int position;
 
     @Override
@@ -53,7 +53,7 @@ public class PhotoDetailIView extends ViewImpl {
 
     public void init(AppCompatActivity activity) {
         this.activity = activity;
-        dbMeiNvList = (DbMeiNvList) activity.getIntent().getSerializableExtra("DbMeiNvList");
+        dbMeiNvList = (ImgItemList) activity.getIntent().getSerializableExtra("ImgItemList");
         position = activity.getIntent().getIntExtra("position", 0);
         initTv_photo_detail_page(activity, position);
         initToolbar(activity);
@@ -64,7 +64,7 @@ public class PhotoDetailIView extends ViewImpl {
         String s = activity.getString(
                 R.string.photo_page,
                 position + 1,
-                dbMeiNvList.getDbMeiNvs().size()
+                dbMeiNvList.getmImgItemList().size()
         );
 
         toolbar.setTitle(s);
@@ -73,7 +73,7 @@ public class PhotoDetailIView extends ViewImpl {
     private void initViewPager() {
         List<Integer> layoutResIds = new ArrayList<>();
         layoutResIds.add(R.layout.view_photo);
-        photoDetailPagerAdapter = new PhotoDetailPagerAdapter(dbMeiNvList.getDbMeiNvs(), null, layoutResIds);
+        photoDetailPagerAdapter = new PhotoDetailPagerAdapter(dbMeiNvList.getmImgItemList(), null, layoutResIds);
         viewpager.setAdapter(photoDetailPagerAdapter);
         viewpager.setCurrentItem(position);
         viewpager.addOnPageChangeListener(onPageChangeListenerAdapter);

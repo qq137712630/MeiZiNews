@@ -11,7 +11,7 @@ import android.view.View;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.view.iview.SwipeRecyclerIView;
 import com.ms.meizinewsapplication.features.meizi.adapter.DBMeiziAdapter;
-import com.ms.meizinewsapplication.features.meizi.pojo.DbMeiNvList;
+import com.ms.meizinewsapplication.features.meizi.pojo.ImgItemList;
 import com.ms.meizinewsapplication.features.base.pojo.ImgItem;
 import com.ms.meizinewsapplication.features.photo.activity.PhotoDetailActivity;
 import com.test.basequickadapterlib.BaseQuickAdapter;
@@ -69,11 +69,11 @@ public class DBMeiNvIView extends SwipeRecyclerIView {
             @Override
             public void onItemClick(View view, int position) {
 
-                DbMeiNvList dbMeiNvList = new DbMeiNvList();
-                dbMeiNvList.setDbMeiNvs(dbMeiziAdapter.getData());
+                ImgItemList dbMeiNvList = new ImgItemList();
+                dbMeiNvList.setmImgItemList(dbMeiziAdapter.getData());
 
                 Intent intent = new Intent(view.getContext(), PhotoDetailActivity.class);
-                intent.putExtra("DbMeiNvList", dbMeiNvList);
+                intent.putExtra("ImgItemList", dbMeiNvList);
                 intent.putExtra("position", position);
                 //让新的Activity从一个小的范围扩大到全屏
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(
