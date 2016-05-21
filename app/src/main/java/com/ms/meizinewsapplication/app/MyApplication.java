@@ -3,9 +3,7 @@ package com.ms.meizinewsapplication.app;
 import android.app.Application;
 import android.content.Context;
 
-import com.github.moduth.blockcanary.BlockCanary;
 import com.ms.loggerlibrary.LogInit;
-import com.ms.meizinewsapplication.features.base.utils.block.AppBlockCanaryContext;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 
 /**
@@ -32,7 +30,7 @@ public class MyApplication extends Application {
         if (DebugUtil.IS_DEBUG)
         {
             // 在主进程初始化调用哈
-            BlockCanary.install(this, new AppBlockCanaryContext()).start();
+//            BlockCanary.install(this, new AppBlockCanaryContext()).start();
         }
     }
 
