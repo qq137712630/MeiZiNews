@@ -36,7 +36,7 @@ public class ZhihuThemesAdapter extends BaseTypeItemQuickAdapter<Story> {
     }
 
     public ZhihuThemesAdapter(Context context, List<Story> data) {
-        super(context,  R.layout.fragment_news_item, R.layout.view_title, data);
+        super(context, R.layout.fragment_news_item, R.layout.view_title, data);
     }
 
 
@@ -81,14 +81,13 @@ public class ZhihuThemesAdapter extends BaseTypeItemQuickAdapter<Story> {
             case TYPE_ITEM:
 
                 final ImageView story_img = helper.getImageView(R.id.story_img);
-                TextView story_title = helper.getTextView(R.id.story_title);
+                final TextView story_title = helper.getTextView(R.id.story_title);
 
                 story_title.setText(item.getTitle());
 
                 if (item.getImages() == null || item.getImages().size() <= 0) {
                     story_img.setVisibility(View.GONE);
-                }else
-                {
+                } else {
                     ImagerLoad.load(context, item.getImages().get(0), story_img);
                     story_img.setVisibility(View.VISIBLE);
                 }
@@ -101,7 +100,7 @@ public class ZhihuThemesAdapter extends BaseTypeItemQuickAdapter<Story> {
                         Intent intent = new Intent(context, ZhihuDetailActivity.class);
                         intent.putExtra(ZhiHuConstants.ID, item.getId());
 
-                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP && story_img.getVisibility() == View.VISIBLE) {
 
                             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(
                                     (MainMvpActivity) context,
@@ -113,8 +112,8 @@ public class ZhihuThemesAdapter extends BaseTypeItemQuickAdapter<Story> {
                         } else {
                             //让新的Activity从一个小的范围扩大到全屏
                             ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(
-                                    story_img, story_img.getWidth() / 2,
-                                    story_img.getHeight() / 2, 0, 0
+                                    story_title, story_title.getWidth() / 2,
+                                    story_title.getHeight() / 2, 0, 0
                             );
                             ActivityCompat.startActivity((MainMvpActivity) context, intent, options.toBundle());
                         }
