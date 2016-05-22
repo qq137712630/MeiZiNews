@@ -15,6 +15,7 @@ public class ZhihuDetail {
     private String image_source;
     private String title;
     private String image;
+    private List<String> images;
     private String share_url;
     private List<String> js;
     private String ga_prefix;
@@ -91,4 +92,11 @@ public class ZhihuDetail {
          return css;
      }
 
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
 }

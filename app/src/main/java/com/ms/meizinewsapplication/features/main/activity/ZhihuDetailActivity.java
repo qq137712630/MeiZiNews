@@ -171,6 +171,11 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
 
             detailNews = zhihuDetail;
 
+            if(zhihuDetail.getImages()!=null &&zhihuDetail.getImages().size()>0)
+            {
+                zhihuDetail.setImage(zhihuDetail.getImages().get(0));
+            }
+
             mView.initImg(ZhihuDetailActivity.this, zhihuDetail.getImage());
             mView.showDetail(zhihuDetail);
             addDbHtmlDate(zhihuDetail);
