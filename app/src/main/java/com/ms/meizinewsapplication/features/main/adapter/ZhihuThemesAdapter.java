@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,22 +15,54 @@ import com.ms.meizinewsapplication.features.base.utils.tool.ImagerLoad;
 import com.ms.meizinewsapplication.features.base.utils.tool.ZhiHuConstants;
 import com.ms.meizinewsapplication.features.main.activity.MainMvpActivity;
 import com.ms.meizinewsapplication.features.main.activity.ZhihuDetailActivity;
-import com.ms.meizinewsapplication.features.main.json.Stories;
+import com.ms.meizinewsapplication.features.main.json.zhihu_theme.Story;
+import com.ms.meizinewsapplication.features.main.pojo.ZhiHuData;
 import com.test.basequickadapterlib.BaseAdapterHelper;
-import com.test.basequickadapterlib.head.BaseHeadTypeItemRecyclerAdapter;
+import com.test.basequickadapterlib.type_item.BaseTypeItemQuickAdapter;
+
+import java.util.List;
 
 /**
- * Created by 啟成 on 2016/3/8.
+ * Created by 啟成 on 2016/5/21.
  */
-public class ZhiHuAdapter extends BaseHeadTypeItemRecyclerAdapter<Stories> {
+public class ZhihuThemesAdapter extends BaseTypeItemQuickAdapter<Story> {
 
 
-    public ZhiHuAdapter(Context context) {
+    public static final int TYPE_TITLE = 0;
+    public static final int TYPE_ITEM = 1;
+
+    public ZhihuThemesAdapter(Context context) {
         super(context, R.layout.fragment_news_item, R.layout.view_title);
     }
 
+    public ZhihuThemesAdapter(Context context, List<Story> data) {
+        super(context,  R.layout.fragment_news_item, R.layout.view_title, data);
+    }
+
+
+    /**
+     * 返回的布局判断
+     *
+     * @param position
+     * @return
+     */
     @Override
-    public void onBind(BaseAdapterHelper helper, int RealPosition, int position, final Stories item) {
+    public int getItemViewType(int position) {
+
+        if (
+                position == 0
+                        || data.size() != 0
+                        && data.get(position).getType().equals(ZhiHuData.ZHIHU_THEMES)
+                ) {
+            return TYPE_TITLE;
+        } else {
+            return TYPE_ITEM;
+        }
+
+    }
+
+    @Override
+    protected void convert(BaseAdapterHelper helper, final Story item, int position) {
         int type = getItemViewType(position);
 
         switch (type) {
@@ -47,14 +78,12 @@ public class ZhiHuAdapter extends BaseHeadTypeItemRecyclerAdapter<Stories> {
                 });
                 break;
 
-            case TYPE_NORMAL:
+            case TYPE_ITEM:
 
-//                helper.itemView.setTag(RealPosition);
                 final ImageView story_img = helper.getImageView(R.id.story_img);
                 TextView story_title = helper.getTextView(R.id.story_title);
 
                 story_title.setText(item.getTitle());
-
 
                 if (item.getImages() == null || item.getImages().size() <= 0) {
                     story_img.setVisibility(View.GONE);
@@ -64,10 +93,6 @@ public class ZhiHuAdapter extends BaseHeadTypeItemRecyclerAdapter<Stories> {
                     story_img.setVisibility(View.VISIBLE);
                 }
 
-//                if (item.getImages() == null || item.getImages().size() <= 0) {
-//                    return;
-//                }
-//                ImagerLoad.load(context, item.getImages().get(0), story_img);
 
                 helper.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -97,20 +122,5 @@ public class ZhiHuAdapter extends BaseHeadTypeItemRecyclerAdapter<Stories> {
                 });
                 break;
         }
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-
-        if (
-                position == 1
-                        || mDatas.size() != 0
-                        && position != 0
-                        && TextUtils.isEmpty(mDatas.get(position - 1).getGa_prefix())
-                ) {
-            return TYPE_TITLE;
-        }
-
-        return super.getItemViewType(position);
     }
 }

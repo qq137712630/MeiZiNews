@@ -4,12 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
-import com.lapism.searchview.view.SearchCodes;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 import com.ms.meizinewsapplication.features.base.view.iview.MeunIView;
 import com.ms.meizinewsapplication.features.main.fragment.DevWeekListFragment;
 import com.ms.meizinewsapplication.features.main.fragment.ZhiHuFragment;
+import com.ms.meizinewsapplication.features.main.fragment.ZhihuThemesFragment;
 
 /**
  * Created by 啟成 on 2016/3/2.
@@ -36,10 +36,14 @@ public class MainIView extends MeunIView {
         super.initFragments(appCompatActivity);
         ZhiHuFragment zhiHuFragment = new ZhiHuFragment();
         DevWeekListFragment devWeekListFragment = new DevWeekListFragment();
+        ZhihuThemesFragment zhihuThemesFragment = new ZhihuThemesFragment();
+
         fragments.add(zhiHuFragment);
         fragments.add(devWeekListFragment);
+        fragments.add(zhihuThemesFragment);
         titles.add(appCompatActivity.getString(R.string.tab_zhihu));
         titles.add(appCompatActivity.getString(R.string.tab_dev));
+        titles.add(appCompatActivity.getString(R.string.tab_zhihu_themes));
     }
 
 

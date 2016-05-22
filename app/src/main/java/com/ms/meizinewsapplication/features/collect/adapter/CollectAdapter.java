@@ -90,7 +90,11 @@ public class CollectAdapter extends BaseTypeItemQuickAdapter<HtmlEntity> {
     @Override
     public int getItemViewType(int position) {
 
-        if (position == 0 || data.size() != 0 && data.get(position).getType().equals(ConstantData.DB_HTML_TYPE_COLLECT)) {
+        if (
+                position == 0
+                        || data.size() != 0
+                        && data.get(position).getType().equals(ConstantData.DB_HTML_TYPE_COLLECT)
+                ) {
             return TYPE_TITLE;
         } else {
             return TYPE_ITEM;

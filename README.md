@@ -545,6 +545,9 @@ API:
     public static final String NEWS_BEFORE = "http://news-at.zhihu.com/api/4/news/before/";//指定日期的日报
     public static final String SPLASH = "http://news-at.zhihu.com/api/4/start-image/1080*1920";//封面
 
+    http://news-at.zhihu.com/api/4/themes // 主题日报列表查看
+    http://news-at.zhihu.com/api/4/theme/{id} //主题日报内容查看
+
  - 日报详情
 	 
 	 BASE_URL+日报ID
@@ -560,7 +563,14 @@ API:
 	 NEWS_BEFORE+(指定日期+1天)，格式为全数字，YYYYMMDD,如：
 	 2016年02月29号的数据：
 	 [http://news-at.zhihu.com/api/4/news/before/20160301](http://news-at.zhihu.com/api/4/news/before/20160301)
- 
+
+ - 主题日报
+
+    http://news-at.zhihu.com/api/4/themes // 主题日报列表查看
+    http://news-at.zhihu.com/api/4/theme/{id} //主题日报内容查看
+
+    [http://news-at.zhihu.com/api/4/theme/11](http://news-at.zhihu.com/api/4/theme/11)
+
 ## 豆瓣美女
 
     public static String DB_BREAST = "http://www.dbmeinv.com/dbgroup/show.htm?cid=2&pager_offset=";

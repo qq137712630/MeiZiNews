@@ -2,6 +2,8 @@ package com.ms.meizinewsapplication.features.main.main_web;
 
 import com.ms.meizinewsapplication.features.main.json.ZhiHuLatest;
 import com.ms.meizinewsapplication.features.main.json.ZhihuDetail;
+import com.ms.meizinewsapplication.features.main.json.zhihu_theme.ZhihuThemeNew;
+import com.ms.meizinewsapplication.features.main.json.zhihu_theme.ZhihuThemes;
 
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -57,6 +59,20 @@ public interface ZhiHuNews {
     Observable<ZhihuDetail> RxZhihuDetail(
             @Header("Cache-Control") String cacheControl,
             @Path("detailID") String detailID
+
+    );
+
+
+    @GET("themes")
+    Observable<ZhihuThemes> RxZhihuThemes(
+            @Header("Cache-Control") String cacheControl
+
+    );
+
+    @GET("theme/{themeID}")
+    Observable<ZhihuThemeNew> RxZhihuThemeNews(
+            @Header("Cache-Control") String cacheControl,
+            @Path("themeID") String themeID
 
     );
 }

@@ -15,7 +15,8 @@
 
 
     <string name="tab_zhihu">知乎日报</string>
-    <string name="tab_dev">Android开发技术周报</string>
+    <string name="tab_dev">Android周报</string>
+    <string name="tab_zhihu_themes">主题日报</string>
 
 
     <string name="tab_dbmeinv">豆瓣美女</string>
