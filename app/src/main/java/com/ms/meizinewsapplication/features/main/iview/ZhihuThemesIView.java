@@ -91,6 +91,11 @@ public class ZhihuThemesIView extends RecyclerIView {
         zhihuThemesAdapter.addDatas(stories);
     }
 
+    public Integer getItemCount()
+    {
+       return zhihuThemesAdapter.getItemCount();
+    }
+
     //TODO Listener================================================
 
     VerticalDrawerLayout.SimpleDrawerListener simpleDrawerListener = new VerticalDrawerLayout.SimpleDrawerListener() {

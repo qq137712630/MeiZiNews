@@ -12,6 +12,7 @@ import com.ms.meizinewsapplication.features.main.pojo.ZhiHuData;
 import org.loader.model.OnModelListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by 啟成 on 2016/5/21.
@@ -19,10 +20,12 @@ import java.util.ArrayList;
 public class ZhihuThemesFragment extends FragmentPresenterImpl<ZhihuThemesIView> {
 
     private ZhihuThemeNewModel zhihuThemeNewModel;
+    private List<Story> zhihuThemeList;
 
     @Override
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
+        zhihuThemeList = new ArrayList<>();
         mView.init(getActivity());
         initModel();
         loadWeb();
@@ -62,8 +65,9 @@ public class ZhihuThemesFragment extends FragmentPresenterImpl<ZhihuThemesIView>
             Story story = new Story();
             story.setTitle(zhihuThemeNew.getName());
             story.setType(ZhiHuData.ZHIHU_THEMES);
-
+            story.setId(mView.getItemCount());
             zhihuThemeNew.getStories().add(0,story);
+            zhihuThemeList.add(story);
 
             mView.addAllData2QuickAdapter((ArrayList<Story>) zhihuThemeNew.getStories());
 

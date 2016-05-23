@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/VerticalDrawerLayoutLib" />
             <option value="$PROJECT_DIR$/adupwardlibrary" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/basepageradapterlibrary" />
@@ -17,7 +18,6 @@
             <option value="$PROJECT_DIR$/glidelibrary" />
             <option value="$PROJECT_DIR$/greendao_db_lib" />
             <option value="$PROJECT_DIR$/greendaolibrary" />
-            <option value="$PROJECT_DIR$/lib" />
             <option value="$PROJECT_DIR$/loggerlibrary" />
             <option value="$PROJECT_DIR$/mvpro" />
             <option value="$PROJECT_DIR$/photoviewlibrary" />
@@ -33,6 +33,7 @@
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/VerticalDrawerLayoutLib" />
             <option value="$PROJECT_DIR$/adupwardlibrary" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/basepageradapterlibrary" />
@@ -42,7 +43,6 @@
             <option value="$PROJECT_DIR$/glidelibrary" />
             <option value="$PROJECT_DIR$/greendao_db_lib" />
             <option value="$PROJECT_DIR$/greendaolibrary" />
-            <option value="$PROJECT_DIR$/lib" />
             <option value="$PROJECT_DIR$/loggerlibrary" />
             <option value="$PROJECT_DIR$/mvpro" />
             <option value="$PROJECT_DIR$/photoviewlibrary" />
