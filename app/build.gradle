@@ -43,4 +43,5 @@ dependencies {
      */
     compile(name: 'WandoujiaSDK', ext: 'aar')
     compile project(':wd_ad_library')
+    compile project(':lib')
 }

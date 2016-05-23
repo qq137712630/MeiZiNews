@@ -20,6 +20,7 @@
  - [数据库框架：GreenDAO](https://github.com/greenrobot/greenDAO)
  - [retrofit+okhttp3日志显示 okhttp3:logging-interceptor](https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor)
  - [视频播放：PLDroidPlayer](https://github.com/pili-engineering/PLDroidPlayer)
+ - [一个垂直方向的DrawerLayout,抽屉从上向下展开](https://github.com/corerzhang/VerticalDrawerLayout)
 
 ---
 
@@ -701,6 +702,7 @@ API:
  - [软键盘处理：解析android中隐藏与显示软键盘及不自动弹出键盘的实现方法](http://www.jb51.net/article/36653.htm)
  - [软键盘处理：android:windowSoftInputMode属性详解](http://blog.csdn.net/twoicewoo/article/details/7384398)
  - [win10 Genymotion无法启动：virtualbox connot start the virtual device:GenyMotion Unable to start the Genymotion virtual device](http://stackoverflow.com/questions/19922077/genymotion-unable-to-start-the-genymotion-virtual-device)
+ - [通透Gson@Expose注解、@SerializedName、解析json数据](http://blog.csdn.net/andywuchuanlong/article/details/44077913)
 
 ---
  
