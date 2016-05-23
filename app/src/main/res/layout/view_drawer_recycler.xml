@@ -9,8 +9,8 @@ android:orientation="vertical">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white"
-    android:orientation="horizontal">
+    android:background="@android:color/white">
+
 
     <ImageView
         android:id="@+id/img_arrow"
@@ -43,14 +43,11 @@ android:orientation="vertical">
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="this is drawer"
-            android:textSize="30sp" />
+        <include layout="@layout/view_tag"/>
+
     </LinearLayout>
 
 </me.corer.verticaldrawerlayout.VerticalDrawerLayout>

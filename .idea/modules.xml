@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/basequickadapterlib/basequickadapterlib.iml" filepath="$PROJECT_DIR$/basequickadapterlib/basequickadapterlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/blockcanarylibrary/blockcanarylibrary.iml" filepath="$PROJECT_DIR$/blockcanarylibrary/blockcanarylibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/convenientbannerlibrary/convenientbannerlibrary.iml" filepath="$PROJECT_DIR$/convenientbannerlibrary/convenientbannerlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flow_tag_library/flow_tag_library.iml" filepath="$PROJECT_DIR$/flow_tag_library/flow_tag_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/glidelibrary/glidelibrary.iml" filepath="$PROJECT_DIR$/glidelibrary/glidelibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/greendao_db_lib/greendao_db_lib.iml" filepath="$PROJECT_DIR$/greendao_db_lib/greendao_db_lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/greendaolibrary/greendaolibrary.iml" filepath="$PROJECT_DIR$/greendaolibrary/greendaolibrary.iml" />

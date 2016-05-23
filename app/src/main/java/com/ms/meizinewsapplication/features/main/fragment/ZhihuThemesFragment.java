@@ -33,23 +33,19 @@ public class ZhihuThemesFragment extends FragmentPresenterImpl<ZhihuThemesIView>
 
     //TODO Model ========================================================
 
-    private void initModel()
-    {
+    private void initModel() {
         initZhihuThemeNewModel();
     }
 
-    private void loadWeb()
-    {
+    private void loadWeb() {
         zhihuThemeNewModelloadWeb();
     }
 
-    private void initZhihuThemeNewModel()
-    {
+    private void initZhihuThemeNewModel() {
         zhihuThemeNewModel = new ZhihuThemeNewModel();
     }
 
-    private void zhihuThemeNewModelloadWeb()
-    {
+    private void zhihuThemeNewModelloadWeb() {
         zhihuThemeNewModel.loadWeb(
                 getContext(),
                 listener
@@ -66,7 +62,7 @@ public class ZhihuThemesFragment extends FragmentPresenterImpl<ZhihuThemesIView>
             story.setTitle(zhihuThemeNew.getName());
             story.setType(ZhiHuData.ZHIHU_THEMES);
             story.setId(mView.getItemCount());
-            zhihuThemeNew.getStories().add(0,story);
+            zhihuThemeNew.getStories().add(0, story);
             zhihuThemeList.add(story);
 
             mView.addAllData2QuickAdapter((ArrayList<Story>) zhihuThemeNew.getStories());
@@ -80,7 +76,7 @@ public class ZhihuThemesFragment extends FragmentPresenterImpl<ZhihuThemesIView>
 
         @Override
         public void onCompleted() {
-
+            mView.addAllTagData((ArrayList<Story>) zhihuThemeList);
         }
     };
 }

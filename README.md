@@ -703,6 +703,7 @@ API:
  - [软键盘处理：android:windowSoftInputMode属性详解](http://blog.csdn.net/twoicewoo/article/details/7384398)
  - [win10 Genymotion无法启动：virtualbox connot start the virtual device:GenyMotion Unable to start the Genymotion virtual device](http://stackoverflow.com/questions/19922077/genymotion-unable-to-start-the-genymotion-virtual-device)
  - [通透Gson@Expose注解、@SerializedName、解析json数据](http://blog.csdn.net/andywuchuanlong/article/details/44077913)
+ - [android5.0自带兼容控件__RecyclerView](http://blog.csdn.net/rozol/article/details/50225593)
 
 ---
  
