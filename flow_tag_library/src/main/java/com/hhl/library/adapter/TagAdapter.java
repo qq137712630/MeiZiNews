@@ -30,6 +30,11 @@ public class TagAdapter<T> extends BaseAdapter {
         return mDataList.size();
     }
 
+    public List<T> getData()
+    {
+        return mDataList;
+    }
+
     @Override
     public Object getItem(int position) {
         return mDataList.get(position);

@@ -20,6 +20,7 @@ import com.ms.meizinewsapplication.features.main.adapter.ZhihuThemesAdapter;
 import com.ms.meizinewsapplication.features.main.json.zhihu_theme.Story;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import me.corer.verticaldrawerlayout.VerticalDrawerLayout;
 
@@ -38,6 +39,7 @@ public class ZhihuThemesIView extends RecyclerIView {
     private ZhihuThemeTagAdapter zhihuThemeTagAdapter;
 
     private int storyId = 0;
+    private final int STORY_NUM = 3; //移动的位置
 
     @Override
     public int getLayoutId() {
@@ -126,20 +128,18 @@ public class ZhihuThemesIView extends RecyclerIView {
         });
     }
 
-    protected void smoothScrollToPosition(int position)
-    {
+    protected void smoothScrollToPosition(int position) {
 
         //最后一个可见Item的位置
         int lastVisibleItem = ((LinearLayoutManager) recycler_list.getLayoutManager()).findLastVisibleItemPosition();
         storyId = position;
         if (lastVisibleItem < storyId && storyId != 0) {
-            storyId = storyId + 3;
+            storyId = storyId + STORY_NUM;
         }
         recycler_list.smoothScrollToPosition(storyId);
     }
 
-    protected void setArrowText(String text)
-    {
+    protected void setArrowText(String text) {
         tv_arrow.setText(text);
     }
 
@@ -204,6 +204,13 @@ public class ZhihuThemesIView extends RecyclerIView {
                 return;
             }
 
+            if (storyId == 0) {
+
+                //最后一个可见Item的位置
+                int lastVisibleItem = ((LinearLayoutManager) recycler_list.getLayoutManager()).findLastVisibleItemPosition();
+                locationType(zhihuThemeTagAdapter.getData(), lastVisibleItem - STORY_NUM);
+            }
+
             storyId = 0;
         }
 
@@ -215,4 +222,17 @@ public class ZhihuThemesIView extends RecyclerIView {
 
         }
     };
+
+    // 当前位置的类型
+    private void locationType(List<Story> storyList, int position) {
+
+        for (Story story : storyList) {
+
+            if (story.getId() > position) {
+                continue;
+            }
+            setArrowText(story.getTitle());
+        }
+
+    }
 }
