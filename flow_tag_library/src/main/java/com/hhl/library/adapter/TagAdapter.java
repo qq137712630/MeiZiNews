@@ -64,6 +64,13 @@ public class TagAdapter<T> extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+
+    public void addItem(T data) {
+        mDataList.add(data);
+        notifyDataSetChanged();
+    }
+
+
     public void clearAndAddAll(List<T> datas) {
         mDataList.clear();
         onlyAddAll(datas);

@@ -64,8 +64,8 @@ public class ZhihuThemesFragment extends FragmentPresenterImpl<ZhihuThemesIView>
             story.setId(mView.getItemCount());
             zhihuThemeNew.getStories().add(0, story);
             zhihuThemeList.add(story);
-
             mView.addAllData2QuickAdapter((ArrayList<Story>) zhihuThemeNew.getStories());
+            mView.addItemData(story);
 
         }
 
@@ -76,7 +76,8 @@ public class ZhihuThemesFragment extends FragmentPresenterImpl<ZhihuThemesIView>
 
         @Override
         public void onCompleted() {
-            mView.addAllTagData((ArrayList<Story>) zhihuThemeList);
+//            mView.addAllTagData((ArrayList<Story>) zhihuThemeList);
+
         }
     };
 }

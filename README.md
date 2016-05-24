@@ -833,6 +833,12 @@ API:
 
 这样会取消功能``` 即时运行 ```，但可以解决这个问题。
 
+
+
+## VerticalDrawerLayout 可以点击抽屉后面的控件
+
+ - [可以点击抽屉后面的控件 #2](https://github.com/corerzhang/VerticalDrawerLayout/issues/2)
+
 ---
 
 # 增加分组的Adapter：BaseTypeItemQuickAdapter

@@ -156,8 +156,14 @@ public class ZhihuThemesIView extends RecyclerIView {
     }
 
     public void addAllTagData(ArrayList<Story> stories) {
-        DebugUtil.debugLogD(zhihuThemeTagAdapter.getCount() + "++++RealPosition:" + stories.get(0).getTitle());
+        DebugUtil.debugLogD(zhihuThemeTagAdapter.getCount() + "++++RealPosition:" + stories.get(stories.size()-1).getTitle());
         zhihuThemeTagAdapter.onlyAddAll(stories);
+    }
+
+    public void addItemData(Story story)
+    {
+        DebugUtil.debugLogD(zhihuThemeTagAdapter.getCount() + "++++story:" + story.getTitle());
+        zhihuThemeTagAdapter.addItem(story);
     }
     //TODO Listener================================================
 

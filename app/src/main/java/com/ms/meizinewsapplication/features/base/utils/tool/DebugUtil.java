@@ -6,7 +6,7 @@ import com.orhanobut.logger.Logger;
  * Created by 啟成 on 2016/3/6.
  */
 public class DebugUtil {
-    public static final boolean IS_DEBUG = false;
+    public static final boolean IS_DEBUG = true;
 
     public static final String DEBUG_TAG = "DEBUG_TAG";
 
