@@ -153,8 +153,7 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
             share = getIntent().getStringExtra("url");
         } else {
 
-            if (detailNews == null)
-            {
+            if (detailNews == null) {
                 return "";
             }
 
@@ -171,8 +170,7 @@ public class ZhihuDetailActivity extends BaseActivityPresenterImpl<ZhiHuDetailIV
 
             detailNews = zhihuDetail;
 
-            if(zhihuDetail.getImages()!=null &&zhihuDetail.getImages().size()>0)
-            {
+            if (TextUtils.isEmpty(zhihuDetail.getImage()) && zhihuDetail.getImages() != null && zhihuDetail.getImages().size() > 0) {
                 zhihuDetail.setImage(zhihuDetail.getImages().get(0));
             }
 
