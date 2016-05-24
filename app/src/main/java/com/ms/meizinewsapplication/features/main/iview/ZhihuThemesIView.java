@@ -33,6 +33,8 @@ public class ZhihuThemesIView extends RecyclerIView {
 
     private ZhihuThemeTagAdapter zhihuThemeTagAdapter;
 
+    private int storyId = 0;
+
     @Override
     public int getLayoutId() {
         return R.layout.view_drawer_recycler;
@@ -50,8 +52,13 @@ public class ZhihuThemesIView extends RecyclerIView {
 
     public void init(Activity activity) {
         initRecycler_list(activity);
+
+        initZhihuThemeTagAdapter(activity);
+        setTagAdapter();
+        setOnTagClickListener();
         setDrawerListener();
         setImgArrowListener();
+
     }
 
     //TODO view ============================================
@@ -63,9 +70,7 @@ public class ZhihuThemesIView extends RecyclerIView {
 
         initAdapter(activity);
         setAdapter();
-        initZhihuThemeTagAdapter(activity);
-        setTagAdapter();
-        setOnTagClickListener();
+        addOnScrollListener(onScrollListener);
     }
 
 
@@ -83,8 +88,7 @@ public class ZhihuThemesIView extends RecyclerIView {
 
     }
 
-    protected void setImgArrowListener()
-    {
+    protected void setImgArrowListener() {
         img_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,23 +97,28 @@ public class ZhihuThemesIView extends RecyclerIView {
         });
     }
 
-    protected void initZhihuThemeTagAdapter(Context context)
-    {
+    protected void initZhihuThemeTagAdapter(Context context) {
         zhihuThemeTagAdapter = new ZhihuThemeTagAdapter(context);
     }
 
-    protected void setTagAdapter()
-    {
+    protected void setTagAdapter() {
         flow_tag.setAdapter(zhihuThemeTagAdapter);
     }
 
-    protected void setOnTagClickListener()
-    {
+    protected void setOnTagClickListener() {
         flow_tag.setOnTagClickListener(new OnTagClickListener() {
             @Override
             public void onItemClick(FlowTagLayout parent, View view, int position) {
+
+                //最后一个可见Item的位置
+                int lastVisibleItem = ((LinearLayoutManager) recycler_list.getLayoutManager()).findLastVisibleItemPosition();
+
                 Story story = (Story) parent.getAdapter().getItem(position);
-                recycler_list.smoothScrollToPosition(story.getId());
+                storyId = story.getId();
+                if (lastVisibleItem < storyId && storyId != 0) {
+                    storyId = storyId + 3;
+                }
+                recycler_list.smoothScrollToPosition(storyId);
                 isDrawerOpen();
             }
         });
@@ -123,9 +132,8 @@ public class ZhihuThemesIView extends RecyclerIView {
         zhihuThemesAdapter.addDatas(stories);
     }
 
-    public Integer getItemCount()
-    {
-       return zhihuThemesAdapter.getItemCount();
+    public Integer getItemCount() {
+        return zhihuThemesAdapter.getItemCount();
     }
 
     public void addAllTagData(ArrayList<Story> stories) {
@@ -138,7 +146,7 @@ public class ZhihuThemesIView extends RecyclerIView {
         @Override
         public void onDrawerSlide(View drawerView, float slideOffset) {
             super.onDrawerSlide(drawerView, slideOffset);
-            img_arrow.setRotation(slideOffset*180);
+            img_arrow.setRotation(slideOffset * 180);
         }
 
         @Override
@@ -167,4 +175,25 @@ public class ZhihuThemesIView extends RecyclerIView {
             return true;
         }
     }
+
+    RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
+        @Override
+        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            super.onScrollStateChanged(recyclerView, newState);
+
+            if (newState != RecyclerView.SCROLL_STATE_IDLE) {
+                return;
+            }
+
+            storyId = 0;
+        }
+
+        @Override
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+
+            // dy>0 表示向下滑动
+
+        }
+    };
 }

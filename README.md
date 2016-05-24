@@ -704,6 +704,28 @@ API:
  - [win10 Genymotion无法启动：virtualbox connot start the virtual device:GenyMotion Unable to start the Genymotion virtual device](http://stackoverflow.com/questions/19922077/genymotion-unable-to-start-the-genymotion-virtual-device)
  - [通透Gson@Expose注解、@SerializedName、解析json数据](http://blog.csdn.net/andywuchuanlong/article/details/44077913)
  - [android5.0自带兼容控件__RecyclerView](http://blog.csdn.net/rozol/article/details/50225593)
+ - [RecyclerView 实现下拉刷新和自动加载](http://www.jianshu.com/p/4feb0c16d1b5)
+
+    recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+                @Override
+                public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                    super.onScrolled(recyclerView, dx, dy);
+                    int lastVisibleItem = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();
+                    int totalItemCount = mLayoutManager.getItemCount();
+                    //lastVisibleItem >= totalItemCount - 4 表示剩下4个item自动加载，各位自由选择
+                    // dy>0 表示向下滑动
+                    if (lastVisibleItem >= totalItemCount - 4 && dy > 0) {
+                        if(isLoadingMore){
+                             Log.d(TAG,"ignore manually update!");
+                        } else{
+                             loadPage();//这里多线程也要手动控制isLoadingMore
+                            isLoadingMore = false;
+                        }
+                    }
+                }
+            });
+
+ - [通过重写OnScrollListener来监听RecyclerView是否滑动到底部](http://www.cnblogs.com/tianzhijiexian/p/4397552.html)
 
 ---
  
