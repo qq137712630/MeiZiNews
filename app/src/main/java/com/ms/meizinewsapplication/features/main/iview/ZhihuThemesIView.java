@@ -7,6 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.hhl.library.FlowTagLayout;
 import com.hhl.library.OnTagClickListener;
@@ -30,6 +32,8 @@ public class ZhihuThemesIView extends RecyclerIView {
     private VerticalDrawerLayout vertical_drawer;
     private ImageView img_arrow;
     private FlowTagLayout flow_tag;
+    private RelativeLayout rl_arrow;
+    private TextView tv_arrow;
 
     private ZhihuThemeTagAdapter zhihuThemeTagAdapter;
 
@@ -46,6 +50,9 @@ public class ZhihuThemesIView extends RecyclerIView {
         vertical_drawer = findViewById(R.id.vertical_drawer);
         img_arrow = findViewById(R.id.img_arrow);
         flow_tag = findViewById(R.id.flow_tag);
+        rl_arrow = findViewById(R.id.rl_arrow);
+        tv_arrow = findViewById(R.id.tv_arrow);
+
     }
 
     //TODO init========================================
@@ -85,11 +92,10 @@ public class ZhihuThemesIView extends RecyclerIView {
 
     protected void setDrawerListener() {
         vertical_drawer.setDrawerListener(simpleDrawerListener);
-
     }
 
     protected void setImgArrowListener() {
-        img_arrow.setOnClickListener(new View.OnClickListener() {
+        rl_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 isDrawerOpen();
@@ -110,18 +116,31 @@ public class ZhihuThemesIView extends RecyclerIView {
             @Override
             public void onItemClick(FlowTagLayout parent, View view, int position) {
 
-                //最后一个可见Item的位置
-                int lastVisibleItem = ((LinearLayoutManager) recycler_list.getLayoutManager()).findLastVisibleItemPosition();
 
                 Story story = (Story) parent.getAdapter().getItem(position);
-                storyId = story.getId();
-                if (lastVisibleItem < storyId && storyId != 0) {
-                    storyId = storyId + 3;
-                }
-                recycler_list.smoothScrollToPosition(storyId);
+
+                smoothScrollToPosition(story.getId());
+                setArrowText(story.getTitle());
                 isDrawerOpen();
             }
         });
+    }
+
+    protected void smoothScrollToPosition(int position)
+    {
+
+        //最后一个可见Item的位置
+        int lastVisibleItem = ((LinearLayoutManager) recycler_list.getLayoutManager()).findLastVisibleItemPosition();
+        storyId = position;
+        if (lastVisibleItem < storyId && storyId != 0) {
+            storyId = storyId + 3;
+        }
+        recycler_list.smoothScrollToPosition(storyId);
+    }
+
+    protected void setArrowText(String text)
+    {
+        tv_arrow.setText(text);
     }
 
     //TODO Model======================================================
