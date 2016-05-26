@@ -45,4 +45,5 @@ dependencies {
     compile project(':wd_ad_library')
     compile project(':VerticalDrawerLayoutLib')
     compile project(':flow_tag_library')
+    compile project(':mythemelibrary')
 }

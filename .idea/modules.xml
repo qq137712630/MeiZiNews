@@ -14,9 +14,9 @@
       <module fileurl="file://$PROJECT_DIR$/glidelibrary/glidelibrary.iml" filepath="$PROJECT_DIR$/glidelibrary/glidelibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/greendao_db_lib/greendao_db_lib.iml" filepath="$PROJECT_DIR$/greendao_db_lib/greendao_db_lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/greendaolibrary/greendaolibrary.iml" filepath="$PROJECT_DIR$/greendaolibrary/greendaolibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VerticalDrawerLayoutLib/lib.iml" filepath="$PROJECT_DIR$/VerticalDrawerLayoutLib/lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/loggerlibrary/loggerlibrary.iml" filepath="$PROJECT_DIR$/loggerlibrary/loggerlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvpro/mvpro.iml" filepath="$PROJECT_DIR$/mvpro/mvpro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mythemelibrary/mythemelibrary.iml" filepath="$PROJECT_DIR$/mythemelibrary/mythemelibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/photoviewlibrary/photoviewlibrary.iml" filepath="$PROJECT_DIR$/photoviewlibrary/photoviewlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/pldroidplayerlibrary/pldroidplayerlibrary.iml" filepath="$PROJECT_DIR$/pldroidplayerlibrary/pldroidplayerlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/retrofit_and_rxjava_library/retrofit_and_rxjava_library.iml" filepath="$PROJECT_DIR$/retrofit_and_rxjava_library/retrofit_and_rxjava_library.iml" />
