@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 夜间主题 -->
+    <style name="NightTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/material_blue_grey_900</item>
+        <item name="colorPrimaryDark">@color/material_blue_grey_700</item>
+        <item name="colorAccent">@color/material_black25</item>
+
+
+        <item name="android:itemBackground">@color/material_blue_grey_700</item>
+    </style>
+
+    <style name="NightTheme.NoActionBar">
+
+        <item name="android:windowAnimationStyle">@style/noAnimation</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="NightTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="NightTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="NightTheme.SlidrTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="NightTheme.Shape">
+        <item name="android:centerColor">@color/material_blue_grey_900</item>
+        <item name="android:endColor">@color/material_blue_grey_900</item>
+        <item name="android:startColor">@color/material_blue_grey_700</item>
+    </style>
+
+</resources>

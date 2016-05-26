@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- 日间主题 -->
+    <style name="DayTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+
+        <item name="android:itemBackground">@color/item_color</item>
+    </style>
+
+    <style name="DayTheme.NoActionBar">
+
+        <item name="android:windowAnimationStyle">@style/noAnimation</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="DayTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="DayTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="DayTheme.SlidrTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="DayTheme.Shape">
+        <item name="android:centerColor">@color/material_blue_900</item>
+        <item name="android:endColor">@color/material_blue_800</item>
+        <item name="android:startColor">@color/material_blue_700</item>
+    </style>
+
+</resources>
