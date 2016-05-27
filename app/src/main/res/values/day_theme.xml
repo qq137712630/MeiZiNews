@@ -12,11 +12,13 @@
 
         <item name="android:itemBackground">@color/item_color</item>
 
-
+        <!--文字颜色-->
         <item name="text_color">@color/colorPrimaryDark</item>
+
+        <!--根布局背景颜色-->
         <item name="root_view_bg">@color/material_white</item>
 
-
+        <!--头像背景-->
         <item name="side_nav_bar">@drawable/day_side_nav_bar</item>
 
         <item name="centerColor">@color/material_blue_900</item>

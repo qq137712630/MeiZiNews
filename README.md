@@ -21,6 +21,7 @@
  - [retrofit+okhttp3日志显示 okhttp3:logging-interceptor](https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor)
  - [视频播放：PLDroidPlayer](https://github.com/pili-engineering/PLDroidPlayer)
  - [一个垂直方向的DrawerLayout,抽屉从上向下展开](https://github.com/corerzhang/VerticalDrawerLayout)
+ - [夜间模式：Colorful 动态换肤开源库](https://github.com/hehonghui/Colorful)
 
 ---
 

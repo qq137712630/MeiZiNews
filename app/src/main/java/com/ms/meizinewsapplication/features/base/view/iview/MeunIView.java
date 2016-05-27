@@ -62,7 +62,6 @@ public class MeunIView extends ViewImpl {
     protected AppCompatActivity appCompatActivity;
 
     protected Colorful mColorful;
-
     @Override
     public void created() {
         super.created();
@@ -97,15 +96,6 @@ public class MeunIView extends ViewImpl {
      */
     public void init(AppCompatActivity appCompatActivity) {
         this.appCompatActivity = appCompatActivity;
-        mColorful = new Colorful.Builder(appCompatActivity)
-
-                // 设置view的背景图片
-                .backgroundDrawable(R.id.lin_nav_header, R.attr.side_nav_bar)
-                .backgroundColor(R.id.nav_view, R.attr.root_view_bg)
-
-                .navigationViewItemColor(R.id.nav_view, R.attr.text_color)
-                .create();
-        mColorful.setTheme(R.style.DayTheme_NoActionBar);
 
         fragments = new ArrayList<>();
         titles = new ArrayList<>();
@@ -116,6 +106,7 @@ public class MeunIView extends ViewImpl {
         initFragments(appCompatActivity);
         initViewPager(appCompatActivity);
         initTabLayout();
+        initColorful(appCompatActivity);
     }
 
     private void initActivityFragmentInject() {
@@ -129,6 +120,20 @@ public class MeunIView extends ViewImpl {
             throw new RuntimeException(
                     "Class must add annotations of ActivityFragmentInitParams.class");
         }
+    }
+
+    public void initColorful(AppCompatActivity appCompatActivity)
+    {
+
+
+        mColorful = new Colorful.Builder(appCompatActivity)
+                // 设置view的背景图片
+                .backgroundDrawable(navigationView.getHeaderView(0), R.attr.side_nav_bar)
+                .backgroundColor(R.id.nav_view, R.attr.root_view_bg)
+
+                .navigationViewItemColor(R.id.nav_view, R.attr.text_color)
+                .create();
+        mColorful.setTheme(R.style.DayTheme);
     }
 
     //TODO view==================================================
