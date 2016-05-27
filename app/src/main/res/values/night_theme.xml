@@ -8,8 +8,11 @@
         <item name="colorPrimaryDark">@color/material_blue_grey_700</item>
         <item name="colorAccent">@color/material_black25</item>
 
-
         <item name="android:itemBackground">@color/material_blue_grey_700</item>
+
+        <item name="text_color">@color/material_blue_grey_50</item>
+        <item name="root_view_bg">@color/material_blue_grey_900</item>
+
     </style>
 
     <style name="NightTheme.NoActionBar">
@@ -32,9 +35,9 @@
 
 
     <style name="NightTheme.Shape">
-        <item name="android:centerColor">@color/material_blue_grey_900</item>
+        <item name="android:centerColor">@color/material_black</item>
         <item name="android:endColor">@color/material_blue_grey_900</item>
-        <item name="android:startColor">@color/material_blue_grey_700</item>
+        <item name="android:startColor">@color/material_black</item>
     </style>
 
 </resources>
