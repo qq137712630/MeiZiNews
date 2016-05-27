@@ -13,6 +13,13 @@
         <item name="text_color">@color/material_blue_grey_400</item>
         <item name="root_view_bg">@color/material_blue_grey_900</item>
 
+        <item name="centerColor">@color/material_black</item>
+        <item name="endColor">@color/material_blue_grey_900</item>
+        <item name="startColor">@color/material_black</item>
+
+
+        <item name="side_nav_bar">@drawable/night_side_nav_bar</item>
+
     </style>
 
     <style name="NightTheme.NoActionBar">

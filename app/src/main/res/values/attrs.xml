@@ -6,4 +6,10 @@
     <attr name="btn_bg" format="reference|color" />
     <attr name="text_color" format="reference|color" />
 
+    <attr name="centerColor" format="reference|color" />
+    <attr name="startColor" format="reference|color" />
+    <attr name="endColor" format="reference|color" />
+
+    <attr name="side_nav_bar" format="reference|color" />
+
 </resources>

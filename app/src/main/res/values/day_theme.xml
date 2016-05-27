@@ -15,6 +15,14 @@
 
         <item name="text_color">@color/colorPrimaryDark</item>
         <item name="root_view_bg">@color/material_white</item>
+
+
+        <item name="side_nav_bar">@drawable/day_side_nav_bar</item>
+
+        <item name="centerColor">@color/material_blue_900</item>
+        <item name="endColor">@color/material_blue_800</item>
+        <item name="startColor">@color/material_blue_700</item>
+
     </style>
 
     <style name="DayTheme.NoActionBar">
