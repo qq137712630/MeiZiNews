@@ -2,10 +2,12 @@ package com.ms.mythemelibrary.lib;
 
 import android.app.Activity;
 import android.content.res.Resources.Theme;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.TextView;
 
+import com.ms.mythemelibrary.lib.setter.NavigationViewItemColor;
 import com.ms.mythemelibrary.lib.setter.TextColorSetter;
 import com.ms.mythemelibrary.lib.setter.ViewBackgroundColorSetter;
 import com.ms.mythemelibrary.lib.setter.ViewBackgroundDrawableSetter;
@@ -122,6 +124,13 @@ public final class Colorful {
 		public Builder textColor(int viewId, int colorId) {
 			TextView textView = (TextView) findViewById(viewId);
 			mElements.add(new TextColorSetter(textView, colorId));
+			return this;
+		}
+
+
+		public Builder navigationViewItemColor(int viewId, int colorId) {
+			NavigationView navigationView = (NavigationView) findViewById(viewId);
+			mElements.add(new NavigationViewItemColor(navigationView, colorId));
 			return this;
 		}
 
