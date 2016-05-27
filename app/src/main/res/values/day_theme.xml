@@ -13,8 +13,8 @@
         <item name="android:itemBackground">@color/item_color</item>
 
 
-        <item name="text_color">@color/material_blue_grey_900</item>
-        <item name="root_view_bg">@color/material_transparent</item>
+        <item name="text_color">@color/colorPrimaryDark</item>
+        <item name="root_view_bg">@color/material_white</item>
     </style>
 
     <style name="DayTheme.NoActionBar">

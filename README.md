@@ -607,6 +607,40 @@ API:
 
  - [windowDrawsSystemBarBackgrounds:如何将DrawerLayout显示在ActionBar/Toolbar和status bar之间](http://solo.farbox.com/blog/how-do-i-use-drawerlayout-to-display-over-the-actionbar-or-toolbar-and-under-the-status-bar)
  - [Android 自己实现 NavigationView [Design Support Library(1)]](http://blog.csdn.net/lmj623565791/article/details/46405409)
+ - [android, NavigationView's setItemTextColor and setItemIconTinList have no effects](http://stackoverflow.com/questions/33114154/android-navigationviews-setitemtextcolor-and-setitemicontinlist-have-no-effect)
+
+### 设置item颜色
+
+代码中：
+
+    int[][] states = new int[][] {
+            new int[] { android.R.attr.state_selected }, // selected
+            new int[] { android.R.attr.state_focused, android.R.attr.state_pressed },  // pressed
+            new int[] {  }, // default
+    };
+
+    int[] colors = new int[] {
+            0,
+            0,
+            getColor(newTheme)
+    };
+    navigationView.setItemTextColor(new ColorStateList(
+            states,
+            colors
+    ));
+
+Xml
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:background="?attr/root_view_bg"
+        app:headerLayout="@layout/nav_header_main"
+        app:itemTextColor="?attr/text_color"
+        app:menu="@menu/activity_main_drawer" />
 
 ##上下拉：SwipeRefreshLayout
  

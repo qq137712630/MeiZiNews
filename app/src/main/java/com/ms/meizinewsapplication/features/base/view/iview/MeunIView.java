@@ -25,6 +25,7 @@ import com.ms.meizinewsapplication.features.collect.activity.CollectActivity;
 import com.ms.meizinewsapplication.features.main.activity.MainMvpActivity;
 import com.ms.meizinewsapplication.features.meizi.activity.MeiZiActivity;
 import com.ms.meizinewsapplication.features.video.activity.VideoPageActivity;
+import com.ms.mythemelibrary.lib.Colorful;
 import com.test.basepageradapterlibrary.basepager.BaseFragmentPagerAdapter;
 
 import org.loader.view.ViewImpl;
@@ -60,6 +61,7 @@ public class MeunIView extends ViewImpl {
 
     protected AppCompatActivity appCompatActivity;
 
+    protected Colorful mColorful;
 
     @Override
     public void created() {
@@ -95,6 +97,13 @@ public class MeunIView extends ViewImpl {
      */
     public void init(AppCompatActivity appCompatActivity) {
         this.appCompatActivity = appCompatActivity;
+        mColorful = new Colorful.Builder(appCompatActivity)
+
+                // 设置view的背景图片
+                .backgroundColor(R.id.nav_view, R.attr.root_view_bg)
+                .navigationViewItemColor(R.id.nav_view, R.attr.text_color)
+                .create();
+        mColorful.setTheme(R.style.DayTheme_NoActionBar);
 
         fragments = new ArrayList<>();
         titles = new ArrayList<>();
