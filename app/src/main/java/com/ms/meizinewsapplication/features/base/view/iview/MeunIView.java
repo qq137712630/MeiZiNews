@@ -62,6 +62,7 @@ public class MeunIView extends ViewImpl {
     protected AppCompatActivity appCompatActivity;
 
     protected Colorful mColorful;
+
     @Override
     public void created() {
         super.created();
@@ -122,8 +123,7 @@ public class MeunIView extends ViewImpl {
         }
     }
 
-    public void initColorful(AppCompatActivity appCompatActivity)
-    {
+    public void initColorful(AppCompatActivity appCompatActivity) {
 
 
         mColorful = new Colorful.Builder(appCompatActivity)
