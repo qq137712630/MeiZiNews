@@ -24,6 +24,7 @@
         <item name="centerColor">@color/material_blue_900</item>
         <item name="endColor">@color/material_blue_800</item>
         <item name="startColor">@color/material_blue_700</item>
+        <item name="toolbarPopupTheme">@style/DayTheme.PopupOverlay</item>
 
     </style>
 

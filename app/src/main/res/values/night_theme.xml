@@ -6,7 +6,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/material_blue_grey_900</item>
         <item name="colorPrimaryDark">@color/material_blue_grey_700</item>
-        <item name="colorAccent">@color/material_black25</item>
+        <item name="colorAccent">@color/material_blue_300</item>
 
         <item name="android:itemBackground">@color/material_blue_grey_700</item>
 
@@ -19,7 +19,7 @@
 
 
         <item name="side_nav_bar">@color/material_black</item>
-
+        <item name="toolbarPopupTheme">@style/NightTheme.PopupOverlay</item>
     </style>
 
     <style name="NightTheme.NoActionBar">
