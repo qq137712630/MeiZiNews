@@ -97,6 +97,14 @@ public final class Colorful {
 			return this;
 		}
 
+		public Builder backgroundColor(View targetView, int colorId) {
+			mElements.add(new ViewBackgroundColorSetter(
+					targetView,
+					colorId)
+			);
+			return this;
+		}
+
 		/**
 		 * 将View id与存储该view背景Drawable的属性进行绑定
 		 * 
@@ -115,7 +123,7 @@ public final class Colorful {
 		/**
 		 * 将View 与存储该view背景Drawable的属性进行绑定
 		 *
-		 * @param View
+		 * @param targetView
 		 *            控件
 		 * @param drawableId
 		 *            Drawable属性id

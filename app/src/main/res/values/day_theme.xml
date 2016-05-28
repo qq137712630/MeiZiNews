@@ -19,7 +19,7 @@
         <item name="root_view_bg">@color/material_white</item>
 
         <!--头像背景-->
-        <item name="side_nav_bar">@drawable/day_side_nav_bar</item>
+        <item name="side_nav_bar">@color/material_blue_800</item>
 
         <item name="centerColor">@color/material_blue_900</item>
         <item name="endColor">@color/material_blue_800</item>

@@ -18,7 +18,7 @@
         <item name="startColor">@color/material_black</item>
 
 
-        <item name="side_nav_bar">@drawable/night_side_nav_bar</item>
+        <item name="side_nav_bar">@color/material_black</item>
 
     </style>
 

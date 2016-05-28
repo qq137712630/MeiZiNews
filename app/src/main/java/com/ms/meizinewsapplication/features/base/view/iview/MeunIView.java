@@ -127,8 +127,8 @@ public class MeunIView extends ViewImpl {
 
 
         mColorful = new Colorful.Builder(appCompatActivity)
-                // 设置view的背景图片
-                .backgroundDrawable(navigationView.getHeaderView(0), R.attr.side_nav_bar)
+                // 设置view的背景
+                .backgroundColor(navigationView.getHeaderView(0), R.attr.side_nav_bar)
                 .backgroundColor(R.id.nav_view, R.attr.root_view_bg)
 
                 .navigationViewItemColor(R.id.nav_view, R.attr.text_color)
