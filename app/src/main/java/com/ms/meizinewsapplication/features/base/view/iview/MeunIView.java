@@ -11,6 +11,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
@@ -63,6 +65,8 @@ public class MeunIView extends ViewImpl {
 
     protected Colorful mColorful;
 
+    protected boolean isDay = true;
+
     @Override
     public void created() {
         super.created();
@@ -107,6 +111,7 @@ public class MeunIView extends ViewImpl {
         initFragments(appCompatActivity);
         initViewPager(appCompatActivity);
         initTabLayout();
+        initHeaderView();
         initColorful(appCompatActivity);
     }
 
@@ -134,8 +139,11 @@ public class MeunIView extends ViewImpl {
                 .backgroundColor(R.id.tabLayout, R.attr.colorPrimary)
 
                 .navigationViewItemColor(R.id.nav_view, R.attr.text_color)
+                .toolbarPopuThemeSetter(R.id.toolbar, R.attr.toolbarPopupTheme)
+
                 .create();
-        mColorful.setTheme(R.style.DayTheme);
+
+
     }
 
     //TODO view==================================================
@@ -197,6 +205,24 @@ public class MeunIView extends ViewImpl {
 //        tabLayout.setScrollPosition(0, 0, true);
         // 根据Tab的长度动态设置TabLayout的模式
         ViewUtil.dynamicSetTablayoutMode(tabLayout);
+    }
+
+    protected void initHeaderView() {
+//        navHeaderView = navigationView.inflateHeaderView(R.layout.nav_header_main);
+        ((ViewGroup) navigationView.getHeaderView(0)).getChildAt(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (isDay) {
+                    mColorful.setTheme(R.style.DayTheme);
+                } else {
+
+                    mColorful.setTheme(R.style.NightTheme);
+                }
+
+                isDay = !isDay;
+            }
+        });
     }
 
     //TODO Listener=====================================================
