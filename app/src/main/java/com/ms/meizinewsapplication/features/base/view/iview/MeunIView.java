@@ -130,6 +130,8 @@ public class MeunIView extends ViewImpl {
                 // 设置view的背景
                 .backgroundColor(navigationView.getHeaderView(0), R.attr.side_nav_bar)
                 .backgroundColor(R.id.nav_view, R.attr.root_view_bg)
+                .backgroundColor(R.id.toolbar, R.attr.colorPrimary)
+                .backgroundColor(R.id.tabLayout, R.attr.colorPrimary)
 
                 .navigationViewItemColor(R.id.nav_view, R.attr.text_color)
                 .create();
