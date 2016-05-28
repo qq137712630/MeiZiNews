@@ -137,6 +137,7 @@ public class MeunIView extends ViewImpl {
                 .backgroundColor(R.id.nav_view, R.attr.root_view_bg)
                 .backgroundColor(R.id.toolbar, R.attr.colorPrimary)
                 .backgroundColor(R.id.tabLayout, R.attr.colorPrimary)
+                .backgroundColor(R.id.rl_main, R.attr.root_view_bg)
 
                 .navigationViewItemColor(R.id.nav_view, R.attr.text_color)
                 .toolbarPopuThemeSetter(R.id.toolbar, R.attr.toolbarPopupTheme)
@@ -208,7 +209,6 @@ public class MeunIView extends ViewImpl {
     }
 
     protected void initHeaderView() {
-//        navHeaderView = navigationView.inflateHeaderView(R.layout.nav_header_main);
         ((ViewGroup) navigationView.getHeaderView(0)).getChildAt(0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
