@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.res.Resources.Theme;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.ms.mythemelibrary.lib.setter.DrawerLayoutStatusBarBackgroundSetter;
 import com.ms.mythemelibrary.lib.setter.NavigationViewItemColor;
 import com.ms.mythemelibrary.lib.setter.TextColorSetter;
 import com.ms.mythemelibrary.lib.setter.ToolbarPopuThemeSetter;
@@ -149,7 +151,7 @@ public final class Colorful {
         }
 
         /**
-         * 设置 Toolbar 状态栏颜色
+         * 设置 Toolbar PopuTheme
          *
          * @param viewId
          * @param popuThemeId
@@ -161,6 +163,21 @@ public final class Colorful {
             mElements.add(new ToolbarPopuThemeSetter(toolbar, popuThemeId));
             return this;
         }
+
+        /**
+         * drawerLayout 状态栏颜色
+         *
+         * @param viewId
+         * @param popuThemeId
+         * @return
+         */
+        public Builder drawerLayoutStatusBarBackgroundSetter(int viewId, int popuThemeId) {
+
+            DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(viewId);
+            mElements.add(new DrawerLayoutStatusBarBackgroundSetter(mDrawerLayout, popuThemeId));
+            return this;
+        }
+
 
         /**
          * 用户手动构造并且添加Setter

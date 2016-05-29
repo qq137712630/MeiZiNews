@@ -2,7 +2,6 @@ package com.ms.meizinewsapplication.features.base.view.iview;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Build;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -14,8 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
@@ -143,7 +140,7 @@ public class MeunIView extends ViewImpl {
                 .backgroundColor(R.id.rl_main, R.attr.root_view_bg)
 
                 .navigationViewItemColor(R.id.nav_view, R.attr.text_color)
-                .toolbarPopuThemeSetter(R.id.toolbar, R.attr.toolbarPopupTheme)
+                .drawerLayoutStatusBarBackgroundSetter(R.id.drawer_layout, R.attr.colorPrimaryDark)
 
                 .create();
 
@@ -211,32 +208,35 @@ public class MeunIView extends ViewImpl {
         ViewUtil.dynamicSetTablayoutMode(tabLayout);
     }
 
+    /**
+     * 设置点击主题切换
+     */
     protected void initHeaderView() {
         ((ViewGroup) navigationView.getHeaderView(0)).getChildAt(0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Window window = appCompatActivity.getWindow();
-                // clear FLAG_TRANSLUCENT_STATUS flag:
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
-                // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-
+//                Window window = appCompatActivity.getWindow();
+//                // clear FLAG_TRANSLUCENT_STATUS flag:
+//                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//
+//                // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+//                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
                 if (isDay) {
                     mColorful.setTheme(R.style.DayTheme);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        // finally change the color
-                        window.setStatusBarColor(appCompatActivity.getResources().getColor(R.color.colorPrimaryDark));
-                    }
+
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                        // finally change the color
+//                        window.setStatusBarColor(appCompatActivity.getResources().getColor(R.color.colorPrimaryDark));
+//                    }
                 } else {
 
                     mColorful.setTheme(R.style.NightTheme);
 
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        // finally change the color
-                        window.setStatusBarColor(appCompatActivity.getResources().getColor(R.color.material_blue_grey_700));
-                    }
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                        // finally change the color
+//                        window.setStatusBarColor(appCompatActivity.getResources().getColor(R.color.material_blue_grey_700));
+//                    }
                 }
 
                 isDay = !isDay;
