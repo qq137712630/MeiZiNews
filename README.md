@@ -874,6 +874,11 @@ Xml
 
  - [可以点击抽屉后面的控件 #2](https://github.com/corerzhang/VerticalDrawerLayout/issues/2)
 
+## 修改状态栏
+
+ - [sdk21以上修改状态栏：How to change the status bar color in android](http://stackoverflow.com/questions/22192291/how-to-change-the-status-bar-color-in-android)
+ - [Android KITKAT 以上实现沉浸式状态栏](http://www.jianshu.com/p/f8374d6267ef/)
+
 ---
 
 # 增加分组的Adapter：BaseTypeItemQuickAdapter

@@ -21,6 +21,8 @@ public class ToolbarPopuThemeSetter extends ViewSetter {
         if (mView == null) {
             return;
         }
-        ((Toolbar) mView).setPopupTheme(getColor(newTheme));
+
+        ((Toolbar) mView).setPopupTheme(themeId);
+
     }
 }
