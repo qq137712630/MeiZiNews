@@ -7,7 +7,7 @@ import com.ms.meizinewsapplication.features.base.utils.db.SqlUtil;
 import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.utils.tool.JsoupUtil;
-import com.ms.retrofitlibrary.util.RxJavaUtil;
+import com.ms.retrofitlibrary.util.rx.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyOkHttpClient;
 import com.ms.retrofitlibrary.web.MyStringRetrofit;
 

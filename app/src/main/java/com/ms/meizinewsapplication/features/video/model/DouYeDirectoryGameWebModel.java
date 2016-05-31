@@ -8,7 +8,7 @@ import com.ms.meizinewsapplication.features.base.utils.tool.JsoupUtil;
 import com.ms.meizinewsapplication.features.video.pojo.VideoItem;
 import com.ms.meizinewsapplication.features.video.video_web.DouYuApi;
 import com.ms.meizinewsapplication.features.video.video_web.VideoApi;
-import com.ms.retrofitlibrary.util.RxJavaUtil;
+import com.ms.retrofitlibrary.util.rx.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyOkHttpClient;
 import com.ms.retrofitlibrary.web.MyStringRetrofit;
 

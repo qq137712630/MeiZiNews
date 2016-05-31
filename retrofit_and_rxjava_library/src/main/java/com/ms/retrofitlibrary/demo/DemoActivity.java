@@ -10,7 +10,7 @@ import com.ms.retrofitlibrary.demo.model.GitHubModel;
 import com.ms.retrofitlibrary.demo.model.OnDemoModelListener;
 import com.ms.retrofitlibrary.demo.pojo.Contributor;
 import com.ms.retrofitlibrary.demo.web.GitHub;
-import com.ms.retrofitlibrary.util.RxJavaUtil;
+import com.ms.retrofitlibrary.util.rx.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyGsonRetrofit;
 import com.ms.retrofitlibrary.web.MyStringRetrofit;
 

@@ -215,28 +215,15 @@ public class MeunIView extends ViewImpl {
         ((ViewGroup) navigationView.getHeaderView(0)).getChildAt(0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Window window = appCompatActivity.getWindow();
-//                // clear FLAG_TRANSLUCENT_STATUS flag:
-//                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//
-//                // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
-//                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
                 if (isDay) {
                     mColorful.setTheme(R.style.DayTheme);
 
-//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                        // finally change the color
-//                        window.setStatusBarColor(appCompatActivity.getResources().getColor(R.color.colorPrimaryDark));
-//                    }
+
                 } else {
 
                     mColorful.setTheme(R.style.NightTheme);
 
-//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                        // finally change the color
-//                        window.setStatusBarColor(appCompatActivity.getResources().getColor(R.color.material_blue_grey_700));
-//                    }
                 }
 
                 isDay = !isDay;

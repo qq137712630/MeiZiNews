@@ -4,7 +4,7 @@ import android.app.Activity;
 
 import com.ms.greendaolibrary.db.CollectEntity;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
-import com.ms.retrofitlibrary.util.RxJavaUtil;
+import com.ms.retrofitlibrary.util.rx.RxJavaUtil;
 
 import org.loader.model.OnModelListener;
 

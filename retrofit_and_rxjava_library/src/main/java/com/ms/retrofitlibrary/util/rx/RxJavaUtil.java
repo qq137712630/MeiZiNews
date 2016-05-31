@@ -1,4 +1,4 @@
-package com.ms.retrofitlibrary.util;
+package com.ms.retrofitlibrary.util.rx;
 
 
 import android.util.Log;

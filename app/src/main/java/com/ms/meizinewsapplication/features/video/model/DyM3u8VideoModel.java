@@ -7,7 +7,7 @@ import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.video.pojo.dy.DyHtml5;
 import com.ms.meizinewsapplication.features.video.video_web.DouYuApi;
 import com.ms.meizinewsapplication.features.video.video_web.VideoApi;
-import com.ms.retrofitlibrary.util.RxJavaUtil;
+import com.ms.retrofitlibrary.util.rx.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyGsonRetrofit;
 import com.ms.retrofitlibrary.web.MyOkHttpClient;
 

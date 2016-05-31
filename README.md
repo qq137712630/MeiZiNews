@@ -29,6 +29,14 @@
 
  - [收集了RxJava常见的使用场景，例子简洁、经典、易懂...](https://github.com/THEONE10211024/RxJavaSamples)
 
+## RxBus-事件总线
+
+按照以下顺序阅读的话，大概就理解如何使用了
+
+ 1 [翻译：通过 RxJava 实现一个 Event Bus – RxBus](https://drakeet.me/rxbus)
+ 2 [当EventBus遇上RxJava](http://www.easydone.cn/2016/03/29/)
+ 3 [RXBUS入门](http://www.james-ye.com/2016-04-07/rxbus%E5%85%A5%E9%97%A8.html)
+
 ## 取消订阅
 
  - [深入浅出RxJava四-在Android中使用响应式编程：CompositeSubscription取消订阅](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0426/2787.html)

@@ -6,7 +6,7 @@ import com.ms.meizinewsapplication.features.main.json.ZhihuDetail;
 import com.ms.meizinewsapplication.features.main.main_web.MainApi;
 import com.ms.meizinewsapplication.features.main.main_web.ZhiHuNews;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
-import com.ms.retrofitlibrary.util.RxJavaUtil;
+import com.ms.retrofitlibrary.util.rx.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyGsonRetrofit;
 import com.ms.retrofitlibrary.web.MyOkHttpClient;
 

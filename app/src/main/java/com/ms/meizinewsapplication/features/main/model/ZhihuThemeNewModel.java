@@ -9,7 +9,7 @@ import com.ms.meizinewsapplication.features.main.json.zhihu_theme.ZhihuThemeNew;
 import com.ms.meizinewsapplication.features.main.json.zhihu_theme.ZhihuThemes;
 import com.ms.meizinewsapplication.features.main.main_web.MainApi;
 import com.ms.meizinewsapplication.features.main.main_web.ZhiHuNews;
-import com.ms.retrofitlibrary.util.RxJavaUtil;
+import com.ms.retrofitlibrary.util.rx.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyGsonRetrofit;
 import com.ms.retrofitlibrary.web.MyOkHttpClient;
 

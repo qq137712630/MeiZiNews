@@ -8,7 +8,7 @@ import com.ms.meizinewsapplication.features.base.utils.tool.JsoupUtil;
 import com.ms.meizinewsapplication.features.meizi.meizi_web.DbGroup;
 import com.ms.meizinewsapplication.features.meizi.meizi_web.MeiZiApi;
 import com.ms.meizinewsapplication.features.base.pojo.ImgItem;
-import com.ms.retrofitlibrary.util.RxJavaUtil;
+import com.ms.retrofitlibrary.util.rx.RxJavaUtil;
 import com.ms.retrofitlibrary.web.MyStringRetrofit;
 
 import org.jsoup.nodes.Element;
