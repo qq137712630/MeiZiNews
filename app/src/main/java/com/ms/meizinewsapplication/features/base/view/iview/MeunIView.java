@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 import com.ms.meizinewsapplication.features.ad.activity.WdAdActivity;
+import com.ms.meizinewsapplication.features.base.event.ColorfulEvent;
 import com.ms.meizinewsapplication.features.base.fragment.FragmentPresenterImpl;
 import com.ms.meizinewsapplication.features.base.listener.MyActionBarDrawerToggle;
 import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
@@ -28,6 +29,7 @@ import com.ms.meizinewsapplication.features.main.activity.MainMvpActivity;
 import com.ms.meizinewsapplication.features.meizi.activity.MeiZiActivity;
 import com.ms.meizinewsapplication.features.video.activity.VideoPageActivity;
 import com.ms.mythemelibrary.lib.Colorful;
+import com.ms.retrofitlibrary.util.rx.RxBus;
 import com.test.basepageradapterlibrary.basepager.BaseFragmentPagerAdapter;
 
 import org.loader.view.ViewImpl;
@@ -216,6 +218,7 @@ public class MeunIView extends ViewImpl {
             @Override
             public void onClick(View v) {
 
+                RxBus.getInstance().post4HasObservers(new ColorfulEvent());
                 if (isDay) {
                     mColorful.setTheme(R.style.DayTheme);
 

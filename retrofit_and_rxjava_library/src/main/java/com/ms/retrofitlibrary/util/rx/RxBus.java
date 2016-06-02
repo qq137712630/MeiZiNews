@@ -34,4 +34,15 @@ public class RxBus {
     public boolean hasObservers() {
         return mRxBusObserverable.hasObservers();
     }
+
+    /**
+     * 有订阅者时，才发送事件
+     * @param o
+     */
+    public void post4HasObservers(Object o)
+    {
+        if (hasObservers()) {
+            post(o);
+        }
+    }
 }

@@ -10,8 +10,9 @@ import android.view.View;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.ms.meizinewsapplication.R;
+import com.ms.meizinewsapplication.features.base.event.ColorfulEvent;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
-import com.ms.meizinewsapplication.features.base.view.iview.SwipeRecyclerIView;
+import com.ms.meizinewsapplication.features.base.view.iview.RxBusSwipeRecyclerIView;
 import com.ms.meizinewsapplication.features.main.adapter.ZhiHuAdapter;
 import com.ms.meizinewsapplication.features.main.banner.ZhiHuTopBannerView;
 import com.ms.meizinewsapplication.features.main.json.Stories;
@@ -23,15 +24,9 @@ import java.util.List;
 /**
  * Created by 啟成 on 2016/3/4.
  */
-public class ZhiHuIView extends SwipeRecyclerIView {
+public class ZhiHuIView extends RxBusSwipeRecyclerIView {
     private ZhiHuAdapter zhiHuAdapter;
     private ConvenientBanner banner;
-
-    @Override
-    protected void initViews() {
-        super.initViews();
-
-    }
 
 
     //TODO init========================================
@@ -39,6 +34,7 @@ public class ZhiHuIView extends SwipeRecyclerIView {
     public void init(Activity activity) {
         initRecycler_list(activity);
         initBanner(recycler_list);
+        initColorful(activity);
     }
 
     //TODO View========================================
@@ -82,5 +78,21 @@ public class ZhiHuIView extends SwipeRecyclerIView {
                 return new ZhiHuTopBannerView();
             }
         }, data);
+    }
+
+    //TODO RxBus ==================================
+
+
+    @Override
+    public void eventColorful(ColorfulEvent colorfulEvent) {
+
+        if (!isDay) {
+            mColorful.setTheme(R.style.NightTheme);
+        } else {
+            mColorful.setTheme(R.style.DayTheme);
+        }
+
+        isDay = !isDay;
+
     }
 }

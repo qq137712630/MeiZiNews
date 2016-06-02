@@ -7,8 +7,8 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/text_padding"
     android:padding="@dimen/text_padding"
-    android:background="@color/material_white"
+    android:background="?attr/root_view_bg"
     android:lineSpacingMultiplier="1.2"
     android:text="类型一"
-    android:textColor="@color/material_black50"
+    android:textColor="?attr/text_color"
     android:textSize="@dimen/text_main" />

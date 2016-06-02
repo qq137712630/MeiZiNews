@@ -32,7 +32,7 @@
             android:minHeight="32dp">
 
             <TextView
-                android:id="@+id/story_title"
+                android:id="@+id/story_item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

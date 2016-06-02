@@ -36,6 +36,9 @@
  1 [翻译：通过 RxJava 实现一个 Event Bus – RxBus](https://drakeet.me/rxbus)
  2 [当EventBus遇上RxJava](http://www.easydone.cn/2016/03/29/)
  3 [RXBUS入门](http://www.james-ye.com/2016-04-07/rxbus%E5%85%A5%E9%97%A8.html)
+ 4 [做更好的RxBus：用RxJava实现事件总线(Event Bus)](http://www.jianshu.com/p/ca090f6e2fe2/)
+
+ [Subject解读：ReactiveX文档中文翻译](https://mcxiaoke.gitbooks.io/rxdocs/content/Subject.html)
 
 ## 取消订阅
 

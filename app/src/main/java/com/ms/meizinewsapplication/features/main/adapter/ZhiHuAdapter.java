@@ -51,7 +51,7 @@ public class ZhiHuAdapter extends BaseHeadTypeItemRecyclerAdapter<Stories> {
 
 //                helper.itemView.setTag(RealPosition);
                 final ImageView story_img = helper.getImageView(R.id.story_img);
-                TextView story_title = helper.getTextView(R.id.story_title);
+                TextView story_title = helper.getTextView(R.id.story_item_title);
 
                 story_title.setText(item.getTitle());
 

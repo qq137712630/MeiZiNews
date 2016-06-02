@@ -30,7 +30,7 @@ public class MySearchAdapter extends QuickAdapter<HtmlEntity> {
 
     @Override
     protected void convert(final BaseAdapterHelper helper, final HtmlEntity item, int position) {
-        helper.getTextView(R.id.story_title).setText(item.getTitle());
+        helper.getTextView(R.id.story_item_title).setText(item.getTitle());
 
         if (TextUtils.isEmpty(item.getSummary())) {
             helper.getTextView(R.id.story_excerpt).setVisibility(View.GONE);

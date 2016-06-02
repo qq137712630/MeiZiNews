@@ -37,7 +37,7 @@ public class CollectAdapter extends BaseTypeItemQuickAdapter<HtmlEntity> {
                 helper.getTextView(R.id.tv_type).setText(item.getTitle());
                 break;
             case TYPE_ITEM:
-                helper.getTextView(R.id.story_title).setText(item.getTitle());
+                helper.getTextView(R.id.story_item_title).setText(item.getTitle());
                 helper.getTextView(R.id.story_excerpt).setVisibility(View.GONE);
                 helper.getTextView(R.id.story_author).setVisibility(View.GONE);
                 helper.getTextView(R.id.story_date).setVisibility(View.GONE);

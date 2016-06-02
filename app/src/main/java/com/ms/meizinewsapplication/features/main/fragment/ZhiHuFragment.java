@@ -39,8 +39,16 @@ public class ZhiHuFragment extends FragmentPresenterImpl<ZhiHuIView> {
         mView.init(getActivity());
         initZhiHuLatestModel(zhiHuContext);
         initZhiHuBeforeModel();
+        initEvent();
         mView.setOnRefreshListener(onRefreshListener);
         mView.addOnScrollListener(onScrollListener);
+    }
+
+    //TODO Event========================================================
+
+    private void initEvent()
+    {
+        addSubscription(mView.rxBusEvent());
     }
 
     //TODO Model======================================================

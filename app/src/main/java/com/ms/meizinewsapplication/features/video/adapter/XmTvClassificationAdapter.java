@@ -34,7 +34,7 @@ public class XmTvClassificationAdapter extends QuickAdapter<Items> {
     @Override
     protected void convert(BaseAdapterHelper helper, final Items item, int position) {
         final RadioImageView story_img = (RadioImageView) helper.getView(R.id.story_img);
-        TextView story_title = helper.getTextView(R.id.story_title);
+        TextView story_title = helper.getTextView(R.id.story_item_title);
 
         story_title.setText(item.getName());
         Glide.with(helper.itemView.getContext())

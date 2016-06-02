@@ -40,7 +40,7 @@ public class ImageAdapter<T extends ImgItem> extends QuickAdapter<T> {
     @Override
     protected void convert(final BaseAdapterHelper helper, T item, int position) {
         final RadioImageView story_img = (RadioImageView) helper.getView(R.id.story_img);
-        TextView story_title = helper.getTextView(R.id.story_title);
+        TextView story_title = helper.getTextView(R.id.story_item_title);
 
         story_title.setText(item.getStory_title());
         Glide.with(helper.itemView.getContext())

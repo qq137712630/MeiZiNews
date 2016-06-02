@@ -81,7 +81,7 @@ public class ZhihuThemesAdapter extends BaseTypeItemQuickAdapter<Story> {
             case TYPE_ITEM:
 
                 final ImageView story_img = helper.getImageView(R.id.story_img);
-                final TextView story_title = helper.getTextView(R.id.story_title);
+                final TextView story_title = helper.getTextView(R.id.story_item_title);
 
                 story_title.setText(item.getTitle());
 
