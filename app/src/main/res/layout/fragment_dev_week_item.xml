@@ -21,7 +21,7 @@
             android:paddingLeft="@dimen/text_padding"
             android:paddingStart="@dimen/text_padding"
             android:text="Android开发技术周报 Issue#73"
-            android:textColor="@color/cardview_dark_background"
+            android:textColor="?attr/text_item_color"
             android:textSize="@dimen/text_title"
             android:textStyle="bold"
             tools:ignore="RtlSymmetry" />

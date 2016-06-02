@@ -15,7 +15,7 @@ import rx.functions.Action1;
  * [RecyclerView完全解析之下拉刷新与上拉加载SwipeRefreshLayout](http://www.lcode.org/recyclerview%E5%AE%8C%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B9%8B%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0%E4%B8%8E%E4%B8%8A%E6%8B%89%E5%8A%A0%E8%BD%BDswiperefreshlayout/)
  * Created by 啟成 on 2016/3/4.
  */
-public abstract class RxBusSwipeRecyclerIView extends SwipeRecyclerIView {
+public class RxBusSwipeRecyclerIView extends SwipeRecyclerIView {
 
     protected Colorful mColorful;
 
@@ -29,11 +29,11 @@ public abstract class RxBusSwipeRecyclerIView extends SwipeRecyclerIView {
         );
         recyclerViewSetter.childViewTextColor(
                 R.id.tv_type,
-                R.attr.text_color
+                R.attr.text_item_color
         );
         recyclerViewSetter.childViewTextColor(
                 R.id.story_item_title,
-                R.attr.text_color
+                R.attr.text_item_color
         );
         recyclerViewSetter.childViewBgColor(
                 R.id.tv_type,
@@ -68,5 +68,15 @@ public abstract class RxBusSwipeRecyclerIView extends SwipeRecyclerIView {
         });
     }
 
-    public abstract void eventColorful(ColorfulEvent colorfulEvent);
+    public void eventColorful(ColorfulEvent colorfulEvent) {
+
+        if (!isDay) {
+            mColorful.setTheme(R.style.NightTheme);
+        } else {
+            mColorful.setTheme(R.style.DayTheme);
+        }
+
+        isDay = !isDay;
+
+    }
 }

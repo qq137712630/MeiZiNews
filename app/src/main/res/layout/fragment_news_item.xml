@@ -38,7 +38,7 @@
             android:lineSpacingMultiplier="1.2"
             android:paddingLeft="10dp"
             android:text="如何看待当下这种越来越普遍的“沉默”人格？"
-            android:textColor="?attr/text_color"
+            android:textColor="?attr/text_item_color"
             android:textSize="16sp"
             android:transitionName="@string/share_title"
             tools:ignore="RtlSymmetry" />

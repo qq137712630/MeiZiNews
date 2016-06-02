@@ -10,7 +10,6 @@ import android.view.View;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.base.event.ColorfulEvent;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
 import com.ms.meizinewsapplication.features.base.view.iview.RxBusSwipeRecyclerIView;
 import com.ms.meizinewsapplication.features.main.adapter.ZhiHuAdapter;
@@ -82,17 +81,4 @@ public class ZhiHuIView extends RxBusSwipeRecyclerIView {
 
     //TODO RxBus ==================================
 
-
-    @Override
-    public void eventColorful(ColorfulEvent colorfulEvent) {
-
-        if (!isDay) {
-            mColorful.setTheme(R.style.NightTheme);
-        } else {
-            mColorful.setTheme(R.style.DayTheme);
-        }
-
-        isDay = !isDay;
-
-    }
 }

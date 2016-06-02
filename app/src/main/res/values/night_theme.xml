@@ -11,6 +11,9 @@
         <item name="android:itemBackground">@color/material_blue_grey_700</item>
 
         <item name="text_color">@color/material_blue_grey_400</item>
+        <item name="text_item_color">@color/material_blue_grey_400</item>
+
+
         <item name="root_view_bg">@color/material_blue_grey_900</item>
 
         <item name="centerColor">@color/material_black</item>

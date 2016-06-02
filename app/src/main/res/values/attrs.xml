@@ -8,6 +8,7 @@
     <attr name="btn_bg" format="reference|color" />
     <!--字体-->
     <attr name="text_color" format="reference|color" />
+    <attr name="text_item_color" format="reference|color" />
 
     <attr name="centerColor" format="reference|color" />
     <attr name="startColor" format="reference|color" />
