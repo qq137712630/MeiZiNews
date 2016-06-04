@@ -5,7 +5,7 @@ import android.app.Activity;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.event.ColorfulEvent;
 import com.ms.mythemelibrary.lib.Colorful;
-import com.ms.mythemelibrary.lib.setter.ViewGroupSetter;
+import com.ms.mythemelibrary.lib.setter.RecyclerViewSetter;
 import com.ms.retrofitlibrary.util.rx.RxBus;
 
 import rx.Subscription;
@@ -23,7 +23,7 @@ public class RxBusSwipeRecyclerIView extends SwipeRecyclerIView {
 
 
     public void initColorful(Activity activity) {
-        ViewGroupSetter recyclerViewSetter = new ViewGroupSetter(
+        RecyclerViewSetter recyclerViewSetter = new RecyclerViewSetter(
                 recycler_list,
                 0
         );
