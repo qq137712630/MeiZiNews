@@ -95,35 +95,37 @@ public class RecyclerViewSetter extends ViewSetter {
     }
 
     private void clearRecyclerViewRecyclerBin(View rootView) {
-        if (rootView instanceof RecyclerView) {
-            try {
-                Field localField = RecyclerView.class
-                        .getDeclaredField("mRecycler");
-                localField.setAccessible(true);
-                Method localMethod = Class.forName(
-                        "android.support.v7.widget.RecyclerView$Recycler")
-                        .getDeclaredMethod("clear", new Class[0]);
-                localMethod.setAccessible(true);
-                localMethod.invoke(localField.get(rootView), new Object[0]);
-                Log.e("", "### 清空RecyclerView的Recycer ");
-                rootView.invalidate();
 
-                ((RecyclerView) rootView).getRecycledViewPool().clear();
+        boolean isRecyclerView = rootView instanceof RecyclerView;
+        if (!isRecyclerView) {
+            return;
+        }
+        try {
+            Field localField = RecyclerView.class
+                    .getDeclaredField("mRecycler");
+            localField.setAccessible(true);
+            Method localMethod = Class.forName(
+                    "android.support.v7.widget.RecyclerView$Recycler")
+                    .getDeclaredMethod("clear", new Class[0]);
+            localMethod.setAccessible(true);
+            localMethod.invoke(localField.get(rootView), new Object[0]);
+            Log.e("", "### 清空RecyclerView的Recycer ");
+            rootView.invalidate();
 
-            } catch (NoSuchFieldException e1) {
-                e1.printStackTrace();
-            } catch (ClassNotFoundException e2) {
-                e2.printStackTrace();
-            } catch (NoSuchMethodException e3) {
-                e3.printStackTrace();
-            } catch (IllegalAccessException e4) {
-                e4.printStackTrace();
-            } catch (InvocationTargetException e5) {
-                e5.printStackTrace();
-            }
+
+        } catch (NoSuchFieldException e1) {
+            e1.printStackTrace();
+        } catch (ClassNotFoundException e2) {
+            e2.printStackTrace();
+        } catch (NoSuchMethodException e3) {
+            e3.printStackTrace();
+        } catch (IllegalAccessException e4) {
+            e4.printStackTrace();
+        } catch (InvocationTargetException e5) {
+            e5.printStackTrace();
         }
 
-
+        ((RecyclerView) rootView).getRecycledViewPool().clear();
     }
 
 }
