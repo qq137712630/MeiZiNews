@@ -25,6 +25,38 @@
 
 ---
 
+#夜间模式：Colorful
+
+## 问题
+
+### RecyclerView的个别item的颜色还是前一个主题的
+
+[地址：https://github.com/hehonghui/Colorful/issues/5](https://github.com/hehonghui/Colorful/issues/5)
+
+    最后我在 clearRecyclerViewRecyclerBin下， 增加((RecyclerView) rootView).getRecycledViewPool().clear();`解决了
+
+    public class RecyclerViewSetter extends ViewGroupSetter {
+
+
+        public RecyclerViewSetter(ViewGroup targetView, int resId) {
+            super(targetView, resId);
+        }
+
+        public RecyclerViewSetter(ViewGroup targetView) {
+            super(targetView);
+        }
+
+        @Override
+        protected void clearRecyclerViewRecyclerBin(View rootView) {
+            super.clearRecyclerViewRecyclerBin(rootView);
+
+            ((RecyclerView) rootView).getRecycledViewPool().clear();
+        }
+
+    }
+
+---
+
 #RxJava
 
  - [收集了RxJava常见的使用场景，例子简洁、经典、易懂...](https://github.com/THEONE10211024/RxJavaSamples)
