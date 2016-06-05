@@ -2,10 +2,14 @@ package com.ms.mythemelibrary.lib.setter;
 
 import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.test.basequickadapterlib.BaseAdapterHelper;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +19,7 @@ import java.util.Set;
 public class RecyclerViewSetter extends ViewSetter {
 
     /**
-     * ListView的子视图的Setter
+     * RecyclerView的子视图的Setter
      */
     protected Set<ViewSetter> mItemViewSetters = new HashSet<ViewSetter>();
 
@@ -67,6 +71,8 @@ public class RecyclerViewSetter extends ViewSetter {
     @Override
     public void setValue(Resources.Theme newTheme, int themeId) {
 
+        clearRecyclerViewRecyclerBin(mView);
+
         // 遍历子元素与要修改的属性,如果相同那么则修改子View的属性
         for (ViewSetter setter : mItemViewSetters) {
 
@@ -87,4 +93,37 @@ public class RecyclerViewSetter extends ViewSetter {
             }
         }
     }
+
+    private void clearRecyclerViewRecyclerBin(View rootView) {
+        if (rootView instanceof RecyclerView) {
+            try {
+                Field localField = RecyclerView.class
+                        .getDeclaredField("mRecycler");
+                localField.setAccessible(true);
+                Method localMethod = Class.forName(
+                        "android.support.v7.widget.RecyclerView$Recycler")
+                        .getDeclaredMethod("clear", new Class[0]);
+                localMethod.setAccessible(true);
+                localMethod.invoke(localField.get(rootView), new Object[0]);
+                Log.e("", "### 清空RecyclerView的Recycer ");
+                rootView.invalidate();
+
+                ((RecyclerView) rootView).getRecycledViewPool().clear();
+
+            } catch (NoSuchFieldException e1) {
+                e1.printStackTrace();
+            } catch (ClassNotFoundException e2) {
+                e2.printStackTrace();
+            } catch (NoSuchMethodException e3) {
+                e3.printStackTrace();
+            } catch (IllegalAccessException e4) {
+                e4.printStackTrace();
+            } catch (InvocationTargetException e5) {
+                e5.printStackTrace();
+            }
+        }
+
+
+    }
+
 }
