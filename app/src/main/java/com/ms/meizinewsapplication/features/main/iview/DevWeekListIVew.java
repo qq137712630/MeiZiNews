@@ -40,6 +40,24 @@ public class DevWeekListIVew extends RxBusSwipeRecyclerIView {
         recycler_list.setAdapter(androidDevWeekAdapter);
     }
 
+    @Override
+    protected void initRecyclerViewSetter() {
+        super.initRecyclerViewSetter();
+
+        recyclerViewSetter.childViewTextColor(
+                R.id.story_excerpt,
+                R.attr.text_item_color
+        );
+        recyclerViewSetter.childViewTextColor(
+                R.id.story_author,
+                R.attr.text_item_color
+        );
+        recyclerViewSetter.childViewTextColor(
+                R.id.story_date,
+                R.attr.text_item_color
+        );
+    }
+
     //TODO Model======================================================
 
     public void addDatas2QuickAdapter(ArrayList<AndroidDevWeek> androidDevWeeks) {

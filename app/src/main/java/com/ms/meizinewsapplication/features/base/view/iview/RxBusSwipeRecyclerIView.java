@@ -18,12 +18,22 @@ import rx.functions.Action1;
 public class RxBusSwipeRecyclerIView extends SwipeRecyclerIView {
 
     protected Colorful mColorful;
+    protected RecyclerViewSetter recyclerViewSetter;
 
     protected boolean isDay = true;
 
 
     public void initColorful(Activity activity) {
-        RecyclerViewSetter recyclerViewSetter = new RecyclerViewSetter(
+
+        initRecyclerViewSetter();
+        mColorful = new Colorful.Builder(activity)
+                .setter(recyclerViewSetter) // 手动设置setter
+                .create();
+    }
+
+    protected void initRecyclerViewSetter()
+    {
+        recyclerViewSetter = new RecyclerViewSetter(
                 recycler_list,
                 0
         );
@@ -44,10 +54,6 @@ public class RxBusSwipeRecyclerIView extends SwipeRecyclerIView {
                 R.attr.root_view_bg
         );
 
-
-        mColorful = new Colorful.Builder(activity)
-                .setter(recyclerViewSetter) // 手动设置setter
-                .create();
     }
 
 

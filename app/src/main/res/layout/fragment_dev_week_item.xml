@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?><!--[ANDROID L——Material Design详解（动画篇）](http://blog.csdn.net/a396901990/article/details/40187203)-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/story_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/material_white"
+    android:background="?attr/root_view_bg"
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/story_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
@@ -36,7 +36,7 @@
             android:paddingRight="@dimen/text_padding"
             android:paddingStart="@dimen/text_padding"
             android:text="新闻 Android 7.0发布时间曝光 预计今年夏季推出 最近在手机操作系统方面的焦点自然就是iOS9.3正式版系统将与本月21日正式推送，诸多的新功能的加入以及修善多种致命BUG让人越发是期待不已，而另一边安卓阵营也是丝毫没有休着，因为Android 7.0也接连曝光了。 教 »"
-            android:textColor="@color/material_black50"
+            android:textColor="?attr/text_item_color"
             android:textSize="@dimen/text_main"
             tools:ignore="RtlSymmetry" />
 
@@ -52,7 +52,7 @@
                 android:paddingLeft="@dimen/text_padding"
                 android:paddingStart="@dimen/text_padding"
                 android:text="作者：脉脉不得语"
-                android:textColor="@color/material_black50"
+                android:textColor="?attr/text_item_color"
                 android:textSize="@dimen/text_main"
                 tools:ignore="RtlSymmetry" />
 
@@ -66,7 +66,7 @@
                 android:paddingEnd="@dimen/text_padding"
                 android:paddingRight="@dimen/text_padding"
                 android:text="2016年03月20日"
-                android:textColor="@color/material_black50"
+                android:textColor="?attr/text_item_color"
                 android:textSize="@dimen/text_main"
                 tools:ignore="RtlSymmetry" />
 
