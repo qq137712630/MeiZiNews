@@ -1,5 +1,6 @@
 package com.ms.meizinewsapplication.features.main.iview;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,8 +22,9 @@ public class DevWeekListIVew extends RxBusSwipeRecyclerIView {
 
     //TODO init========================================
 
-    public void init(Context context) {
-        initRecycler_list(context);
+    public void init(Activity activity) {
+        initRecycler_list(activity);
+        initColorful(activity);
     }
 
     //TODO View========================================

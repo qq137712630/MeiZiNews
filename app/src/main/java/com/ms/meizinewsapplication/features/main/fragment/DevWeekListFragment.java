@@ -29,10 +29,19 @@ public class DevWeekListFragment extends FragmentPresenterImpl<DevWeekListIVew> 
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
         mContext = getContext();
-        mView.init(mContext);
+        mView.init(getActivity());
         mView.setOnRefreshListener(onRefreshListener);
         mView.addOnScrollListener(onScrollListener);
         initDevWeekModel();
+        initEvent();
+    }
+
+
+    //TODO Event========================================================
+
+    private void initEvent()
+    {
+        addSubscription(mView.rxBusEvent());
     }
 
     //TODO Model====================================================
