@@ -6,7 +6,7 @@ import android.view.Menu;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
-import com.ms.meizinewsapplication.features.base.view.iview.MeunIView;
+import com.ms.meizinewsapplication.features.base.view.iview.RxBusMeunIView;
 import com.ms.meizinewsapplication.features.main.fragment.DevWeekListFragment;
 import com.ms.meizinewsapplication.features.main.fragment.ZhiHuFragment;
 import com.ms.meizinewsapplication.features.main.fragment.ZhihuThemesFragment;
@@ -18,7 +18,7 @@ import com.ms.meizinewsapplication.features.main.fragment.ZhihuThemesFragment;
         menuDefaultCheckedItem = R.id.nav_news,
         toolbarTitle = R.string.ic_news
 )
-public class MainIView extends MeunIView {
+public class MainIView extends RxBusMeunIView {
 
 
 

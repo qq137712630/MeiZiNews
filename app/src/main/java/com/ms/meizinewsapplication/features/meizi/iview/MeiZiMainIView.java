@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
-import com.ms.meizinewsapplication.features.base.view.iview.MeunIView;
+import com.ms.meizinewsapplication.features.base.view.iview.RxBusMeunIView;
 import com.ms.meizinewsapplication.features.meizi.fragment.DBMeiNuFragment;
 import com.ms.meizinewsapplication.features.meizi.fragment.MzituFragment;
 
@@ -15,7 +15,7 @@ import com.ms.meizinewsapplication.features.meizi.fragment.MzituFragment;
         menuDefaultCheckedItem = R.id.nav_meizi,
         toolbarTitle = R.string.ic_meizi
 )
-public class MeiZiMainIView extends MeunIView {
+public class MeiZiMainIView extends RxBusMeunIView {
 
     @Override
     public void initFragments(AppCompatActivity appCompatActivity) {

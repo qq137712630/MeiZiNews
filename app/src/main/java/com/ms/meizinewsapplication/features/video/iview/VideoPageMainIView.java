@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
-import com.ms.meizinewsapplication.features.base.view.iview.MeunIView;
+import com.ms.meizinewsapplication.features.base.view.iview.RxBusMeunIView;
 import com.ms.meizinewsapplication.features.video.fragment.DyPageFragment;
 import com.ms.meizinewsapplication.features.video.fragment.XmTvPageFragment;
 
@@ -15,7 +15,7 @@ import com.ms.meizinewsapplication.features.video.fragment.XmTvPageFragment;
         menuDefaultCheckedItem = R.id.nav_slideshow,
         toolbarTitle = R.string.ic_video
 )
-public class VideoPageMainIView extends MeunIView {
+public class VideoPageMainIView extends RxBusMeunIView {
 
     @Override
     public void initFragments(AppCompatActivity appCompatActivity) {
