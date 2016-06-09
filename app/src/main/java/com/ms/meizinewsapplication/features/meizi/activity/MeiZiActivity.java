@@ -14,6 +14,7 @@ public class MeiZiActivity extends BaseActivityPresenterImpl<MeiZiMainIView> {
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
         mView.init(this);
+        initEvent();
     }
 
     @Override
@@ -24,4 +25,13 @@ public class MeiZiActivity extends BaseActivityPresenterImpl<MeiZiMainIView> {
         }
         super.onBackPressed();
     }
+
+
+    //TODO Event========================================================
+
+    private void initEvent()
+    {
+        addSubscription(mView.rxBusEvent());
+    }
+
 }

@@ -23,6 +23,7 @@ public class MainMvpActivity extends BaseActivityPresenterImpl<MainIView> {
 
         mView.init(this);
         mView.setOnMenuItemClickListener(onMenuItemClickListener);
+        initEvent();
     }
 
     @Override
@@ -37,6 +38,14 @@ public class MainMvpActivity extends BaseActivityPresenterImpl<MainIView> {
     public boolean onCreateOptionsMenu(Menu menu) {
         return mView.onCreateOptionsMenu(MainMvpActivity.this, menu);
     }
+
+    //TODO Event========================================================
+
+    private void initEvent()
+    {
+        addSubscription(mView.rxBusEvent());
+    }
+
 
     //TODO Listener====================
 

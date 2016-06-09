@@ -12,6 +12,9 @@ import com.ms.meizinewsapplication.features.base.utils.tool.MyProfile;
 import com.ms.mythemelibrary.lib.Colorful;
 import com.ms.retrofitlibrary.util.rx.RxBus;
 
+import rx.Subscription;
+import rx.functions.Action1;
+
 /**
  * Created by 啟成 on 2016/3/2.
  */
@@ -23,8 +26,6 @@ public class RxBusMeunIView extends MeunIView {
 
 
     protected Colorful mColorful;
-
-    protected boolean isDay = true;
 
 
     //TODO init==================================================
@@ -77,8 +78,7 @@ public class RxBusMeunIView extends MeunIView {
     protected void setTheme() {
         boolean isDay = MyProfile.getInstance(appCompatActivity).getTheme().equals(ConstantData.MY_PROFILE_THEME_DAY);
         isDay = !isDay;
-
-        RxBus.getInstance().post4HasObservers(new ColorfulEvent());
+        rxColorfulEvent(new ColorfulEvent());
         setTheme(isDay);
 
         MyProfile.getInstance(appCompatActivity).setTheme(isDay);
@@ -95,4 +95,30 @@ public class RxBusMeunIView extends MeunIView {
         }
     }
 
+    //TODO RxBus ===========================================
+
+    public void rxColorfulEvent(ColorfulEvent colorfulEvent) {
+        RxBus.getInstance().post4HasObservers(colorfulEvent);
+    }
+
+    public Subscription rxBusEvent() {
+        return RxBus.getInstance().toObserverable().subscribe(new Action1<Object>() {
+            @Override
+            public void call(Object o) {
+
+                if (o instanceof ColorfulEvent) {
+                    eventColorful((ColorfulEvent) o);
+                }
+
+            }
+        });
+    }
+
+
+    public void eventColorful(ColorfulEvent colorfulEvent) {
+
+        boolean isDay = !MyProfile.getInstance(appCompatActivity).getTheme().equals(ConstantData.MY_PROFILE_THEME_DAY);
+        setTheme(isDay);
+
+    }
 }

@@ -14,6 +14,7 @@ public class VideoPageActivity extends BaseActivityPresenterImpl<VideoPageMainIV
     public void created(Bundle savedInstance) {
         super.created(savedInstance);
         mView.init(this);
+        initEvent();
     }
 
     @Override
@@ -23,5 +24,13 @@ public class VideoPageActivity extends BaseActivityPresenterImpl<VideoPageMainIV
             return;
         }
         super.onBackPressed();
+    }
+
+
+    //TODO Event========================================================
+
+    private void initEvent()
+    {
+        addSubscription(mView.rxBusEvent());
     }
 }
