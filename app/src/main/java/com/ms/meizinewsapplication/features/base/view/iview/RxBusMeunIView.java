@@ -69,8 +69,6 @@ public class RxBusMeunIView extends MeunIView {
         ((ViewGroup) navigationView.getHeaderView(0)).getChildAt(0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 setTheme();
             }
         });
@@ -80,6 +78,7 @@ public class RxBusMeunIView extends MeunIView {
         boolean isDay = MyProfile.getInstance(appCompatActivity).getTheme().equals(ConstantData.MY_PROFILE_THEME_DAY);
         isDay = !isDay;
 
+        RxBus.getInstance().post4HasObservers(new ColorfulEvent());
         setTheme(isDay);
 
         MyProfile.getInstance(appCompatActivity).setTheme(isDay);
@@ -89,7 +88,6 @@ public class RxBusMeunIView extends MeunIView {
 
     protected void setTheme(boolean isDay) {
 
-        RxBus.getInstance().post4HasObservers(new ColorfulEvent());
         if (isDay) {
             mColorful.setTheme(R.style.DayTheme);
         } else {

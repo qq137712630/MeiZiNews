@@ -14,7 +14,9 @@ import android.widget.TextView;
 import com.hhl.library.FlowTagLayout;
 import com.hhl.library.OnTagClickListener;
 import com.ms.meizinewsapplication.R;
+import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
+import com.ms.meizinewsapplication.features.base.utils.tool.MyProfile;
 import com.ms.meizinewsapplication.features.base.view.iview.RxBusRecyclerIView;
 import com.ms.meizinewsapplication.features.main.adapter.ZhihuThemeTagAdapter;
 import com.ms.meizinewsapplication.features.main.adapter.ZhihuThemesAdapter;
@@ -79,6 +81,7 @@ public class ZhihuThemesIView extends RxBusRecyclerIView {
 
     @Override
     public void initColorful(Activity activity) {
+        this.activity = activity;
         initRecyclerViewSetter();
         mColorful = new Colorful.Builder(activity)
                 .backgroundColor(lin_drawer, R.attr.root_view_bg)
@@ -86,6 +89,10 @@ public class ZhihuThemesIView extends RxBusRecyclerIView {
                 .textColor(tv_arrow, R.attr.text_item_color)
                 .setter(recyclerViewSetter) // 手动设置setter
                 .create();
+
+        isDay = MyProfile.getInstance(activity).getTheme().equals(ConstantData.MY_PROFILE_THEME_DAY);
+
+        setTheme(isDay);
     }
     //TODO view ============================================
 

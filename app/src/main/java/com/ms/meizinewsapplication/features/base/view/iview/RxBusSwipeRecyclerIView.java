@@ -23,9 +23,11 @@ public class RxBusSwipeRecyclerIView extends SwipeRecyclerIView {
     protected RecyclerViewSetter recyclerViewSetter;
 
     protected boolean isDay = true;
-
+    protected Activity activity;
 
     public void initColorful(Activity activity) {
+
+        this.activity = activity;
 
         initRecyclerViewSetter();
         mColorful = new Colorful.Builder(activity)
@@ -81,7 +83,7 @@ public class RxBusSwipeRecyclerIView extends SwipeRecyclerIView {
 
     public void eventColorful(ColorfulEvent colorfulEvent) {
 
-        isDay = !isDay;
+        isDay = !MyProfile.getInstance(activity).getTheme().equals(ConstantData.MY_PROFILE_THEME_DAY);
         setTheme(isDay);
 
     }
