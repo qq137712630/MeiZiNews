@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ import com.ms.meizinewsapplication.features.base.view.iview.RxBusRecyclerIView;
 import com.ms.meizinewsapplication.features.main.adapter.ZhihuThemeTagAdapter;
 import com.ms.meizinewsapplication.features.main.adapter.ZhihuThemesAdapter;
 import com.ms.meizinewsapplication.features.main.json.zhihu_theme.Story;
+import com.ms.mythemelibrary.lib.Colorful;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,7 @@ public class ZhihuThemesIView extends RxBusRecyclerIView {
     private FlowTagLayout flow_tag;
     private RelativeLayout rl_arrow;
     private TextView tv_arrow;
+    private LinearLayout lin_drawer;
 
     private ZhihuThemeTagAdapter zhihuThemeTagAdapter;
 
@@ -54,7 +57,7 @@ public class ZhihuThemesIView extends RxBusRecyclerIView {
         flow_tag = findViewById(R.id.flow_tag);
         rl_arrow = findViewById(R.id.rl_arrow);
         tv_arrow = findViewById(R.id.tv_arrow);
-
+        lin_drawer = findViewById(R.id.lin_drawer);
     }
 
     //TODO init========================================
@@ -73,6 +76,17 @@ public class ZhihuThemesIView extends RxBusRecyclerIView {
 
     }
 
+
+    @Override
+    public void initColorful(Activity activity) {
+        initRecyclerViewSetter();
+        mColorful = new Colorful.Builder(activity)
+                .backgroundColor(lin_drawer, R.attr.root_view_bg)
+                .backgroundColor(rl_arrow, R.attr.root_view_bg)
+                .textColor(tv_arrow, R.attr.text_item_color)
+                .setter(recyclerViewSetter) // 手动设置setter
+                .create();
+    }
     //TODO view ============================================
 
     private void initRecycler_list(final Activity activity) {
@@ -159,12 +173,11 @@ public class ZhihuThemesIView extends RxBusRecyclerIView {
     }
 
     public void addAllTagData(ArrayList<Story> stories) {
-        DebugUtil.debugLogD(zhihuThemeTagAdapter.getCount() + "++++RealPosition:" + stories.get(stories.size()-1).getTitle());
+        DebugUtil.debugLogD(zhihuThemeTagAdapter.getCount() + "++++RealPosition:" + stories.get(stories.size() - 1).getTitle());
         zhihuThemeTagAdapter.onlyAddAll(stories);
     }
 
-    public void addItemData(Story story)
-    {
+    public void addItemData(Story story) {
         DebugUtil.debugLogD(zhihuThemeTagAdapter.getCount() + "++++story:" + story.getTitle());
         zhihuThemeTagAdapter.addItem(story);
     }

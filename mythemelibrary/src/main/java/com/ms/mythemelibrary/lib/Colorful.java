@@ -142,6 +142,10 @@ public final class Colorful {
             mElements.add(new TextColorSetter(textView, colorId));
             return this;
         }
+        public Builder textColor(TextView textView, int colorId) {
+            mElements.add(new TextColorSetter(textView, colorId));
+            return this;
+        }
 
 
         public Builder navigationViewItemColor(int viewId, int colorId) {

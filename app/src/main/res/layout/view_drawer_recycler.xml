@@ -11,13 +11,13 @@
         android:id="@+id/cv_img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
         card_view:cardCornerRadius="0dp"
         card_view:cardElevation="1dp">
 
         <RelativeLayout
             android:id="@+id/rl_arrow"
             android:layout_width="match_parent"
+            android:background="?attr/root_view_bg"
             android:layout_height="wrap_content">
 
             <TextView
@@ -26,7 +26,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:lineSpacingMultiplier="1.2"
+                android:textColor="?attr/text_item_color"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:text="主题日报"
                 android:textSize="20sp" />
 
@@ -35,7 +37,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_alignParentRight="true"
-                android:background="?attr/selectableItemBackgroundBorderless"
                 android:paddingLeft="0dp"
                 android:src="@mipmap/ic_arrow_down_black" />
 
@@ -58,10 +59,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/drawer"
+            android:id="@+id/lin_drawer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/white"
+            android:background="?attr/root_view_bg"
             android:gravity="center_horizontal"
             android:clickable="true"
             android:orientation="vertical">
