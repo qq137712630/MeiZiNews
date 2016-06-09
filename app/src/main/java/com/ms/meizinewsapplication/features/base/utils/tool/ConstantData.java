@@ -16,4 +16,8 @@ public class ConstantData {
     public static final String DB_HTML_TYPE_IMGLIST = "3";//数据类型：图集
     public static final String DB_HTML_COLLECT_YES = "1";//已收藏
     public static final String DB_HTML_COLLECT_NO = "0";//未收藏
+
+    public static final String MY_PROFILE_THEME = "THEME";
+    public static final String MY_PROFILE_THEME_NIGHT = "0";
+    public static final String MY_PROFILE_THEME_DAY = "1";
 }
