@@ -29,7 +29,17 @@ public class ZhihuThemesFragment extends FragmentPresenterImpl<ZhihuThemesIView>
         mView.init(getActivity());
         initModel();
         loadWeb();
+        initEvent();
     }
+
+
+    //TODO Event========================================================
+
+    private void initEvent()
+    {
+        addSubscription(mView.rxBusEvent());
+    }
+
 
     //TODO Model ========================================================
 

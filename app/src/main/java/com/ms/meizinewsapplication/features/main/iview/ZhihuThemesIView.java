@@ -14,7 +14,7 @@ import com.hhl.library.FlowTagLayout;
 import com.hhl.library.OnTagClickListener;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.utils.tool.DebugUtil;
-import com.ms.meizinewsapplication.features.base.view.iview.RecyclerIView;
+import com.ms.meizinewsapplication.features.base.view.iview.RxBusRecyclerIView;
 import com.ms.meizinewsapplication.features.main.adapter.ZhihuThemeTagAdapter;
 import com.ms.meizinewsapplication.features.main.adapter.ZhihuThemesAdapter;
 import com.ms.meizinewsapplication.features.main.json.zhihu_theme.Story;
@@ -27,7 +27,7 @@ import me.corer.verticaldrawerlayout.VerticalDrawerLayout;
 /**
  * Created by 啟成 on 2016/5/21.
  */
-public class ZhihuThemesIView extends RecyclerIView {
+public class ZhihuThemesIView extends RxBusRecyclerIView {
 
     private ZhihuThemesAdapter zhihuThemesAdapter;
     private VerticalDrawerLayout vertical_drawer;
@@ -63,6 +63,9 @@ public class ZhihuThemesIView extends RecyclerIView {
         initRecycler_list(activity);
 
         initZhihuThemeTagAdapter(activity);
+
+        initColorful(activity);
+
         setTagAdapter();
         setOnTagClickListener();
         setDrawerListener();
