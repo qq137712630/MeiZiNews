@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
 import com.ms.meizinewsapplication.features.base.event.ColorfulEvent;
+import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
+import com.ms.meizinewsapplication.features.base.utils.tool.MyProfile;
 import com.ms.mythemelibrary.lib.Colorful;
 import com.ms.retrofitlibrary.util.rx.RxBus;
 
@@ -39,7 +41,6 @@ public class RxBusMeunIView extends MeunIView {
 
     public void initColorful(AppCompatActivity appCompatActivity) {
 
-
         mColorful = new Colorful.Builder(appCompatActivity)
                 // 设置view的背景
                 .backgroundColor(navigationView.getHeaderView(0), R.attr.side_nav_bar)
@@ -53,6 +54,8 @@ public class RxBusMeunIView extends MeunIView {
 
                 .create();
 
+        boolean isDay = MyProfile.getInstance(appCompatActivity).getTheme().equals(ConstantData.MY_PROFILE_THEME_DAY);
+        setTheme(isDay);
 
     }
 
@@ -67,22 +70,31 @@ public class RxBusMeunIView extends MeunIView {
             @Override
             public void onClick(View v) {
 
-                RxBus.getInstance().post4HasObservers(new ColorfulEvent());
 
-
-                if (isDay) {
-                    mColorful.setTheme(R.style.DayTheme);
-
-
-                } else {
-
-                    mColorful.setTheme(R.style.NightTheme);
-
-                }
-
-                isDay = !isDay;
+                setTheme();
             }
         });
+    }
+
+    protected void setTheme() {
+        boolean isDay = MyProfile.getInstance(appCompatActivity).getTheme().equals(ConstantData.MY_PROFILE_THEME_DAY);
+        isDay = !isDay;
+
+        setTheme(isDay);
+
+        MyProfile.getInstance(appCompatActivity).setTheme(isDay);
+
+    }
+
+
+    protected void setTheme(boolean isDay) {
+
+        RxBus.getInstance().post4HasObservers(new ColorfulEvent());
+        if (isDay) {
+            mColorful.setTheme(R.style.DayTheme);
+        } else {
+            mColorful.setTheme(R.style.NightTheme);
+        }
     }
 
 }

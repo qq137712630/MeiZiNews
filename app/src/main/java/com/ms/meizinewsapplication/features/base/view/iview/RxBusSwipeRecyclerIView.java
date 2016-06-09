@@ -4,6 +4,8 @@ import android.app.Activity;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.event.ColorfulEvent;
+import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
+import com.ms.meizinewsapplication.features.base.utils.tool.MyProfile;
 import com.ms.mythemelibrary.lib.Colorful;
 import com.ms.mythemelibrary.lib.setter.RecyclerViewSetter;
 import com.ms.retrofitlibrary.util.rx.RxBus;
@@ -29,10 +31,13 @@ public class RxBusSwipeRecyclerIView extends SwipeRecyclerIView {
         mColorful = new Colorful.Builder(activity)
                 .setter(recyclerViewSetter) // 手动设置setter
                 .create();
+        isDay = MyProfile.getInstance(activity).getTheme().equals(ConstantData.MY_PROFILE_THEME_DAY);
+
+        setTheme(isDay);
+
     }
 
-    protected void initRecyclerViewSetter()
-    {
+    protected void initRecyclerViewSetter() {
         recyclerViewSetter = new RecyclerViewSetter(
                 recycler_list,
                 0
@@ -76,13 +81,18 @@ public class RxBusSwipeRecyclerIView extends SwipeRecyclerIView {
 
     public void eventColorful(ColorfulEvent colorfulEvent) {
 
-        if (!isDay) {
-            mColorful.setTheme(R.style.NightTheme);
-        } else {
-            mColorful.setTheme(R.style.DayTheme);
-        }
-
         isDay = !isDay;
+        setTheme(isDay);
 
+    }
+
+
+    protected void setTheme(boolean isDay) {
+
+        if (isDay) {
+            mColorful.setTheme(R.style.DayTheme);
+        } else {
+            mColorful.setTheme(R.style.NightTheme);
+        }
     }
 }

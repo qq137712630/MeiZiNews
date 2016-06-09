@@ -12,8 +12,7 @@ public class MyProfile {
     private SharedPreferences mySp;
 
     public MyProfile(Context context) {
-
-        SharedPreferences mySp = context.getSharedPreferences("MyProfile", Context.MODE_PRIVATE);
+        mySp = context.getSharedPreferences("MyProfile", Context.MODE_PRIVATE);
     }
 
     public static synchronized MyProfile getInstance(Context context) {
@@ -39,11 +38,10 @@ public class MyProfile {
     public void setTheme(boolean isDay) {
 
         if (isDay){
-
-            setString(ConstantData.MY_PROFILE_THEME,ConstantData.MY_PROFILE_THEME_NIGHT);
+            setString(ConstantData.MY_PROFILE_THEME,ConstantData.MY_PROFILE_THEME_DAY);
         }else
         {
-            setString(ConstantData.MY_PROFILE_THEME,ConstantData.MY_PROFILE_THEME_DAY);
+            setString(ConstantData.MY_PROFILE_THEME,ConstantData.MY_PROFILE_THEME_NIGHT);
         }
 
     }
