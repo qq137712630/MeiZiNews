@@ -13,12 +13,12 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.base.view.iview.ColorfulViewImpl;
+import com.ms.meizinewsapplication.features.base.view.iview.ColorfuWeblViewImpl;
 
 /**
  * Created by 啟成 on 2016/3/22.
  */
-public class DevWeekDetailIVew extends ColorfulViewImpl {
+public class DevWeekDetailIVew extends ColorfuWeblViewImpl {
 
 
     private FrameLayout webContainer;
@@ -109,9 +109,9 @@ public class DevWeekDetailIVew extends ColorfulViewImpl {
     public void setMenuItemIconByCollect(boolean isCollect) {
 
         if (isCollect) {
-            setMenuItemIcon(2,R.drawable.iconfont_weishoucang);
+            setMenuItemIcon(2, R.drawable.iconfont_weishoucang);
         } else {
-            setMenuItemIcon(2,R.drawable.iconfont_yishoucang);
+            setMenuItemIcon(2, R.drawable.iconfont_yishoucang);
         }
 
     }
@@ -143,6 +143,8 @@ public class DevWeekDetailIVew extends ColorfulViewImpl {
                 }
             }
         });
+
+        webView.setWebViewClient(new MyWebViewClient());
     }
 
     public void progressGone() {
@@ -153,7 +155,7 @@ public class DevWeekDetailIVew extends ColorfulViewImpl {
     //TODO Mode ===================================================
 
     public void showDetail(String body) {
-        String html = "<html><head></head><body>" + body + "</body></html>";
+        String html = dayTheme() + "<html><head></head><body>" + body + "</body></html>";
         webView.loadDataWithBaseURL("x-data://base", html, "text/html", "UTF-8", null);
     }
 

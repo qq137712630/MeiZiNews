@@ -17,9 +17,13 @@ import org.loader.view.ViewImpl;
 public abstract class ColorfulViewImpl extends ViewImpl {
 
     protected Colorful mColorful;
+    protected boolean isDay;
 
+    protected Activity activity;
 
     public void init(AppCompatActivity activity) {
+        this.activity = activity;
+        isDay = MyProfile.getInstance(activity).getTheme().equals(ConstantData.MY_PROFILE_THEME_DAY);
         initColorful(activity);
     }
 
@@ -28,7 +32,6 @@ public abstract class ColorfulViewImpl extends ViewImpl {
         mColorful = new Colorful.Builder(activity)
                 .backgroundColor(R.id.toolbar, R.attr.colorPrimary)
                 .create();
-        boolean isDay = MyProfile.getInstance(activity).getTheme().equals(ConstantData.MY_PROFILE_THEME_DAY);
         setTheme(isDay);
         setStatusBarTheme(isDay, activity);
     }
