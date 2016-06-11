@@ -64,18 +64,19 @@ public class ZhihuThemesIView extends RxBusRecyclerIView {
 
     //TODO init========================================
 
+    @Override
     public void init(Activity activity) {
+
         initRecycler_list(activity);
 
         initZhihuThemeTagAdapter(activity);
 
-        initColorful(activity);
 
         setTagAdapter();
         setOnTagClickListener();
         setDrawerListener();
         setImgArrowListener();
-
+        super.init(activity);
     }
 
 

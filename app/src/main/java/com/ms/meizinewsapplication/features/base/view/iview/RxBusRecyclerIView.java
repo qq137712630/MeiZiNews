@@ -25,6 +25,12 @@ public class RxBusRecyclerIView extends RecyclerIView {
     protected boolean isDay = true;
     protected Activity activity;
 
+
+    //TODO init========================================
+    public void init(Activity activity) {
+        initColorful(activity);
+    }
+
     public void initColorful(Activity activity) {
         this.activity = activity;
         initRecyclerViewSetter();
