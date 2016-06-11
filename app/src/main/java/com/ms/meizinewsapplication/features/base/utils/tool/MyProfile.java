@@ -35,6 +35,12 @@ public class MyProfile {
        return mySp.getString(strKey,strValue);
     }
 
+
+
+    /**
+     * 记录当前的主题类型
+     * @return
+     */
     public void setTheme(boolean isDay) {
 
         if (isDay){
@@ -46,6 +52,10 @@ public class MyProfile {
 
     }
 
+    /**
+     * 获得当前的主题类型
+     * @return
+     */
     public String getTheme()
     {
         return getString(ConstantData.MY_PROFILE_THEME,ConstantData.MY_PROFILE_THEME_DAY);

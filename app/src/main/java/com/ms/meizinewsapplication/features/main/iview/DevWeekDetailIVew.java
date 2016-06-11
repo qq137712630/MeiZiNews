@@ -13,13 +13,12 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.ms.meizinewsapplication.R;
-
-import org.loader.view.ViewImpl;
+import com.ms.meizinewsapplication.features.base.view.iview.RxBusViewImpl;
 
 /**
  * Created by 啟成 on 2016/3/22.
  */
-public class DevWeekDetailIVew extends ViewImpl {
+public class DevWeekDetailIVew extends RxBusViewImpl {
 
 
     private FrameLayout webContainer;
@@ -65,9 +64,13 @@ public class DevWeekDetailIVew extends ViewImpl {
 
     //TODO init =================================================
 
+
+    @Override
     public void init(AppCompatActivity activity) {
+
         initToolbar(activity);
         initWebView(activity);
+        super.init(activity);
     }
 
     /**
