@@ -13,12 +13,12 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.ms.meizinewsapplication.R;
-import com.ms.meizinewsapplication.features.base.view.iview.RxBusViewImpl;
+import com.ms.meizinewsapplication.features.base.view.iview.ColorfulViewImpl;
 
 /**
  * Created by 啟成 on 2016/3/22.
  */
-public class DevWeekDetailIVew extends RxBusViewImpl {
+public class DevWeekDetailIVew extends ColorfulViewImpl {
 
 
     private FrameLayout webContainer;

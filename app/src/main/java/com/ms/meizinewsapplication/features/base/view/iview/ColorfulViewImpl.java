@@ -14,7 +14,7 @@ import org.loader.view.ViewImpl;
 /**
  * Created by 啟成 on 2016/6/11.
  */
-public abstract class RxBusViewImpl extends ViewImpl {
+public abstract class ColorfulViewImpl extends ViewImpl {
 
     protected Colorful mColorful;
 
