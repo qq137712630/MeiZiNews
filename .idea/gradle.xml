@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/StatusBaruitlLibrary" />
             <option value="$PROJECT_DIR$/VerticalDrawerLayoutLib" />
             <option value="$PROJECT_DIR$/adupwardlibrary" />
             <option value="$PROJECT_DIR$/app" />
@@ -35,6 +36,7 @@
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/StatusBaruitlLibrary" />
             <option value="$PROJECT_DIR$/VerticalDrawerLayoutLib" />
             <option value="$PROJECT_DIR$/adupwardlibrary" />
             <option value="$PROJECT_DIR$/app" />

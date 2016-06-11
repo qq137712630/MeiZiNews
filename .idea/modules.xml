@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MeiZiNewsApplication.iml" filepath="$PROJECT_DIR$/MeiZiNewsApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StatusBaruitlLibrary/StatusBaruitlLibrary.iml" filepath="$PROJECT_DIR$/StatusBaruitlLibrary/StatusBaruitlLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/VerticalDrawerLayoutLib/VerticalDrawerLayoutLib.iml" filepath="$PROJECT_DIR$/VerticalDrawerLayoutLib/VerticalDrawerLayoutLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/adupwardlibrary/adupwardlibrary.iml" filepath="$PROJECT_DIR$/adupwardlibrary/adupwardlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />

@@ -22,6 +22,7 @@
  - [视频播放：PLDroidPlayer](https://github.com/pili-engineering/PLDroidPlayer)
  - [一个垂直方向的DrawerLayout,抽屉从上向下展开](https://github.com/corerzhang/VerticalDrawerLayout)
  - [夜间模式：Colorful 动态换肤开源库](https://github.com/hehonghui/Colorful)
+ - [修改状态栏：Android 状态栏工具类（实现沉浸式状态栏/变色状态栏）：StatusBarUtil](https://github.com/laobie/StatusBarUtil)
 
 ---
 

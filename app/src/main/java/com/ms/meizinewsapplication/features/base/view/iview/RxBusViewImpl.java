@@ -3,6 +3,7 @@ package com.ms.meizinewsapplication.features.base.view.iview;
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 
+import com.jaeger.library.StatusBarUtil;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.utils.tool.ConstantData;
 import com.ms.meizinewsapplication.features.base.utils.tool.MyProfile;
@@ -29,6 +30,7 @@ public abstract class RxBusViewImpl extends ViewImpl {
                 .create();
         boolean isDay = MyProfile.getInstance(activity).getTheme().equals(ConstantData.MY_PROFILE_THEME_DAY);
         setTheme(isDay);
+        setStatusBarTheme(isDay, activity);
     }
 
 
@@ -39,5 +41,18 @@ public abstract class RxBusViewImpl extends ViewImpl {
         } else {
             mColorful.setTheme(R.style.NightTheme);
         }
+    }
+
+    protected void setStatusBarTheme(boolean isDay, Activity activity) {
+        if (isDay) {
+            setStatusBar(activity, activity.getResources().getColor(R.color.colorPrimary));
+        } else {
+
+            setStatusBar(activity, activity.getResources().getColor(R.color.material_blue_grey_700));
+        }
+    }
+
+    protected void setStatusBar(Activity activity, int color) {
+        StatusBarUtil.setColor(activity, color, 26);
     }
 }
