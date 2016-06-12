@@ -30,6 +30,7 @@ public abstract class ColorfulViewImpl extends ViewImpl {
     public void initColorful(Activity activity) {
 
         mColorful = new Colorful.Builder(activity)
+                .backgroundColor(R.id.coordinator_layout, R.attr.root_view_bg)
                 .backgroundColor(R.id.toolbar, R.attr.colorPrimary)
                 .create();
         setTheme(isDay);
