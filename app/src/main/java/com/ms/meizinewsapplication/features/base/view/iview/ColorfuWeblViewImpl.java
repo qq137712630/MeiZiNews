@@ -66,7 +66,7 @@ public abstract class ColorfuWeblViewImpl extends ColorfulViewImpl {
                 "{\n" +
                 "\n" +
                 "\tdocument.bgColor=\"#000000\"\n" +
-                "\tdocument.body.text=\"white\"\n" +
+                "\tdocument.body.text=\"#AAAAAA\"\n" +
                 "\tdocument.body.link =\"blue\"\n" +
                 "\tdocument.body.vlink = \"red\"" +
                 "}\n" +
@@ -74,6 +74,7 @@ public abstract class ColorfuWeblViewImpl extends ColorfulViewImpl {
                 "\n" +
                 "<script language=\"javascript\">\n" +
                 "    function load_day(){\n" +
+                "\n" +
                 "\n" +
                 "\tdocument.bgColor=\"#ffffff\"\n" +
                 "\tdocument.body.text=\"black\"\n" +

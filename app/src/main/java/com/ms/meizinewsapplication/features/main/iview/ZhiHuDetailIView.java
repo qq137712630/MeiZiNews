@@ -1,5 +1,6 @@
 package com.ms.meizinewsapplication.features.main.iview;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.DrawableRes;
@@ -18,14 +19,15 @@ import android.widget.ProgressBar;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.utils.tool.ImagerLoad;
+import com.ms.meizinewsapplication.features.base.view.colorful.CollapsingToolbarLayoutSetter;
+import com.ms.meizinewsapplication.features.base.view.iview.ColorfuWeblViewImpl;
 import com.ms.meizinewsapplication.features.main.json.ZhihuDetail;
-
-import org.loader.view.ViewImpl;
+import com.ms.mythemelibrary.lib.Colorful;
 
 /**
  * Created by 啟成 on 2016/3/10.
  */
-public class ZhiHuDetailIView extends ViewImpl {
+public class ZhiHuDetailIView extends ColorfuWeblViewImpl {
 
     private CollapsingToolbarLayout toolbar_layout;
     private ImageView detail_img;
@@ -78,9 +80,27 @@ public class ZhiHuDetailIView extends ViewImpl {
 
     //TODO init =================================================
 
+
+    @Override
     public void init(AppCompatActivity activity) {
+
         initToolbar(activity);
         initWebView(activity);
+        super.init(activity);
+    }
+
+    @Override
+    public void initColorful(Activity activity) {
+
+        CollapsingToolbarLayoutSetter collapsingToolbarLayoutSetter = new CollapsingToolbarLayoutSetter(toolbar_layout, R.attr.colorPrimary);
+
+        mColorful = new Colorful.Builder(activity)
+                .setter(collapsingToolbarLayoutSetter)
+                .backgroundColor(R.id.coordinator_layout, R.attr.root_view_bg)
+                .create();
+        setTheme(isDay);
+//        setStatusBarTheme(isDay, activity);
+
     }
 
     /**
@@ -151,6 +171,8 @@ public class ZhiHuDetailIView extends ViewImpl {
                 }
             }
         });
+
+        webView.setWebViewClient(new MyWebViewClient());
     }
 
 
@@ -168,11 +190,17 @@ public class ZhiHuDetailIView extends ViewImpl {
     public void showDetail(ZhihuDetail detailNews) {
 
         toolbar_layout.setTitle(detailNews.getTitle());
+        String css;
 
         //add css style to webView
-        String css = "<link rel=\"stylesheet\" href=\"file:///android_asset/css/news.css\" type=\"text/css\">";
+        if(isDay){
+            css = "<link rel=\"stylesheet\" href=\"file:///android_asset/css/news.css\" type=\"text/css\">";
+        }else {
+            css = "<link rel=\"stylesheet\" href=\"file:///android_asset/css/news_night.css\" type=\"text/css\">";
+        }
+
         String html = "<html><head>" + css + "</head><body>" + detailNews.getBody() + "</body></html>";
-        html = html.replace("<div class=\"img-place-holder\">", "");
+        html = html.replace("<div class=\"img-place-holder\">", "") + dayTheme();
         webView.loadDataWithBaseURL("x-data://base", html, "text/html", "UTF-8", null);
     }
 

@@ -49,14 +49,23 @@ public abstract class ColorfulViewImpl extends ViewImpl {
 
     protected void setStatusBarTheme(boolean isDay, Activity activity) {
         if (isDay) {
-            setStatusBar(activity, activity.getResources().getColor(R.color.colorPrimary));
+            setStatusBarColor(activity, activity.getResources().getColor(R.color.colorPrimary));
         } else {
 
-            setStatusBar(activity, activity.getResources().getColor(R.color.material_blue_grey_700));
+            setStatusBarColor(activity, activity.getResources().getColor(R.color.material_blue_grey_700));
         }
     }
 
-    protected void setStatusBar(Activity activity, int color) {
-        StatusBarUtil.setColor(activity, color, 26);
+    protected void setStatusBarColor(Activity activity, int color) {
+        setStatusBarColor(activity, color, 26);
     }
+
+    protected void setStatusBarColor(Activity activity, int color , int statusBarAlpha) {
+        StatusBarUtil.setColor(activity, color, statusBarAlpha);
+    }
+
+    protected void setStatusBarTranslucent(Activity activity,int statusBarAlpha) {
+        StatusBarUtil.setTranslucent(activity, statusBarAlpha);
+    }
+
 }
