@@ -1,7 +1,7 @@
  ---
 2016/4/29
 
-因为连不上 ``` github ``` ，所以目前只在这里，等连上了就同步上去
+[ GitHub：https://github.com/qq137712630/MeiZiNews](https://github.com/qq137712630/MeiZiNews)
 
 [碗豆夹下载地址：http://www.wandoujia.com/apps/com.ms.meizinewsapplication](http://www.wandoujia.com/apps/com.ms.meizinewsapplication)
 
