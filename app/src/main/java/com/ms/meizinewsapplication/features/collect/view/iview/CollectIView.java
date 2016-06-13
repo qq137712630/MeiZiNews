@@ -60,6 +60,7 @@ public class CollectIView extends RxBusRecyclerIView {
     public void initColorful(Activity activity) {
 
         this.activity = activity;
+
         initRecyclerViewSetter();
         mColorful = new Colorful.Builder(activity)
                 .setter(recyclerViewSetter) // 手动设置setter
@@ -70,6 +71,8 @@ public class CollectIView extends RxBusRecyclerIView {
         isDay = MyProfile.getInstance(activity).getTheme().equals(ConstantData.MY_PROFILE_THEME_DAY);
 
         setTheme(isDay);
+
+        setStatusBarTheme(isDay, activity);
     }
 
     //TODO View========================================

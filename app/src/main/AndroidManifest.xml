@@ -13,12 +13,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/NightTheme">
+        android:theme="@style/DayTheme">
         <activity
             android:name=".features.main.activity.MainMvpActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/NightTheme.NoActionBar">
+            android:theme="@style/DayTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +29,7 @@
             android:name=".features.meizi.activity.MeiZiActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/NightTheme.NoActionBar"
+            android:theme="@style/DayTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden"></activity>
 
 
@@ -37,7 +37,7 @@
             android:name=".features.main.activity.ZhihuDetailActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/NightTheme.SlidrTheme">
+            android:theme="@style/DayTheme.SlidrTheme">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -48,18 +48,18 @@
             android:name=".features.photo.activity.PhotoDetailActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/NightTheme.SlidrTheme"></activity>
+            android:theme="@style/DayTheme.SlidrTheme"></activity>
         <activity
             android:name=".features.main.activity.DevWeekDetailActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/NightTheme.SlidrTheme">
+            android:theme="@style/DayTheme.SlidrTheme">
 
         </activity>
         <activity
             android:name=".features.base.activity.StandardBarActivity"
             android:label="@string/app_name"
-            android:theme="@style/NightTheme.SlidrTheme">
+            android:theme="@style/DayTheme.SlidrTheme">
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 
@@ -72,7 +72,7 @@
             android:name=".features.search.activity.SearchActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/NightTheme.SlidrTheme">
+            android:theme="@style/DayTheme.SlidrTheme">
 
         </activity>
 
@@ -80,7 +80,7 @@
             android:name=".features.collect.activity.CollectActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/NightTheme.SlidrTheme">
+            android:theme="@style/DayTheme.SlidrTheme">
 
         </activity>
 
@@ -89,7 +89,7 @@
             android:name=".features.video.activity.VideoPageActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/NightTheme.NoActionBar"
+            android:theme="@style/DayTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
 
 
@@ -97,7 +97,7 @@
             android:name=".features.video.activity.DyDirectoryGameActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/NightTheme.SlidrTheme">
+            android:theme="@style/DayTheme.SlidrTheme">
 
         </activity>
 
@@ -105,7 +105,7 @@
             android:name=".features.video.activity.M3u8VideoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/NightTheme.SlidrTheme">
+            android:theme="@style/DayTheme.SlidrTheme">
 
         </activity>
 
@@ -113,7 +113,7 @@
             android:name=".features.video.activity.XmTvClassificationActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/NightTheme.SlidrTheme">
+            android:theme="@style/DayTheme.SlidrTheme">
 
         </activity>
 
@@ -121,7 +121,7 @@
             android:name=".features.meizi.activity.MzituActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/NightTheme.SlidrTheme">
+            android:theme="@style/DayTheme.SlidrTheme">
 
         </activity>
 
