@@ -13,7 +13,7 @@ import android.view.View;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.pojo.ImgItem;
-import com.ms.meizinewsapplication.features.base.view.iview.ImgListIView;
+import com.ms.meizinewsapplication.features.base.view.iview.ColorfuImgListlViewImpl;
 import com.ms.meizinewsapplication.features.meizi.adapter.MzituListAdapter;
 import com.ms.meizinewsapplication.features.meizi.pojo.ImgItemList;
 import com.ms.meizinewsapplication.features.photo.activity.PhotoDetailActivity;
@@ -22,7 +22,7 @@ import com.test.basequickadapterlib.BaseQuickAdapter;
 /**
  * Created by 啟成 on 2016/5/20.
  */
-public class MzituListIView extends ImgListIView<ImgItem> {
+public class MzituListIView extends ColorfuImgListlViewImpl<ImgItem> {
 
 
     private Toolbar toolbar;
