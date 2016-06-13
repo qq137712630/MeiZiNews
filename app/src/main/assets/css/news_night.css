@@ -139,7 +139,7 @@ ol {
 }
 .content-wrap {
   overflow: hidden;
-  background-color: #f9f9f9;
+  background-color: #000;
 }
 .content-wrap a {
   word-break: break-all;
@@ -463,11 +463,11 @@ body.night,
   white-space: pre;
 }
 .highlight .hll {
-  background-color: #ffc;
+  background-color: #000;
 }
 .highlight .err {
   color: #a61717;
-  background-color: #e3d2d2;
+  background-color: #000;
 }
 .highlight .cp {
   color: #999;

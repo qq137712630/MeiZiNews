@@ -20,14 +20,14 @@ import android.widget.ProgressBar;
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.features.base.utils.tool.ImagerLoad;
 import com.ms.meizinewsapplication.features.base.view.colorful.CollapsingToolbarLayoutSetter;
-import com.ms.meizinewsapplication.features.base.view.iview.ColorfuWeblViewImpl;
+import com.ms.meizinewsapplication.features.base.view.iview.ColorfulViewImpl;
 import com.ms.meizinewsapplication.features.main.json.ZhihuDetail;
 import com.ms.mythemelibrary.lib.Colorful;
 
 /**
  * Created by 啟成 on 2016/3/10.
  */
-public class ZhiHuDetailIView extends ColorfuWeblViewImpl {
+public class ZhiHuDetailIView extends ColorfulViewImpl {
 
     private CollapsingToolbarLayout toolbar_layout;
     private ImageView detail_img;
@@ -172,7 +172,6 @@ public class ZhiHuDetailIView extends ColorfuWeblViewImpl {
             }
         });
 
-        webView.setWebViewClient(new MyWebViewClient());
     }
 
 
@@ -200,7 +199,7 @@ public class ZhiHuDetailIView extends ColorfuWeblViewImpl {
         }
 
         String html = "<html><head>" + css + "</head><body>" + detailNews.getBody() + "</body></html>";
-        html = html.replace("<div class=\"img-place-holder\">", "") + dayTheme();
+        html = html.replace("<div class=\"img-place-holder\">", "");
         webView.loadDataWithBaseURL("x-data://base", html, "text/html", "UTF-8", null);
     }
 
