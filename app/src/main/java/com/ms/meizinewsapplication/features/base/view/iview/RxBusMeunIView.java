@@ -3,6 +3,7 @@ package com.ms.meizinewsapplication.features.base.view.iview;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.ms.meizinewsapplication.R;
 import com.ms.meizinewsapplication.annotation.ActivityFragmentInject;
@@ -27,6 +28,11 @@ public class RxBusMeunIView extends MeunIView {
 
     protected Colorful mColorful;
 
+    @Override
+    public void created() {
+        super.created();
+        imageView = (ImageView) ((ViewGroup) navigationView.getHeaderView(0)).getChildAt(0);
+    }
 
     //TODO init==================================================
 
@@ -63,11 +69,14 @@ public class RxBusMeunIView extends MeunIView {
     //TODO view==================================================
 
 
+    protected ImageView imageView;
+
     /**
      * 设置点击主题切换
      */
     protected void initHeaderView() {
-        ((ViewGroup) navigationView.getHeaderView(0)).getChildAt(0).setOnClickListener(new View.OnClickListener() {
+
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setTheme();
@@ -89,8 +98,10 @@ public class RxBusMeunIView extends MeunIView {
     protected void setTheme(boolean isDay) {
 
         if (isDay) {
+            imageView.setImageResource(R.mipmap.ic_sun);
             mColorful.setTheme(R.style.DayTheme);
         } else {
+            imageView.setImageResource(R.mipmap.ic_moon);
             mColorful.setTheme(R.style.NightTheme);
         }
     }
