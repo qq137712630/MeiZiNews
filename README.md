@@ -54,6 +54,39 @@
             ((RecyclerView) rootView).getRecycledViewPool().clear();
         }
 
+        @Override
+        public void setValue(Resources.Theme newTheme, int themeId) {
+
+            clearRecyclerViewRecyclerBin(mView);
+
+            // 遍历子元素与要修改的属性,如果相同那么则修改子View的属性
+            for (ViewSetter setter : mItemViewSetters) {
+
+                for (int i = 0; i < ((RecyclerView) mView).getAdapter().getItemCount(); i++) {
+
+                    View itemView = ((RecyclerView) mView).getChildAt(i);
+                    if (itemView == null) {
+                        continue;
+                    }
+
+                    boolean isBaseAdapterHelper = ((RecyclerView) mView).getChildViewHolder(itemView) instanceof BaseAdapterHelper;
+
+                    if (!isBaseAdapterHelper) {
+                        continue;
+                    }
+
+                    BaseAdapterHelper baseAdapterHelper = (BaseAdapterHelper) ((RecyclerView) mView).getChildViewHolder(itemView);
+                    setter.mView = baseAdapterHelper.getView(setter.mViewId);
+                    int itemId = setter.getViewId();
+
+                    if (baseAdapterHelper.getView(itemId) == null) {
+                        continue;
+                    }
+                    setter.setValue(newTheme, themeId);
+                }
+            }
+        }
+
     }
 
 ---
@@ -66,10 +99,10 @@
 
 按照以下顺序阅读的话，大概就理解如何使用了
 
- 1 [翻译：通过 RxJava 实现一个 Event Bus – RxBus](https://drakeet.me/rxbus)
- 2 [当EventBus遇上RxJava](http://www.easydone.cn/2016/03/29/)
- 3 [RXBUS入门](http://www.james-ye.com/2016-04-07/rxbus%E5%85%A5%E9%97%A8.html)
- 4 [做更好的RxBus：用RxJava实现事件总线(Event Bus)](http://www.jianshu.com/p/ca090f6e2fe2/)
+ 1. [翻译：通过 RxJava 实现一个 Event Bus – RxBus](https://drakeet.me/rxbus)
+ 2. [当EventBus遇上RxJava](http://www.easydone.cn/2016/03/29/)
+ 3. [RXBUS入门](http://www.james-ye.com/2016-04-07/rxbus%E5%85%A5%E9%97%A8.html)
+ 4. [做更好的RxBus：用RxJava实现事件总线(Event Bus)](http://www.jianshu.com/p/ca090f6e2fe2/)
 
  [Subject解读：ReactiveX文档中文翻译](https://mcxiaoke.gitbooks.io/rxdocs/content/Subject.html)
 
@@ -364,6 +397,34 @@ Converters can be added to support other types. Six sibling modules adapt popula
                 .addConverterFactory(GsonConverterFactory.create())//添加 json 转换器
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//添加 RxJava 适配器
                 .build();
+
+ 4. 开启打印连接日志
+
+	    /**
+	     * 开启打印连接日志
+	     * @return
+	     */
+	    private HttpLoggingInterceptor getHttpLoggingInterceptor() {
+	        boolean isDebug= false;//是否开启
+	        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+	
+	        if(isDebug)
+	        {
+	            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+	        }
+	
+			//开启打印连接日志
+	        return interceptor;
+	    }
+
+		OkHttpClient.Builder().addInterceptor(getHttpLoggingInterceptor())
+
+        okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(getHttpLoggingInterceptor())
+                .cache(cache)
+                .addNetworkInterceptor(rewriteCacheControlInterceptor)
+                .addInterceptor(rewriteCacheControlInterceptor)
+                .connectTimeout(30, TimeUnit.SECONDS).build();
 
 ## Retrofit 如何使用Observable.from发出多条连接的？
 
